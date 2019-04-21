@@ -1,0 +1,42 @@
+﻿body {
+    font-size: 12px;
+    margin: 0px;
+    padding: 0px;
+    text-align:center;
+}
+#container {
+    width:1000px;
+    margin:0px auto 0px auto;
+    text-align:left;
+}
+#banner{
+    width:1000px;
+    height:120px;
+    float:left;
+    background-color:gray;
+}
+#leftdiv{
+    width:300px;
+    height:500px;
+    float:left;
+    background-color:green;
+}
+#contentdiv{
+    width:700px;
+    height:500px;
+    float:left;
+    background-color:yellow;
+}
+#footer{
+    width:1000px;
+    height:80px;
+    float:left;
+    background-color:gray;
+}
+.test{
+    width:300px;
+    height:80px;
+    float:left;
+    background-color:blue;
+    color:#ffffff;
+}

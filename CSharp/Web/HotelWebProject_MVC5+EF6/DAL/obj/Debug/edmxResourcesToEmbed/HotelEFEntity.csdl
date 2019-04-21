@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="HotelDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Dishes">
+    <Key>
+      <PropertyRef Name="DishesId" />
+    </Key>
+    <Property Name="DishesId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DishesName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="UnitPrice" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="CategoryId" Type="Int32" />
+    <NavigationProperty Name="DishesCategory" Relationship="Self.FK__Dishes__Category__412EB0B6" FromRole="Dishes" ToRole="DishesCategory" />
+  </EntityType>
+  <EntityType Name="DishesBook">
+    <Key>
+      <PropertyRef Name="BookId" />
+    </Key>
+    <Property Name="BookId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="HotelName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ConsumeTime" Type="DateTime" Precision="3" />
+    <Property Name="ConsumePersons" Type="Int32" />
+    <Property Name="RoomType" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="CustomerName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="CustomerPhone" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CustomerEmail" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Comments" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="BookTime" Type="DateTime" Precision="3" />
+    <Property Name="OrderStatus" Type="Int32" />
+  </EntityType>
+  <EntityType Name="DishesCategory">
+    <Key>
+      <PropertyRef Name="CategoryId" />
+    </Key>
+    <Property Name="CategoryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CategoryName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Dishes" Relationship="Self.FK__Dishes__Category__412EB0B6" FromRole="DishesCategory" ToRole="Dishes" />
+  </EntityType>
+  <EntityType Name="News">
+    <Key>
+      <PropertyRef Name="NewsId" />
+    </Key>
+    <Property Name="NewsId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NewsTitle" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="NewsContents" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="PublishTime" Type="DateTime" Precision="3" />
+    <Property Name="CategoryId" Type="Int32" />
+    <NavigationProperty Name="NewsCategory" Relationship="Self.FK__News__CategoryId__3C69FB99" FromRole="News" ToRole="NewsCategory" />
+  </EntityType>
+  <EntityType Name="NewsCategory">
+    <Key>
+      <PropertyRef Name="CategoryId" />
+    </Key>
+    <Property Name="CategoryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CategoryName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="News" Relationship="Self.FK__News__CategoryId__3C69FB99" FromRole="NewsCategory" ToRole="News" />
+  </EntityType>
+  <EntityType Name="Recruitment">
+    <Key>
+      <PropertyRef Name="PostId" />
+    </Key>
+    <Property Name="PostId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PostName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PostType" Type="String" MaxLength="4" FixedLength="true" Unicode="false" />
+    <Property Name="PostPlace" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PostDesc" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="PostRequire" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Experience" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="EduBackground" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="RequireCount" Type="Int32" />
+    <Property Name="PublishTime" Type="DateTime" Precision="3" />
+    <Property Name="Manager" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Suggestion">
+    <Key>
+      <PropertyRef Name="SuggestionId" />
+    </Key>
+    <Property Name="SuggestionId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CustomerName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ConsumeDesc" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="SuggestionDesc" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="SuggestionTime" Type="DateTime" Precision="3" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="StatusId" Type="Int32" />
+  </EntityType>
+  <EntityType Name="SysAdmins">
+    <Key>
+      <PropertyRef Name="LoginId" />
+    </Key>
+    <Property Name="LoginId" Type="Int32" Nullable="false" />
+    <Property Name="LoginName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="LoginPwd" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <Association Name="FK__Dishes__Category__412EB0B6">
+    <End Role="DishesCategory" Type="Self.DishesCategory" Multiplicity="0..1" />
+    <End Role="Dishes" Type="Self.Dishes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DishesCategory">
+        <PropertyRef Name="CategoryId" />
+      </Principal>
+      <Dependent Role="Dishes">
+        <PropertyRef Name="CategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__News__CategoryId__3C69FB99">
+    <End Role="NewsCategory" Type="Self.NewsCategory" Multiplicity="0..1" />
+    <End Role="News" Type="Self.News" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NewsCategory">
+        <PropertyRef Name="CategoryId" />
+      </Principal>
+      <Dependent Role="News">
+        <PropertyRef Name="CategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="HotelDBEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Dishes" EntityType="Self.Dishes" />
+    <EntitySet Name="DishesBook" EntityType="Self.DishesBook" />
+    <EntitySet Name="DishesCategory" EntityType="Self.DishesCategory" />
+    <EntitySet Name="News" EntityType="Self.News" />
+    <EntitySet Name="NewsCategory" EntityType="Self.NewsCategory" />
+    <EntitySet Name="Recruitment" EntityType="Self.Recruitment" />
+    <EntitySet Name="Suggestion" EntityType="Self.Suggestion" />
+    <EntitySet Name="SysAdmins" EntityType="Self.SysAdmins" />
+    <AssociationSet Name="FK__Dishes__Category__412EB0B6" Association="Self.FK__Dishes__Category__412EB0B6">
+      <End Role="DishesCategory" EntitySet="DishesCategory" />
+      <End Role="Dishes" EntitySet="Dishes" />
+    </AssociationSet>
+    <AssociationSet Name="FK__News__CategoryId__3C69FB99" Association="Self.FK__News__CategoryId__3C69FB99">
+      <End Role="NewsCategory" EntitySet="NewsCategory" />
+      <End Role="News" EntitySet="News" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

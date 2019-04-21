@@ -1,0 +1,102 @@
+E:\01_《喜科堂》教学课件（.NET软件工程师）\105_使用C#开发Windows应用程序（C# WinForm）\贯穿项目\项目案例：学员管理系统\StudentManager\StudentManager\bin\Release\StudentManager.exe.config
+E:\01_《喜科堂》教学课件（.NET软件工程师）\105_使用C#开发Windows应用程序（C# WinForm）\贯穿项目\项目案例：学员管理系统\StudentManager\StudentManager\obj\x86\Release\StudentManager.csproj.ResolveComReference.cache
+E:\01_《喜科堂》教学课件（.NET软件工程师）\105_使用C#开发Windows应用程序（C# WinForm）\贯穿项目\项目案例：学员管理系统\StudentManager\StudentManager\bin\Release\StudentManager.exe
+E:\01_《喜科堂》教学课件（.NET软件工程师）\105_使用C#开发Windows应用程序（C# WinForm）\贯穿项目\项目案例：学员管理系统\StudentManager\StudentManager\bin\Release\StudentManager.pdb
+E:\01_《喜科堂》教学课件（.NET软件工程师）\105_使用C#开发Windows应用程序（C# WinForm）\贯穿项目\项目案例：学员管理系统\StudentManager\StudentManager\obj\x86\Release\ResolveAssemblyReference.cache
+E:\01_《喜科堂》教学课件（.NET软件工程师）\105_使用C#开发Windows应用程序（C# WinForm）\贯穿项目\项目案例：学员管理系统\StudentManager\StudentManager\obj\x86\Release\StudentManager.FrmAddStudent.resources
+E:\01_《喜科堂》教学课件（.NET软件工程师）\105_使用C#开发Windows应用程序（C# WinForm）\贯穿项目\项目案例：学员管理系统\StudentManager\StudentManager\obj\x86\Release\StudentManager.FrmEditStudent.resources
+E:\01_《喜科堂》教学课件（.NET软件工程师）\105_使用C#开发Windows应用程序（C# WinForm）\贯穿项目\项目案例：学员管理系统\StudentManager\StudentManager\obj\x86\Release\StudentManager.FrmMain.resources
+E:\01_《喜科堂》教学课件（.NET软件工程师）\105_使用C#开发Windows应用程序（C# WinForm）\贯穿项目\项目案例：学员管理系统\StudentManager\StudentManager\obj\x86\Release\StudentManager.FrmModifyPwd.resources
+E:\01_《喜科堂》教学课件（.NET软件工程师）\105_使用C#开发Windows应用程序（C# WinForm）\贯穿项目\项目案例：学员管理系统\StudentManager\StudentManager\obj\x86\Release\StudentManager.FrmScoreManage.resources
+E:\01_《喜科堂》教学课件（.NET软件工程师）\105_使用C#开发Windows应用程序（C# WinForm）\贯穿项目\项目案例：学员管理系统\StudentManager\StudentManager\obj\x86\Release\StudentManager.FrmScoreQuery.resources
+E:\01_《喜科堂》教学课件（.NET软件工程师）\105_使用C#开发Windows应用程序（C# WinForm）\贯穿项目\项目案例：学员管理系统\StudentManager\StudentManager\obj\x86\Release\StudentManager.FrmStudentManage.resources
+E:\01_《喜科堂》教学课件（.NET软件工程师）\105_使用C#开发Windows应用程序（C# WinForm）\贯穿项目\项目案例：学员管理系统\StudentManager\StudentManager\obj\x86\Release\StudentManager.FrmStudentInfo.resources
+E:\01_《喜科堂》教学课件（.NET软件工程师）\105_使用C#开发Windows应用程序（C# WinForm）\贯穿项目\项目案例：学员管理系统\StudentManager\StudentManager\obj\x86\Release\StudentManager.FrmUserLogin.resources
+E:\01_《喜科堂》教学课件（.NET软件工程师）\105_使用C#开发Windows应用程序（C# WinForm）\贯穿项目\项目案例：学员管理系统\StudentManager\StudentManager\obj\x86\Release\StudentManager.Properties.Resources.resources
+E:\01_《喜科堂》教学课件（.NET软件工程师）\105_使用C#开发Windows应用程序（C# WinForm）\贯穿项目\项目案例：学员管理系统\StudentManager\StudentManager\obj\x86\Release\GenerateResource.read.1.tlog
+E:\01_《喜科堂》教学课件（.NET软件工程师）\105_使用C#开发Windows应用程序（C# WinForm）\贯穿项目\项目案例：学员管理系统\StudentManager\StudentManager\obj\x86\Release\GenerateResource.write.1.tlog
+E:\01_《喜科堂》教学课件（.NET软件工程师）\105_使用C#开发Windows应用程序（C# WinForm）\贯穿项目\项目案例：学员管理系统\StudentManager\StudentManager\obj\x86\Release\StudentManager.exe
+E:\01_《喜科堂》教学课件（.NET软件工程师）\105_使用C#开发Windows应用程序（C# WinForm）\贯穿项目\项目案例：学员管理系统\StudentManager\StudentManager\obj\x86\Release\StudentManager.pdb
+E:\01_《喜科堂》教学课件（发布的产品）\105_使用C#开发Windows应用程序（C# WinForm）\贯穿项目\项目案例：学员管理系统\StudentManager\StudentManager\bin\Release\StudentManager.exe.config
+E:\01_《喜科堂》教学课件（发布的产品）\105_使用C#开发Windows应用程序（C# WinForm）\贯穿项目\项目案例：学员管理系统\StudentManager\StudentManager\obj\x86\Release\StudentManager.csproj.ResolveComReference.cache
+E:\01_《喜科堂》教学课件（发布的产品）\105_使用C#开发Windows应用程序（C# WinForm）\贯穿项目\项目案例：学员管理系统\StudentManager\StudentManager\obj\x86\Release\StudentManager.exe
+E:\01_《喜科堂》教学课件（发布的产品）\105_使用C#开发Windows应用程序（C# WinForm）\贯穿项目\项目案例：学员管理系统\StudentManager\StudentManager\obj\x86\Release\StudentManager.pdb
+E:\01_《喜科堂》教学课件（发布的产品）\105_使用C#开发Windows应用程序（C# WinForm）\贯穿项目\项目案例：学员管理系统\StudentManager\StudentManager\bin\Release\StudentManager.exe
+E:\01_《喜科堂》教学课件（发布的产品）\105_使用C#开发Windows应用程序（C# WinForm）\贯穿项目\项目案例：学员管理系统\StudentManager\StudentManager\bin\Release\StudentManager.pdb
+E:\01_《喜科堂》教学课件（发布的产品）\105_使用C#开发Windows应用程序（C# WinForm）\贯穿项目\项目案例：学员管理系统\StudentManager\StudentManager\obj\x86\Release\ResolveAssemblyReference.cache
+E:\01_《喜科堂》教学课件（发布的产品）\105_使用C#开发Windows应用程序（C# WinForm）\贯穿项目\项目案例：学员管理系统\StudentManager\StudentManager\obj\x86\Release\StudentManager.FrmAddStudent.resources
+E:\01_《喜科堂》教学课件（发布的产品）\105_使用C#开发Windows应用程序（C# WinForm）\贯穿项目\项目案例：学员管理系统\StudentManager\StudentManager\obj\x86\Release\StudentManager.FrmEditStudent.resources
+E:\01_《喜科堂》教学课件（发布的产品）\105_使用C#开发Windows应用程序（C# WinForm）\贯穿项目\项目案例：学员管理系统\StudentManager\StudentManager\obj\x86\Release\StudentManager.FrmMain.resources
+E:\01_《喜科堂》教学课件（发布的产品）\105_使用C#开发Windows应用程序（C# WinForm）\贯穿项目\项目案例：学员管理系统\StudentManager\StudentManager\obj\x86\Release\StudentManager.FrmModifyPwd.resources
+E:\01_《喜科堂》教学课件（发布的产品）\105_使用C#开发Windows应用程序（C# WinForm）\贯穿项目\项目案例：学员管理系统\StudentManager\StudentManager\obj\x86\Release\StudentManager.FrmScoreManage.resources
+E:\01_《喜科堂》教学课件（发布的产品）\105_使用C#开发Windows应用程序（C# WinForm）\贯穿项目\项目案例：学员管理系统\StudentManager\StudentManager\obj\x86\Release\StudentManager.FrmScoreQuery.resources
+E:\01_《喜科堂》教学课件（发布的产品）\105_使用C#开发Windows应用程序（C# WinForm）\贯穿项目\项目案例：学员管理系统\StudentManager\StudentManager\obj\x86\Release\StudentManager.FrmStudentManage.resources
+E:\01_《喜科堂》教学课件（发布的产品）\105_使用C#开发Windows应用程序（C# WinForm）\贯穿项目\项目案例：学员管理系统\StudentManager\StudentManager\obj\x86\Release\StudentManager.FrmStudentInfo.resources
+E:\01_《喜科堂》教学课件（发布的产品）\105_使用C#开发Windows应用程序（C# WinForm）\贯穿项目\项目案例：学员管理系统\StudentManager\StudentManager\obj\x86\Release\StudentManager.FrmUserLogin.resources
+E:\01_《喜科堂》教学课件（发布的产品）\105_使用C#开发Windows应用程序（C# WinForm）\贯穿项目\项目案例：学员管理系统\StudentManager\StudentManager\obj\x86\Release\StudentManager.Properties.Resources.resources
+E:\01_《喜科堂》教学课件（发布的产品）\105_使用C#开发Windows应用程序（C# WinForm）\贯穿项目\项目案例：学员管理系统\StudentManager\StudentManager\obj\x86\Release\GenerateResource.read.1.tlog
+E:\01_《喜科堂》教学课件（发布的产品）\105_使用C#开发Windows应用程序（C# WinForm）\贯穿项目\项目案例：学员管理系统\StudentManager\StudentManager\obj\x86\Release\GenerateResource.write.1.tlog
+E:\01_《喜科堂》教学课件（发布的产品）\105_【初级B2】使用C#开发Windows应用程序（C# WinForm）\贯穿项目\项目案例：学员管理系统\StudentManager\StudentManager\bin\Release\StudentManager.exe.config
+E:\01_《喜科堂》教学课件（发布的产品）\105_【初级B2】使用C#开发Windows应用程序（C# WinForm）\贯穿项目\项目案例：学员管理系统\StudentManager\StudentManager\obj\x86\Release\StudentManager.csproj.ResolveComReference.cache
+E:\01_《喜科堂》教学课件（发布的产品）\105_【初级B2】使用C#开发Windows应用程序（C# WinForm）\贯穿项目\项目案例：学员管理系统\StudentManager\StudentManager\obj\x86\Release\StudentManager.exe
+E:\01_《喜科堂》教学课件（发布的产品）\105_【初级B2】使用C#开发Windows应用程序（C# WinForm）\贯穿项目\项目案例：学员管理系统\StudentManager\StudentManager\obj\x86\Release\StudentManager.pdb
+L:\IT-Star课程[5]【综合运用】_综合运用所学开始项目开发（WinForm开发）\贯穿项目\项目案例：学员管理系统\StudentManager\StudentManager\bin\Release\StudentManager.exe.config
+L:\IT-Star课程[5]【综合运用】_综合运用所学开始项目开发（WinForm开发）\贯穿项目\项目案例：学员管理系统\StudentManager\StudentManager\obj\x86\Release\StudentManager.csproj.ResolveComReference.cache
+L:\IT-Star课程[5]【综合运用】_综合运用所学开始项目开发（WinForm开发）\贯穿项目\项目案例：学员管理系统\StudentManager\StudentManager\obj\x86\Release\StudentManager.exe
+L:\IT-Star课程[5]【综合运用】_综合运用所学开始项目开发（WinForm开发）\贯穿项目\项目案例：学员管理系统\StudentManager\StudentManager\obj\x86\Release\StudentManager.pdb
+D:\腾讯课堂【公开课】\第4版【教学课件】\演示项目\培训学员信息管理系统\StudentManager\StudentManager\bin\Release\StudentManager.exe.config
+D:\腾讯课堂【公开课】\第4版【教学课件】\演示项目\培训学员信息管理系统\StudentManager\StudentManager\obj\x86\Release\StudentManager.csproj.ResolveComReference.cache
+D:\腾讯课堂【公开课】\第4版【教学课件】\演示项目\培训学员信息管理系统\StudentManager\StudentManager\obj\x86\Release\StudentManager.exe
+D:\腾讯课堂【公开课】\第4版【教学课件】\演示项目\培训学员信息管理系统\StudentManager\StudentManager\obj\x86\Release\StudentManager.pdb
+D:\腾讯课堂【公开课】\第4版【教学课件】\演示项目\培训学员信息管理系统\StudentManager\StudentManager\obj\x86\Release\StudentManager.csprojResolveAssemblyReference.cache
+D:\腾讯课堂【公开课】\第4版【教学课件】\演示项目\培训学员信息管理系统\StudentManager\StudentManager\obj\x86\Release\StudentManager.FrmAbout.resources
+D:\腾讯课堂【公开课】\第4版【教学课件】\演示项目\培训学员信息管理系统\StudentManager\StudentManager\obj\x86\Release\StudentManager.FrmAddStudent.resources
+D:\腾讯课堂【公开课】\第4版【教学课件】\演示项目\培训学员信息管理系统\StudentManager\StudentManager\obj\x86\Release\StudentManager.FrmAttendance.resources
+D:\腾讯课堂【公开课】\第4版【教学课件】\演示项目\培训学员信息管理系统\StudentManager\StudentManager\obj\x86\Release\StudentManager.FrmAttendanceQuery.resources
+D:\腾讯课堂【公开课】\第4版【教学课件】\演示项目\培训学员信息管理系统\StudentManager\StudentManager\obj\x86\Release\StudentManager.FrmEditStudent.resources
+D:\腾讯课堂【公开课】\第4版【教学课件】\演示项目\培训学员信息管理系统\StudentManager\StudentManager\obj\x86\Release\StudentManager.FrmImportData.resources
+D:\腾讯课堂【公开课】\第4版【教学课件】\演示项目\培训学员信息管理系统\StudentManager\StudentManager\obj\x86\Release\StudentManager.FrmMain.resources
+D:\腾讯课堂【公开课】\第4版【教学课件】\演示项目\培训学员信息管理系统\StudentManager\StudentManager\obj\x86\Release\StudentManager.FrmModifyPwd.resources
+D:\腾讯课堂【公开课】\第4版【教学课件】\演示项目\培训学员信息管理系统\StudentManager\StudentManager\obj\x86\Release\StudentManager.FrmScoreManage.resources
+D:\腾讯课堂【公开课】\第4版【教学课件】\演示项目\培训学员信息管理系统\StudentManager\StudentManager\obj\x86\Release\StudentManager.FrmScoreQuery.resources
+D:\腾讯课堂【公开课】\第4版【教学课件】\演示项目\培训学员信息管理系统\StudentManager\StudentManager\obj\x86\Release\StudentManager.FrmStudentManage.resources
+D:\腾讯课堂【公开课】\第4版【教学课件】\演示项目\培训学员信息管理系统\StudentManager\StudentManager\obj\x86\Release\StudentManager.FrmStudentInfo.resources
+D:\腾讯课堂【公开课】\第4版【教学课件】\演示项目\培训学员信息管理系统\StudentManager\StudentManager\obj\x86\Release\StudentManager.FrmUserLogin.resources
+D:\腾讯课堂【公开课】\第4版【教学课件】\演示项目\培训学员信息管理系统\StudentManager\StudentManager\obj\x86\Release\StudentManager.Properties.Resources.resources
+D:\腾讯课堂【公开课】\第4版【教学课件】\演示项目\培训学员信息管理系统\StudentManager\StudentManager\obj\x86\Release\StudentManager.csproj.GenerateResource.Cache
+D:\腾讯课堂【公开课】\第4版【教学课件】\演示项目\培训学员信息管理系统\StudentManager\StudentManager\bin\Release\StudentManager.exe
+D:\腾讯课堂【公开课】\第4版【教学课件】\演示项目\培训学员信息管理系统\StudentManager\StudentManager\bin\Release\StudentManager.pdb
+D:\腾讯课堂【公开课】\第4版【教学课件】\演示项目\培训学员信息管理系统\StudentManager\StudentManager\bin\Release\DAL.dll
+D:\腾讯课堂【公开课】\第4版【教学课件】\演示项目\培训学员信息管理系统\StudentManager\StudentManager\bin\Release\Models.dll
+D:\腾讯课堂【公开课】\第4版【教学课件】\演示项目\培训学员信息管理系统\StudentManager\StudentManager\bin\Release\MyVideo.dll
+D:\腾讯课堂【公开课】\第4版【教学课件】\演示项目\培训学员信息管理系统\StudentManager\StudentManager\bin\Release\DAL.pdb
+D:\腾讯课堂【公开课】\第4版【教学课件】\演示项目\培训学员信息管理系统\StudentManager\StudentManager\bin\Release\Models.pdb
+D:\腾讯课堂【公开课】\第4版【教学课件】\演示项目\培训学员信息管理系统\StudentManager\StudentManager\bin\Release\MyVideo.pdb
+C:\Users\user\Desktop\我的授课\演示项目\【项目实践】培训机构学员信息管理系统\带禁止多个进程启动的\StudentManager\StudentManager\obj\x86\Release\StudentManager.csprojResolveAssemblyReference.cache
+C:\Users\user\Desktop\我的授课\演示项目\【项目实践】培训机构学员信息管理系统\带禁止多个进程启动的\StudentManager\StudentManager\obj\x86\Release\StudentManager.csproj.ResolveComReference.cache
+C:\Users\user\Desktop\我的授课\演示项目\【项目实践】培训机构学员信息管理系统\带禁止多个进程启动的\StudentManager\StudentManager\obj\x86\Release\StudentManager.FrmAbout.resources
+C:\Users\user\Desktop\我的授课\演示项目\【项目实践】培训机构学员信息管理系统\带禁止多个进程启动的\StudentManager\StudentManager\obj\x86\Release\StudentManager.FrmAddStudent.resources
+C:\Users\user\Desktop\我的授课\演示项目\【项目实践】培训机构学员信息管理系统\带禁止多个进程启动的\StudentManager\StudentManager\obj\x86\Release\StudentManager.FrmAttendance.resources
+C:\Users\user\Desktop\我的授课\演示项目\【项目实践】培训机构学员信息管理系统\带禁止多个进程启动的\StudentManager\StudentManager\obj\x86\Release\StudentManager.FrmAttendanceQuery.resources
+C:\Users\user\Desktop\我的授课\演示项目\【项目实践】培训机构学员信息管理系统\带禁止多个进程启动的\StudentManager\StudentManager\obj\x86\Release\StudentManager.FrmEditStudent.resources
+C:\Users\user\Desktop\我的授课\演示项目\【项目实践】培训机构学员信息管理系统\带禁止多个进程启动的\StudentManager\StudentManager\obj\x86\Release\StudentManager.FrmImportData.resources
+C:\Users\user\Desktop\我的授课\演示项目\【项目实践】培训机构学员信息管理系统\带禁止多个进程启动的\StudentManager\StudentManager\obj\x86\Release\StudentManager.FrmMain.resources
+C:\Users\user\Desktop\我的授课\演示项目\【项目实践】培训机构学员信息管理系统\带禁止多个进程启动的\StudentManager\StudentManager\obj\x86\Release\StudentManager.FrmModifyPwd.resources
+C:\Users\user\Desktop\我的授课\演示项目\【项目实践】培训机构学员信息管理系统\带禁止多个进程启动的\StudentManager\StudentManager\obj\x86\Release\StudentManager.FrmScoreManage.resources
+C:\Users\user\Desktop\我的授课\演示项目\【项目实践】培训机构学员信息管理系统\带禁止多个进程启动的\StudentManager\StudentManager\obj\x86\Release\StudentManager.FrmScoreQuery.resources
+C:\Users\user\Desktop\我的授课\演示项目\【项目实践】培训机构学员信息管理系统\带禁止多个进程启动的\StudentManager\StudentManager\obj\x86\Release\StudentManager.FrmStudentManage.resources
+C:\Users\user\Desktop\我的授课\演示项目\【项目实践】培训机构学员信息管理系统\带禁止多个进程启动的\StudentManager\StudentManager\obj\x86\Release\StudentManager.FrmStudentInfo.resources
+C:\Users\user\Desktop\我的授课\演示项目\【项目实践】培训机构学员信息管理系统\带禁止多个进程启动的\StudentManager\StudentManager\obj\x86\Release\StudentManager.FrmUserLogin.resources
+C:\Users\user\Desktop\我的授课\演示项目\【项目实践】培训机构学员信息管理系统\带禁止多个进程启动的\StudentManager\StudentManager\obj\x86\Release\StudentManager.Properties.Resources.resources
+C:\Users\user\Desktop\我的授课\演示项目\【项目实践】培训机构学员信息管理系统\带禁止多个进程启动的\StudentManager\StudentManager\obj\x86\Release\StudentManager.csproj.GenerateResource.Cache
+C:\Users\user\Desktop\我的授课\演示项目\【项目实践】培训机构学员信息管理系统\带禁止多个进程启动的\StudentManager\StudentManager\obj\x86\Release\StudentManager.exe
+C:\Users\user\Desktop\我的授课\演示项目\【项目实践】培训机构学员信息管理系统\带禁止多个进程启动的\StudentManager\StudentManager\obj\x86\Release\StudentManager.pdb
+C:\Users\user\Desktop\我的授课\演示项目\【项目实践】培训机构学员信息管理系统\带禁止多个进程启动的\StudentManager\StudentManager\bin\Release\StudentManager.exe.config
+C:\Users\user\Desktop\我的授课\演示项目\【项目实践】培训机构学员信息管理系统\带禁止多个进程启动的\StudentManager\StudentManager\bin\Release\StudentManager.exe
+C:\Users\user\Desktop\我的授课\演示项目\【项目实践】培训机构学员信息管理系统\带禁止多个进程启动的\StudentManager\StudentManager\bin\Release\StudentManager.pdb
+C:\Users\user\Desktop\我的授课\演示项目\【项目实践】培训机构学员信息管理系统\带禁止多个进程启动的\StudentManager\StudentManager\bin\Release\DAL.dll
+C:\Users\user\Desktop\我的授课\演示项目\【项目实践】培训机构学员信息管理系统\带禁止多个进程启动的\StudentManager\StudentManager\bin\Release\Models.dll
+C:\Users\user\Desktop\我的授课\演示项目\【项目实践】培训机构学员信息管理系统\带禁止多个进程启动的\StudentManager\StudentManager\bin\Release\MyVideo.dll
+C:\Users\user\Desktop\我的授课\演示项目\【项目实践】培训机构学员信息管理系统\带禁止多个进程启动的\StudentManager\StudentManager\bin\Release\DAL.pdb
+C:\Users\user\Desktop\我的授课\演示项目\【项目实践】培训机构学员信息管理系统\带禁止多个进程启动的\StudentManager\StudentManager\bin\Release\Models.pdb
+C:\Users\user\Desktop\我的授课\演示项目\【项目实践】培训机构学员信息管理系统\带禁止多个进程启动的\StudentManager\StudentManager\bin\Release\MyVideo.pdb

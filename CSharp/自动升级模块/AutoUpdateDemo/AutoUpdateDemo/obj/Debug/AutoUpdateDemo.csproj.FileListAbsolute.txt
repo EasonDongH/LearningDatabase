@@ -1,0 +1,16 @@
+C:\WorkSpace\CSharp\AutoUpdateDemo\AutoUpdateDemo\bin\Debug\AutoUpdateDemo.exe.config
+C:\WorkSpace\CSharp\AutoUpdateDemo\AutoUpdateDemo\bin\Debug\AutoUpdateDemo.exe
+C:\WorkSpace\CSharp\AutoUpdateDemo\AutoUpdateDemo\bin\Debug\AutoUpdateDemo.pdb
+C:\WorkSpace\CSharp\AutoUpdateDemo\AutoUpdateDemo\obj\Debug\AutoUpdateDemo.csprojAssemblyReference.cache
+C:\WorkSpace\CSharp\AutoUpdateDemo\AutoUpdateDemo\obj\Debug\AutoUpdateDemo.Form1.resources
+C:\WorkSpace\CSharp\AutoUpdateDemo\AutoUpdateDemo\obj\Debug\AutoUpdateDemo.Properties.Resources.resources
+C:\WorkSpace\CSharp\AutoUpdateDemo\AutoUpdateDemo\obj\Debug\AutoUpdateDemo.csproj.GenerateResource.cache
+C:\WorkSpace\CSharp\AutoUpdateDemo\AutoUpdateDemo\obj\Debug\AutoUpdateDemo.csproj.CoreCompileInputs.cache
+C:\WorkSpace\CSharp\AutoUpdateDemo\AutoUpdateDemo\obj\Debug\AutoUpdateDemo.exe
+C:\WorkSpace\CSharp\AutoUpdateDemo\AutoUpdateDemo\obj\Debug\AutoUpdateDemo.pdb
+C:\WorkSpace\CSharp\AutoUpdateDemo\AutoUpdateDemo\bin\Debug\Models.dll
+C:\WorkSpace\CSharp\AutoUpdateDemo\AutoUpdateDemo\bin\Debug\UpdatePro.exe
+C:\WorkSpace\CSharp\AutoUpdateDemo\AutoUpdateDemo\bin\Debug\Models.pdb
+C:\WorkSpace\CSharp\AutoUpdateDemo\AutoUpdateDemo\bin\Debug\UpdatePro.pdb
+C:\WorkSpace\CSharp\AutoUpdateDemo\AutoUpdateDemo\bin\Debug\UpdatePro.exe.config
+C:\WorkSpace\CSharp\AutoUpdateDemo\AutoUpdateDemo\obj\Debug\AutoUpdateDemo.csproj.CopyComplete

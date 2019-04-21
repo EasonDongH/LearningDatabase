@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewBag.Title = "NewsPublish";
+    Layout = "~/Areas/HotelWebManage/Views/Shared/HotelManageMaster.cshtml";
+}
+@model Models.News
+<script src="~/ThirdFile/ckeditor/ckeditor.js"></script>
+
+@using (Html.BeginForm("PublishNews", "News", FormMethod.Post))
+{
+    <div class="txtContentdiv">
+        <div class="txtItemdiv">
+            新闻标题：
+            @Html.TextBoxFor(N=>N.NewsTitle,new {@class="txt" })
+            &nbsp;&nbsp;
+            新闻分类：
+            @Html.DropDownList("CategoryId",(SelectList)ViewBag.DList)
+        </div>
+        <div class="txtItemdiv">
+            新闻内容：
+        </div>
+        <div class="txtItemdiv">
+            <textarea cols="20" id="NewsContents" name="NewsContents" rows="2"></textarea>
+            <script type="text/javascript">
+                CKEDITOR.replace("NewsContents")
+            </script>
+        </div>
+        <div class="txtItemdiv">
+            <button class="btncss" id="btnPublish" type="submit">立即发布</button>
+        </div>
+    </div>
+}
+

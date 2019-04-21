@@ -1,0 +1,9 @@
+using System.Drawing.Printing;
+
+private PrintDocument printDoc = new PrintDoucment();
+printDoc.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.PrintPage);
+
+private void PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+{
+    //调用Print.cs中的打印方法
+}

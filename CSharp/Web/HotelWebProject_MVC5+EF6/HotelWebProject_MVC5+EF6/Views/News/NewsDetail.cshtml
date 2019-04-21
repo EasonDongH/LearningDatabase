@@ -1,0 +1,71 @@
+﻿@model Models.News
+
+@{
+    ViewBag.Title = "新闻详情";
+    Layout = "~/Views/Shared/HotelMain.cshtml";
+}
+@section lefttitle1{
+    <div class="lefttitle">
+        栏目导航
+    </div>
+}
+@section leftcontent1{
+    <div class="content1">
+        <div class="conitem">
+            <a href="#">公司介绍</a>
+        </div>
+        <div class="conitem">
+            <a href="#">企业文化</a>
+        </div>
+        <div class="conitem">
+            <a href="#">企业荣誉</a>
+        </div>
+        <div class="conitem">
+            <a href="#">企业荣誉</a>
+        </div>
+        <div class="conitem">
+            <a href="#">发展历程</a>
+        </div>
+    </div>
+}
+@section lefttitle2{
+    <div class="lefttitle">
+        联系方式
+    </div>
+}
+@section leftcontent2{
+    <div class="content2">
+        <div style="padding-left: 33px; padding-right: 0px; font: 12px/18px simsun; color: #3f3b32;">
+            地&nbsp; 址：杭州市莫山南路888号<br />
+            汽车南站旁<br />
+            电&nbsp; 话：0571-98888888<br />
+            0571-98999999<br />
+            传&nbsp; 真：0571-98777777<br />
+            邮&nbsp; 箱：boss@mail.com
+        </div>
+    </div>
+}
+@section righttitle{
+    <div class="righttitle">
+        您现在位置：中式餐馆酒店>新闻动态
+    </div>
+}
+    <div class="contentDiv">
+        <link href="~/Styles/News.css" rel="stylesheet" />
+        <script type="text/javascript">
+                        function changeFontSize(fontSize) {
+                            //获取要变化的对象
+                            var divContent = document.getElementById("contents");
+                            divContent.style.fontSize = fontSize;
+                        }
+        </script>
+        <div class="newstitle" id="am">
+            @Model.NewsTitle
+        </div>
+        <div class="newsdesc">
+            发布时间：@Model.PublishTime&nbsp;&nbsp; 文字：【<a href="javascript:void(0)" onclick="changeFontSize('20px')">大</a>】【<a href="javascript:void(0)" onclick="changeFontSize('16px')">中</a>】【<a href="javascript:void(0)" onclick="changeFontSize('12px')">小</a>】
+        </div>
+        <div class="newscontent" id="contents" style="font-size:14px;">
+            @Model.NewsContents
+        </div>
+    </div>

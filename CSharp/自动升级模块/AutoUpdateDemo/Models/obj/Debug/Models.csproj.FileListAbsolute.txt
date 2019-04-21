@@ -1,0 +1,6 @@
+C:\WorkSpace\CSharp\AutoUpdateDemo\Models\bin\Debug\Models.dll
+C:\WorkSpace\CSharp\AutoUpdateDemo\Models\bin\Debug\Models.pdb
+C:\WorkSpace\CSharp\AutoUpdateDemo\Models\obj\Debug\Models.csprojAssemblyReference.cache
+C:\WorkSpace\CSharp\AutoUpdateDemo\Models\obj\Debug\Models.csproj.CoreCompileInputs.cache
+C:\WorkSpace\CSharp\AutoUpdateDemo\Models\obj\Debug\Models.dll
+C:\WorkSpace\CSharp\AutoUpdateDemo\Models\obj\Debug\Models.pdb

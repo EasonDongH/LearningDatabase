@@ -1,0 +1,46 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div>
+        【1】输出文本内容
+        <p>@Html.ActionLink("输出文本内容", "ContentTest") </p>
+
+        【2】输出JSON字符串
+        <p>@Html.ActionLink("输出JSON字符串", "jsonTest") </p>
+
+
+        @*【3】输出JavaScript<script src='@Url.RouteUrl(new {action="javascriptTest"}) ' type="text/javascript"></script>*@
+
+        【3】输出JavaScript文件
+        <p>@Html.ActionLink("输出JavaScript文件", "javascriptTest")</p>
+
+        【4】重定向页面跳转
+        <p>@Html.ActionLink("重定向页面跳转Redirect", "RedirectTest")</p>
+
+        【5】跳转到指定的Action（也可以到其他控制器）
+        <p>@Html.ActionLink("RedirectToAction跳转", "RedirectToActionTest")</p>
+
+        【6】使用指定的路由值跳转到指定的路由
+        <p>@Html.ActionLink("RedirectToRoute跳转", "RedirectToRouteTest") </p>
+
+        【7】按文件路径输出文件
+        <p>@Html.ActionLink("播放MP3", "FilePathTest")</p>
+
+        【8】对字符串编码，并输出文件
+        <p>@Html.ActionLink("查看文本文件", "FileContentTest") </p>
+
+        【9】用文件流输出文件
+        <p>@Html.ActionLink("访问PDF", "FileStreamTest")</p>
+
+    </div>
+</body>
+</html>

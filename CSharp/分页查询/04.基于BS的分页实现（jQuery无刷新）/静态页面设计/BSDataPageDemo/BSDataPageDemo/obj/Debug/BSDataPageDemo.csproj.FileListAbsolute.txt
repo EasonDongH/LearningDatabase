@@ -1,0 +1,10 @@
+C:\Users\Administrator\Desktop\BSDataPageDemo\BSDataPageDemo\bin\BSDataPageDemo.dll
+C:\Users\Administrator\Desktop\BSDataPageDemo\BSDataPageDemo\bin\BSDataPageDemo.pdb
+C:\Users\Administrator\Desktop\BSDataPageDemo\BSDataPageDemo\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\BSDataPageDemo\BSDataPageDemo\obj\Debug\BSDataPageDemo.dll
+C:\Users\Administrator\Desktop\BSDataPageDemo\BSDataPageDemo\obj\Debug\BSDataPageDemo.pdb
+D:\04_高薪就业冲刺课程\BS技能扩展\基于BS的分页实现（jQuery无刷新）\静态页面设计\BSDataPageDemo\BSDataPageDemo\bin\BSDataPageDemo.dll
+D:\04_高薪就业冲刺课程\BS技能扩展\基于BS的分页实现（jQuery无刷新）\静态页面设计\BSDataPageDemo\BSDataPageDemo\bin\BSDataPageDemo.pdb
+D:\04_高薪就业冲刺课程\BS技能扩展\基于BS的分页实现（jQuery无刷新）\静态页面设计\BSDataPageDemo\BSDataPageDemo\obj\Debug\ResolveAssemblyReference.cache
+D:\04_高薪就业冲刺课程\BS技能扩展\基于BS的分页实现（jQuery无刷新）\静态页面设计\BSDataPageDemo\BSDataPageDemo\obj\Debug\BSDataPageDemo.dll
+D:\04_高薪就业冲刺课程\BS技能扩展\基于BS的分页实现（jQuery无刷新）\静态页面设计\BSDataPageDemo\BSDataPageDemo\obj\Debug\BSDataPageDemo.pdb

@@ -1,0 +1,19 @@
+
+在Javascript之中，日期对象是Date，那么如何将一个日期对象按照定制的格式进行输出呢？ 
+  可以现告诉你，Date对象有有四个内置方法，用于输出为字符串格式，分别为： 
+  1）toGMTString，将一个日期按照GMT格式显示 
+  2）toLocaleString，将一个日期按照本地操作系统格式显示 
+  3）toLocaleDateString，按照本地格式显示一个日期对象的日期部分 
+  4）toLocaleTimeString，按照本地格式显示一个日期对象的时间部分 
+  尽管Javascript的Date对象中内置提供了这些输出为字符串的方法，但是这些字符串不是我们来控制格式的，因此如果我们需要我们自己定制的特殊格式，那么又该怎么办呢？ 
+  不用着急，JsJava中提供了专用的类，专门对日期进行指定格式的字符串输出，你可以下载JsJava-2.0.zip，引入其中的src/jsjava/text/DateFormat.js，或者直接引入jslib/jsjava-2.0.js，样例代码如下： 
+
+var df=new SimpleDateFormat();//jsJava1.0需要使用DateFormat对象，不要弄错就是了 
+df.applyPattern("yyyy-MM-dd HH:mm:ss"); 
+var date=new Date(2007,3,30,10,59,51); 
+var str=df.format(date); 
+document.write(str);//显示结果为：2007-04-30 10:59:51
+通过上面的例子你可以看出，你需要做的就是指定pattern，那么pattern中yyyy、MM等都表示什么意思呢？如果你学习过Java的日期格式化，那么你应该知道，那都是占位符，这些占位符都具有特殊的函数，例如y表示年，yyyy表示四个数字的年份，例如1982，下面列举一些pattern中支持的特殊字符及其含义（下面表格引自Java的官方文档，做了适当修改）：
+
+
+参考网站：http://www.cnblogs.com/atree/archive/2011/06/29/JS-JavaScript-Date-Format.html

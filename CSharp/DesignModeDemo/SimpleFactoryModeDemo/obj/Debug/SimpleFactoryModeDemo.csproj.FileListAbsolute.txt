@@ -1,0 +1,7 @@
+C:\WorkSpace\CSharp\DesignModeDemo\SimpleFactoryModeDemo\bin\Debug\SimpleFactoryModeDemo.exe.config
+C:\WorkSpace\CSharp\DesignModeDemo\SimpleFactoryModeDemo\bin\Debug\SimpleFactoryModeDemo.exe
+C:\WorkSpace\CSharp\DesignModeDemo\SimpleFactoryModeDemo\bin\Debug\SimpleFactoryModeDemo.pdb
+C:\WorkSpace\CSharp\DesignModeDemo\SimpleFactoryModeDemo\obj\Debug\SimpleFactoryModeDemo.csprojAssemblyReference.cache
+C:\WorkSpace\CSharp\DesignModeDemo\SimpleFactoryModeDemo\obj\Debug\SimpleFactoryModeDemo.csproj.CoreCompileInputs.cache
+C:\WorkSpace\CSharp\DesignModeDemo\SimpleFactoryModeDemo\obj\Debug\SimpleFactoryModeDemo.exe
+C:\WorkSpace\CSharp\DesignModeDemo\SimpleFactoryModeDemo\obj\Debug\SimpleFactoryModeDemo.pdb

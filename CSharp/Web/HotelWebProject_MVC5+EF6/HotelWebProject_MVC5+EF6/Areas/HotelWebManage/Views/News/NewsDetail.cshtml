@@ -1,0 +1,38 @@
+﻿@model Models.News
+
+@{
+    ViewBag.Title = "新闻详情";
+    Layout = "~/Areas/HotelWebManage/Views/Shared/HotelManageMaster.cshtml";
+}
+
+<script src="~/ThirdFile/ckeditor/ckeditor.js"></script>
+<form action="/WebHotelManage/News/UpdateNews" method="post"></form>
+
+@using (Html.BeginForm("ModifyNews", "News", FormMethod.Post))
+{
+    <div class="txtContentdiv">
+        @Html.HiddenFor(n=>n.NewsId)
+        <div class="txtItemdiv">
+            新闻标题：
+            @Html.TextBoxFor(n => n.NewsTitle, new { @class = "txt" })
+            &nbsp;&nbsp;
+            新闻分类：
+            <select data-val="true" data-val-number="字段 CategoryId 必须是一个数字。" data-val-required="CategoryId 字段是必需的。" id="CategoryId" name="CategoryId">
+                <option selected="selected" value="1">公司新闻</option>
+                <option value="2">社会新闻</option>
+            </select>
+        </div>
+        <div class="txtItemdiv">
+            新闻内容：
+        </div>
+        <div class="txtItemdiv">
+            @Html.TextArea("NewsContents",@Model.NewsContents)
+            <script type="text/javascript">
+                CKEDITOR.replace("NewsContents")
+            </script>
+        </div>
+        <div class="txtItemdiv">
+            <button class="btncss" id="btnPublish" type="submit">立即修改</button>
+        </div>
+    </div>
+}

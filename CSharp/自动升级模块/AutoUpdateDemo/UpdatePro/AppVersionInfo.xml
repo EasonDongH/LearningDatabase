@@ -1,0 +1,8 @@
+<?xml version="1.0" standalone="no"?>
+<AutoUpdater>
+  <RemoteVersionInfoURL URL="http://192.168.95.1/RemoteUpdateFile/AppVersionInfo.xml" />
+  <VersionInfo>
+    <LastUpdateTime xmlns="0001/1/1 0:00:00" />
+    <CurrentVersion>1.0.0.2</CurrentVersion>
+  </VersionInfo>
+</AutoUpdater>

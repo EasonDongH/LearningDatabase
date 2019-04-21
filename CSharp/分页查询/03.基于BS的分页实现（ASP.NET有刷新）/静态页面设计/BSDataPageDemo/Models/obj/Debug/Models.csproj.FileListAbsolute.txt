@@ -1,0 +1,10 @@
+C:\Users\Administrator\Desktop\BSDataPageDemo\Models\bin\Debug\Models.dll
+C:\Users\Administrator\Desktop\BSDataPageDemo\Models\bin\Debug\Models.pdb
+C:\Users\Administrator\Desktop\BSDataPageDemo\Models\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\BSDataPageDemo\Models\obj\Debug\Models.dll
+C:\Users\Administrator\Desktop\BSDataPageDemo\Models\obj\Debug\Models.pdb
+H:\【1】课程课件\【1】.NET\【1】A-视频源版\【扩展技能讲解】\查询分页实现\02_基于BS的分页实现（ASP.NET有刷新）\静态页面设计\BSDataPageDemo\Models\bin\Debug\Models.dll
+H:\【1】课程课件\【1】.NET\【1】A-视频源版\【扩展技能讲解】\查询分页实现\02_基于BS的分页实现（ASP.NET有刷新）\静态页面设计\BSDataPageDemo\Models\bin\Debug\Models.pdb
+H:\【1】课程课件\【1】.NET\【1】A-视频源版\【扩展技能讲解】\查询分页实现\02_基于BS的分页实现（ASP.NET有刷新）\静态页面设计\BSDataPageDemo\Models\obj\Debug\Models.csprojResolveAssemblyReference.cache
+H:\【1】课程课件\【1】.NET\【1】A-视频源版\【扩展技能讲解】\查询分页实现\02_基于BS的分页实现（ASP.NET有刷新）\静态页面设计\BSDataPageDemo\Models\obj\Debug\Models.dll
+H:\【1】课程课件\【1】.NET\【1】A-视频源版\【扩展技能讲解】\查询分页实现\02_基于BS的分页实现（ASP.NET有刷新）\静态页面设计\BSDataPageDemo\Models\obj\Debug\Models.pdb

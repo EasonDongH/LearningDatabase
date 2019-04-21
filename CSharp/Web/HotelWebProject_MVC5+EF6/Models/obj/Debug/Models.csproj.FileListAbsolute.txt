@@ -1,0 +1,6 @@
+C:\WorkSpace\Web\HotelWebProject_MVC5+EF6\Models\bin\Debug\Models.dll
+C:\WorkSpace\Web\HotelWebProject_MVC5+EF6\Models\bin\Debug\Models.pdb
+C:\WorkSpace\Web\HotelWebProject_MVC5+EF6\Models\obj\Debug\Models.csproj.CoreCompileInputs.cache
+C:\WorkSpace\Web\HotelWebProject_MVC5+EF6\Models\obj\Debug\Models.dll
+C:\WorkSpace\Web\HotelWebProject_MVC5+EF6\Models\obj\Debug\Models.pdb
+C:\WorkSpace\Web\HotelWebProject_MVC5+EF6\Models\obj\Debug\Models.csprojAssemblyReference.cache

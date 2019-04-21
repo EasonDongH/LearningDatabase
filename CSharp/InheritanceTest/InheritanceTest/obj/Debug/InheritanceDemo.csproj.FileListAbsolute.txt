@@ -1,0 +1,7 @@
+C:\WorkSpace\CSharp\InheritanceTest\InheritanceTest\bin\Debug\InheritanceTest.exe.config
+C:\WorkSpace\CSharp\InheritanceTest\InheritanceTest\bin\Debug\InheritanceTest.exe
+C:\WorkSpace\CSharp\InheritanceTest\InheritanceTest\bin\Debug\InheritanceTest.pdb
+C:\WorkSpace\CSharp\InheritanceTest\InheritanceTest\obj\Debug\InheritanceDemo.csproj.CoreCompileInputs.cache
+C:\WorkSpace\CSharp\InheritanceTest\InheritanceTest\obj\Debug\InheritanceTest.exe
+C:\WorkSpace\CSharp\InheritanceTest\InheritanceTest\obj\Debug\InheritanceTest.pdb
+C:\WorkSpace\CSharp\InheritanceTest\InheritanceTest\obj\Debug\InheritanceDemo.csprojAssemblyReference.cache

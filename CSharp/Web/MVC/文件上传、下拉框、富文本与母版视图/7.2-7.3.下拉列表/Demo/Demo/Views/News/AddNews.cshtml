@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <style type="text/css">
+        li {
+            list-style: none;
+            padding: 6px;
+        }
+
+        .txtTitle {
+            width: 300px;
+            border: 1px solid #808080;
+        }
+
+        .txtarea {
+            width: 400px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        @*@using (Html.BeginForm("AddNews", "News", FormMethod.Post))
+            {
+                var items = new List<SelectListItem>();
+                items.Add(new SelectListItem() { Text = "教育", Value = "1" });
+                items.Add(new SelectListItem() { Text = "影视", Value = "2", Selected = true });
+                items.Add(new SelectListItem() { Text = "汽车", Value = "3" });
+                items.Add(new SelectListItem() { Text = "军事", Value = "4" });
+                <ul>
+                    <li>新闻标题：@Html.TextBox("NewsTitle",null, new { @class = "txtTitle" })</li>
+                    <li>新闻分类：@Html.DropDownList("NewsCategory", items, "请选择")</li>
+                    <li class="txtarea">
+                        详细内容：@Html.TextArea("NewsContent", null, new { @class = "txtarea" })
+                    </li>
+                    <li><input type="submit" value="发布新闻" /></li>
+                </ul>
+            }*@
+
+        @using (Html.BeginForm("AddNews", "News", FormMethod.Post))
+        {
+
+            <ul>
+                <li>新闻标题：@Html.TextBox("NewsTitle", null, new { @class = "txtTitle" })</li>
+                <li>新闻分类：@Html.DropDownList("NewsCategory", (SelectList)ViewBag.Category, "请选择")</li>
+                <li class="txtarea">
+                    详细内容：@Html.TextArea("NewsContent", null, new { @class = "txtarea" })
+                </li>
+                <li><input type="submit" value="发布新闻" /></li>
+            </ul>
+        }
+
+    </div>
+</body>
+</html>

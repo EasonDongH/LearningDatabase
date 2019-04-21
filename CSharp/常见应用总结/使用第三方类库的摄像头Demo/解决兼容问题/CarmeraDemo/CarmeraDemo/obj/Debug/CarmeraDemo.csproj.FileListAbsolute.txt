@@ -1,0 +1,39 @@
+d:\用户目录\我的文档\visual studio 2015\Projects\CarmeraDemo\CarmeraDemo\bin\Debug\CarmeraDemo.exe.config
+d:\用户目录\我的文档\visual studio 2015\Projects\CarmeraDemo\CarmeraDemo\bin\Debug\CarmeraDemo.exe
+d:\用户目录\我的文档\visual studio 2015\Projects\CarmeraDemo\CarmeraDemo\bin\Debug\CarmeraDemo.pdb
+d:\用户目录\我的文档\visual studio 2015\Projects\CarmeraDemo\CarmeraDemo\bin\Debug\Camera_NET.dll
+d:\用户目录\我的文档\visual studio 2015\Projects\CarmeraDemo\CarmeraDemo\bin\Debug\DirectShowLib-2010.dll
+d:\用户目录\我的文档\visual studio 2015\Projects\CarmeraDemo\CarmeraDemo\obj\Debug\CarmeraDemo.Form1.resources
+d:\用户目录\我的文档\visual studio 2015\Projects\CarmeraDemo\CarmeraDemo\obj\Debug\CarmeraDemo.Properties.Resources.resources
+d:\用户目录\我的文档\visual studio 2015\Projects\CarmeraDemo\CarmeraDemo\obj\Debug\CarmeraDemo.csproj.GenerateResource.Cache
+d:\用户目录\我的文档\visual studio 2015\Projects\CarmeraDemo\CarmeraDemo\obj\Debug\CarmeraDemo.exe
+d:\用户目录\我的文档\visual studio 2015\Projects\CarmeraDemo\CarmeraDemo\obj\Debug\CarmeraDemo.pdb
+C:\Users\Administrator\Desktop\CarmeraDemo\CarmeraDemo\bin\Debug\CarmeraDemo.exe.config
+C:\Users\Administrator\Desktop\CarmeraDemo\CarmeraDemo\obj\Debug\CarmeraDemo.exe
+C:\Users\Administrator\Desktop\CarmeraDemo\CarmeraDemo\obj\Debug\CarmeraDemo.pdb
+C:\Users\Administrator\Desktop\CarmeraDemo\CarmeraDemo\bin\Debug\CarmeraDemo.exe
+C:\Users\Administrator\Desktop\CarmeraDemo\CarmeraDemo\bin\Debug\CarmeraDemo.pdb
+C:\Users\Administrator\Desktop\CarmeraDemo\CarmeraDemo\obj\Debug\CarmeraDemo.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\CarmeraDemo\CarmeraDemo\obj\Debug\CarmeraDemo.Properties.Resources.resources
+C:\Users\Administrator\Desktop\CarmeraDemo\CarmeraDemo\obj\Debug\CarmeraDemo.csproj.GenerateResource.Cache
+C:\Users\Administrator\Desktop\CarmeraDemo\CarmeraDemo\obj\Debug\CarmeraDemo.FrmTestCamera.resources
+E:\【1】课程课件\【1】.NET\【3】A-授课课件\课程[12]【中级综合】：【项目实战】（四）图书借阅管理系统\最新通用摄像头解决方案\测试源码\CarmeraDemo\CarmeraDemo\bin\Debug\CarmeraDemo.exe.config
+E:\【1】课程课件\【1】.NET\【3】A-授课课件\课程[12]【中级综合】：【项目实战】（四）图书借阅管理系统\最新通用摄像头解决方案\测试源码\CarmeraDemo\CarmeraDemo\obj\Debug\CarmeraDemo.exe
+E:\【1】课程课件\【1】.NET\【3】A-授课课件\课程[12]【中级综合】：【项目实战】（四）图书借阅管理系统\最新通用摄像头解决方案\测试源码\CarmeraDemo\CarmeraDemo\obj\Debug\CarmeraDemo.pdb
+E:\【1】课程课件\【1】.NET\【3】A-授课课件\课程[12]【中级综合】：【项目实战】（四）图书借阅管理系统\最新通用摄像头解决方案\测试源码\CarmeraDemo\CarmeraDemo\bin\Debug\CarmeraDemo.exe
+E:\【1】课程课件\【1】.NET\【3】A-授课课件\课程[12]【中级综合】：【项目实战】（四）图书借阅管理系统\最新通用摄像头解决方案\测试源码\CarmeraDemo\CarmeraDemo\bin\Debug\CarmeraDemo.pdb
+E:\【1】课程课件\【1】.NET\【3】A-授课课件\课程[12]【中级综合】：【项目实战】（四）图书借阅管理系统\最新通用摄像头解决方案\测试源码\CarmeraDemo\CarmeraDemo\obj\Debug\CarmeraDemo.csprojResolveAssemblyReference.cache
+E:\【1】课程课件\【1】.NET\【3】A-授课课件\课程[12]【中级综合】：【项目实战】（四）图书借阅管理系统\最新通用摄像头解决方案\测试源码\CarmeraDemo\CarmeraDemo\obj\Debug\CarmeraDemo.FrmTestCamera.resources
+E:\【1】课程课件\【1】.NET\【3】A-授课课件\课程[12]【中级综合】：【项目实战】（四）图书借阅管理系统\最新通用摄像头解决方案\测试源码\CarmeraDemo\CarmeraDemo\obj\Debug\CarmeraDemo.Properties.Resources.resources
+E:\【1】课程课件\【1】.NET\【3】A-授课课件\课程[12]【中级综合】：【项目实战】（四）图书借阅管理系统\最新通用摄像头解决方案\测试源码\CarmeraDemo\CarmeraDemo\obj\Debug\CarmeraDemo.csproj.GenerateResource.Cache
+C:\2. GitHub\LeariningCodeBase\CSharp\使用第三方类库的摄像头Demo\解决兼容问题\CarmeraDemo\CarmeraDemo\bin\Debug\CarmeraDemo.exe.config
+C:\2. GitHub\LeariningCodeBase\CSharp\使用第三方类库的摄像头Demo\解决兼容问题\CarmeraDemo\CarmeraDemo\bin\Debug\CarmeraDemo.exe
+C:\2. GitHub\LeariningCodeBase\CSharp\使用第三方类库的摄像头Demo\解决兼容问题\CarmeraDemo\CarmeraDemo\bin\Debug\CarmeraDemo.pdb
+C:\2. GitHub\LeariningCodeBase\CSharp\使用第三方类库的摄像头Demo\解决兼容问题\CarmeraDemo\CarmeraDemo\obj\Debug\CarmeraDemo.csprojAssemblyReference.cache
+C:\2. GitHub\LeariningCodeBase\CSharp\使用第三方类库的摄像头Demo\解决兼容问题\CarmeraDemo\CarmeraDemo\obj\Debug\CarmeraDemo.FrmTestCamera.resources
+C:\2. GitHub\LeariningCodeBase\CSharp\使用第三方类库的摄像头Demo\解决兼容问题\CarmeraDemo\CarmeraDemo\obj\Debug\CarmeraDemo.Properties.Resources.resources
+C:\2. GitHub\LeariningCodeBase\CSharp\使用第三方类库的摄像头Demo\解决兼容问题\CarmeraDemo\CarmeraDemo\obj\Debug\CarmeraDemo.csproj.GenerateResource.cache
+C:\2. GitHub\LeariningCodeBase\CSharp\使用第三方类库的摄像头Demo\解决兼容问题\CarmeraDemo\CarmeraDemo\obj\Debug\CarmeraDemo.csproj.CoreCompileInputs.cache
+C:\2. GitHub\LeariningCodeBase\CSharp\使用第三方类库的摄像头Demo\解决兼容问题\CarmeraDemo\CarmeraDemo\obj\Debug\CarmeraDemo.csproj.CopyComplete
+C:\2. GitHub\LeariningCodeBase\CSharp\使用第三方类库的摄像头Demo\解决兼容问题\CarmeraDemo\CarmeraDemo\obj\Debug\CarmeraDemo.exe
+C:\2. GitHub\LeariningCodeBase\CSharp\使用第三方类库的摄像头Demo\解决兼容问题\CarmeraDemo\CarmeraDemo\obj\Debug\CarmeraDemo.pdb

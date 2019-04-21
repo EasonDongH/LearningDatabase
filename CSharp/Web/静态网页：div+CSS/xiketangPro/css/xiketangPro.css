@@ -1,0 +1,82 @@
+body{margin: 0px;padding: 0px;font-size: 14px;font-family: "microsoft yahei","宋体","arial narrow";text-align: center;}
+
+/*公共样式设定*/
+img{border: 0px;}
+a{text-decoration: none;color: #131313;}
+a:hover{color: #188EEE;}
+
+/*顶部导航固定*/
+#topnav{width: 100%;position: fixed;top: 0px;background-color: #2E323E;z-index: 100;padding: 15px 0px 15px 0px;}
+#topnav a{color: #E6E7E8;}
+#topnav a:hover{color: #188EEE;}
+
+/*顶部导航内容*/
+.centerdiv{width: 1200px;margin: 2px auto;text-align: left;}
+#logo{width: 225px;float: left;}
+#navList{width: 450px;float: left;margin-left: 20px;}
+#navList ul{margin: 0px;padding: 0px;font-size: 16px;font-family: "microsoft yahei";}
+#navList li{list-style: none;float: left;margin-top: 10px;}
+#navList a{padding: 10px 10px 10px 10px;}
+
+.login{width: 40px;float: right;margin-top: 13px;}
+.register{width: 40px;float: right;margin-top: 13px;}
+
+/*课程概述*/
+.container{width: 100%;float: left;}
+.bg1{background-color: #71C3E5;margin-top: 75px;}
+.listCenterDiv{width: 1160px;margin: 20px auto 20px auto;padding: 20px;height: 260px;background-color: #FFF;text-align: left;}
+.courseImgDiv{width: 440px;float: left;margin-right: 20px;}
+.courseTitle{width: 700px;float: left;font-size: 25px;}
+.courseTeacher{width: 700px;float: left;color: #ADADAD;margin: 10px 0px 10px 0px;}
+.courseDescription{width: 700px;float: left;color: #333333;}
+.coursePrice{width: 425px;float: left;font-size: 22px;text-align: right;color: #FF3E00;margin-top: 35px;}
+.studynow{width: 190px;float: left;margin: 20px 0px 0px 75px;}
+.studynow a{display: block;padding: 13px 0px 13px 0px;background-color: #FF991E;font-size: 22px;color: #FFF;text-align: center;border-radius: 2px;}
+.studynow a:hover{background-color: #FF8000;}
+
+/*热门课程推荐*/
+.bg2{background-color: #EEEEEE;padding: 20px 0px 20px 0px;}
+.detailCenterdiv{width: 1200px;text-align: left;margin: 0px auto 0px auto;background-color: #FFF;}
+
+.leftdiv{width: 920px;float: left;}
+.leftitem{width: 880px;float: left;padding: 20px;background-color: #FFF;margin-bottom: 20px;}
+.shortDesc{width: 860px;float: left;padding: 10px 0px 10px 20px;background-color: #E2F8E2;border-radius: 5px;}
+.desctitle{width: 860px;float: left;font-size: 18px;padding: 20px 0px 20px 0px;}
+.descitem{width: 860px;float: left;font-size: 16px;padding-bottom: 10px;line-height: 28px;}
+.catalogdiv{width:880px;float:left;font-size:18px;border-bottom:1px solid #DDDDDD;padding-bottom:10px;margin-top:-5px;}
+.catalogitem{width:880px;float:left;font-size:16px;padding-top:15px;}
+
+.rightdiv{width: 260px;float: left;margin-left: 20px;}
+.rightitem{width: 220px;float: left;background-color: #FFF;padding: 20px;margin-bottom: 20px;}
+
+/*微信公众号*/
+.weixinImg{width: 180px;height: 180px;float: left;margin-left: 20px;display: inline;}
+.weixinImg img{width: 180px;height: 180px;}
+.weixinTitle{width: 220px;float: left;text-align: center;font-size: 16px;padding: 5px 0px 5px 0px;color: #604404;}
+.weixindesc{width: 210px;float: left;font-size: 14px;color: #604444;padding-left: 10px;}
+
+.hottitle{width: 220px;float: left;font-size: 18px;border-bottom: 1px solid #DDDDDD;padding-bottom: 15px;}
+.courseImg{width: 220px;float: left;height: 130px;margin-top: 20px;}
+.courseImg img{width: 220px;height: 130px;}
+.coursetitle{width: 220px;float: left;margin-top: 5px;}
+
+/* 脚注*/
+.footer-div{clear: both;width: 100%;height: 300px;background-color: #1F2021;text-align: center;}
+.footer{width: 1200px;height: 265px;margin: 0px auto;background-color: #1F2021;text-align: left;padding-top: 35px;}
+.footer-item{width: 130px;height: 150px;float: left;}
+.footer-item-title{width: 130px;float: left;font-size: 18px;color: #FFF;}
+.footer-item ul{margin: 0px;padding: 0px;float: left;}
+.footer-item li{list-style: none;padding-top: 12px;font-size: 16px;}
+.footer a{color: #BFBFBF;}
+.footer a:hover{color: #FFF;}
+
+.footer-partners{width: 460px;height: 125px;float: left;}
+.alterTitle{width: 460px;}
+.footer-partners ul{margin: 0px;padding: 0px;float: left;}
+.footer-partners li{list-style: none;float: left;padding-top: 12px;font-size: 16px;padding-right: 30px;}
+.online{width: 180px;float: left;color: #BFBFBF;font-size: 16px;margin-top: 36px;}
+.footer-weixin{width: 134px;float: right;}
+.company-declare{width: 1200px;float: left;color: #BFBFBF;font-size: 14px;border-bottom: 1px solid #303338;padding-bottom: 15px;}
+.company-declare span{color: #FFF;font-size: 16px;}
+.company-copy{width: 600px;float: left;padding-top: 12px;font-size: 14px;color: #BFBFBF;}
+#believeWeb{width: 170px;float: right;margin-top: 10px;}

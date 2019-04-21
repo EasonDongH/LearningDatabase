@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="HotelDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Dishes">
+    <Key>
+      <PropertyRef Name="DishesId" />
+    </Key>
+    <Property Name="DishesId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DishesName" Type="varchar" MaxLength="100" />
+    <Property Name="UnitPrice" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="CategoryId" Type="int" />
+  </EntityType>
+  <EntityType Name="DishesBook">
+    <Key>
+      <PropertyRef Name="BookId" />
+    </Key>
+    <Property Name="BookId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="HotelName" Type="varchar" MaxLength="50" />
+    <Property Name="ConsumeTime" Type="datetime" />
+    <Property Name="ConsumePersons" Type="int" />
+    <Property Name="RoomType" Type="varchar" MaxLength="20" />
+    <Property Name="CustomerName" Type="varchar" MaxLength="20" />
+    <Property Name="CustomerPhone" Type="varchar" MaxLength="100" />
+    <Property Name="CustomerEmail" Type="varchar" MaxLength="100" />
+    <Property Name="Comments" Type="nvarchar" MaxLength="500" />
+    <Property Name="BookTime" Type="datetime" />
+    <Property Name="OrderStatus" Type="int" />
+  </EntityType>
+  <EntityType Name="DishesCategory">
+    <Key>
+      <PropertyRef Name="CategoryId" />
+    </Key>
+    <Property Name="CategoryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CategoryName" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="News">
+    <Key>
+      <PropertyRef Name="NewsId" />
+    </Key>
+    <Property Name="NewsId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NewsTitle" Type="varchar" MaxLength="100" />
+    <Property Name="NewsContents" Type="text" />
+    <Property Name="PublishTime" Type="datetime" />
+    <Property Name="CategoryId" Type="int" />
+  </EntityType>
+  <EntityType Name="NewsCategory">
+    <Key>
+      <PropertyRef Name="CategoryId" />
+    </Key>
+    <Property Name="CategoryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CategoryName" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="Recruitment">
+    <Key>
+      <PropertyRef Name="PostId" />
+    </Key>
+    <Property Name="PostId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PostName" Type="nvarchar" MaxLength="50" />
+    <Property Name="PostType" Type="char" MaxLength="4" />
+    <Property Name="PostPlace" Type="nvarchar" MaxLength="50" />
+    <Property Name="PostDesc" Type="text" />
+    <Property Name="PostRequire" Type="text" />
+    <Property Name="Experience" Type="nvarchar" MaxLength="100" />
+    <Property Name="EduBackground" Type="nvarchar" MaxLength="100" />
+    <Property Name="RequireCount" Type="int" />
+    <Property Name="PublishTime" Type="datetime" />
+    <Property Name="Manager" Type="varchar" MaxLength="20" />
+    <Property Name="PhoneNumber" Type="varchar" MaxLength="100" />
+    <Property Name="Email" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Suggestion">
+    <Key>
+      <PropertyRef Name="SuggestionId" />
+    </Key>
+    <Property Name="SuggestionId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CustomerName" Type="nvarchar" MaxLength="50" />
+    <Property Name="ConsumeDesc" Type="text" />
+    <Property Name="SuggestionDesc" Type="text" />
+    <Property Name="SuggestionTime" Type="datetime" />
+    <Property Name="PhoneNumber" Type="varchar" MaxLength="100" />
+    <Property Name="Email" Type="varchar" MaxLength="100" />
+    <Property Name="StatusId" Type="int" />
+  </EntityType>
+  <EntityType Name="SysAdmins">
+    <Key>
+      <PropertyRef Name="LoginId" />
+    </Key>
+    <Property Name="LoginId" Type="int" Nullable="false" />
+    <Property Name="LoginName" Type="varchar" MaxLength="20" />
+    <Property Name="LoginPwd" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <Association Name="FK__Dishes__Category__412EB0B6">
+    <End Role="DishesCategory" Type="Self.DishesCategory" Multiplicity="0..1" />
+    <End Role="Dishes" Type="Self.Dishes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DishesCategory">
+        <PropertyRef Name="CategoryId" />
+      </Principal>
+      <Dependent Role="Dishes">
+        <PropertyRef Name="CategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__News__CategoryId__3C69FB99">
+    <End Role="NewsCategory" Type="Self.NewsCategory" Multiplicity="0..1" />
+    <End Role="News" Type="Self.News" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NewsCategory">
+        <PropertyRef Name="CategoryId" />
+      </Principal>
+      <Dependent Role="News">
+        <PropertyRef Name="CategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="HotelDBModelStoreContainer">
+    <EntitySet Name="Dishes" EntityType="Self.Dishes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DishesBook" EntityType="Self.DishesBook" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DishesCategory" EntityType="Self.DishesCategory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="News" EntityType="Self.News" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NewsCategory" EntityType="Self.NewsCategory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Recruitment" EntityType="Self.Recruitment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Suggestion" EntityType="Self.Suggestion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SysAdmins" EntityType="Self.SysAdmins" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Dishes__Category__412EB0B6" Association="Self.FK__Dishes__Category__412EB0B6">
+      <End Role="DishesCategory" EntitySet="DishesCategory" />
+      <End Role="Dishes" EntitySet="Dishes" />
+    </AssociationSet>
+    <AssociationSet Name="FK__News__CategoryId__3C69FB99" Association="Self.FK__News__CategoryId__3C69FB99">
+      <End Role="NewsCategory" EntitySet="NewsCategory" />
+      <End Role="News" EntitySet="News" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

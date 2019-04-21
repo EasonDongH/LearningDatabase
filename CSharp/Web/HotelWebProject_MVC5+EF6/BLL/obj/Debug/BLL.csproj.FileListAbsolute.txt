@@ -1,0 +1,15 @@
+C:\WorkSpace\Web\HotelWebProject_MVC5+EF6\BLL\bin\Debug\BLL.dll
+C:\WorkSpace\Web\HotelWebProject_MVC5+EF6\BLL\bin\Debug\BLL.pdb
+C:\WorkSpace\Web\HotelWebProject_MVC5+EF6\BLL\bin\Debug\DAL.dll
+C:\WorkSpace\Web\HotelWebProject_MVC5+EF6\BLL\bin\Debug\Models.dll
+C:\WorkSpace\Web\HotelWebProject_MVC5+EF6\BLL\bin\Debug\EntityFramework.dll
+C:\WorkSpace\Web\HotelWebProject_MVC5+EF6\BLL\bin\Debug\DAL.pdb
+C:\WorkSpace\Web\HotelWebProject_MVC5+EF6\BLL\bin\Debug\DAL.dll.config
+C:\WorkSpace\Web\HotelWebProject_MVC5+EF6\BLL\bin\Debug\Models.pdb
+C:\WorkSpace\Web\HotelWebProject_MVC5+EF6\BLL\bin\Debug\EntityFramework.xml
+C:\WorkSpace\Web\HotelWebProject_MVC5+EF6\BLL\bin\Debug\zh-Hans\EntityFramework.resources.dll
+C:\WorkSpace\Web\HotelWebProject_MVC5+EF6\BLL\obj\Debug\BLL.csprojAssemblyReference.cache
+C:\WorkSpace\Web\HotelWebProject_MVC5+EF6\BLL\obj\Debug\BLL.csproj.CoreCompileInputs.cache
+C:\WorkSpace\Web\HotelWebProject_MVC5+EF6\BLL\obj\Debug\BLL.csproj.CopyComplete
+C:\WorkSpace\Web\HotelWebProject_MVC5+EF6\BLL\obj\Debug\BLL.dll
+C:\WorkSpace\Web\HotelWebProject_MVC5+EF6\BLL\obj\Debug\BLL.pdb
