@@ -1,0 +1,9 @@
+C:\Users\Administrator\Desktop\CodeCreator\CodeCreator\bin\Debug\CodeCreator.exe.config
+C:\Users\Administrator\Desktop\CodeCreator\CodeCreator\bin\Debug\CodeCreator.exe
+C:\Users\Administrator\Desktop\CodeCreator\CodeCreator\bin\Debug\CodeCreator.pdb
+C:\Users\Administrator\Desktop\CodeCreator\CodeCreator\obj\Debug\CodeCreator.FrmMain.resources
+C:\Users\Administrator\Desktop\CodeCreator\CodeCreator\obj\Debug\CodeCreator.Properties.Resources.resources
+C:\Users\Administrator\Desktop\CodeCreator\CodeCreator\obj\Debug\CodeCreatorDemo.csproj.GenerateResource.Cache
+C:\Users\Administrator\Desktop\CodeCreator\CodeCreator\obj\Debug\CodeCreator.exe
+C:\Users\Administrator\Desktop\CodeCreator\CodeCreator\obj\Debug\CodeCreator.pdb
+C:\Users\Administrator\Desktop\CodeCreator\CodeCreator\obj\Debug\CodeCreatorDemo.csprojResolveAssemblyReference.cache

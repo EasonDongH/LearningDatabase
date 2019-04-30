@@ -1,0 +1,11 @@
+C:\WorkSpace\CSharp\SocketDemo\SocketDemo\bin\Debug\SocketDemo.exe.config
+C:\WorkSpace\CSharp\SocketDemo\SocketDemo\bin\Debug\SocketDemo.exe
+C:\WorkSpace\CSharp\SocketDemo\SocketDemo\bin\Debug\SocketDemo.pdb
+C:\WorkSpace\CSharp\SocketDemo\SocketDemo\obj\Debug\SocketDemo.csprojAssemblyReference.cache
+C:\WorkSpace\CSharp\SocketDemo\SocketDemo\obj\Debug\SocketDemo.Properties.Resources.resources
+C:\WorkSpace\CSharp\SocketDemo\SocketDemo\obj\Debug\SocketDemo.csproj.GenerateResource.cache
+C:\WorkSpace\CSharp\SocketDemo\SocketDemo\obj\Debug\SocketDemo.csproj.CoreCompileInputs.cache
+C:\WorkSpace\CSharp\SocketDemo\SocketDemo\obj\Debug\SocketDemo.exe
+C:\WorkSpace\CSharp\SocketDemo\SocketDemo\obj\Debug\SocketDemo.pdb
+C:\WorkSpace\CSharp\SocketDemo\SocketDemo\obj\Debug\SocketDemo.FrmTCPClient.resources
+C:\WorkSpace\CSharp\SocketDemo\SocketDemo\obj\Debug\SocketDemo.FrmTCPServer.resources

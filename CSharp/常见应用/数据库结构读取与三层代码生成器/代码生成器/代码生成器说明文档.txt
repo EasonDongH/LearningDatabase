@@ -1,0 +1,75 @@
+1. 通过DataSet与表名来获取表结构
+// 获取单个表
+SqlConnection conn = SqlConnection(connectionString);
+SqlCommand cmd = new SqlCommand(sql, conn);// select top 0 * from 表名
+SqlDataAdapter da  = new SqlDataAdapter(cmd);
+DataSet ds = new DataSet();
+da.FillSchema(ds, SchemaType.Source);
+da.Fill(ds);
+conn.Close();
+return ds;
+
+// 获取多个表：参数Dictionary<string,string> sqlDic
+SqlConnection conn = SqlConnection(connectionString);
+SqlCommand cmd = new SqlCommand();
+cmd.Connection = conn;
+SqlDataAdapter da  = new SqlDataAdapter(cmd);
+conn.Open();
+DataSet ds = new DataSet();
+foreach(string tableName in sqlDic.Keys)
+{
+    cmd.CommandText = sqlDic[tableName];// select top 0 * from tableName
+    da.FillSchema(ds, SchemaType.Source, tableName);
+    da.Fill(ds, tableName);
+}
+conn.Close();
+return ds;
+
+
+2. 获取当前数据库中所有的数据表名
+SELECT Name FROM SysObjects Where XType='U' ORDER BY Name
+
+3. 获取表信息
+【3.1】获取某列类型与列名
+foreach(DataColumn col in table.Columns)
+{
+    builder.AppendLine($"    public {col.DataType.Name} {col.DataColumnName} {get;set;};");
+}
+【3.2】转换列类型
+col.DataType.Name默认获取的是.NET平台的数据类型，将其转换CSharp对应类型：
+private string GetCSType(DataColumn column)
+{
+    string type = col.DataType.Name;
+    if(column.DataType == typeof(System.Int32))
+        type = "int";
+    else if(column.DataType == typeof(System.Boolean))
+        type = "bool";
+    else if(column.DataType != typeof(System.DateTime) && column.DataType != typeof(System.Guid))// 这两种类型与程序类型一致
+        type = type.ToLower();
+        
+    // 对于值类型，是否允许“可为空”
+    if(column.DataType.IsValueType && column.AllowDBNull) // 后一个条件自行配置
+        type += "?";
+}
+【3.3】 判断数据表当前列是否是标识列
+foreach(DataColumn col in table.Columns)
+{
+    if(!col.AutoIncrement)
+    { 
+        // ...
+    }
+}
+【3.4】获取表更详细结构，如主键列名
+exec sp_pkeys @table_name = '表名'
+会返回该表的结构，如TABLE_NAME、COLUMN_NAME（主键列）、外键信息等
+
+
+
+
+
+
+
+
+
+
+

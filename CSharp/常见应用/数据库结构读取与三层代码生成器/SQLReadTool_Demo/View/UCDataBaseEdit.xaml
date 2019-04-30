@@ -1,0 +1,117 @@
+﻿<UserControl x:Class="SQLReadTool.UCDataBaseEdit"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+                  xmlns:local="clr-namespace:SQLReadTool"
+             d:DesignHeight="600" d:DesignWidth="1000">
+    <UserControl.Resources>
+        <HierarchicalDataTemplate  x:Key="MyTreeItemTemplate"  DataType="{x:Type local:ModelViewItem}"   ItemsSource="{Binding Path=TabelNames}" >
+            <StackPanel Orientation="Horizontal">
+                <Image VerticalAlignment="Center" Source="{Binding DataBaseICON, UpdateSourceTrigger=PropertyChanged}" Width="16" Height="16" Margin="0,0,2,2"></Image>
+                <TextBlock VerticalAlignment="Center" Text="{Binding DataBase,UpdateSourceTrigger=PropertyChanged}"></TextBlock>
+
+                <Image VerticalAlignment="Center" Source="{Binding TabelNameICON,UpdateSourceTrigger=PropertyChanged}" Width="16" Height="16" Margin="2,0,0,0"></Image>
+                <TextBlock VerticalAlignment="Center" Text="{Binding TabelName,UpdateSourceTrigger=PropertyChanged}"></TextBlock>
+
+                <!--<Image VerticalAlignment="Center" Source="ico\Database 1.ico" Width="16" Height="16" Margin="2,0,0,0"></Image>
+                <StackPanel.ToolTip>
+                    <TextBlock VerticalAlignment="Center" Text="{Binding TabelName}" TextWrapping="Wrap" MaxWidth="200" ></TextBlock>
+                </StackPanel.ToolTip>-->
+            </StackPanel >
+
+        </HierarchicalDataTemplate>
+        <Style x:Key="TreeViewItemStyle" TargetType="{x:Type TreeViewItem}">
+            <Setter Property="IsExpanded" Value="True" />
+            <Setter Property="IsSelected" Value="{Binding Path=IsSelected,Mode=TwoWay}"/>
+
+        </Style>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+
+        </Grid.ColumnDefinitions>
+        <Grid/>
+        <Grid Grid.Column="0" Background="#FF3098C9">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="80*"/>
+                <ColumnDefinition Width="200*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="100*"/>
+                <RowDefinition Height="350*"/>
+            </Grid.RowDefinitions>
+            <Grid  Grid.ColumnSpan="2"  >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="119*"/>
+                    <ColumnDefinition Width="256*"/>
+                    <ColumnDefinition Width="138*"/>
+                    <ColumnDefinition Width="487*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="28*"/>
+                    <RowDefinition Height="28*"/>
+                    <RowDefinition Height="28*"/>
+                    <RowDefinition Height="28*"/>
+
+                    <RowDefinition Height="28*"/>
+                </Grid.RowDefinitions>
+                <Label Name="lblSQLType" Content="数据库类型:" Grid.Column="0" Grid.Row="0" Margin="2,2,0,2"   HorizontalAlignment="Left" MinWidth="170" MinHeight="20" MaxWidth="190" MaxHeight="25" Width="170" Grid.ColumnSpan="2"/>
+                <Label Name="lblSQLIP" Content="主机名或IP地址:" Grid.Column="0" Grid.Row="1" Margin="2,2,0,2"  HorizontalAlignment="Left" MinWidth="170" MinHeight="20" MaxWidth="190" MaxHeight="25" Width="170" Grid.ColumnSpan="2"/>
+                <Label Name="lblSQLPPOE" Content="端口:" Grid.Column="0" Grid.Row="2" Margin="2,2,0,1"  HorizontalAlignment="Left" MinWidth="170" MinHeight="20" MaxWidth="190" MaxHeight="25" Width="170" Grid.ColumnSpan="2"/>
+                <Label Name="lblSQLName" Content="用户名:" Grid.Column="2" Grid.Row="0" Margin="2,2,0,2"  HorizontalAlignment="Left" MinWidth="170" MinHeight="20" MaxWidth="190" MaxHeight="25" Width="170" Grid.ColumnSpan="2"/>
+                <Label Name="lblSQLPassword" Content="密码:" Grid.Column="2" Grid.Row="1" Margin="2,2,0,2"  HorizontalAlignment="Left" MinWidth="170" MinHeight="20" MaxWidth="190" MaxHeight="25" Width="170" Grid.ColumnSpan="2"/>
+                <Label Name="lblSQLDataBase" Content="DataBase:" Grid.Column="2" Grid.Row="2" Margin="2,2,0,1"  HorizontalAlignment="Left" MinWidth="170" MinHeight="20" MaxWidth="190" MaxHeight="25" Width="170" Grid.ColumnSpan="2"/>
+                <Label Name="lblSQLTable" Content="Tabel:" Grid.Column="0" Grid.Row="3" Margin="2,2,0,0"  HorizontalAlignment="Left" MinWidth="170" MinHeight="20" MaxWidth="190" MaxHeight="25" Width="170" Grid.ColumnSpan="2"/>
+                <TextBox Name="cmbSQLType" Text="{Binding Path=SQLType,UpdateSourceTrigger=PropertyChanged}"  Grid.Column="1" Grid.Row="0"  Background="White" HorizontalAlignment="Left" MinWidth="100" MinHeight="20" MaxWidth="150" MaxHeight="25" Margin="2,2,0,2" Width="100"  />
+                <TextBox Name="cmbSQLIP" Text="{Binding Path=IP,UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" Grid.Row="1" Background="White" Margin="2,2,0,2"  HorizontalAlignment="Left" MinWidth="150" MinHeight="20" MaxWidth="180" MaxHeight="25" Width="150"/>
+                <TextBox Name="cmbSQLPPOE" Text="{Binding Path=PPOE,UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" Grid.Row="2" Margin="2,2,0,1" Background="White"   HorizontalAlignment="Left" MinWidth="170" MinHeight="20" MaxWidth="190" MaxHeight="25" Width="170"/>
+                <TextBox Name="cmbSQLName"  Text="{Binding Path=UserName,UpdateSourceTrigger=PropertyChanged}" Grid.Column="3" Grid.Row="0"   Margin="2,2,0,2"  Background="White"   HorizontalAlignment="Left" MinWidth="140" MinHeight="20" MaxWidth="180" MaxHeight="25" Width="140"  />
+                <TextBox Name="cmbSQLPassword"  Text="{Binding Path=Password,UpdateSourceTrigger=PropertyChanged}" Grid.Column="3" Grid.Row="1"     Margin="2,2,0,2"  Background="White"  HorizontalAlignment="Left" MinWidth="140" MinHeight="20" MaxWidth="180" MaxHeight="25" Width="140" />
+                <TextBox Name="cmbSQLDataBase" Text="{Binding Path=DataBase,UpdateSourceTrigger=PropertyChanged}" Grid.Column="3" Grid.Row="2"    Margin="2,2,0,1"   Background="White"  HorizontalAlignment="Left" MinWidth="140" MinHeight="20" MaxWidth="180" MaxHeight="25" Width="140" />
+                <TextBox Name="cmbSQLTable" Text="{Binding Path=Table,UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" Grid.Row="3"    Margin="2,2,0,0"   Background="White"  HorizontalAlignment="Left" MinWidth="140" MinHeight="20" MaxWidth="180" MaxHeight="25" Width="140" />
+
+                <StackPanel Grid.Column="2" Grid.Row="3" Grid.ColumnSpan="2" Orientation="Horizontal" >
+                    <Button Name="btnConfirm"   HorizontalContentAlignment="Center" Content="连接" Command="{Binding Path=ConSQLCommand,UpdateSourceTrigger=PropertyChanged}" Margin="2"  VerticalAlignment="Center"  HorizontalAlignment="Left"  MinWidth="80" MinHeight="20" MaxWidth="120" MaxHeight="25" Height="22" Width="80"  />
+                    <Label   Content="连接状态:"  HorizontalAlignment="Right"  Margin="2"   HorizontalContentAlignment="Center"/>
+                    <Label Name="lblCon" Foreground="Red"   HorizontalContentAlignment="Center" Content="{Binding Path=ConnState,UpdateSourceTrigger=PropertyChanged}"  HorizontalAlignment="Right"  Margin="2"     />
+                </StackPanel >
+                <StackPanel  Grid.ColumnSpan="4" Grid.Column="0" Grid.Row="4"  Orientation="Horizontal">
+                    <Button  Content="读取DataBase"  Command="{Binding Path=GetDataBaseCommand,UpdateSourceTrigger=PropertyChanged}" MinWidth="100" MaxWidth="110" Height="25" Margin="2"/>
+                    <Button  Content="读取Table"  Command="{Binding Path=GetTablesCommand,UpdateSourceTrigger=PropertyChanged}" MinWidth="100" MaxWidth="110" Height="25" Margin="2"/>
+                    <Button  Content="读取Feild"  MinWidth="100" MaxWidth="110" Margin="2" Height="25"  Click="Button_Click"/>
+
+                </StackPanel >
+
+            </Grid>
+            <!--<TreeView Name="MyTreeView" Grid.Row="1"  ItemsSource="{Binding Path=Tree}"  ItemContainerStyle="{StaticResource TreeViewItemStyle}" 
+                      ItemTemplate="{StaticResource MyTreeItemTemplate}" SelectedItemChanged="MyTreeView_SelectedItemChanged" >-->
+            <TreeView Name="MyTreeView" Grid.Row="1"  ItemsSource="{Binding Path=Tree}" 
+                       SelectedItemChanged="MyTreeView_SelectedItemChanged" Background="#FFC6F1EC" >
+                <TreeView.ItemTemplate>
+                    <HierarchicalDataTemplate DataType="{x:Type local:ModelViewItem}" ItemsSource="{Binding Path=TabelNames}">
+                        <StackPanel Orientation="Horizontal">
+
+                            <Image VerticalAlignment="Center" Source="{Binding Path = DataBaseICON}" Width="12" Height="12" Margin="1"></Image>
+                            <!--<Image VerticalAlignment="Center" Source="D:\Pro\SQLReadTool_BackUP\ico\Database 3.ico" Width="12" Height="12" Margin="1"></Image>-->
+                            <TextBlock VerticalAlignment="Center" Text="{Binding Path =DataBase}"></TextBlock>
+                            <Image VerticalAlignment="Center" Source="{Binding Path =TabelNameICON}" Margin="1" Width="12" Height="12" ></Image>
+                            <!--<Image VerticalAlignment="Center" Source="D:\Pro\SQLReadTool_BackUP\ico\Database 1.ico" Margin="1" MaxWidth="12" MaxHeight="12" ></Image>-->
+                            <TextBlock VerticalAlignment="Center" Text="{Binding Path =TabelName}"  ></TextBlock>
+
+                        </StackPanel>
+                    </HierarchicalDataTemplate>
+                </TreeView.ItemTemplate>
+            </TreeView>
+            <DataGrid Name="MyDataGrid"        AutoGenerateColumns="True"  ItemsSource="{Binding Path=Records.DefaultView}" Grid.Column="1" Grid.Row="1" Background="#FFC6F1EC"/>
+        </Grid>
+
+
+
+    </Grid>
+</UserControl>
