@@ -1,0 +1,5 @@
+d:\documents\visual studio 2013\Projects\ModbusDemo\DAL\bin\Debug\DAL.dll
+d:\documents\visual studio 2013\Projects\ModbusDemo\DAL\bin\Debug\DAL.pdb
+d:\documents\visual studio 2013\Projects\ModbusDemo\DAL\obj\Debug\DAL.dll
+d:\documents\visual studio 2013\Projects\ModbusDemo\DAL\obj\Debug\DAL.pdb
+d:\documents\visual studio 2013\Projects\ModbusDemo\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
