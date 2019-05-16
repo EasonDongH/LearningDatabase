@@ -1,0 +1,10 @@
+C:\2. GitHub\LearningDatabase\SoftwareEngineering\DesignPattern\1. SimpleFactoryPattern\bin\Debug\_1.SimpleFactoryPattern.exe.config
+C:\2. GitHub\LearningDatabase\SoftwareEngineering\DesignPattern\1. SimpleFactoryPattern\bin\Debug\_1.SimpleFactoryPattern.exe
+C:\2. GitHub\LearningDatabase\SoftwareEngineering\DesignPattern\1. SimpleFactoryPattern\bin\Debug\_1.SimpleFactoryPattern.pdb
+C:\2. GitHub\LearningDatabase\SoftwareEngineering\DesignPattern\1. SimpleFactoryPattern\obj\Debug\1. SimpleFactoryPattern.csprojAssemblyReference.cache
+C:\2. GitHub\LearningDatabase\SoftwareEngineering\DesignPattern\1. SimpleFactoryPattern\obj\Debug\_1.SimpleFactoryPattern.Form1.resources
+C:\2. GitHub\LearningDatabase\SoftwareEngineering\DesignPattern\1. SimpleFactoryPattern\obj\Debug\_1.SimpleFactoryPattern.Properties.Resources.resources
+C:\2. GitHub\LearningDatabase\SoftwareEngineering\DesignPattern\1. SimpleFactoryPattern\obj\Debug\1. SimpleFactoryPattern.csproj.GenerateResource.cache
+C:\2. GitHub\LearningDatabase\SoftwareEngineering\DesignPattern\1. SimpleFactoryPattern\obj\Debug\1. SimpleFactoryPattern.csproj.CoreCompileInputs.cache
+C:\2. GitHub\LearningDatabase\SoftwareEngineering\DesignPattern\1. SimpleFactoryPattern\obj\Debug\_1.SimpleFactoryPattern.exe
+C:\2. GitHub\LearningDatabase\SoftwareEngineering\DesignPattern\1. SimpleFactoryPattern\obj\Debug\_1.SimpleFactoryPattern.pdb
