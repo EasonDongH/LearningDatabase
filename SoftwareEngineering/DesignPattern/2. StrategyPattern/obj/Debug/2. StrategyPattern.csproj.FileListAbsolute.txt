@@ -1,0 +1,10 @@
+C:\2. GitHub\LearningDatabase\SoftwareEngineering\DesignPattern\2. StrategyPattern\bin\Debug\_2.StrategyPattern.exe.config
+C:\2. GitHub\LearningDatabase\SoftwareEngineering\DesignPattern\2. StrategyPattern\bin\Debug\_2.StrategyPattern.exe
+C:\2. GitHub\LearningDatabase\SoftwareEngineering\DesignPattern\2. StrategyPattern\bin\Debug\_2.StrategyPattern.pdb
+C:\2. GitHub\LearningDatabase\SoftwareEngineering\DesignPattern\2. StrategyPattern\obj\Debug\2. StrategyPattern.csprojAssemblyReference.cache
+C:\2. GitHub\LearningDatabase\SoftwareEngineering\DesignPattern\2. StrategyPattern\obj\Debug\_2.StrategyPattern.Form1.resources
+C:\2. GitHub\LearningDatabase\SoftwareEngineering\DesignPattern\2. StrategyPattern\obj\Debug\_2.StrategyPattern.Properties.Resources.resources
+C:\2. GitHub\LearningDatabase\SoftwareEngineering\DesignPattern\2. StrategyPattern\obj\Debug\2. StrategyPattern.csproj.GenerateResource.cache
+C:\2. GitHub\LearningDatabase\SoftwareEngineering\DesignPattern\2. StrategyPattern\obj\Debug\2. StrategyPattern.csproj.CoreCompileInputs.cache
+C:\2. GitHub\LearningDatabase\SoftwareEngineering\DesignPattern\2. StrategyPattern\obj\Debug\_2.StrategyPattern.exe
+C:\2. GitHub\LearningDatabase\SoftwareEngineering\DesignPattern\2. StrategyPattern\obj\Debug\_2.StrategyPattern.pdb
