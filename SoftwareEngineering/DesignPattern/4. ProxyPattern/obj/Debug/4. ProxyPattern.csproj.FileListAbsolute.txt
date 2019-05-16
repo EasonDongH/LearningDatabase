@@ -1,0 +1,7 @@
+C:\2. GitHub\LearningDatabase\SoftwareEngineering\DesignPattern\4. ProxyPattern\bin\Debug\_4.ProxyPattern.exe.config
+C:\2. GitHub\LearningDatabase\SoftwareEngineering\DesignPattern\4. ProxyPattern\bin\Debug\_4.ProxyPattern.exe
+C:\2. GitHub\LearningDatabase\SoftwareEngineering\DesignPattern\4. ProxyPattern\bin\Debug\_4.ProxyPattern.pdb
+C:\2. GitHub\LearningDatabase\SoftwareEngineering\DesignPattern\4. ProxyPattern\obj\Debug\4. ProxyPattern.csprojAssemblyReference.cache
+C:\2. GitHub\LearningDatabase\SoftwareEngineering\DesignPattern\4. ProxyPattern\obj\Debug\4. ProxyPattern.csproj.CoreCompileInputs.cache
+C:\2. GitHub\LearningDatabase\SoftwareEngineering\DesignPattern\4. ProxyPattern\obj\Debug\_4.ProxyPattern.exe
+C:\2. GitHub\LearningDatabase\SoftwareEngineering\DesignPattern\4. ProxyPattern\obj\Debug\_4.ProxyPattern.pdb
