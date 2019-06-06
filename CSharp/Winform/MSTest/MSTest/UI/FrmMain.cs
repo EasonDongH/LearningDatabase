@@ -19,12 +19,12 @@ namespace MSTest
 
         private void btn_DepartmentManage_Click(object sender, EventArgs e)
         {
-            FormOperation.ChildFormAddToParentForm(this.gb_OperationPanel,new FrmDepartmentManage());       
+            CommonMethod.ChildFormAddToParentForm(this.gb_OperationPanel,new FrmDepartmentManage());       
         }
 
         private void btn_EmployeeManage_Click(object sender, EventArgs e)
         {
-            FormOperation.ChildFormAddToParentForm(this.gb_OperationPanel, new FrmEmployeeManage());
+            CommonMethod.ChildFormAddToParentForm(this.gb_OperationPanel, new FrmEmployeeManage());
         }
     }
 }

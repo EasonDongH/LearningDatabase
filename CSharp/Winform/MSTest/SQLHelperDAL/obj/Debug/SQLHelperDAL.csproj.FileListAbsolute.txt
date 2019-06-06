@@ -1,0 +1,14 @@
+F:\1. GitHub\LearningDatabase\CSharp\Winform\MSTest\SQLHelperDAL\bin\Debug\SQLHelperDAL.dll
+F:\1. GitHub\LearningDatabase\CSharp\Winform\MSTest\SQLHelperDAL\bin\Debug\SQLHelperDAL.pdb
+F:\1. GitHub\LearningDatabase\CSharp\Winform\MSTest\SQLHelperDAL\bin\Debug\BouncyCastle.Crypto.dll
+F:\1. GitHub\LearningDatabase\CSharp\Winform\MSTest\SQLHelperDAL\bin\Debug\Google.Protobuf.dll
+F:\1. GitHub\LearningDatabase\CSharp\Winform\MSTest\SQLHelperDAL\bin\Debug\IDAL.dll
+F:\1. GitHub\LearningDatabase\CSharp\Winform\MSTest\SQLHelperDAL\bin\Debug\Models.dll
+F:\1. GitHub\LearningDatabase\CSharp\Winform\MSTest\SQLHelperDAL\bin\Debug\MySql.Data.dll
+F:\1. GitHub\LearningDatabase\CSharp\Winform\MSTest\SQLHelperDAL\bin\Debug\IDAL.pdb
+F:\1. GitHub\LearningDatabase\CSharp\Winform\MSTest\SQLHelperDAL\bin\Debug\Models.pdb
+F:\1. GitHub\LearningDatabase\CSharp\Winform\MSTest\SQLHelperDAL\bin\Debug\Google.Protobuf.xml
+F:\1. GitHub\LearningDatabase\CSharp\Winform\MSTest\SQLHelperDAL\bin\Debug\MySql.Data.xml
+F:\1. GitHub\LearningDatabase\CSharp\Winform\MSTest\SQLHelperDAL\obj\Debug\SQLHelperDAL.csprojResolveAssemblyReference.cache
+F:\1. GitHub\LearningDatabase\CSharp\Winform\MSTest\SQLHelperDAL\obj\Debug\SQLHelperDAL.dll
+F:\1. GitHub\LearningDatabase\CSharp\Winform\MSTest\SQLHelperDAL\obj\Debug\SQLHelperDAL.pdb

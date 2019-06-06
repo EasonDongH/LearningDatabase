@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btn_AddDepartment = new System.Windows.Forms.Button();
             this.btn_DeleteDepartment = new System.Windows.Forms.Button();
             this.txt_QueryCondition = new System.Windows.Forms.TextBox();
@@ -51,10 +51,11 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txt_DepartmentNo = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.btn_Confim = new System.Windows.Forms.Button();
+            this.btn_AddConfim = new System.Windows.Forms.Button();
             this.ep_Remind = new System.Windows.Forms.ErrorProvider(this.components);
             this.lbl_AddRemind = new System.Windows.Forms.Label();
             this.lbl_ModifyRemind = new System.Windows.Forms.Label();
+            this.btn_ModifyConfim = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_DepartmentInfo)).BeginInit();
             this.gb_DepartmentInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ep_Remind)).BeginInit();
@@ -142,40 +143,40 @@
             this.dgv_DepartmentInfo.AllowUserToResizeColumns = false;
             this.dgv_DepartmentInfo.AllowUserToResizeRows = false;
             this.dgv_DepartmentInfo.BackgroundColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_DepartmentInfo.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_DepartmentInfo.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgv_DepartmentInfo.ColumnHeadersHeight = 35;
             this.dgv_DepartmentInfo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgv_DepartmentInfo.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.DepartmentNo,
             this.DepartmentName,
             this.Remarks});
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_DepartmentInfo.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_DepartmentInfo.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgv_DepartmentInfo.Location = new System.Drawing.Point(26, 101);
             this.dgv_DepartmentInfo.MultiSelect = false;
             this.dgv_DepartmentInfo.Name = "dgv_DepartmentInfo";
             this.dgv_DepartmentInfo.ReadOnly = true;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_DepartmentInfo.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_DepartmentInfo.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgv_DepartmentInfo.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgv_DepartmentInfo.RowTemplate.Height = 23;
             this.dgv_DepartmentInfo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -210,6 +211,7 @@
             // 
             // gb_DepartmentInfo
             // 
+            this.gb_DepartmentInfo.Controls.Add(this.btn_ModifyConfim);
             this.gb_DepartmentInfo.Controls.Add(this.label3);
             this.gb_DepartmentInfo.Controls.Add(this.btn_Cancel);
             this.gb_DepartmentInfo.Controls.Add(this.rtb_Remarks);
@@ -217,7 +219,7 @@
             this.gb_DepartmentInfo.Controls.Add(this.label2);
             this.gb_DepartmentInfo.Controls.Add(this.txt_DepartmentNo);
             this.gb_DepartmentInfo.Controls.Add(this.label4);
-            this.gb_DepartmentInfo.Controls.Add(this.btn_Confim);
+            this.gb_DepartmentInfo.Controls.Add(this.btn_AddConfim);
             this.gb_DepartmentInfo.Location = new System.Drawing.Point(420, 12);
             this.gb_DepartmentInfo.Name = "gb_DepartmentInfo";
             this.gb_DepartmentInfo.Size = new System.Drawing.Size(317, 318);
@@ -291,15 +293,15 @@
             this.label4.TabIndex = 42;
             this.label4.Text = "部门编号：";
             // 
-            // btn_Confim
+            // btn_AddConfim
             // 
-            this.btn_Confim.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btn_Confim.Location = new System.Drawing.Point(42, 261);
-            this.btn_Confim.Name = "btn_Confim";
-            this.btn_Confim.Size = new System.Drawing.Size(93, 36);
-            this.btn_Confim.TabIndex = 41;
-            this.btn_Confim.Text = "确认";
-            this.btn_Confim.UseVisualStyleBackColor = true;
+            this.btn_AddConfim.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btn_AddConfim.Location = new System.Drawing.Point(42, 261);
+            this.btn_AddConfim.Name = "btn_AddConfim";
+            this.btn_AddConfim.Size = new System.Drawing.Size(93, 36);
+            this.btn_AddConfim.TabIndex = 41;
+            this.btn_AddConfim.Text = "确认";
+            this.btn_AddConfim.UseVisualStyleBackColor = true;
             // 
             // ep_Remind
             // 
@@ -328,6 +330,16 @@
             this.lbl_ModifyRemind.TabIndex = 10;
             this.lbl_ModifyRemind.Text = "请在右侧修改信息";
             this.lbl_ModifyRemind.Visible = false;
+            // 
+            // btn_ModifyConfim
+            // 
+            this.btn_ModifyConfim.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btn_ModifyConfim.Location = new System.Drawing.Point(42, 261);
+            this.btn_ModifyConfim.Name = "btn_ModifyConfim";
+            this.btn_ModifyConfim.Size = new System.Drawing.Size(93, 36);
+            this.btn_ModifyConfim.TabIndex = 49;
+            this.btn_ModifyConfim.Text = "确认";
+            this.btn_ModifyConfim.UseVisualStyleBackColor = true;
             // 
             // FrmDepartmentManage
             // 
@@ -378,9 +390,10 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txt_DepartmentNo;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button btn_Confim;
+        private System.Windows.Forms.Button btn_AddConfim;
         private System.Windows.Forms.ErrorProvider ep_Remind;
         private System.Windows.Forms.Label lbl_ModifyRemind;
         private System.Windows.Forms.Label lbl_AddRemind;
+        private System.Windows.Forms.Button btn_ModifyConfim;
     }
 }

@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using Models;
+
 namespace MSTest
 {
     public partial class FrmDepartmentManage : Form
@@ -30,8 +32,10 @@ namespace MSTest
                 MessageBox.Show("发生错误！错误信息：" + ex.Message);
             }
 
+            this.btn_ModifyConfim.Click += this.btn_ModifyConfim_Click;
+            this.btn_AddConfim.Click += this.btn_AddConfim_Click;
             this.dgv_DepartmentInfo.DataSource = this.global_Departments;
-            AjustDepartmentInfoControlState(true, false);
+            AdjustDepartmentInfoControlState(true, false);
             ClearDepartmentInfoControl();
         }
 
@@ -42,6 +46,7 @@ namespace MSTest
 
         private void btn_QueryDepartmentInfo_Click(object sender, EventArgs e)
         {
+            this.ep_Remind.Clear();
             string condition = this.txt_QueryCondition.Text.Trim();
             List<Department> departments = this.objDempartmentManager.GetDepartments(condition, this.cbo_DepartmentQueryMode.SelectedIndex);
             this.dgv_DepartmentInfo.DataSource = null;
@@ -50,16 +55,20 @@ namespace MSTest
 
         private void btn_AddDepartment_Click(object sender, EventArgs e)
         {
+            this.ep_Remind.Clear();
             this.lbl_AddRemind.Visible = true;
             this.lbl_ModifyRemind.Visible = false;
-            AjustDepartmentInfoControlState(false, true);
+            this.txt_DepartmentNo.Focus();
+            AdjustDepartmentInfoControlState(false, true);
             ClearDepartmentInfoControl();
-            this.btn_Confim.Click -= this.btn_ModifyConfim_Click;
-            this.btn_Confim.Click += this.btn_AddConfim_Click;
+
+            this.btn_AddConfim.Visible = true;
+            this.btn_ModifyConfim.Visible = false;
         }
 
         private void btn_ModifyDepartmentInfo_Click(object sender, EventArgs e)
         {
+            this.ep_Remind.Clear();
             if (this.dgv_DepartmentInfo.CurrentRow == null)
                 return;
 
@@ -69,16 +78,18 @@ namespace MSTest
             this.txt_DepartmentNo.Text = department.DepartmentNo;
             this.txt_DepartmentName.Text = department.DepartmentName;
             this.rtb_Remarks.Text = department.Remarks;
-            AjustDepartmentInfoControlState(false, true);
+            AdjustDepartmentInfoControlState(false, true);
             this.lbl_AddRemind.Visible = false;
             this.lbl_ModifyRemind.Visible = true;
+            this.txt_DepartmentNo.Focus();
 
-            this.btn_Confim.Click -= this.btn_AddConfim_Click;
-            this.btn_Confim.Click += this.btn_ModifyConfim_Click;
+            this.btn_AddConfim.Visible = false;
+            this.btn_ModifyConfim.Visible = true;
         }
 
         private void btn_DeleteDepartment_Click(object sender, EventArgs e)
         {
+            this.ep_Remind.Clear();
             if (this.dgv_DepartmentInfo.CurrentRow == null)
                 return;
 
@@ -105,13 +116,14 @@ namespace MSTest
 
         private void dgv_DepartmentInfo_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            this.ep_Remind.Clear();
             this.lbl_AddRemind.Visible = false;
             this.lbl_ModifyRemind.Visible = false;
-            AjustDepartmentInfoControlState(true, false);
+            AdjustDepartmentInfoControlState(true, false);
 
             if (this.dgv_DepartmentInfo.CurrentRow == null)
                 return;
-            var department = (from d in this.global_Departments 
+            var department = (from d in this.global_Departments
                               where d.DepartmentNo == this.dgv_DepartmentInfo.CurrentRow.Cells["DepartmentNo"].Value.ToString()
                               select d).FirstOrDefault();
             this.txt_DepartmentNo.Text = department.DepartmentNo;
@@ -165,7 +177,7 @@ namespace MSTest
             return department;
         }
 
-        private void AjustDepartmentInfoControlState(bool txt_IsReadOnly, bool btn_IsEnable)
+        private void AdjustDepartmentInfoControlState(bool txt_IsReadOnly, bool btn_IsEnable)
         {
             foreach (Control c in this.gb_DepartmentInfo.Controls)
             {
@@ -200,7 +212,7 @@ namespace MSTest
                 MessageBox.Show("添加失败！失败原因：" + ex.Message);
             }
 
-            AjustDepartmentInfoControlState(true, false);
+            AdjustDepartmentInfoControlState(true, false);
             this.global_Departments = objDempartmentManager.GetDepartments();
             this.dgv_DepartmentInfo.DataSource = null;
             this.dgv_DepartmentInfo.DataSource = this.global_Departments;
@@ -209,7 +221,7 @@ namespace MSTest
         private void btn_ModifyConfim_Click(object sender, EventArgs e)
         {
             var source = (from d in this.global_Departments
-                              where d.DepartmentNo == this.dgv_DepartmentInfo.CurrentRow.Cells["DepartmentNo"].Value.ToString()
+                          where d.DepartmentNo == this.dgv_DepartmentInfo.CurrentRow.Cells["DepartmentNo"].Value.ToString()
                           select d).FirstOrDefault();
             if (source == null)
                 return;
@@ -227,7 +239,7 @@ namespace MSTest
                 MessageBox.Show("添加失败！失败原因：" + ex.Message);
             }
 
-            AjustDepartmentInfoControlState(true, false);
+            AdjustDepartmentInfoControlState(true, false);
             this.lbl_AddRemind.Visible = this.lbl_ModifyRemind.Visible = false;
             this.global_Departments = objDempartmentManager.GetDepartments();
             this.dgv_DepartmentInfo.DataSource = null;
@@ -236,7 +248,7 @@ namespace MSTest
 
         private void btn_Cancel_Click(object sender, EventArgs e)
         {
-            AjustDepartmentInfoControlState(true, false);
+            AdjustDepartmentInfoControlState(true, false);
             ClearDepartmentInfoControl();
             this.lbl_AddRemind.Visible = this.lbl_ModifyRemind.Visible = false;
         }

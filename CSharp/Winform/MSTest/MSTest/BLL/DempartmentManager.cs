@@ -4,12 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using IDAL;
+using Models;
+
 namespace MSTest
 {
     public class DempartmentManager
     {
         #region 全局变量
-        private DepartmentService objDepartmentService = new DepartmentService();
+        // private DepartmentService objDepartmentService = new DepartmentService();
+        private IDepartmentService objDepartmentService = DALFactory.CreateService<IDepartmentService>("DepartmentService");
         #endregion
 
         #region 增

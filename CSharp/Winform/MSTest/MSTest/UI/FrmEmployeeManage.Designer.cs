@@ -32,13 +32,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgv_EmployeeInfo = new System.Windows.Forms.DataGridView();
-            this.Department = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EmployeeNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EmployeeName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EmployeeSex = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EmployeeBirth = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IsJob = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Remarks = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.cbo_EmployeeQueryMode = new System.Windows.Forms.ComboBox();
             this.btn_ModifyEmployeeInfo = new System.Windows.Forms.Button();
@@ -46,6 +39,13 @@
             this.txt_QueryCondition = new System.Windows.Forms.TextBox();
             this.btn_DeleteEmployee = new System.Windows.Forms.Button();
             this.btn_AddEmployee = new System.Windows.Forms.Button();
+            this.Department = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EmployeeNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EmployeeName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EmployeeSex = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EmployeeBirth = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IsJob = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Remarks = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_EmployeeInfo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -92,68 +92,6 @@
             this.dgv_EmployeeInfo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_EmployeeInfo.Size = new System.Drawing.Size(699, 304);
             this.dgv_EmployeeInfo.TabIndex = 15;
-            // 
-            // Department
-            // 
-            this.Department.DataPropertyName = "DepartmentName";
-            this.Department.HeaderText = "部门名称";
-            this.Department.Name = "Department";
-            this.Department.ReadOnly = true;
-            this.Department.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // EmployeeNo
-            // 
-            this.EmployeeNo.DataPropertyName = "EmployeeNo";
-            this.EmployeeNo.HeaderText = "员工编号";
-            this.EmployeeNo.Name = "EmployeeNo";
-            this.EmployeeNo.ReadOnly = true;
-            this.EmployeeNo.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.EmployeeNo.Width = 80;
-            // 
-            // EmployeeName
-            // 
-            this.EmployeeName.DataPropertyName = "EmployeeName";
-            this.EmployeeName.HeaderText = "员工名称";
-            this.EmployeeName.Name = "EmployeeName";
-            this.EmployeeName.ReadOnly = true;
-            this.EmployeeName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.EmployeeName.Width = 80;
-            // 
-            // EmployeeSex
-            // 
-            this.EmployeeSex.DataPropertyName = "EmployeeSex";
-            this.EmployeeSex.HeaderText = "性别";
-            this.EmployeeSex.Name = "EmployeeSex";
-            this.EmployeeSex.ReadOnly = true;
-            this.EmployeeSex.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.EmployeeSex.Width = 50;
-            // 
-            // EmployeeBirth
-            // 
-            this.EmployeeBirth.DataPropertyName = "EmployeeBirth";
-            this.EmployeeBirth.HeaderText = "员工生日";
-            this.EmployeeBirth.Name = "EmployeeBirth";
-            this.EmployeeBirth.ReadOnly = true;
-            this.EmployeeBirth.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.EmployeeBirth.Width = 80;
-            // 
-            // IsJob
-            // 
-            this.IsJob.DataPropertyName = "IsJob";
-            this.IsJob.HeaderText = "是否在职";
-            this.IsJob.Name = "IsJob";
-            this.IsJob.ReadOnly = true;
-            this.IsJob.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.IsJob.Width = 80;
-            // 
-            // Remarks
-            // 
-            this.Remarks.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Remarks.DataPropertyName = "Remarks";
-            this.Remarks.HeaderText = "备注";
-            this.Remarks.Name = "Remarks";
-            this.Remarks.ReadOnly = true;
-            this.Remarks.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // label1
             // 
@@ -229,6 +167,68 @@
             this.btn_AddEmployee.Text = "添加员工";
             this.btn_AddEmployee.UseVisualStyleBackColor = true;
             this.btn_AddEmployee.Click += new System.EventHandler(this.btn_AddEmployee_Click);
+            // 
+            // Department
+            // 
+            this.Department.DataPropertyName = "DepartmentName";
+            this.Department.HeaderText = "部门名称";
+            this.Department.Name = "Department";
+            this.Department.ReadOnly = true;
+            this.Department.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // EmployeeNo
+            // 
+            this.EmployeeNo.DataPropertyName = "EmployeeNo";
+            this.EmployeeNo.HeaderText = "员工编号";
+            this.EmployeeNo.Name = "EmployeeNo";
+            this.EmployeeNo.ReadOnly = true;
+            this.EmployeeNo.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.EmployeeNo.Width = 80;
+            // 
+            // EmployeeName
+            // 
+            this.EmployeeName.DataPropertyName = "EmployeeName";
+            this.EmployeeName.HeaderText = "员工名称";
+            this.EmployeeName.Name = "EmployeeName";
+            this.EmployeeName.ReadOnly = true;
+            this.EmployeeName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.EmployeeName.Width = 80;
+            // 
+            // EmployeeSex
+            // 
+            this.EmployeeSex.DataPropertyName = "EmployeeSex";
+            this.EmployeeSex.HeaderText = "性别";
+            this.EmployeeSex.Name = "EmployeeSex";
+            this.EmployeeSex.ReadOnly = true;
+            this.EmployeeSex.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.EmployeeSex.Width = 50;
+            // 
+            // EmployeeBirth
+            // 
+            this.EmployeeBirth.DataPropertyName = "EmployeeBirth";
+            this.EmployeeBirth.HeaderText = "员工生日";
+            this.EmployeeBirth.Name = "EmployeeBirth";
+            this.EmployeeBirth.ReadOnly = true;
+            this.EmployeeBirth.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.EmployeeBirth.Width = 80;
+            // 
+            // IsJob
+            // 
+            this.IsJob.DataPropertyName = "IsJob";
+            this.IsJob.HeaderText = "是否在职";
+            this.IsJob.Name = "IsJob";
+            this.IsJob.ReadOnly = true;
+            this.IsJob.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.IsJob.Width = 80;
+            // 
+            // Remarks
+            // 
+            this.Remarks.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Remarks.DataPropertyName = "Remarks";
+            this.Remarks.HeaderText = "备注";
+            this.Remarks.Name = "Remarks";
+            this.Remarks.ReadOnly = true;
+            this.Remarks.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // FrmEmployeeManage
             // 

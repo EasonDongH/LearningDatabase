@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using Models;
+
 namespace MSTest
 {
     public partial class FrmUpdateEmployee : Form

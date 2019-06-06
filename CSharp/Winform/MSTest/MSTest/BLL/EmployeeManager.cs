@@ -4,12 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using Models;
+using IDAL;
+
 namespace MSTest
 {
     public class EmployeeManager
     {
         #region 全局变量
-        private EmployeeService objEmployeeService = new EmployeeService();
+        // private EmployeeService objEmployeeService = new EmployeeService();
+        private  IEmployeeService objEmployeeService = DALFactory.CreateService<IEmployeeService>("EmployeeService");
         #endregion
 
         #region 增
