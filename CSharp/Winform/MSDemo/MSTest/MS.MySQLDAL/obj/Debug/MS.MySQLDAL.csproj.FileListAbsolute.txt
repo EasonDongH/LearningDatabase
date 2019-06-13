@@ -1,0 +1,15 @@
+D:\WorkSpace\MSDemo\MSTest\MS.MySQLDAL\bin\Debug\MS.MySQLDAL.dll
+D:\WorkSpace\MSDemo\MSTest\MS.MySQLDAL\bin\Debug\MS.MySQLDAL.pdb
+D:\WorkSpace\MSDemo\MSTest\MS.MySQLDAL\bin\Debug\Dapper.Contrib.dll
+D:\WorkSpace\MSDemo\MSTest\MS.MySQLDAL\bin\Debug\Dapper.dll
+D:\WorkSpace\MSDemo\MSTest\MS.MySQLDAL\bin\Debug\Dapper.Mapper.dll
+D:\WorkSpace\MSDemo\MSTest\MS.MySQLDAL\bin\Debug\Dapper.SimpleCRUD.dll
+D:\WorkSpace\MSDemo\MSTest\MS.MySQLDAL\bin\Debug\log4net.dll
+D:\WorkSpace\MSDemo\MSTest\MS.MySQLDAL\bin\Debug\MS.DBUtil.dll
+D:\WorkSpace\MSDemo\MSTest\MS.MySQLDAL\bin\Debug\MS.Models.dll
+D:\WorkSpace\MSDemo\MSTest\MS.MySQLDAL\bin\Debug\mysql.data.dll
+D:\WorkSpace\MSDemo\MSTest\MS.MySQLDAL\bin\Debug\MS.DBUtil.pdb
+D:\WorkSpace\MSDemo\MSTest\MS.MySQLDAL\bin\Debug\MS.Models.pdb
+D:\WorkSpace\MSDemo\MSTest\MS.MySQLDAL\obj\Debug\MS.MySQLDAL.csprojResolveAssemblyReference.cache
+D:\WorkSpace\MSDemo\MSTest\MS.MySQLDAL\obj\Debug\MS.MySQLDAL.dll
+D:\WorkSpace\MSDemo\MSTest\MS.MySQLDAL\obj\Debug\MS.MySQLDAL.pdb

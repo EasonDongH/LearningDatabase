@@ -1,0 +1,10 @@
+D:\WorkSpace\MSDemo\MSTest\MS.DBUtil\bin\Debug\MS.DBUtil.dll
+D:\WorkSpace\MSDemo\MSTest\MS.DBUtil\bin\Debug\MS.DBUtil.pdb
+D:\WorkSpace\MSDemo\MSTest\MS.DBUtil\bin\Debug\Dapper.dll
+D:\WorkSpace\MSDemo\MSTest\MS.DBUtil\bin\Debug\log4net.dll
+D:\WorkSpace\MSDemo\MSTest\MS.DBUtil\bin\Debug\MS.Base.dll
+D:\WorkSpace\MSDemo\MSTest\MS.DBUtil\bin\Debug\mysql.data.dll
+D:\WorkSpace\MSDemo\MSTest\MS.DBUtil\bin\Debug\MS.Base.pdb
+D:\WorkSpace\MSDemo\MSTest\MS.DBUtil\obj\Debug\MS.DBUtil.csprojResolveAssemblyReference.cache
+D:\WorkSpace\MSDemo\MSTest\MS.DBUtil\obj\Debug\MS.DBUtil.dll
+D:\WorkSpace\MSDemo\MSTest\MS.DBUtil\obj\Debug\MS.DBUtil.pdb

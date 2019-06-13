@@ -1,0 +1,6 @@
+D:\WorkSpace\MSDemo\MSTest\MS.Models\bin\Debug\MS.Models.dll
+D:\WorkSpace\MSDemo\MSTest\MS.Models\bin\Debug\MS.Models.pdb
+D:\WorkSpace\MSDemo\MSTest\MS.Models\bin\Debug\Dapper.dll
+D:\WorkSpace\MSDemo\MSTest\MS.Models\obj\Debug\MS.Models.dll
+D:\WorkSpace\MSDemo\MSTest\MS.Models\obj\Debug\MS.Models.pdb
+D:\WorkSpace\MSDemo\MSTest\MS.Models\bin\Debug\Dapper.Contrib.dll

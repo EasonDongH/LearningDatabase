@@ -1,4 +1,0 @@
-F:\1. GitHub\LearningDatabase\CSharp\Winform\MSTest\Models\bin\Debug\Models.dll
-F:\1. GitHub\LearningDatabase\CSharp\Winform\MSTest\Models\bin\Debug\Models.pdb
-F:\1. GitHub\LearningDatabase\CSharp\Winform\MSTest\Models\obj\Debug\Models.dll
-F:\1. GitHub\LearningDatabase\CSharp\Winform\MSTest\Models\obj\Debug\Models.pdb
