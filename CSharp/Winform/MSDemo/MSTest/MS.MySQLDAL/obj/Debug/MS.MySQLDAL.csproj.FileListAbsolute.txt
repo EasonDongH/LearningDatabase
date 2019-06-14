@@ -13,3 +13,4 @@ D:\WorkSpace\MSDemo\MSTest\MS.MySQLDAL\bin\Debug\MS.Models.pdb
 D:\WorkSpace\MSDemo\MSTest\MS.MySQLDAL\obj\Debug\MS.MySQLDAL.csprojResolveAssemblyReference.cache
 D:\WorkSpace\MSDemo\MSTest\MS.MySQLDAL\obj\Debug\MS.MySQLDAL.dll
 D:\WorkSpace\MSDemo\MSTest\MS.MySQLDAL\obj\Debug\MS.MySQLDAL.pdb
+D:\WorkSpace\MSDemo\MSTest\MS.MySQLDAL\bin\Debug\DapperExtensions.dll

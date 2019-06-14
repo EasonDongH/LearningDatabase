@@ -22,5 +22,4 @@ D:\WorkSpace\MSDemo\MSTest\MSTest\obj\x86\Debug\MSTest.exe
 D:\WorkSpace\MSDemo\MSTest\MSTest\obj\x86\Debug\MSTest.pdb
 D:\WorkSpace\MSDemo\MSTest\MSTest\bin\Debug\Dapper.dll
 D:\WorkSpace\MSDemo\MSTest\MSTest\obj\x86\Debug\MSTest.csprojResolveAssemblyReference.cache
-D:\WorkSpace\MSDemo\MSTest\MSTest\bin\Debug\Dapper.Contrib.dll
 D:\WorkSpace\MSDemo\MSTest\MSTest\bin\Debug\Dapper.SimpleCRUD.dll

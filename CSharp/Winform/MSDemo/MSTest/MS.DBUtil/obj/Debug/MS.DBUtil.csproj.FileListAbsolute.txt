@@ -8,3 +8,6 @@ D:\WorkSpace\MSDemo\MSTest\MS.DBUtil\bin\Debug\MS.Base.pdb
 D:\WorkSpace\MSDemo\MSTest\MS.DBUtil\obj\Debug\MS.DBUtil.csprojResolveAssemblyReference.cache
 D:\WorkSpace\MSDemo\MSTest\MS.DBUtil\obj\Debug\MS.DBUtil.dll
 D:\WorkSpace\MSDemo\MSTest\MS.DBUtil\obj\Debug\MS.DBUtil.pdb
+D:\WorkSpace\MSDemo\MSTest\MS.DBUtil\bin\Debug\Dapper.Contrib.dll
+D:\WorkSpace\MSDemo\MSTest\MS.DBUtil\bin\Debug\Dapper.Mapper.dll
+D:\WorkSpace\MSDemo\MSTest\MS.DBUtil\bin\Debug\Dapper.SimpleCRUD.dll

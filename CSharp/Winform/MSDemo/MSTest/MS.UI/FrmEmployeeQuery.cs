@@ -23,6 +23,7 @@ namespace MS.UI
 
             this.cbo_EmployeeQueryMode.SelectedIndex = 0;
             this.dgv_EmployeeInfo.AutoGenerateColumns = false;
+            DataGridViewStyle.DgvStyle(this.dgv_EmployeeInfo);
         }
 
         private void tsbtn_AddEmployee_Click(object sender, EventArgs e)
@@ -117,5 +118,10 @@ namespace MS.UI
                 this.txt_QueryCondition.Text = string.Empty;
         }
         #endregion
+
+        private void dgv_EmployeeInfo_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
+        {
+            DataGridViewStyle.DgvRowPostPaint(this.dgv_EmployeeInfo,e);
+        }
     }
 }

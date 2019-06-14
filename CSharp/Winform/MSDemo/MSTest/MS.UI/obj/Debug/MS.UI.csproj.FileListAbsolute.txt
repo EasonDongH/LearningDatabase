@@ -23,5 +23,4 @@ D:\WorkSpace\MSDemo\MSTest\MS.UI\obj\Debug\MS.UI.Properties.Resources.resources
 D:\WorkSpace\MSDemo\MSTest\MS.UI\obj\Debug\MS.UI.csproj.GenerateResource.Cache
 D:\WorkSpace\MSDemo\MSTest\MS.UI\obj\Debug\MS.UI.exe
 D:\WorkSpace\MSDemo\MSTest\MS.UI\obj\Debug\MS.UI.pdb
-D:\WorkSpace\MSDemo\MSTest\MS.UI\bin\Debug\Dapper.Contrib.dll
 D:\WorkSpace\MSDemo\MSTest\MS.UI\bin\Debug\Dapper.SimpleCRUD.dll

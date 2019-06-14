@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,6 +7,7 @@ using System.Threading.Tasks;
 using System.Reflection;
 
 using log4net;
+using Dapper;
 using MS.Models;
 using MS.DBUtil;
 using MySql.Data.MySqlClient;
@@ -16,17 +18,27 @@ namespace MS.MySQLDAL
     {
         private static ILog log = log4net.LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
 
-        #region 增
-
-        public bool AddEmployee(EmployeeModel employee)
+        private IDbConnection Conn
         {
-            int isjob = employee.IsJob ? 1 : 0;
-            string sql = "INSERT INTO ms_employee(Id,DepartmentId,EmployeeNo,EmployeeName,EmployeeSex,EmployeeBirth,IsJob,Remarks)";
-            sql += string.Format(" VALUES('{0}','{1}','{2}','{3}','{4}','{5}',{6},'{7}');",employee.Id, employee.DepartmentId,employee.EmployeeNo,employee.EmployeeName,employee.EmployeeSex,employee.EmployeeBirth,isjob,employee.Remarks);
-            bool add_Result = false;
+            get { return MySQLHelper.Conn; }
+        }
+        #region 增
+        /// <summary>
+        /// 添加部门
+        /// </summary>
+        /// <param name="employee"></param>
+        /// <returns></returns>
+        public int AddEmployee(EmployeeModel employee)
+        {
+            StringBuilder sql = new StringBuilder("INSERT INTO ms_employee(Id,DepartmentId,EmployeeNo,EmployeeName,EmployeeSex,EmployeeBirth,IsJob,Remarks)");
+            sql.Append(" VALUES(@Id,@DepartmentId,@EmployeeNo,@EmployeeName,@EmployeeSex,@EmployeeBirth,@IsJob,@Remarks);");
+            int add_Result = 0;
             try
             {
-                add_Result = MySQLHelper.Update(sql);
+                using (this.Conn)
+                {
+                    add_Result = this.Conn.Execute(sql.ToString(), employee);
+                }
             }
             catch (Exception ex)
             {
@@ -38,87 +50,171 @@ namespace MS.MySQLDAL
         #endregion
 
         #region 删
-
-        public bool DeleteEmployeeByNo(string no)
+        /// <summary>
+        /// 根据Id（主键），删除员工
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public int DeleteEmployeeById(string id)
         {
-            string sql = string.Format("DELETE FROM ms_employee WHERE EmployeeNo='{0}';",no);
-            return MySQLHelper.Update(sql);
-        }
-        #endregion
-
-        #region 改
-
-        public bool ModfiyEmployeeInfo(EmployeeModel employee)
-        {
-            int isJob = employee.IsJob ? 1 : 0;
-            StringBuilder sql = new StringBuilder("UPDATE  ms_employee SET");
-            sql.Append(string.Format(" DepartmentId='{0}'",employee.DepartmentId));
-            sql.Append(string.Format(" ,EmployeeNo='{0}',EmployeeName='{1}'",employee.EmployeeNo,employee.EmployeeName));
-            sql.Append(string.Format(" ,EmployeeSex='{0}',EmployeeBirth='{1}'",employee.EmployeeSex,employee.EmployeeBirth));
-            sql.Append(string.Format(" ,IsJob={0},Remarks='{1}'",isJob,employee.Remarks));
-            sql.Append(string.Format(" WHERE Id='{0}'",employee.Id));
-            sql.Append(";");
-
-            return MySQLHelper.Update(sql.ToString());
-        }
-        #endregion
-
-        #region 查
-        private List<EmployeeModel> GetEmployeesCommonMethod(string sql, MySqlParameter[] parameters = null)
-        {
-            List<EmployeeModel> employees = new List<EmployeeModel>();
+            int delete_Result = 0;
+            EmployeeModel model = new EmployeeModel();
+            model.Id = id;
             try
             {
-                MySqlDataReader objReader = MySQLHelper.GetDataReader(sql, parameters);
-                while (objReader.Read())
+                using (this.Conn)
                 {
-                    employees.Add(new EmployeeModel
-                    {
-                        Id = objReader["Id"].ToString(),
-                        DepartmentId = objReader["DepartmentId"].ToString(),
-                        DepartmentName = objReader["DepartmentName"].ToString(),
-                        EmployeeNo = objReader["EmployeeNo"].ToString(),
-                        EmployeeName = objReader["EmployeeName"].ToString(),
-                        EmployeeSex = objReader["EmployeeSex"].ToString(),
-                        EmployeeBirth = Convert.ToDateTime(objReader["EmployeeBirth"]).ToString("yyyy-MM-dd"),
-                        IsJob = Convert.ToInt32(objReader["IsJob"]) == 1 ? true : false,
-                        Remarks = objReader["Remarks"].ToString()
-                    });
+                    delete_Result = this.Conn.Delete(model);
                 }
             }
             catch (Exception ex)
             {
                 log.Error(ex);
             }
-
-            return employees;
+            return delete_Result;
         }
-
-        public EmployeeModel GetSpecifyEmployeeByEmployeeNo(string no)
+        /// <summary>
+        /// 根据员工编号（唯一键），删除员工
+        /// </summary>
+        /// <param name="employeeNo"></param>
+        /// <returns></returns>
+        public int DeleteEmployeeByNo(string employeeNo)
         {
-            string sql = "SELECT e.Id,e.DepartmentId,d.DepartmentName,e.EmployeeNo,e.EmployeeName,e.EmployeeSex,e.EmployeeBirth,e.IsJob,e.Remarks FROM ms_employee e";
-            sql += " INNER JOIN ms_department d ON d.Id = e.DepartmentId";
-            sql += string.Format(" WHERE EmployeeNo = '{0}';",no);
-
-            var list = GetEmployeesCommonMethod(sql);
-            return list.Count() != 0 ? list[0] : null;
+            int delete_Result = 0;
+            string sql = "DELETE FROM ms_employee WHERE EmployeeNo=@EmployeeNo;";
+            try
+            {
+                using (this.Conn)
+                {
+                    delete_Result = this.Conn.Execute(sql, new { EmployeeNo = employeeNo });
+                }
+            }
+            catch (Exception ex)
+            {
+                log.Error(ex);
+            }
+            return delete_Result;
         }
+        #endregion
 
+        #region 改
+        /// <summary>
+        /// 修改员工信息
+        /// </summary>
+        /// <param name="employee"></param>
+        /// <returns></returns>
+        public int ModfiyEmployeeInfo(EmployeeModel employee)
+        {
+            int modify_Result = 0;
+            try
+            {
+                using (this.Conn)
+                {
+                    modify_Result = this.Conn.Update(employee);
+                }
+            }
+            catch (Exception ex)
+            {
+                log.Error(ex);
+            }
+            return modify_Result;
+        }
+        #endregion
+
+        #region 查
+        /// <summary>
+        /// 获取全部员工
+        /// </summary>
+        /// <returns></returns>
+        public List<EmployeeModel> GetEmployees()
+        {
+            StringBuilder sql = new StringBuilder("SELECT * FROM ms_employee e");
+            sql.Append(" INNER JOIN ms_department d");
+            sql.Append(" ON d.Id = e.DepartmentId;");
+
+            List<EmployeeModel> models = new List<EmployeeModel>();
+            try
+            {
+                using (this.Conn)
+                {
+                    models = this.Conn.Query<EmployeeModel, DepartmentModel, EmployeeModel>(sql.ToString(), (employee, dp) =>
+                        {
+                            employee.DepartmentName = dp.DepartmentName;
+                            employee.CorrespondingDepartment = dp;
+                            return employee;
+                        }).ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                log.Error(ex);
+            }
+            return models;
+        }
+        /// <summary>
+        /// 根据员工编号（唯一键），查询员工
+        /// </summary>
+        /// <param name="employeeNo"></param>
+        /// <returns></returns>
+        public EmployeeModel GetSpecifyEmployeeByEmployeeNo(string employeeNo)
+        {
+            StringBuilder sql = new StringBuilder("SELECT");
+            sql.Append(" e.Id,e.DepartmentId,d.DepartmentName,e.EmployeeNo,e.EmployeeName,e.EmployeeSex,e.EmployeeBirth,e.IsJob,e.Remarks");
+            sql.Append(" ,d.Id, d.DepartmentNo, d.DepartmentName, d.Remarks");
+            sql.Append(" FROM ms_employee e");
+            sql.Append(" INNER JOIN ms_department d ON d.Id = e.DepartmentId");
+            sql.Append(" WHERE EmployeeNo = @EmployeeNo;");
+            EmployeeModel model = null;
+            try
+            {
+                using (this.Conn)
+                {
+                    model = this.Conn.Query<EmployeeModel, DepartmentModel, EmployeeModel>(sql.ToString(), (employee, dp) =>
+                    {
+                        employee.CorrespondingDepartment = dp;
+                        return employee;
+                    }, new { EmployeeNo = employeeNo }, splitOn: "Id").SingleOrDefault();
+                    /* splitOn：从查询的字段列表最后向前，到splitOn指定的第一个列名，映射到最后一张表
+                     * 接着到splitOn指定的第二个列名，映射到最后第二张表，以此类推
+                     * splitOn:"列名1，列名2，..."
+                     */
+                }
+            }
+            catch (Exception ex)
+            {
+                log.Error(ex);
+            }
+            return model;
+        }
         /// <summary>
         /// 根据员工编号进行模糊查询
         /// 模糊条件：%no%
         /// </summary>
         /// <param name="no"></param>
         /// <returns></returns>
-        public List<EmployeeModel> FuzzyQueryEmployeesByEmployeeNo(string no)
+        public List<EmployeeModel> FuzzyQueryEmployeesByEmployeeNo(string employeeNo)
         {
-            StringBuilder sql = new StringBuilder("SELECT e.Id,e.DepartmentId,d.DepartmentName,e.EmployeeNo,e.EmployeeName,e.EmployeeSex");
-            sql.Append(",e.EmployeeBirth,e.IsJob,e.Remarks FROM ms_employee e");
+            StringBuilder sql = new StringBuilder("SELECT * FROM ms_employee e");
             sql.Append(" INNER JOIN ms_department d ON d.Id = e.DepartmentId");
-            sql.Append(string.Format(" WHERE EmployeeNo like '{0}'",no));
+            sql.Append(" WHERE EmployeeNo like @EmployeeNo");
             sql.Append(";");
-
-            return GetEmployeesCommonMethod(sql.ToString());
+            List<EmployeeModel> models = new List<EmployeeModel>();
+            try
+            {
+                using (this.Conn)
+                {
+                    models = this.Conn.Query<EmployeeModel, DepartmentModel, EmployeeModel>(sql.ToString(), (employee, dp) =>
+                    {
+                        employee.DepartmentName = dp.DepartmentName;
+                        return employee;
+                    }, new { EmployeeNo = employeeNo }).ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                log.Error(ex);
+            }
+            return models;
         }
 
         /// <summary>
@@ -127,30 +223,53 @@ namespace MS.MySQLDAL
         /// </summary>
         /// <param name="name"></param>
         /// <returns></returns>
-        public List<EmployeeModel> FuzzyQueryEmployeesByEmployeeName(string name)
+        public List<EmployeeModel> FuzzyQueryEmployeesByEmployeeName(string employeeName)
         {
-            StringBuilder sql = new StringBuilder("SELECT e.Id,e.DepartmentId,d.DepartmentName,e.EmployeeNo,e.EmployeeName,e.EmployeeSex");
-            sql.Append(",e.EmployeeBirth,e.IsJob,e.Remarks FROM ms_employee e");
+            StringBuilder sql = new StringBuilder("SELECT * FROM ms_employee e");
             sql.Append(" INNER JOIN ms_department d ON d.Id = e.DepartmentId");
-            sql.Append(string.Format(" WHERE EmployeeName like '{0}'",name));
+            sql.Append(" WHERE EmployeeName like @EmployeeName");
             sql.Append(";");
-
-            return GetEmployeesCommonMethod(sql.ToString());
+            List<EmployeeModel> models = new List<EmployeeModel>();
+            try
+            {
+                using (this.Conn)
+                {
+                    models = this.Conn.Query<EmployeeModel, DepartmentModel, EmployeeModel>(sql.ToString(), (employee, dp) =>
+                    {
+                        employee.DepartmentName = dp.DepartmentName;
+                        return employee;
+                    }, new { EmployeeName = employeeName }).ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                log.Error(ex);
+            }
+            return models;
         }
-
         /// <summary>
-        /// 获取全部员工
+        /// 检查Id（主键）是否存在
         /// </summary>
-        /// <returns></returns>
-        public List<EmployeeModel> GetEmployees()
+        /// <param name="id"></param>
+        /// <returns>true：已存在 false：不存在</returns>
+        public bool CheckIdIsExist(string id)
         {
-            StringBuilder sql = new StringBuilder("SELECT e.Id,e.DepartmentId,d.DepartmentName,e.EmployeeNo,e.EmployeeName");
-            sql.Append(",e.EmployeeSex,e.EmployeeBirth,e.IsJob,e.Remarks FROM ms_employee e");
-            sql.Append(" INNER JOIN ms_department d ON d.Id = e.DepartmentId;");
-
-            return GetEmployeesCommonMethod(sql.ToString());
+            bool result = true;
+            try
+            {
+                using (this.Conn)
+                {
+                    EmployeeModel model = this.Conn.Get<EmployeeModel>(id);
+                    result = model != null;
+                }
+            }
+            catch (Exception ex)
+            {
+                log.Error(ex);
+                throw ex;
+            }
+            return result;
         }
-
         /// <summary>
         /// 查询给定的员工编号是否存在
         /// </summary>
@@ -158,15 +277,19 @@ namespace MS.MySQLDAL
         /// <returns>true：已存在 false：未存在</returns>
         public bool CheckEmployeeNoIsExist(string employeeNo)
         {
-            string sql = string.Format("SELECT COUNT(*) FROM ms_employee WHERE EmployeeNo = '{0}';",employeeNo);
+            string sql = "SELECT COUNT(*) FROM ms_employee WHERE EmployeeNo = @EmployeeNo;";
             int query_Result = 1; // 默认值取>0
             try
             {
-                query_Result = Convert.ToInt32(MySQLHelper.GetSingleResult(sql));
+                using (this.Conn)
+                {
+                    query_Result = this.Conn.ExecuteScalar<int>(sql, new { EmployeeNo = employeeNo });
+                }
             }
             catch (Exception ex)
             {
                 log.Error(ex);
+                throw ex;
             }
             return query_Result != 0;
         }
@@ -179,33 +302,42 @@ namespace MS.MySQLDAL
         /// <returns>true：已存在 false：未存在</returns>
         public bool CheckEmployeeNoIsExist(string employeeNo, string id)
         {
-            string sql = string.Format("SELECT COUNT(*) FROM ms_employee WHERE EmployeeNo = '{0}' AND Id <> '{1}';", employeeNo, id);
+            string sql = "SELECT COUNT(*) FROM ms_employee WHERE EmployeeNo = @EmployeeNo AND Id <> @Id;";
             int query_Result = 1; // 默认值取>0
             try
             {
-                query_Result = Convert.ToInt32(MySQLHelper.GetSingleResult(sql));
+                using (this.Conn)
+                {
+                    query_Result = this.Conn.ExecuteScalar<int>(sql, new { EmployeeNo = employeeNo, Id = id });
+                }
             }
             catch (Exception ex)
             {
                 log.Error(ex);
+                throw ex;
             }
             return query_Result > 0;
         }
 
-        public string GetIdByNo(string no)
+        public string GetIdByNo(string employeeNo)
         {
-            string sql = string.Format("SELECT Id FROM ms_employee WHERE EmployeeNo='{0}'", no);
             string id = null;
+            EmployeeModel model = null;
+            string sql = string.Format("SELECT * FROM ms_employee WHERE EmployeeNo = @EmployeeNo");
             try
             {
-                object obj = MySQLHelper.GetSingleResult(sql);
-                if(obj != null)
-                    id = obj.ToString();
+                using (this.Conn)
+                {
+                    model = this.Conn.Query<EmployeeModel>(sql, new { EmployeeNo = employeeNo }).SingleOrDefault();
+                }
             }
             catch (Exception ex)
             {
                 log.Error(ex);
             }
+
+            if (model != null)
+                id = model.Id;
             return id;
         }
         #endregion

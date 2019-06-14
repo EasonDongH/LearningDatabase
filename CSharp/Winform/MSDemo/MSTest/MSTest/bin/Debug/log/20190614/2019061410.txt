@@ -1,0 +1,167 @@
+
+记录时间：2019-06-14 10:02:30,434 
+线程ID:[9] 
+日志级别：INFO  
+出错位置：MSTest.Program.Main  
+错误描述：程序开始运行...
+ 
+ 
+记录时间：2019-06-14 10:02:51,912 
+线程ID:[9] 
+日志级别：INFO  
+出错位置：MSTest.Program.Main  
+错误描述：程序开始运行...
+ 
+ 
+记录时间：2019-06-14 10:03:08,686 
+线程ID:[9] 
+日志级别：INFO  
+出错位置：MSTest.Program.Main  
+错误描述：程序停止运行！
+ 
+ 
+记录时间：2019-06-14 10:10:04,837 
+线程ID:[8] 
+日志级别：INFO  
+出错位置：MSTest.Program.Main  
+错误描述：程序开始运行...
+ 
+ 
+记录时间：2019-06-14 10:10:12,413 
+线程ID:[8] 
+日志级别：INFO  
+出错位置：MSTest.Program.Main  
+错误描述：程序停止运行！
+ 
+ 
+记录时间：2019-06-14 10:11:32,696 
+线程ID:[8] 
+日志级别：INFO  
+出错位置：MSTest.Program.Main  
+错误描述：程序开始运行...
+ 
+ 
+记录时间：2019-06-14 10:12:25,090 
+线程ID:[8] 
+日志级别：INFO  
+出错位置：MSTest.Program.Main  
+错误描述：程序开始运行...
+ 
+ 
+记录时间：2019-06-14 10:18:58,558 
+线程ID:[8] 
+日志级别：INFO  
+出错位置：MSTest.Program.Main  
+错误描述：程序开始运行...
+ 
+ 
+记录时间：2019-06-14 10:20:45,478 
+线程ID:[8] 
+日志级别：INFO  
+出错位置：MSTest.Program.Main  
+错误描述：程序开始运行...
+ 
+ 
+记录时间：2019-06-14 10:21:54,239 
+线程ID:[8] 
+日志级别：INFO  
+出错位置：MSTest.Program.Main  
+错误描述：程序开始运行...
+ 
+ 
+记录时间：2019-06-14 10:24:10,832 
+线程ID:[8] 
+日志级别：INFO  
+出错位置：MSTest.Program.Main  
+错误描述：程序开始运行...
+ 
+ 
+记录时间：2019-06-14 10:38:25,539 
+线程ID:[9] 
+日志级别：INFO  
+出错位置：MSTest.Program.Main  
+错误描述：程序开始运行...
+ 
+ 
+记录时间：2019-06-14 10:39:39,492 
+线程ID:[8] 
+日志级别：INFO  
+出错位置：MSTest.Program.Main  
+错误描述：程序开始运行...
+ 
+ 
+记录时间：2019-06-14 10:40:46,355 
+线程ID:[8] 
+日志级别：INFO  
+出错位置：MSTest.Program.Main  
+错误描述：程序停止运行！
+ 
+ 
+记录时间：2019-06-14 10:54:55,376 
+线程ID:[9] 
+日志级别：INFO  
+出错位置：MSTest.Program.Main  
+错误描述：程序开始运行...
+ 
+ 
+记录时间：2019-06-14 10:54:59,195 
+线程ID:[9] 
+日志级别：ERROR 
+出错位置：MS.MySQLDAL.EmployeeDAL.GetSpecifyEmployeeByEmployeeNo  
+错误描述：System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 MySql.Data.MySqlClient.MySqlConnection.get_ServerThread()
+   在 MySql.Data.MySqlClient.MySqlConnection.Abort()
+   在 MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   在 MySql.Data.MySqlClient.MySqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   在 System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   在 Dapper.SqlMapper.ExecuteReaderWithFlagsFallback(IDbCommand cmd, Boolean wasClosed, CommandBehavior behavior)
+   在 Dapper.SqlMapper.<MultiMapImpl>d__84`8.MoveNext()
+   在 System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   在 System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   在 Dapper.SqlMapper.MultiMap[TFirst,TSecond,TThird,TFourth,TFifth,TSixth,TSeventh,TReturn](IDbConnection cnn, String sql, Delegate map, Object param, IDbTransaction transaction, Boolean buffered, String splitOn, Nullable`1 commandTimeout, Nullable`1 commandType)
+   在 Dapper.SqlMapper.Query[TFirst,TSecond,TReturn](IDbConnection cnn, String sql, Func`3 map, Object param, IDbTransaction transaction, Boolean buffered, String splitOn, Nullable`1 commandTimeout, Nullable`1 commandType)
+   在 MS.MySQLDAL.EmployeeDAL.GetSpecifyEmployeeByEmployeeNo(String employeeNo) 位置 D:\WorkSpace\MSDemo\MSTest\MS.MySQLDAL\EmployeeDAL.cs:行号 169
+ 
+ 
+记录时间：2019-06-14 10:55:06,826 
+线程ID:[9] 
+日志级别：INFO  
+出错位置：MSTest.Program.Main  
+错误描述：程序停止运行！
+ 
+ 
+记录时间：2019-06-14 10:55:20,411 
+线程ID:[9] 
+日志级别：INFO  
+出错位置：MSTest.Program.Main  
+错误描述：程序开始运行...
+ 
+ 
+记录时间：2019-06-14 10:56:36,641 
+线程ID:[9] 
+日志级别：INFO  
+出错位置：MSTest.Program.Main  
+错误描述：程序开始运行...
+ 
+ 
+记录时间：2019-06-14 10:57:27,339 
+线程ID:[8] 
+日志级别：INFO  
+出错位置：MSTest.Program.Main  
+错误描述：程序开始运行...
+ 
+ 
+记录时间：2019-06-14 10:58:11,669 
+线程ID:[8] 
+日志级别：INFO  
+出错位置：MSTest.Program.Main  
+错误描述：程序开始运行...
+ 
+ 
+记录时间：2019-06-14 10:59:10,701 
+线程ID:[8] 
+日志级别：INFO  
+出错位置：MSTest.Program.Main  
+错误描述：程序开始运行...
+ 
+ 

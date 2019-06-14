@@ -6,7 +6,9 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Reflection;
 
+using log4net;
 using MS.Base;
 using MS.Models;
 using MS.BLL;
@@ -19,6 +21,7 @@ namespace MS.UI
         private EmployeeModel global_Employee = null;
         private DepartmentBLL objDepartmentBLL = new DepartmentBLL();
         private EmployeeBLL objEmployeeBLL = new EmployeeBLL();
+        private static ILog log = log4net.LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
 
         private void Init()
         {
@@ -112,21 +115,30 @@ namespace MS.UI
 
         private void tsbtn_Save_Click(object sender, EventArgs e)
         {
-            EmployeeModel employee = CheckDataIsValid(this.global_Employee);
-            if (employee == null)
-                return;
-            if (this.currentOperateMode == OperateMode.Modify && this.global_Employee != null)
-                employee.Id = this.global_Employee.Id;
-            if (this.objEmployeeBLL.UpdateEmployee(this.currentOperateMode, employee))
+            try
             {
-                MessageBox.Show("保存成功！", "提示");
-                this.DialogResult = DialogResult.OK;
+                EmployeeModel employee = CheckDataIsValid(this.global_Employee);
+                if (employee == null)
+                    return;
+                if (this.currentOperateMode == OperateMode.Modify && this.global_Employee != null)
+                    employee.Id = this.global_Employee.Id;
+                if (this.objEmployeeBLL.UpdateEmployee(this.currentOperateMode, employee))
+                {
+                    MessageBox.Show("保存成功！", "提示");
+                    this.DialogResult = DialogResult.OK;
+                }
+                else
+                {
+                    MessageBox.Show("保存失败！", "提示");
+                    this.DialogResult = DialogResult.No;
+                }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("保存失败！", "提示");
-                this.DialogResult = DialogResult.No;
+                MessageBox.Show("保存异常，窗体即将关闭！","异常提示");
+                log.Error(ex);
             }
+            
             this.Close();
         }
 

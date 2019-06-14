@@ -8,7 +8,6 @@ using System.Reflection;
 
 using log4net;
 using Dapper;
-using Dapper.Mapper;
 using MySql.Data.MySqlClient;
 
 using MS.Models;
@@ -33,7 +32,7 @@ namespace MS.MySQLDAL
         /// <returns></returns>
         public int AddDepartment(DepartmentModel department)
         {
-            string sql = "INSERT INTO ms_department(Id,DepartmentNo,DepartmentName,Remarks) VALUES(@Id,?DepartmentNo,@DepartmentName,@Remarks);";
+            string sql = "INSERT INTO ms_department(Id,DepartmentNo,DepartmentName,Remarks) VALUES(@Id,@DepartmentNo,@DepartmentName,@Remarks);";
 
             int add_Result = 0;
             try
@@ -42,7 +41,6 @@ namespace MS.MySQLDAL
                 {
                     add_Result = this.Conn.Execute(sql, department);
                 }
-
             }
             catch (Exception ex)
             {
@@ -59,7 +57,7 @@ namespace MS.MySQLDAL
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public int DeleteDepartment(string id)
+        public int DeleteDepartmentById(string id)
         {
             DepartmentModel model = new DepartmentModel();
             model.Id = id;
@@ -115,9 +113,7 @@ namespace MS.MySQLDAL
             {
                 using (this.Conn)
                 {
-                    //modify_Result = this.Conn.Update(department) > 0;
-                    string sql = "UPDATE ms_department SET DepartmentNo=@DepartmentNo,DepartmentName=@DepartmentName,Remarks=@Remarks where Id=@Id;";
-                    modify_Result = this.Conn.Execute(sql, department);
+                    modify_Result = this.Conn.Update(department);
                 }
             }
             catch (Exception ex)
@@ -129,7 +125,29 @@ namespace MS.MySQLDAL
         #endregion
 
         #region 查
-
+        /// <summary>
+        /// 检查Id（主键）是否存在
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>true：已存在 false：不存在</returns>
+        public bool CheckIdIsExist(string id)
+        {
+            bool result = true;
+            try
+            {
+                using (this.Conn)
+                {
+                    DepartmentModel model = this.Conn.Get<DepartmentModel>(id);
+                    result = model != null;
+                }
+            }
+            catch (Exception ex)
+            {
+                log.Error(ex);
+                throw ex;
+            }
+            return result;
+        }
         /// <summary>
         /// 查询给定的部门编号是否存在
         /// </summary>
@@ -142,16 +160,18 @@ namespace MS.MySQLDAL
             {
                 using (this.Conn)
                 {
-                    string sql = "SELECT * FROM ms_department WHERE DepartmentNo=@DepartmentNo;";
-                    List<DepartmentModel> models = this.Conn.Query<DepartmentModel>(sql, new { DepartmentNo = departmentNo }).ToList();
-                    result = models.Count() > 0;
-                    //int cnt = this.Conn.Execute(sql, new { DepartmentNo = departmentNo });
-                    //result = this.Conn.Execute(sql,new {DepartmentNo=departmentNo}) > 0;
+                    //string sql = "SELECT * FROM ms_department WHERE DepartmentNo = @DepartmentNo;";
+                    //DepartmentModel model = this.Conn.QueryFirstOrDefault<DepartmentModel>(sql, new { DepartmentNo = departmentNo });
+                    //result = model != null;
+
+                    string sql = "SELECT COUNT(*) FROM ms_department WHERE DepartmentNo = @DepartmentNo;";
+                    result = this.Conn.ExecuteScalar<int>(sql, new { DepartmentNo = departmentNo }) > 0;
                 }
             }
             catch (Exception ex)
             {
                 log.Error(ex);
+                throw ex;
             }
             return result;
         }
@@ -169,42 +189,21 @@ namespace MS.MySQLDAL
             {
                 using (this.Conn)
                 {
-                    string sql = "SELECT * FROM ms_department WHERE DepartmentNo=@DepartmentNo AND Id <> @Id;";
-                    List<DepartmentModel> models = this.Conn.Query<DepartmentModel>(sql, new { DepartmentNo = departmentNo, Id = id }).ToList();
-                    result = models.Count() > 0;
-                    //int cnt = this.Conn.Execute(sql, new { DepartmentNo = departmentNo, Id = id });
-                    //result = this.Conn.Execute(sql, new { DepartmentNo = departmentNo, Id = id }) > 0;
+                    //string sql = "SELECT * FROM ms_department WHERE DepartmentNo = @DepartmentNo AND Id <> @Id;";
+                    //DepartmentModel model = this.Conn.QueryFirstOrDefault<DepartmentModel>(sql, new { DepartmentNo = departmentNo, Id = id });
+                    //result = model != null;
+
+                    string sql = "SELECT COUNT(*) FROM ms_department WHERE DepartmentNo = @DepartmentNo AND Id <> @Id;";
+                    result = this.Conn.ExecuteScalar<int>(sql, new { DepartmentNo = departmentNo, Id = id }) > 0;
                 }
             }
             catch (Exception ex)
             {
                 log.Error(ex);
+                throw ex;
+
             }
             return result;
-        }
-
-        /// <summary>
-        /// 获取部门列表的公共私有方法
-        /// </summary>
-        /// <param name="sql"></param>
-        /// <param name="parameters"></param>
-        /// <returns></returns>
-        private List<DepartmentModel> GetDepartmetsCommonMethod(string sql, MySqlParameter[] parameters = null)
-        {
-            List<DepartmentModel> departments = new List<DepartmentModel>();
-            try
-            {
-                using (this.Conn)
-                {
-                    departments = this.Conn.Query<DepartmentModel>(sql).ToList();
-                }
-            }
-            catch (Exception ex)
-            {
-                log.Error(ex);
-            }
-
-            return departments;
         }
         /// <summary>
         /// 根据部门编号进行模糊查询
@@ -214,8 +213,20 @@ namespace MS.MySQLDAL
         /// <returns></returns>
         public List<DepartmentModel> FuzzyQueryDepartmentsByDepartmentNo(string departmentNo)
         {
-            string sql = string.Format("SELECT * FROM ms_department WHERE DepartmentNo like '{0}';", departmentNo);
-            return GetDepartmetsCommonMethod(sql);
+            string sql = "SELECT * FROM ms_department WHERE DepartmentNo LIKE @DepartmentNo;";
+            List<DepartmentModel> departments = new List<DepartmentModel>();
+            try
+            {
+                using (this.Conn)
+                {
+                    departments = this.Conn.Query<DepartmentModel>(sql, new { DepartmentNo = departmentNo }).ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                log.Error(ex);
+            }
+            return departments;
         }
         /// <summary>
         /// 根据部门名称进行模糊查询
@@ -225,8 +236,20 @@ namespace MS.MySQLDAL
         /// <returns></returns>
         public List<DepartmentModel> FuzzyQueryDepartmentsByDepartmentName(string departmentName)
         {
-            string sql = string.Format("SELECT * FROM ms_department WHERE DepartmentName like '{0}';", departmentName);
-            return GetDepartmetsCommonMethod(sql);
+            string sql = "SELECT * FROM ms_department WHERE DepartmentName LIKE @DepartmentName;";
+            List<DepartmentModel> departments = new List<DepartmentModel>();
+            try
+            {
+                using (this.Conn)
+                {
+                    departments = this.Conn.Query<DepartmentModel>(sql, new { DepartmentName = departmentName }).ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                log.Error(ex);
+            }
+            return departments;
         }
         /// <summary>
         /// 获取所有部门信息
@@ -234,46 +257,59 @@ namespace MS.MySQLDAL
         /// <returns></returns>
         public List<DepartmentModel> GetDepartments()
         {
-            string sql = "SELECT * FROM ms_department;";
-            return GetDepartmetsCommonMethod(sql);
-        }
-        /// <summary>
-        /// 根据唯一键部门编号，获取逐渐Id
-        /// </summary>
-        /// <param name="no"></param>
-        /// <returns></returns>
-        public string GetIdByNo(string no)
-        {
-            string sql = string.Format("SELECT Id FROM ms_department WHERE DepartmentNo='{0}'", no);
-            string id = null;
+            List<DepartmentModel> departments = new List<DepartmentModel>();
             try
             {
                 using (this.Conn)
                 {
-                    DepartmentModel model = this.Conn.Query<DepartmentModel>(sql).SingleOrDefault();
-                    if (model != null)
-                        id = model.Id;
+                    departments = this.Conn.GetList<DepartmentModel>().ToList();
                 }
             }
             catch (Exception ex)
             {
                 log.Error(ex);
             }
+            return departments;
+        }
+        /// <summary>
+        /// 根据部门编号（唯一键），获取主键Id
+        /// </summary>
+        /// <param name="no"></param>
+        /// <returns></returns>
+        public string GetIdByNo(string no)
+        {
+            string id = null;
+            DepartmentModel model = null;
+            string sql = "SELECT Id FROM ms_department WHERE DepartmentNo = @DepartmentNo";
+            try
+            {
+                using (this.Conn)
+                {
+                    model = this.Conn.Query<DepartmentModel>(sql, new { DepartmentNo = no }).SingleOrDefault();
+                }
+            }
+            catch (Exception ex)
+            {
+                log.Error(ex);
+            }
+
+            if (model != null)
+                id = model.Id;
             return id;
         }
         /// <summary>
-        /// 根据唯一键部门编号，获取指定部门
+        /// 根据部门编号（唯一键），获取部门
         /// </summary>
         /// <param name="no"></param>
         /// <returns></returns>
         public DepartmentModel GetSpecifyDepartmentByDepartmentNo(string no)
         {
             DepartmentModel model = null;
+            string sql = "SELECT * FROM ms_department WHERE DepartmentNo = @DepartmentNo;";
             try
             {
                 using (this.Conn)
                 {
-                    string sql = "SELECT * FROM ms_department WHERE DepartmentNo = @DepartmentNo;";
                     model = this.Conn.Query<DepartmentModel>(sql, new { DepartmentNo = no }).SingleOrDefault();
                 }
             }

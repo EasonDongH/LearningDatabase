@@ -20,26 +20,24 @@ namespace MS.BLL
 
         public bool UpdateDepartment(OperateMode opm, DepartmentModel department)
         {
-            bool update_Result = false;
+            int update_Result = 0;
             switch (opm)
             {
                 case OperateMode.Add:
                     department.Id = CommonMethod.GetGUID();
-                    update_Result = this.objDepartmentDAL.AddDepartment(department) > 0;
+                    update_Result = this.objDepartmentDAL.AddDepartment(department);
                     break;
                 case OperateMode.Modify:
-                    update_Result = this.objDepartmentDAL.ModifyDepartmentInfo(department) > 0;
+                    update_Result = this.objDepartmentDAL.ModifyDepartmentInfo(department);
                     break;
             }
-            return update_Result;
+            return update_Result > 0;
         }
         #endregion
 
         #region 删
         public bool DeleteDepartmentByNo(string no)
         {
-            //string id = this.objDepartmentDAL.GetIdByNo(no);
-            //return this.objDepartmentDAL.DeleteDepartment(id) > 0;
             return this.objDepartmentDAL.DeleteDepartmentByNo(no) > 0;
         }
         #endregion
@@ -47,7 +45,7 @@ namespace MS.BLL
         #region 查
         private List<DepartmentModel> SortByDepartmentNo(List<DepartmentModel> departments)
         {
-            return (from d in departments orderby d.DepartmentNo select d).ToList();
+            return departments.OrderBy(dp => dp.DepartmentNo).ToList();
         }
 
         public List<DepartmentModel> GetDepartments()
@@ -57,13 +55,11 @@ namespace MS.BLL
 
         public DepartmentModel GetSpecifyDepartmentByDepartmentNo(string no)
         {
-            string id = this.objDepartmentDAL.GetIdByNo(no);
-            var model = this.objDepartmentDAL.GetSpecifyDepartmentById(id);
             return this.objDepartmentDAL.GetSpecifyDepartmentByDepartmentNo(no);
         }
 
         /// <summary>
-        /// 根据query mode进行条件查询
+        /// 根据querymode进行条件查询
         /// 0：根据部门编号查询
         /// 1：根据部门名称查询
         /// </summary>

@@ -14,5 +14,4 @@ D:\WorkSpace\MSDemo\MSTest\MS.BLL\bin\Debug\MS.DBUtil.pdb
 D:\WorkSpace\MSDemo\MSTest\MS.BLL\obj\Debug\MS.BLL.csprojResolveAssemblyReference.cache
 D:\WorkSpace\MSDemo\MSTest\MS.BLL\obj\Debug\MS.BLL.dll
 D:\WorkSpace\MSDemo\MSTest\MS.BLL\obj\Debug\MS.BLL.pdb
-D:\WorkSpace\MSDemo\MSTest\MS.BLL\bin\Debug\Dapper.Contrib.dll
 D:\WorkSpace\MSDemo\MSTest\MS.BLL\bin\Debug\Dapper.SimpleCRUD.dll

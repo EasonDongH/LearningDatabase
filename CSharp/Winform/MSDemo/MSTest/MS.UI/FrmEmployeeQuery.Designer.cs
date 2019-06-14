@@ -29,17 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgv_EmployeeInfo = new System.Windows.Forms.DataGridView();
-            this.Department = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EmployeeNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EmployeeName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EmployeeSex = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EmployeeBirth = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IsJob = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Remarks = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.cbo_EmployeeQueryMode = new System.Windows.Forms.ComboBox();
             this.txt_QueryCondition = new System.Windows.Forms.TextBox();
@@ -52,6 +45,13 @@
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.tsbtn_QueryEmployee = new System.Windows.Forms.ToolStripButton();
             this.ep_Reminder = new System.Windows.Forms.ErrorProvider(this.components);
+            this.Department = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EmployeeNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EmployeeName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EmployeeSex = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EmployeeBirth = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IsJob = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Remarks = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_EmployeeInfo)).BeginInit();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ep_Reminder)).BeginInit();
@@ -63,17 +63,18 @@
             this.dgv_EmployeeInfo.AllowUserToDeleteRows = false;
             this.dgv_EmployeeInfo.AllowUserToResizeColumns = false;
             this.dgv_EmployeeInfo.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dgv_EmployeeInfo.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgv_EmployeeInfo.BackgroundColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_EmployeeInfo.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dgv_EmployeeInfo.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            this.dgv_EmployeeInfo.BackgroundColor = System.Drawing.Color.WhiteSmoke;
+            this.dgv_EmployeeInfo.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_EmployeeInfo.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dgv_EmployeeInfo.ColumnHeadersHeight = 35;
             this.dgv_EmployeeInfo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgv_EmployeeInfo.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -84,14 +85,14 @@
             this.EmployeeBirth,
             this.IsJob,
             this.Remarks});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_EmployeeInfo.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_EmployeeInfo.DefaultCellStyle = dataGridViewCellStyle6;
             this.dgv_EmployeeInfo.Location = new System.Drawing.Point(15, 65);
             this.dgv_EmployeeInfo.MultiSelect = false;
             this.dgv_EmployeeInfo.Name = "dgv_EmployeeInfo";
@@ -101,68 +102,7 @@
             this.dgv_EmployeeInfo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_EmployeeInfo.Size = new System.Drawing.Size(700, 305);
             this.dgv_EmployeeInfo.TabIndex = 23;
-            // 
-            // Department
-            // 
-            this.Department.DataPropertyName = "DepartmentName";
-            this.Department.HeaderText = "部门名称";
-            this.Department.Name = "Department";
-            this.Department.ReadOnly = true;
-            this.Department.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // EmployeeNo
-            // 
-            this.EmployeeNo.DataPropertyName = "EmployeeNo";
-            this.EmployeeNo.HeaderText = "员工编号";
-            this.EmployeeNo.Name = "EmployeeNo";
-            this.EmployeeNo.ReadOnly = true;
-            this.EmployeeNo.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.EmployeeNo.Width = 80;
-            // 
-            // EmployeeName
-            // 
-            this.EmployeeName.DataPropertyName = "EmployeeName";
-            this.EmployeeName.HeaderText = "员工名称";
-            this.EmployeeName.Name = "EmployeeName";
-            this.EmployeeName.ReadOnly = true;
-            this.EmployeeName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.EmployeeName.Width = 80;
-            // 
-            // EmployeeSex
-            // 
-            this.EmployeeSex.DataPropertyName = "EmployeeSex";
-            this.EmployeeSex.HeaderText = "性别";
-            this.EmployeeSex.Name = "EmployeeSex";
-            this.EmployeeSex.ReadOnly = true;
-            this.EmployeeSex.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.EmployeeSex.Width = 50;
-            // 
-            // EmployeeBirth
-            // 
-            this.EmployeeBirth.DataPropertyName = "EmployeeBirth";
-            this.EmployeeBirth.HeaderText = "员工生日";
-            this.EmployeeBirth.Name = "EmployeeBirth";
-            this.EmployeeBirth.ReadOnly = true;
-            this.EmployeeBirth.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.EmployeeBirth.Width = 80;
-            // 
-            // IsJob
-            // 
-            this.IsJob.DataPropertyName = "IsJob";
-            this.IsJob.HeaderText = "是否在职";
-            this.IsJob.Name = "IsJob";
-            this.IsJob.ReadOnly = true;
-            this.IsJob.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.IsJob.Width = 80;
-            // 
-            // Remarks
-            // 
-            this.Remarks.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Remarks.DataPropertyName = "Remarks";
-            this.Remarks.HeaderText = "备注";
-            this.Remarks.Name = "Remarks";
-            this.Remarks.ReadOnly = true;
-            this.Remarks.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dgv_EmployeeInfo.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dgv_EmployeeInfo_RowPostPaint);
             // 
             // label1
             // 
@@ -269,10 +209,73 @@
             // 
             this.ep_Reminder.ContainerControl = this;
             // 
+            // Department
+            // 
+            this.Department.DataPropertyName = "DepartmentName";
+            this.Department.HeaderText = "部门名称";
+            this.Department.Name = "Department";
+            this.Department.ReadOnly = true;
+            this.Department.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // EmployeeNo
+            // 
+            this.EmployeeNo.DataPropertyName = "EmployeeNo";
+            this.EmployeeNo.HeaderText = "员工编号";
+            this.EmployeeNo.Name = "EmployeeNo";
+            this.EmployeeNo.ReadOnly = true;
+            this.EmployeeNo.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.EmployeeNo.Width = 80;
+            // 
+            // EmployeeName
+            // 
+            this.EmployeeName.DataPropertyName = "EmployeeName";
+            this.EmployeeName.HeaderText = "员工名称";
+            this.EmployeeName.Name = "EmployeeName";
+            this.EmployeeName.ReadOnly = true;
+            this.EmployeeName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.EmployeeName.Width = 80;
+            // 
+            // EmployeeSex
+            // 
+            this.EmployeeSex.DataPropertyName = "EmployeeSex";
+            this.EmployeeSex.HeaderText = "性别";
+            this.EmployeeSex.Name = "EmployeeSex";
+            this.EmployeeSex.ReadOnly = true;
+            this.EmployeeSex.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.EmployeeSex.Width = 50;
+            // 
+            // EmployeeBirth
+            // 
+            this.EmployeeBirth.DataPropertyName = "EmployeeBirth";
+            this.EmployeeBirth.HeaderText = "员工生日";
+            this.EmployeeBirth.Name = "EmployeeBirth";
+            this.EmployeeBirth.ReadOnly = true;
+            this.EmployeeBirth.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.EmployeeBirth.Width = 80;
+            // 
+            // IsJob
+            // 
+            this.IsJob.DataPropertyName = "IsJob";
+            this.IsJob.HeaderText = "是否在职";
+            this.IsJob.Name = "IsJob";
+            this.IsJob.ReadOnly = true;
+            this.IsJob.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.IsJob.Width = 80;
+            // 
+            // Remarks
+            // 
+            this.Remarks.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Remarks.DataPropertyName = "Remarks";
+            this.Remarks.HeaderText = "备注";
+            this.Remarks.Name = "Remarks";
+            this.Remarks.ReadOnly = true;
+            this.Remarks.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
             // FrmEmployeeQuery
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.ClientSize = new System.Drawing.Size(732, 380);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.dgv_EmployeeInfo);
@@ -293,13 +296,6 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dgv_EmployeeInfo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Department;
-        private System.Windows.Forms.DataGridViewTextBoxColumn EmployeeNo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn EmployeeName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn EmployeeSex;
-        private System.Windows.Forms.DataGridViewTextBoxColumn EmployeeBirth;
-        private System.Windows.Forms.DataGridViewTextBoxColumn IsJob;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Remarks;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cbo_EmployeeQueryMode;
         private System.Windows.Forms.TextBox txt_QueryCondition;
@@ -312,5 +308,12 @@
         private System.Windows.Forms.ToolStripButton tsbtn_QueryEmployee;
         private System.Windows.Forms.ErrorProvider ep_Reminder;
         private System.Windows.Forms.ToolStripButton tsbtn_AddEmployee;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Department;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EmployeeNo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EmployeeName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EmployeeSex;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EmployeeBirth;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IsJob;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Remarks;
     }
 }

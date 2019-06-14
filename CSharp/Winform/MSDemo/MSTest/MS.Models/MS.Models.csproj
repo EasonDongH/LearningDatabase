@@ -39,8 +39,8 @@
     <Reference Include="Dapper">
       <HintPath>..\MS.Base\MS.Base\refDLL\Dapper\Dapper.dll</HintPath>
     </Reference>
-    <Reference Include="Dapper.Contrib">
-      <HintPath>..\MS.Base\MS.Base\refDLL\Dapper\Dapper.Contrib.dll</HintPath>
+    <Reference Include="Dapper.SimpleCRUD">
+      <HintPath>..\MS.Base\MS.Base\refDLL\Dapper\Dapper.SimpleCRUD.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

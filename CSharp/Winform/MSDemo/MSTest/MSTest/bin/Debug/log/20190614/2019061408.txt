@@ -1,0 +1,141 @@
+
+记录时间：2019-06-14 08:32:33,975 
+线程ID:[8] 
+日志级别：INFO  
+出错位置：MSTest.Program.Main  
+错误描述：程序开始运行...
+ 
+ 
+记录时间：2019-06-14 08:35:18,229 
+线程ID:[8] 
+日志级别：INFO  
+出错位置：MSTest.Program.Main  
+错误描述：程序开始运行...
+ 
+ 
+记录时间：2019-06-14 08:44:07,332 
+线程ID:[9] 
+日志级别：INFO  
+出错位置：MSTest.Program.Main  
+错误描述：程序开始运行...
+ 
+ 
+记录时间：2019-06-14 08:44:14,581 
+线程ID:[9] 
+日志级别：ERROR 
+出错位置：MS.MySQLDAL.DepartmentDAL.CheckDepartmentNoIsExist  
+错误描述：MySql.Data.MySqlClient.MySqlException (0x80004005): Fatal error encountered during command execution. ---> MySql.Data.MySqlClient.MySqlException (0x80004005): Parameter '@DepartmentNo' must be defined.
+   在 MySql.Data.MySqlClient.Statement.SerializeParameter(MySqlParameterCollection parameters, MySqlPacket packet, String parmName)
+   在 MySql.Data.MySqlClient.Statement.InternalBindParameters(String sql, MySqlParameterCollection parameters, MySqlPacket packet)
+   在 MySql.Data.MySqlClient.Statement.BindParameters()
+   在 MySql.Data.MySqlClient.Statement.Execute()
+   在 MySql.Data.MySqlClient.PreparableStatement.Execute()
+   在 MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   在 MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   在 MySql.Data.MySqlClient.MySqlCommand.ExecuteReader()
+   在 MySql.Data.MySqlClient.MySqlCommand.ExecuteScalar()
+   在 Dapper.SqlMapper.ExecuteScalarImpl[T](IDbConnection cnn, CommandDefinition& command)
+   在 Dapper.SqlMapper.ExecuteScalar[T](IDbConnection cnn, String sql, Object param, IDbTransaction transaction, Nullable`1 commandTimeout, Nullable`1 commandType)
+   在 MS.MySQLDAL.DepartmentDAL.CheckDepartmentNoIsExist(String departmentNo) 位置 D:\WorkSpace\MSDemo\MSTest\MS.MySQLDAL\DepartmentDAL.cs:行号 148
+ 
+ 
+记录时间：2019-06-14 08:44:21,774 
+线程ID:[9] 
+日志级别：ERROR 
+出错位置：MS.MySQLDAL.DepartmentDAL.CheckDepartmentNoIsExist  
+错误描述：MySql.Data.MySqlClient.MySqlException (0x80004005): Fatal error encountered during command execution. ---> MySql.Data.MySqlClient.MySqlException (0x80004005): Parameter '@DepartmentNo' must be defined.
+   在 MySql.Data.MySqlClient.Statement.SerializeParameter(MySqlParameterCollection parameters, MySqlPacket packet, String parmName)
+   在 MySql.Data.MySqlClient.Statement.InternalBindParameters(String sql, MySqlParameterCollection parameters, MySqlPacket packet)
+   在 MySql.Data.MySqlClient.Statement.BindParameters()
+   在 MySql.Data.MySqlClient.Statement.Execute()
+   在 MySql.Data.MySqlClient.PreparableStatement.Execute()
+   在 MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   在 MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   在 MySql.Data.MySqlClient.MySqlCommand.ExecuteReader()
+   在 MySql.Data.MySqlClient.MySqlCommand.ExecuteScalar()
+   在 Dapper.SqlMapper.ExecuteScalarImpl[T](IDbConnection cnn, CommandDefinition& command)
+   在 Dapper.SqlMapper.ExecuteScalar[T](IDbConnection cnn, String sql, Object param, IDbTransaction transaction, Nullable`1 commandTimeout, Nullable`1 commandType)
+   在 MS.MySQLDAL.DepartmentDAL.CheckDepartmentNoIsExist(String departmentNo) 位置 D:\WorkSpace\MSDemo\MSTest\MS.MySQLDAL\DepartmentDAL.cs:行号 148
+ 
+ 
+记录时间：2019-06-14 08:44:56,901 
+线程ID:[9] 
+日志级别：INFO  
+出错位置：MSTest.Program.Main  
+错误描述：程序开始运行...
+ 
+ 
+记录时间：2019-06-14 08:45:05,455 
+线程ID:[9] 
+日志级别：ERROR 
+出错位置：MS.MySQLDAL.DepartmentDAL.CheckDepartmentNoIsExist  
+错误描述：MySql.Data.MySqlClient.MySqlException (0x80004005): Fatal error encountered during command execution. ---> MySql.Data.MySqlClient.MySqlException (0x80004005): Parameter '@DepartmentNo' must be defined.
+   在 MySql.Data.MySqlClient.Statement.SerializeParameter(MySqlParameterCollection parameters, MySqlPacket packet, String parmName)
+   在 MySql.Data.MySqlClient.Statement.InternalBindParameters(String sql, MySqlParameterCollection parameters, MySqlPacket packet)
+   在 MySql.Data.MySqlClient.Statement.BindParameters()
+   在 MySql.Data.MySqlClient.Statement.Execute()
+   在 MySql.Data.MySqlClient.PreparableStatement.Execute()
+   在 MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   在 MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   在 MySql.Data.MySqlClient.MySqlCommand.ExecuteReader()
+   在 MySql.Data.MySqlClient.MySqlCommand.ExecuteScalar()
+   在 Dapper.SqlMapper.ExecuteScalarImpl[T](IDbConnection cnn, CommandDefinition& command)
+   在 Dapper.SqlMapper.ExecuteScalar[T](IDbConnection cnn, String sql, Object param, IDbTransaction transaction, Nullable`1 commandTimeout, Nullable`1 commandType)
+   在 MS.MySQLDAL.DepartmentDAL.CheckDepartmentNoIsExist(String departmentNo) 位置 D:\WorkSpace\MSDemo\MSTest\MS.MySQLDAL\DepartmentDAL.cs:行号 148
+ 
+ 
+记录时间：2019-06-14 08:46:18,111 
+线程ID:[8] 
+日志级别：INFO  
+出错位置：MSTest.Program.Main  
+错误描述：程序开始运行...
+ 
+ 
+记录时间：2019-06-14 08:46:37,155 
+线程ID:[8] 
+日志级别：INFO  
+出错位置：MSTest.Program.Main  
+错误描述：程序停止运行！
+ 
+ 
+记录时间：2019-06-14 08:48:17,673 
+线程ID:[8] 
+日志级别：INFO  
+出错位置：MSTest.Program.Main  
+错误描述：程序开始运行...
+ 
+ 
+记录时间：2019-06-14 08:58:04,466 
+线程ID:[8] 
+日志级别：INFO  
+出错位置：MSTest.Program.Main  
+错误描述：程序开始运行...
+ 
+ 
+记录时间：2019-06-14 08:58:17,148 
+线程ID:[8] 
+日志级别：ERROR 
+出错位置：MS.MySQLDAL.DepartmentDAL.DeleteDepartment  
+错误描述：MySql.Data.MySqlClient.MySqlException (0x80004005): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '[ms_department] where [Id] = 'e9775ce8-0e87-43aa-9da2-ea2e0f80ff8b'' at line 1
+   在 MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   在 MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int32& insertedId)
+   在 MySql.Data.MySqlClient.Driver.GetResult(Int32 statementId, Int32& affectedRows, Int32& insertedId)
+   在 MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
+   在 MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   在 MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   在 MySql.Data.MySqlClient.MySqlCommand.ExecuteReader()
+   在 MySql.Data.MySqlClient.MySqlCommand.ExecuteNonQuery()
+   在 Dapper.SqlMapper.ExecuteCommand(IDbConnection cnn, CommandDefinition& command, Action`2 paramReader)
+   在 Dapper.SqlMapper.ExecuteImpl(IDbConnection cnn, CommandDefinition& command)
+   在 Dapper.SqlMapper.Execute(IDbConnection cnn, String sql, Object param, IDbTransaction transaction, Nullable`1 commandTimeout, Nullable`1 commandType)
+   在 Dapper.SimpleCRUD.Delete[T](IDbConnection connection, T entityToDelete, IDbTransaction transaction, Nullable`1 commandTimeout)
+   在 MS.MySQLDAL.DepartmentDAL.DeleteDepartment(String id) 位置 D:\WorkSpace\MSDemo\MSTest\MS.MySQLDAL\DepartmentDAL.cs:行号 69
+ 
+ 
+记录时间：2019-06-14 08:58:32,779 
+线程ID:[8] 
+日志级别：INFO  
+出错位置：MSTest.Program.Main  
+错误描述：程序停止运行！
+ 
+ 

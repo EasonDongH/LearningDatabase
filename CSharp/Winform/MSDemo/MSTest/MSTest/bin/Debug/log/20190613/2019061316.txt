@@ -1,0 +1,167 @@
+
+记录时间：2019-06-13 16:00:36,405 
+线程ID:[1] 
+日志级别：INFO  
+出错位置：MSTest.Program.Main  
+错误描述：程序开始运行...
+ 
+ 
+记录时间：2019-06-13 16:00:37,992 
+线程ID:[1] 
+日志级别：ERROR 
+出错位置：MS.MySQLDAL.DepartmentDAL.GetDepartments  
+错误描述：MySql.Data.MySqlClient.MySqlException (0x80004005): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '[DepartmentNoValidLength],[DepartmentNameValidLength],[RemarksValidLength],[Id],' at line 1
+   在 MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   在 MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int32& insertedId)
+   在 MySql.Data.MySqlClient.Driver.GetResult(Int32 statementId, Int32& affectedRows, Int32& insertedId)
+   在 MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
+   在 MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   在 MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   在 MySql.Data.MySqlClient.MySqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   在 System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   在 Dapper.SqlMapper.ExecuteReaderWithFlagsFallback(IDbCommand cmd, Boolean wasClosed, CommandBehavior behavior)
+   在 Dapper.SqlMapper.<QueryImpl>d__69`1.MoveNext()
+   在 System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   在 System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   在 Dapper.SqlMapper.Query[T](IDbConnection cnn, String sql, Object param, IDbTransaction transaction, Boolean buffered, Nullable`1 commandTimeout, Nullable`1 commandType)
+   在 Dapper.SimpleCRUD.GetList[T](IDbConnection connection, Object whereConditions, IDbTransaction transaction, Nullable`1 commandTimeout)
+   在 Dapper.SimpleCRUD.GetList[T](IDbConnection connection)
+   在 MS.MySQLDAL.DepartmentDAL.GetDepartments() 位置 D:\WorkSpace\MSDemo\MSTest\MS.MySQLDAL\DepartmentDAL.cs:行号 244
+ 
+ 
+记录时间：2019-06-13 16:02:43,648 
+线程ID:[1] 
+日志级别：ERROR 
+出错位置：MS.MySQLDAL.DepartmentDAL.GetSpecifyDepartmentById  
+错误描述：MySql.Data.MySqlClient.MySqlException (0x80004005): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '[DepartmentNoValidLength],[DepartmentNameValidLength],[RemarksValidLength],[Id],' at line 1
+   在 MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   在 MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int32& insertedId)
+   在 MySql.Data.MySqlClient.Driver.GetResult(Int32 statementId, Int32& affectedRows, Int32& insertedId)
+   在 MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
+   在 MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   在 MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   在 MySql.Data.MySqlClient.MySqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   在 System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   在 Dapper.SqlMapper.ExecuteReaderWithFlagsFallback(IDbCommand cmd, Boolean wasClosed, CommandBehavior behavior)
+   在 Dapper.SqlMapper.<QueryImpl>d__69`1.MoveNext()
+   在 System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   在 System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   在 Dapper.SqlMapper.Query[T](IDbConnection cnn, String sql, Object param, IDbTransaction transaction, Boolean buffered, Nullable`1 commandTimeout, Nullable`1 commandType)
+   在 Dapper.SimpleCRUD.Get[T](IDbConnection connection, Object id, IDbTransaction transaction, Nullable`1 commandTimeout)
+   在 MS.MySQLDAL.DepartmentDAL.GetSpecifyDepartmentById(String id) 位置 D:\WorkSpace\MSDemo\MSTest\MS.MySQLDAL\DepartmentDAL.cs:行号 312
+ 
+ 
+记录时间：2019-06-13 16:02:46,369 
+线程ID:[1] 
+日志级别：INFO  
+出错位置：MSTest.Program.Main  
+错误描述：程序停止运行！
+ 
+ 
+记录时间：2019-06-13 16:22:34,009 
+线程ID:[1] 
+日志级别：INFO  
+出错位置：MSTest.Program.Main  
+错误描述：程序开始运行...
+ 
+ 
+记录时间：2019-06-13 16:43:50,034 
+线程ID:[1] 
+日志级别：INFO  
+出错位置：MSTest.Program.Main  
+错误描述：程序开始运行...
+ 
+ 
+记录时间：2019-06-13 16:48:42,814 
+线程ID:[1] 
+日志级别：INFO  
+出错位置：MSTest.Program.Main  
+错误描述：程序开始运行...
+ 
+ 
+记录时间：2019-06-13 16:48:44,583 
+线程ID:[1] 
+日志级别：ERROR 
+出错位置：MS.MySQLDAL.DepartmentDAL.GetDepartments  
+错误描述：MySql.Data.MySqlClient.MySqlException (0x80004005): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '[Id],[DepartmentNo],[DepartmentName],[Remarks] from [ms_department]' at line 1
+   在 MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   在 MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int32& insertedId)
+   在 MySql.Data.MySqlClient.Driver.GetResult(Int32 statementId, Int32& affectedRows, Int32& insertedId)
+   在 MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
+   在 MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   在 MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   在 MySql.Data.MySqlClient.MySqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   在 System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   在 Dapper.SqlMapper.ExecuteReaderWithFlagsFallback(IDbCommand cmd, Boolean wasClosed, CommandBehavior behavior)
+   在 Dapper.SqlMapper.<QueryImpl>d__69`1.MoveNext()
+   在 System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   在 System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   在 Dapper.SqlMapper.Query[T](IDbConnection cnn, String sql, Object param, IDbTransaction transaction, Boolean buffered, Nullable`1 commandTimeout, Nullable`1 commandType)
+   在 Dapper.SimpleCRUD.GetList[T](IDbConnection connection, Object whereConditions, IDbTransaction transaction, Nullable`1 commandTimeout)
+   在 Dapper.SimpleCRUD.GetList[T](IDbConnection connection)
+   在 MS.MySQLDAL.DepartmentDAL.GetDepartments() 位置 D:\WorkSpace\MSDemo\MSTest\MS.MySQLDAL\DepartmentDAL.cs:行号 244
+ 
+ 
+记录时间：2019-06-13 16:49:05,542 
+线程ID:[1] 
+日志级别：ERROR 
+出错位置：MS.MySQLDAL.DepartmentDAL.DeleteDepartmentByNo  
+错误描述：MySql.Data.MySqlClient.MySqlException (0x80004005): Cannot delete or update a parent row: a foreign key constraint fails (`mstest/ms_employee`, CONSTRAINT `empoloyee_department_fk` FOREIGN KEY (`DepartmentId`) REFERENCES `ms_department` (`Id`))
+   在 MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   在 MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int32& insertedId)
+   在 MySql.Data.MySqlClient.Driver.GetResult(Int32 statementId, Int32& affectedRows, Int32& insertedId)
+   在 MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
+   在 MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   在 MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   在 MySql.Data.MySqlClient.MySqlCommand.ExecuteReader()
+   在 MySql.Data.MySqlClient.MySqlCommand.ExecuteNonQuery()
+   在 Dapper.SqlMapper.ExecuteCommand(IDbConnection cnn, CommandDefinition& command, Action`2 paramReader)
+   在 Dapper.SqlMapper.ExecuteImpl(IDbConnection cnn, CommandDefinition& command)
+   在 Dapper.SqlMapper.Execute(IDbConnection cnn, String sql, Object param, IDbTransaction transaction, Nullable`1 commandTimeout, Nullable`1 commandType)
+   在 MS.MySQLDAL.DepartmentDAL.DeleteDepartmentByNo(String no) 位置 D:\WorkSpace\MSDemo\MSTest\MS.MySQLDAL\DepartmentDAL.cs:行号 93
+ 
+ 
+记录时间：2019-06-13 16:51:50,021 
+线程ID:[1] 
+日志级别：INFO  
+出错位置：MSTest.Program.Main  
+错误描述：程序开始运行...
+ 
+ 
+记录时间：2019-06-13 16:51:54,528 
+线程ID:[1] 
+日志级别：ERROR 
+出错位置：MS.MySQLDAL.DepartmentDAL.GetDepartments  
+错误描述：MySql.Data.MySqlClient.MySqlException (0x80004005): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '[Id],[DepartmentNo],[DepartmentName],[Remarks] from [ms_department]' at line 1
+   在 MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   在 MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int32& insertedId)
+   在 MySql.Data.MySqlClient.Driver.GetResult(Int32 statementId, Int32& affectedRows, Int32& insertedId)
+   在 MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
+   在 MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   在 MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   在 MySql.Data.MySqlClient.MySqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   在 System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   在 Dapper.SqlMapper.ExecuteReaderWithFlagsFallback(IDbCommand cmd, Boolean wasClosed, CommandBehavior behavior)
+   在 Dapper.SqlMapper.<QueryImpl>d__69`1.MoveNext()
+   在 System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   在 System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   在 Dapper.SqlMapper.Query[T](IDbConnection cnn, String sql, Object param, IDbTransaction transaction, Boolean buffered, Nullable`1 commandTimeout, Nullable`1 commandType)
+   在 Dapper.SimpleCRUD.GetList[T](IDbConnection connection, Object whereConditions, IDbTransaction transaction, Nullable`1 commandTimeout)
+   在 Dapper.SimpleCRUD.GetList[T](IDbConnection connection)
+   在 MS.MySQLDAL.DepartmentDAL.GetDepartments() 位置 D:\WorkSpace\MSDemo\MSTest\MS.MySQLDAL\DepartmentDAL.cs:行号 243
+ 
+ 
+记录时间：2019-06-13 16:53:03,435 
+线程ID:[1] 
+日志级别：INFO  
+出错位置：MSTest.Program.Main  
+错误描述：程序开始运行...
+ 
+ 
+记录时间：2019-06-13 16:53:17,543 
+线程ID:[1] 
+日志级别：INFO  
+出错位置：MSTest.Program.Main  
+错误描述：程序停止运行！
+ 
+ 

@@ -51,6 +51,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CommonMethod.cs" />
+    <Compile Include="DataGridViewStyle.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -58,6 +59,7 @@
     <Content Include="refDLL\Dapper\Dapper.dll" />
     <Content Include="refDLL\Dapper\Dapper.Mapper.dll" />
     <Content Include="refDLL\Dapper\Dapper.SimpleCRUD.dll" />
+    <Content Include="refDLL\Dapper\DapperExtensions.dll" />
     <Content Include="refDLL\log4net\log4net.dll" />
     <Content Include="refDLL\MySQL\mysql.data.dll" />
   </ItemGroup>

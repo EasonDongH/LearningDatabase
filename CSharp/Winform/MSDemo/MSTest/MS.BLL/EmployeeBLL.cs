@@ -18,7 +18,7 @@ namespace MS.BLL
 
         public bool UpdateEmployee(OperateMode opm,EmployeeModel employee)
         {
-            bool update_Result = false;
+            int update_Result = 0;
             switch (opm)
             {
                 case OperateMode.Add:
@@ -29,21 +29,21 @@ namespace MS.BLL
                     update_Result = this.objEmployeeDAL.ModfiyEmployeeInfo(employee);
                     break;
             }
-            return update_Result;
+            return update_Result > 0;
         }
 
         #region 删
 
         public bool DeleteEmployeeByNo(string no)
         {
-            return this.objEmployeeDAL.DeleteEmployeeByNo(no);
+            return this.objEmployeeDAL.DeleteEmployeeByNo(no) > 0;
         }
         #endregion
 
         #region 查
         private List<EmployeeModel> SortByDNoThenENo(List<EmployeeModel> employees)
         {
-            return (from e in employees orderby e.DepartmentId, e.EmployeeNo select e).ToList();
+            return employees.OrderBy(ep => ep.DepartmentId).ThenBy(ep => ep.EmployeeNo).ToList();
         }
 
         public List<EmployeeModel> GetEmployees()

@@ -94,6 +94,7 @@ namespace Common
 
         /// <summary>
         /// 给DataGridView添加行号
+		/// 绑定在事件：private void dgv_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
         /// </summary>
         /// <param name="dgv"></param>
         /// <param name="e"></param>

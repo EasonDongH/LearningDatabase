@@ -132,7 +132,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MS.Base\MS.Base\MS.Base.csproj">
-      <Project>{e5edb2a2-df71-46fe-a18f-f6c6a37e1bd6}</Project>
+      <Project>{E5EDB2A2-DF71-46FE-A18F-F6C6A37E1BD6}</Project>
       <Name>MS.Base</Name>
     </ProjectReference>
     <ProjectReference Include="..\MS.BLL\MS.BLL.csproj">
