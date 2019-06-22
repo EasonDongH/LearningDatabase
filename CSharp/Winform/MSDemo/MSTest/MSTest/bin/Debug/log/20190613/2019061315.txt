@@ -1,0 +1,112 @@
+
+记录时间：2019-06-13 15:02:05,424 
+线程ID:[1] 
+日志级别：INFO  
+出错位置：MSTest.Program.Main  
+错误描述：程序开始运行...
+ 
+ 
+记录时间：2019-06-13 15:02:11,681 
+线程ID:[1] 
+日志级别：INFO  
+出错位置：MSTest.Program.Main  
+错误描述：程序停止运行！
+ 
+ 
+记录时间：2019-06-13 15:03:57,255 
+线程ID:[1] 
+日志级别：INFO  
+出错位置：MSTest.Program.Main  
+错误描述：程序开始运行...
+ 
+ 
+记录时间：2019-06-13 15:04:06,517 
+线程ID:[1] 
+日志级别：ERROR 
+出错位置：MS.MySQLDAL.DepartmentDAL.GetDepartments  
+错误描述：MySql.Data.MySqlClient.MySqlException (0x80004005): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '[DepartmentNoValidLength],[DepartmentNameValidLength],[RemarksValidLength],[Id],' at line 1
+   在 MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   在 MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int32& insertedId)
+   在 MySql.Data.MySqlClient.Driver.GetResult(Int32 statementId, Int32& affectedRows, Int32& insertedId)
+   在 MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
+   在 MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   在 MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   在 MySql.Data.MySqlClient.MySqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   在 System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   在 Dapper.SqlMapper.ExecuteReaderWithFlagsFallback(IDbCommand cmd, Boolean wasClosed, CommandBehavior behavior)
+   在 Dapper.SqlMapper.<QueryImpl>d__69`1.MoveNext()
+   在 System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   在 System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   在 Dapper.SqlMapper.Query[T](IDbConnection cnn, String sql, Object param, IDbTransaction transaction, Boolean buffered, Nullable`1 commandTimeout, Nullable`1 commandType)
+   在 Dapper.SimpleCRUD.GetList[T](IDbConnection connection, Object whereConditions, IDbTransaction transaction, Nullable`1 commandTimeout)
+   在 Dapper.SimpleCRUD.GetList[T](IDbConnection connection)
+   在 MS.MySQLDAL.DepartmentDAL.GetDepartments() 位置 D:\WorkSpace\MSDemo\MSTest\MS.MySQLDAL\DepartmentDAL.cs:行号 267
+ 
+ 
+记录时间：2019-06-13 15:04:07,887 
+线程ID:[1] 
+日志级别：ERROR 
+出错位置：MS.MySQLDAL.DepartmentDAL.GetDepartments  
+错误描述：MySql.Data.MySqlClient.MySqlException (0x80004005): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '[DepartmentNoValidLength],[DepartmentNameValidLength],[RemarksValidLength],[Id],' at line 1
+   在 MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   在 MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int32& insertedId)
+   在 MySql.Data.MySqlClient.Driver.GetResult(Int32 statementId, Int32& affectedRows, Int32& insertedId)
+   在 MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
+   在 MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   在 MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   在 MySql.Data.MySqlClient.MySqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   在 System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   在 Dapper.SqlMapper.ExecuteReaderWithFlagsFallback(IDbCommand cmd, Boolean wasClosed, CommandBehavior behavior)
+   在 Dapper.SqlMapper.<QueryImpl>d__69`1.MoveNext()
+   在 System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   在 System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   在 Dapper.SqlMapper.Query[T](IDbConnection cnn, String sql, Object param, IDbTransaction transaction, Boolean buffered, Nullable`1 commandTimeout, Nullable`1 commandType)
+   在 Dapper.SimpleCRUD.GetList[T](IDbConnection connection, Object whereConditions, IDbTransaction transaction, Nullable`1 commandTimeout)
+   在 Dapper.SimpleCRUD.GetList[T](IDbConnection connection)
+   在 MS.MySQLDAL.DepartmentDAL.GetDepartments() 位置 D:\WorkSpace\MSDemo\MSTest\MS.MySQLDAL\DepartmentDAL.cs:行号 267
+ 
+ 
+记录时间：2019-06-13 15:04:08,021 
+线程ID:[1] 
+日志级别：ERROR 
+出错位置：MS.MySQLDAL.DepartmentDAL.GetDepartments  
+错误描述：MySql.Data.MySqlClient.MySqlException (0x80004005): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '[DepartmentNoValidLength],[DepartmentNameValidLength],[RemarksValidLength],[Id],' at line 1
+   在 MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   在 MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int32& insertedId)
+   在 MySql.Data.MySqlClient.Driver.GetResult(Int32 statementId, Int32& affectedRows, Int32& insertedId)
+   在 MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
+   在 MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   在 MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   在 MySql.Data.MySqlClient.MySqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   在 System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   在 Dapper.SqlMapper.ExecuteReaderWithFlagsFallback(IDbCommand cmd, Boolean wasClosed, CommandBehavior behavior)
+   在 Dapper.SqlMapper.<QueryImpl>d__69`1.MoveNext()
+   在 System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   在 System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   在 Dapper.SqlMapper.Query[T](IDbConnection cnn, String sql, Object param, IDbTransaction transaction, Boolean buffered, Nullable`1 commandTimeout, Nullable`1 commandType)
+   在 Dapper.SimpleCRUD.GetList[T](IDbConnection connection, Object whereConditions, IDbTransaction transaction, Nullable`1 commandTimeout)
+   在 Dapper.SimpleCRUD.GetList[T](IDbConnection connection)
+   在 MS.MySQLDAL.DepartmentDAL.GetDepartments() 位置 D:\WorkSpace\MSDemo\MSTest\MS.MySQLDAL\DepartmentDAL.cs:行号 267
+ 
+ 
+记录时间：2019-06-13 15:05:05,872 
+线程ID:[1] 
+日志级别：INFO  
+出错位置：MSTest.Program.Main  
+错误描述：程序开始运行...
+ 
+ 
+记录时间：2019-06-13 15:05:08,852 
+线程ID:[1] 
+日志级别：INFO  
+出错位置：MSTest.Program.Main  
+错误描述：程序停止运行！
+ 
+ 
+记录时间：2019-06-13 15:08:41,514 
+线程ID:[1] 
+日志级别：INFO  
+出错位置：MSTest.Program.Main  
+错误描述：程序开始运行...
+ 
+ 

@@ -1,0 +1,5 @@
+D:\WorkSpace\MSDemo\MSTest\MS.Base\MS.Base\bin\Debug\MS.Base.dll
+D:\WorkSpace\MSDemo\MSTest\MS.Base\MS.Base\bin\Debug\MS.Base.pdb
+D:\WorkSpace\MSDemo\MSTest\MS.Base\MS.Base\bin\Debug\log4net.dll
+D:\WorkSpace\MSDemo\MSTest\MS.Base\MS.Base\obj\Debug\MS.Base.dll
+D:\WorkSpace\MSDemo\MSTest\MS.Base\MS.Base\obj\Debug\MS.Base.pdb
