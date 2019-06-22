@@ -144,6 +144,7 @@ namespace SocketDemo
                 MessageBox.Show("未选择客户端");
                 return;
             }
+            // 发送“文本”信息
             if (msg != string.Empty)
             {
                 byte[] msgInByte = commonMethod.GetSendBytes(msg, MsgType.Text);
@@ -156,6 +157,7 @@ namespace SocketDemo
                 this.rtb_ServerSend.Text = string.Empty;
             }
             msg = this.txt_FilePath.Text.Trim();
+            // 发送“文件”信息
             if (msg != string.Empty && File.Exists(msg))
             {
                 byte[] msgInByte = commonMethod.GetSendBytes(msg, MsgType.File);

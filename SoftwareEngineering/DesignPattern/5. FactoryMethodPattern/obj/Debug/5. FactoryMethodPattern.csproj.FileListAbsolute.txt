@@ -1,0 +1,7 @@
+C:\2. GitHub\LearningDatabase\SoftwareEngineering\DesignPattern\5. FactoryMethodPattern\bin\Debug\_5.FactoryMethodPattern.exe.config
+C:\2. GitHub\LearningDatabase\SoftwareEngineering\DesignPattern\5. FactoryMethodPattern\bin\Debug\_5.FactoryMethodPattern.exe
+C:\2. GitHub\LearningDatabase\SoftwareEngineering\DesignPattern\5. FactoryMethodPattern\bin\Debug\_5.FactoryMethodPattern.pdb
+C:\2. GitHub\LearningDatabase\SoftwareEngineering\DesignPattern\5. FactoryMethodPattern\obj\Debug\5. FactoryMethodPattern.csprojAssemblyReference.cache
+C:\2. GitHub\LearningDatabase\SoftwareEngineering\DesignPattern\5. FactoryMethodPattern\obj\Debug\5. FactoryMethodPattern.csproj.CoreCompileInputs.cache
+C:\2. GitHub\LearningDatabase\SoftwareEngineering\DesignPattern\5. FactoryMethodPattern\obj\Debug\_5.FactoryMethodPattern.exe
+C:\2. GitHub\LearningDatabase\SoftwareEngineering\DesignPattern\5. FactoryMethodPattern\obj\Debug\_5.FactoryMethodPattern.pdb

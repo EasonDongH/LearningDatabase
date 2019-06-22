@@ -1,79 +1,78 @@
-﻿using System;
+﻿﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
+using System.Threading.Tasks;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
-using System.Configuration;
 
 namespace DAL
 {
-    /// <summary>
-    ///  通用数据访问类
-    /// </summary>
     class SQLHelper
     {
+        private static readonly string connString = ConfigurationManager.ConnectionStrings["connString"].ToString();
 
-        // private static readonly string connString = "Server=.;DataBase=StudentManageDB;Uid=sa;Pwd=password01!";
-
-
-        private static readonly string connString =
-            ConfigurationManager.ConnectionStrings["connString"].ToString();
-
-        //private static readonly string connString =
-        //    Common.StringSecurity.DESDecrypt(ConfigurationManager.ConnectionStrings["connString"].ToString());
+        #region 普通SQL语句
 
         /// <summary>
-        /// 执行增、删、改（insert/update/delete）
+        /// 执行增删改
         /// </summary>
         /// <param name="sql"></param>
         /// <returns></returns>
         public static int Update(string sql)
         {
             SqlConnection conn = new SqlConnection(connString);
-            SqlCommand cmd = new SqlCommand(sql, conn);
+            SqlCommand cmd = new SqlCommand(sql,conn);
             try
             {
                 conn.Open();
-                int result = cmd.ExecuteNonQuery();
-                return result;
+                return cmd.ExecuteNonQuery();
+            }
+            catch (SqlException ex)
+            {
+                throw new Exception("SQLHelper-Update方法发生错误：" + ex.Message);
             }
             catch (Exception ex)
             {
-                throw ex;
+                throw new Exception("SQLHelper-Update方法发生错误：" + ex.Message);
             }
             finally
             {
                 conn.Close();
             }
         }
+
         /// <summary>
-        /// 执行单一结果查询（select）
+        /// 获取单一结果
         /// </summary>
         /// <param name="sql"></param>
         /// <returns></returns>
         public static object GetSingleResult(string sql)
         {
             SqlConnection conn = new SqlConnection(connString);
-            SqlCommand cmd = new SqlCommand(sql, conn);
+            SqlCommand cmd = new SqlCommand(sql,conn);
             try
             {
                 conn.Open();
-                object result = cmd.ExecuteScalar();
-                return result;
+                return cmd.ExecuteScalar();
+            }
+            catch (SqlException ex)
+            {
+                throw new Exception("SQLHelper-GetSingleResult方法发生错误：" + ex.Message);
             }
             catch (Exception ex)
             {
-                throw ex;
+                throw new Exception("SQLHelper-GetSingleResult方法发生错误：" + ex.Message);
             }
             finally
             {
                 conn.Close();
             }
         }
+
         /// <summary>
-        /// 执行多结果查询（select）
+        /// 获取多个结果
         /// </summary>
         /// <param name="sql"></param>
         /// <returns></returns>
@@ -84,18 +83,24 @@ namespace DAL
             try
             {
                 conn.Open();
-                SqlDataReader objReader =
-                    cmd.ExecuteReader(CommandBehavior.CloseConnection);
-                return objReader;
+                return cmd.ExecuteReader(CommandBehavior.CloseConnection);
+            }
+            catch (SqlException ex)
+            {
+                if (conn.State == ConnectionState.Open)
+                    conn.Close();
+                throw new Exception("SQLHelper-GetReader方法发生错误：" + ex.Message);
             }
             catch (Exception ex)
             {
-                conn.Close();
-                throw ex;
-            }
+                if (conn.State == ConnectionState.Open)
+                    conn.Close();
+                throw new Exception("SQLHelper-GetReader方法发生错误：" + ex.Message);
+            }            
         }
+
         /// <summary>
-        /// 执行返回数据集的查询
+        /// 获取结果集
         /// </summary>
         /// <param name="sql"></param>
         /// <returns></returns>
@@ -103,29 +108,146 @@ namespace DAL
         {
             SqlConnection conn = new SqlConnection(connString);
             SqlCommand cmd = new SqlCommand(sql, conn);
-            SqlDataAdapter da = new SqlDataAdapter(cmd); //创建数据适配器对象
-            DataSet ds = new DataSet();//创建一个内存数据集
+            SqlDataAdapter da = new SqlDataAdapter();
+            DataSet ds = new DataSet();
             try
             {
                 conn.Open();
-                da.Fill(ds);  //使用数据适配器填充数据集
-                return ds;  //返回数据集
+                da.Fill(ds);
+                return ds;
+            }
+            catch (SqlException ex)
+            {
+                throw new Exception("SQLHelper-GetDataSet方法发生错误：" + ex.Message);
             }
             catch (Exception ex)
             {
-                throw ex;
+                throw new Exception("SQLHelper-GetDataSet方法发生错误：" + ex.Message);
             }
             finally
             {
                 conn.Close();
             }
         }
+        #endregion
+
+        #region 带参数SQL语句
+
         /// <summary>
-        /// 启用事务执行多条SQL语句
-        /// </summary>      
-        /// <param name="sqlList">SQL语句列表</param>      
+        /// 带参数更新语句
+        /// </summary>
+        /// <param name="sql"></param>
+        /// <param name="parameters"></param>
         /// <returns></returns>
-        public static bool UpdateByTran(List<string> sqlList)
+        public static int Update(string sql,SqlParameter[] parameters)
+        {
+            SqlConnection conn = new SqlConnection(connString);
+            SqlCommand cmd = new SqlCommand(sql,conn);          
+            try
+            {
+                conn.Open();                
+                cmd.Parameters.AddRange(parameters);
+                return cmd.ExecuteNonQuery();
+            }
+            catch (SqlException ex)
+            {
+                throw new Exception("SQLHelper-Update(带参数)方法发生错误：" + ex.Message);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("SQLHelper-Update(带参数)方法发生错误：" + ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        /// <summary>
+        /// 获取单一结果(带参数)
+        /// </summary>
+        /// <param name="sql"></param>
+        /// <returns></returns>
+        public static object GetSingleResult(string sql,SqlParameter[] parameters)
+        {
+            SqlConnection conn = new SqlConnection(connString);
+            SqlCommand cmd = new SqlCommand(sql, conn);
+            try
+            {
+                conn.Open();
+                cmd.Parameters.AddRange(parameters);
+                return cmd.ExecuteScalar();
+            }
+            catch (SqlException ex)
+            {
+                throw new Exception("SQLHelper-GetSingleResult(带参数)方法发生错误：" + ex.Message);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("SQLHelper-GetSingleResult(带参数)方法发生错误：" + ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        /// <summary>
+        /// 获取多个结果(带参数)
+        /// </summary>
+        /// <param name="sql"></param>
+        /// <returns></returns>
+        public static SqlDataReader GetReader(string sql, SqlParameter[] parameters)
+        {
+            SqlConnection conn = new SqlConnection(connString);
+            SqlCommand cmd = new SqlCommand(sql, conn);
+            try
+            {
+                conn.Open();
+                cmd.Parameters.AddRange(parameters);
+                return cmd.ExecuteReader(CommandBehavior.CloseConnection);
+            }
+            catch (SqlException ex)
+            {
+                if (conn.State == ConnectionState.Open)
+                    conn.Close();
+                throw new Exception("SQLHelper-GetReader(带参数)方法发生错误：" + ex.Message);
+            }
+            catch (Exception ex)
+            {
+                if (conn.State == ConnectionState.Open)
+                    conn.Close();
+                throw new Exception("SQLHelper-GetReader(带参数)方法发生错误：" + ex.Message);
+            }
+        }
+
+        public static DataSet GetDataSet(string sql,SqlParameter[] parameters)
+        {
+            SqlConnection conn = new SqlConnection(connString);
+            SqlCommand cmd = new SqlCommand(sql,conn);
+            SqlDataAdapter da = new SqlDataAdapter();
+            DataSet ds = new DataSet();
+            try
+            {
+                conn.Open();
+                cmd.Parameters.AddRange(parameters);
+                da.Fill(ds);
+                return ds;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("DAL-GetDataSet带参数方法发生错误："+ex.Message);
+            }
+        }
+        #endregion
+
+        #region 使用事务执行多条更新语句（增删改）语句
+        /// <summary>
+        /// 事务处理多条SQL语句更新
+        /// </summary>
+        /// <param name="sqlList"></param>
+        /// <returns></returns>
+        public static int UpdateByTran(List<string> sqlList)
         {
             SqlConnection conn = new SqlConnection(connString);
             SqlCommand cmd = new SqlCommand();
@@ -133,20 +255,21 @@ namespace DAL
             try
             {
                 conn.Open();
-                cmd.Transaction = conn.BeginTransaction();   //开启事务
-                foreach (string itemSql in sqlList)//循环提交SQL语句
+                int result = 0;
+                cmd.Transaction = conn.BeginTransaction();
+                foreach (var sql in sqlList)
                 {
-                    cmd.CommandText = itemSql;
-                    cmd.ExecuteNonQuery();
+                    cmd.CommandText = sql;
+                    result+= cmd.ExecuteNonQuery();
                 }
-                cmd.Transaction.Commit();  //提交事务(同时自动清除事务)
-                return true;
+                cmd.Transaction.Commit();
+                return result;
             }
             catch (Exception ex)
             {
                 if (cmd.Transaction != null)
-                    cmd.Transaction.Rollback();//回滚事务(同时自动清除事务)
-                throw new Exception("调用事务方法UpdateByTran(List<string> sqlList)时出现错误：" + ex.Message);
+                    cmd.Transaction.Rollback();               
+                throw new Exception("SQLHelper-UpdateByTran方法发生错误：" + ex.Message);                
             }
             finally
             {
@@ -155,14 +278,135 @@ namespace DAL
                 conn.Close();
             }
         }
+        #endregion
+
+        #region 使用存储过程
+
         /// <summary>
-        /// 获取服务器的时间
+        /// 带参数更新语句
         /// </summary>
+        /// <param name="sql"></param>
+        /// <param name="parameters"></param>
         /// <returns></returns>
-        public static DateTime GetServerTime()
+        public static int UpdateByStoredProcdure(string storedProcdureName, SqlParameter[] parameters)
+        {
+            SqlConnection conn = new SqlConnection(connString);
+            SqlCommand cmd = new SqlCommand(storedProcdureName, conn);
+            //cmd.Connection = conn;
+            cmd.CommandType = CommandType.StoredProcedure;
+            //cmd.CommandText = storedProcdureName;
+            try
+            {
+                conn.Open();
+                cmd.Parameters.AddRange(parameters);
+                return cmd.ExecuteNonQuery();
+            }
+            catch (SqlException ex)
+            {
+                throw new Exception("SQLHelper-UpdateByStoredProcdure方法发生错误：" + ex.Message);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("SQLHelper-UpdateByStoredProcdure方法发生错误：" + ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        /// <summary>
+        /// 获取单一结果(带参数)
+        /// </summary>
+        /// <param name="sql"></param>
+        /// <returns></returns>
+        public static object GetSingleResultByStoredProcdure(string storedProcdureName, SqlParameter[] parameters)
+        {
+            SqlConnection conn = new SqlConnection(connString);
+            SqlCommand cmd = new SqlCommand(storedProcdureName, conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            try
+            {
+                conn.Open();
+                cmd.Parameters.AddRange(parameters);
+                return cmd.ExecuteScalar();
+            }
+            catch (SqlException ex)
+            {
+                throw new Exception("SQLHelper-GetSingleResultByStoredProcedure方法发生错误：" + ex.Message);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("SQLHelper-GetSingleResultByStoredProcedure方法发生错误：" + ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        /// <summary>
+        /// 获取多个结果(带参数)
+        /// </summary>
+        /// <param name="sql"></param>
+        /// <returns></returns>
+        public static SqlDataReader GetReaderByStoredProcedure(string storedProcdureName, SqlParameter[] parameters)
+        {
+            SqlConnection conn = new SqlConnection(connString);
+            SqlCommand cmd = new SqlCommand(storedProcdureName, conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            try
+            {
+                conn.Open();
+                cmd.Parameters.AddRange(parameters);
+                return cmd.ExecuteReader(CommandBehavior.CloseConnection);
+            }
+            catch (SqlException ex)
+            {
+                if (conn.State == ConnectionState.Open)
+                    conn.Close();
+                throw new Exception("SQLHelper-GetReaderByStoredProcedure方法发生错误：" + ex.Message);
+            }
+            catch (Exception ex)
+            {
+                if (conn.State == ConnectionState.Open)
+                    conn.Close();
+                throw new Exception("SQLHelper-GetReaderByStoredProcedure方法发生错误：" + ex.Message);
+            }
+        }
+
+        public static DataSet GetDataSetByProcedure(string storedProcdureName, SqlParameter[] parameters)
+        {
+            SqlConnection conn = new SqlConnection(connString);
+            SqlCommand cmd = new SqlCommand(storedProcdureName, conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataSet ds = new DataSet();          
+            try
+            {
+                conn.Open();
+                cmd.Parameters.AddRange(parameters);
+                
+                da.Fill(ds);
+                return ds;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("DAL-GetDataSet带参数方法发生错误：" + ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+        #endregion
+
+        #region 获取数据库时间
+
+        public static DateTime GetDBTime()
         {
             return Convert.ToDateTime(GetSingleResult("select getdate()"));
         }
+        #endregion
     }
 }
-

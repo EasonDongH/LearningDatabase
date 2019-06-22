@@ -98,7 +98,7 @@ use SMDB
 go
 --创建“主键”约束primary key
 if exists(select * from sysobjects where name='pk_StudentId')
-alter table Students drop constraint pk_StudentId
+    alter table Students drop constraint pk_StudentId
 
 alter table Students
 add constraint pk_StudentId primary key (StudentId)

@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{4448B3B0-E515-4CCA-8E93-D00931B2E248}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
-    <RootNamespace>SocketDemo</RootNamespace>
-    <AssemblyName>SocketDemo</AssemblyName>
+    <ProjectGuid>{2BBA1264-4002-4BC1-85F6-064A138183D1}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>_6.PrototypePattern</RootNamespace>
+    <AssemblyName>_6.PrototypePattern</AssemblyName>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -39,58 +39,17 @@
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Deployment" />
-    <Reference Include="System.Drawing" />
     <Reference Include="System.Net.Http" />
-    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CommonMethod.cs" />
-    <Compile Include="FrmTCPServer.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmTCPServer.Designer.cs">
-      <DependentUpon>FrmTCPServer.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FrmTCPClient.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmTCPClient.Designer.cs">
-      <DependentUpon>FrmTCPClient.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FrmTCPClient.resx">
-      <DependentUpon>FrmTCPClient.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmTCPServer.resx">
-      <DependentUpon>FrmTCPServer.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
-    <None Include="Properties\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-    </None>
-    <Compile Include="Properties\Settings.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Settings.settings</DependentUpon>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-    </Compile>
+    <Compile Include="Resume.cs" />
+    <Compile Include="WorkExperience.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

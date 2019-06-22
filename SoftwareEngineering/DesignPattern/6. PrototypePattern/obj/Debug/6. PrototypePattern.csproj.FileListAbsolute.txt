@@ -1,0 +1,7 @@
+C:\2. GitHub\LearningDatabase\SoftwareEngineering\DesignPattern\6. PrototypePattern\bin\Debug\_6.PrototypePattern.exe.config
+C:\2. GitHub\LearningDatabase\SoftwareEngineering\DesignPattern\6. PrototypePattern\bin\Debug\_6.PrototypePattern.exe
+C:\2. GitHub\LearningDatabase\SoftwareEngineering\DesignPattern\6. PrototypePattern\bin\Debug\_6.PrototypePattern.pdb
+C:\2. GitHub\LearningDatabase\SoftwareEngineering\DesignPattern\6. PrototypePattern\obj\Debug\6. PrototypePattern.csprojAssemblyReference.cache
+C:\2. GitHub\LearningDatabase\SoftwareEngineering\DesignPattern\6. PrototypePattern\obj\Debug\6. PrototypePattern.csproj.CoreCompileInputs.cache
+C:\2. GitHub\LearningDatabase\SoftwareEngineering\DesignPattern\6. PrototypePattern\obj\Debug\_6.PrototypePattern.exe
+C:\2. GitHub\LearningDatabase\SoftwareEngineering\DesignPattern\6. PrototypePattern\obj\Debug\_6.PrototypePattern.pdb
