@@ -11,12 +11,12 @@ namespace ArcFace2._2
 {
     public enum DataBaseSettingState
     {
-        Add, Modify, Delete,Query
+        Add, Modify, Delete, Query
     }
 
     public partial class DataBaseSettingForm : Form
     {
-        private string connString = "server={0};database={1};user id={2};password={3};charset=utf8";
+        private string connString = "server={0};database={1};user id={2};password={3};charset=utf8;Allow User Variables=True";
         private DataBaseSettingState current_State;
 
         public DataBaseSettingForm(DataBaseSettingState state)
@@ -24,11 +24,6 @@ namespace ArcFace2._2
             InitializeComponent();
 
             this.current_State = state;
-        }
-
-        private void DataBaseSettingForm_Load(object sender, EventArgs e)
-        {
-           
         }
 
         private void tsbtn_Exit_Click(object sender, EventArgs e)
@@ -81,6 +76,23 @@ namespace ArcFace2._2
             MessageBox.Show("保存成功！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
             this.DialogResult = DialogResult.OK;
             this.Close();
+        }
+
+        private void tsbtn_TestConnection_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                OnSave();
+
+                using(ArcFace.DBUtil.MySQLHelper.Conn)
+                {
+                    MessageBox.Show("连接成功！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("连接异常！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
     }

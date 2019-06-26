@@ -27,4 +27,3 @@ E:\Work\ArcSoft人脸识别\ArcFace2.2\ArcFace2.2\bin\Debug\C1.Win.C1Command.4.x
 E:\Work\ArcSoft人脸识别\ArcFace2.2\ArcFace2.2\bin\Debug\C1.Win.C1Input.4.xml
 E:\Work\ArcSoft人脸识别\ArcFace2.2\ArcFace2.2\obj\x86\Debug\ArcFace2.2.exe.licenses
 E:\Work\ArcSoft人脸识别\ArcFace2.2\ArcFace2.2\obj\x86\Debug\ArcFace2._2.DataBaseSettingForm.resources
-E:\Work\ArcSoft人脸识别\ArcFace2.2\ArcFace2.2\obj\x86\Debug\ArcFace2._2.Form1.resources

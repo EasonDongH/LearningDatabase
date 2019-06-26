@@ -46,6 +46,7 @@
             this.btn_TestForm = new System.Windows.Forms.Button();
             this.lbl_WaitToJudge = new System.Windows.Forms.Label();
             this.panel_ProcessProgress_Main = new System.Windows.Forms.Panel();
+            this.pgb_Progress = new System.Windows.Forms.ProgressBar();
             this.panel_Show_Main = new System.Windows.Forms.Panel();
             this.panel_MultiFace_Main = new System.Windows.Forms.Panel();
             this.panel_MultiFace_SelectImg = new System.Windows.Forms.Panel();
@@ -72,7 +73,6 @@
             this.judgestate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panel_WaitForJudge_Text = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
-            this.pgb_Progress = new System.Windows.Forms.ProgressBar();
             this.toolStrip1.SuspendLayout();
             this.panel_OperateMenu_Main.SuspendLayout();
             this.panel_ProcessProgress_Main.SuspendLayout();
@@ -264,6 +264,14 @@
             this.panel_ProcessProgress_Main.Name = "panel_ProcessProgress_Main";
             this.panel_ProcessProgress_Main.Size = new System.Drawing.Size(904, 23);
             this.panel_ProcessProgress_Main.TabIndex = 31;
+            // 
+            // pgb_Progress
+            // 
+            this.pgb_Progress.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pgb_Progress.Location = new System.Drawing.Point(0, 0);
+            this.pgb_Progress.Name = "pgb_Progress";
+            this.pgb_Progress.Size = new System.Drawing.Size(904, 23);
+            this.pgb_Progress.TabIndex = 33;
             // 
             // panel_Show_Main
             // 
@@ -511,14 +519,6 @@
             this.label2.TabIndex = 5;
             this.label2.Text = "待确认列表：";
             // 
-            // pgb_Progress
-            // 
-            this.pgb_Progress.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pgb_Progress.Location = new System.Drawing.Point(0, 0);
-            this.pgb_Progress.Name = "pgb_Progress";
-            this.pgb_Progress.Size = new System.Drawing.Size(904, 23);
-            this.pgb_Progress.TabIndex = 33;
-            // 
             // ReplaceSampleDataForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -536,6 +536,7 @@
             this.Name = "ReplaceSampleDataForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "数据替换窗口";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ReplaceSampleDataForm_FormClosing);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.panel_OperateMenu_Main.ResumeLayout(false);

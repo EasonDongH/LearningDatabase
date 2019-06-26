@@ -11,7 +11,12 @@ using ArcFace.Base;
 
 namespace ArcFace.BLL
 {
-    public class ReplaceSampleDataControl
+    public enum DataBaseTable
+    {
+        face_sample, face_blacklist
+    }
+
+    public class ReplaceSampleDataControl<T> where T : IReplaceSampleDataModel, new()
     {
         /// <summary>
         /// 需要升级到该版本
@@ -53,11 +58,11 @@ namespace ArcFace.BLL
         /// 线程安全的队列
         /// ReadData()写，ProcessData()读
         /// </summary>
-        ConcurrentQueue<FaceSampleModel> waitForProcessQueue = new ConcurrentQueue<FaceSampleModel>();
+        ConcurrentQueue<T> waitForProcessQueue = new ConcurrentQueue<T>();
         /// <summary>
         /// ProcessData()写，WriteData()读
         /// </summary>
-        ConcurrentQueue<FaceSampleModel> waitForWriteQueue = new ConcurrentQueue<FaceSampleModel>();
+        ConcurrentQueue<T> waitForWriteQueue = new ConcurrentQueue<T>();
         /// <summary>
         /// 单张图像开始处理之前要做的事
         /// 展示当前处理图像
@@ -76,7 +81,7 @@ namespace ArcFace.BLL
         /// 特殊情况的处理
         /// 人脸数不等于1时的处理方式
         /// </summary>
-        private Action<int, FaceSampleModel> HandleSpecialCase = null;
+        private Action<int, T> HandleSpecialCase = null;
         /// <summary>
         /// 发生错误时要做的事
         /// </summary>
@@ -86,11 +91,11 @@ namespace ArcFace.BLL
         /// </summary>
         CancellationTokenSource cancelTokenSource = null;
 
-        private FaceSampleDAL objFaceSampleDAL = new FaceSampleDAL();
+        private IRelpaceSampleDataDAL _dal = null;
 
-        private PagingQueryControl<FaceSampleModel> pagingQuery = null;
+        private PagingQueryControl<T> pagingQuery = null;
 
-        public ReplaceSampleDataControl(Action<byte[]> beforeProcess, Action<int, double> afterProcess, Action<int> endProcess, Action<int, FaceSampleModel> handleSpecialCase, Action<Exception> handleError, CancellationTokenSource cancelTokenSource)
+        public ReplaceSampleDataControl(DataBaseTable tableName, Action<byte[]> beforeProcess, Action<int, double> afterProcess, Action<int> endProcess, Action<int, T> handleSpecialCase, Action<Exception> handleError, CancellationTokenSource cancelTokenSource)
         {
             this.BeforeProcess = beforeProcess;
             this.AfterProcess = afterProcess;
@@ -99,15 +104,30 @@ namespace ArcFace.BLL
             this.HandleError = handleError;
             this.cancelTokenSource = cancelTokenSource;
 
+            // 简单工厂：创建DAL
+            switch (tableName)
+            {
+                case DataBaseTable.face_sample:
+                    this._dal = new FaceSampleDAL();
+                    break;
+                default:
+                    throw new Exception("DAL创建失败！");
+            }
+
             try
             {
-                this.totalSize = this.objFaceSampleDAL.GetNeedUpdateAmount(sampleDataVer);
+                this.totalSize = this._dal.GetNeedUpdateAmount(sampleDataVer);
             }
             catch (Exception ex)
             {
                 this.HandleError(ex);
             }
-            this.pagingQuery = new PagingQueryControl<FaceSampleModel>(this.totalSize, numberForPerQuery, this.objFaceSampleDAL.GetPagingData);
+            this.pagingQuery = new PagingQueryControl<T>(this.totalSize, numberForPerQuery, GetPagingData);
+        }
+
+        private IEnumerable<T> GetPagingData(int startIndex, int num)
+        {
+            return this._dal.GetPagingData<T>(startIndex, num, sampleDataVer);
         }
 
         public void StartProcessData()
@@ -122,9 +142,9 @@ namespace ArcFace.BLL
 
         private void ReadData()
         {
-            try
+            Task task = Task.Factory.StartNew(() =>
             {
-                Task task = Task.Factory.StartNew(() =>
+                try
                 {
                     // 如果未取消线程，则继续运行
                     while (!this.cancelTokenSource.IsCancellationRequested)
@@ -134,27 +154,30 @@ namespace ArcFace.BLL
                             break;
                         if (this.waitForProcessQueue.Count() >= numberWhenNeedRead)
                             continue;
-                        List<FaceSampleModel> models = this.pagingQuery.GetNextPagingData();
+                        List<T> models = this.pagingQuery.GetNextPagingData();
                         foreach (var model in models)
                         {
                             this.waitForProcessQueue.Enqueue(model);
                         }
                     }
-                }, this.cancelTokenSource.Token, TaskCreationOptions.LongRunning, TaskScheduler.Default);
-            }
-            catch (Exception ex)
-            {
-                this.HandleError(ex);
-            }
+                }
+                catch (Exception ex)
+                {
+
+                    this.HandleError(ex);
+                }
+
+            }, this.cancelTokenSource.Token, TaskCreationOptions.LongRunning, TaskScheduler.Default);
         }
 
         private void ProcessData()
         {
             DateTime start, end;
             AsfFaceControl faceControl = new AsfFaceControl();
-            try
+
+            Task task = Task.Factory.StartNew(() =>
             {
-                Task task = Task.Factory.StartNew(() =>
+                try
                 {
                     //如果未取消线程，则继续运行
                     while (!this.cancelTokenSource.IsCancellationRequested)
@@ -162,32 +185,31 @@ namespace ArcFace.BLL
                         // 没有数据等待处理且数据库没有数据等待读取，线程终止
                         if (this.waitForProcessQueue.Count == 0 && this.pagingQuery.HasDataWaitForRead == false)
                         {
-                            this.EndProcess(this.successProcessedSize);
                             break;
                         }
-                        FaceSampleModel model = null;
+                        T model = default(T);
                         if (this.waitForProcessQueue.TryDequeue(out model) == false || model == null)
                             continue;
 
                         // 将当前图像刷至UI
-                        this.BeforeProcess(model.sampleface);
+                        this.BeforeProcess(model.FaceImage);
                         //Task.Factory.StartNew(() => { this.BeforeProcess(model.sampleface); });
                         start = DateTime.Now;
 
                         ImageFaceDataModel imgFace = new ImageFaceDataModel();
-                        faceControl.GetFaceDatas(ImageHelper.BytesToBitmap(model.sampleface), ref imgFace);
+                        faceControl.GetFaceDatas(ImageHelper.BytesToBitmap(model.FaceImage), ref imgFace);
                         // 图像有多个人脸或没有人脸时
                         if (imgFace.FaceNumer != 1)
                         {
                             this.failProcessedSize += 1;
                             this.HandleSpecialCase(this.failProcessedSize, model);
                             //Task.Factory.StartNew(() => { this.HandleSpecialCase(this.failProcessedSize, model); });
-                            imgFace.Id = model.id;
+                            imgFace.Id = model.Id;
                             this.failProcessedImgList.Add(imgFace);
                             continue;
                         }
 
-                        model.sampledata = imgFace.FaceDatas[0].FaceFeature;
+                        model.FaceFeature = imgFace.FaceDatas[0].FaceFeature;
                         //model.sampledataver = ReplaceSampleDataControl.sampleDataVer;
 
                         this.successProcessedSize += 1;
@@ -204,17 +226,26 @@ namespace ArcFace.BLL
                         // 更新数据库
                         WriteDataSync(false);
                     }
-                }, this.cancelTokenSource.Token, TaskCreationOptions.LongRunning, TaskScheduler.Default);
+                }
+                catch (Exception ex)
+                {
+                    this.HandleError(ex);
+                }
+            }, this.cancelTokenSource.Token, TaskCreationOptions.LongRunning, TaskScheduler.Default);
 
-                task.ContinueWith(t =>
+            task.ContinueWith(t =>
+            {
+                try
                 {
                     WriteDataSync(true);
-                });
-            }
-            catch (Exception ex)
-            {
-                this.HandleError(ex);
-            }
+                    this.EndProcess(this.successProcessedSize);
+                }
+                catch (Exception ex)
+                {
+                    this.HandleError(ex);
+                }
+                
+            });
         }
 
         /// <summary>
@@ -227,8 +258,8 @@ namespace ArcFace.BLL
                 return;
             try
             {
-                FaceSampleModel model = null;
-                List<FaceSampleModel> models = new List<FaceSampleModel>();
+                T model = default(T);
+                List<T> models = new List<T>();
                 while (this.waitForWriteQueue.Count > 0)
                 {
                     if (this.waitForWriteQueue.TryDequeue(out model))
@@ -236,7 +267,7 @@ namespace ArcFace.BLL
                         models.Add(model);
                     }
                 }
-                int update_Result = this.objFaceSampleDAL.Update(models);
+                int update_Result = this._dal.Update<T>(models);
                 if (update_Result != models.Count)
                 {
                     throw new Exception(string.Format("更新数据失败！应更新：{0}，实际更新：{1}。", models.Count, update_Result));
@@ -244,7 +275,7 @@ namespace ArcFace.BLL
             }
             catch (Exception ex)
             {
-                this.HandleError(ex);
+                throw ex;
             }
         }
 
@@ -255,10 +286,10 @@ namespace ArcFace.BLL
 
         public bool UpdateSingleData(string id, byte[] feature)
         {
-            FaceSampleModel model = new FaceSampleModel();
-            model.id = id;
-            model.sampledata = feature;
-            int update_Result = this.objFaceSampleDAL.Update(model);
+            T model = new T();
+            model.Id = id;
+            model.FaceFeature = feature;
+            int update_Result = this._dal.Update<T>(model);
             return update_Result > 0;
         }
     }

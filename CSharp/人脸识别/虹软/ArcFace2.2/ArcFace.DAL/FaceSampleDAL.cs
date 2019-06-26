@@ -9,7 +9,7 @@ using ArcFace.DBUtil;
 
 namespace ArcFace.DAL
 {
-    public class FaceSampleDAL
+    public class FaceSampleDAL : IRelpaceSampleDataDAL
     {
         private IDbConnection Conn
         {
@@ -96,11 +96,12 @@ namespace ArcFace.DAL
         public int GetNeedUpdateAmount(decimal version)
         {
             int query_Result = 0;
-            string sql = "SELECT COUNT(*) FROM face_sample WHERE sampledataver<>@version;";
+            string sql = "SELECT COUNT(*) FROM face_sample WHERE sampledataver < @version;";
             try
             {
                 using (this.Conn)
                 {
+                    
                     query_Result = Convert.ToInt32(this.Conn.ExecuteScalar(sql, new { version = version }));
                 }
             }
@@ -118,16 +119,34 @@ namespace ArcFace.DAL
         /// <param name="startIndex"></param>
         /// <param name="num"></param>
         /// <returns></returns>
-        public IEnumerable<FaceSampleModel> GetPagingData(int startIndex, int num)
+        public IEnumerable<FaceSampleModel> GetPagingData(int startIndex, int num, decimal ver)
         {
-            //string sql = "SELECT id, childno, sampleface FROM face_sample WHERE sampledataver < @ver LIMIT @StartIndex, @Num;";
-            string sql = "SELECT id, childno, sampleface FROM face_sample LIMIT @StartIndex, @Num;";
+            string sql = "SELECT id, childname, sampleface FROM face_sample WHERE sampledataver < @Ver LIMIT @StartIndex, @Num;";
             IEnumerable<FaceSampleModel> enumerable = new List<FaceSampleModel>();
             try
             {
                 using (this.Conn)
                 {
-                    enumerable = this.Conn.Query<FaceSampleModel>(sql, new { StartIndex = startIndex, Num = num });
+                    enumerable = this.Conn.Query<FaceSampleModel>(sql, new { StartIndex = startIndex, Num = num, Ver = ver });
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+            return enumerable;
+        }
+
+        public IEnumerable<T> GetPagingData<T>(int startIndex, int num,  decimal ver)
+        {
+            string sql = "SELECT id, childname, sampleface FROM face_sample WHERE sampledataver < @Ver LIMIT @StartIndex, @Num;";
+            IEnumerable<T> enumerable = new List<T>();
+            try
+            {
+                using (this.Conn)
+                {
+                    enumerable = this.Conn.Query<T>(sql, new { StartIndex = startIndex, Num = num , Ver=ver});
                 }
             }
             catch (Exception ex)
@@ -146,8 +165,13 @@ namespace ArcFace.DAL
         /// <returns></returns>
         public int Update(List<FaceSampleModel> models)
         {
+            return Update<FaceSampleModel>(models);
+        }
+
+        public int Update<T>(List<T> models)
+        {
             int update_Result = 0;
-            string sql = "UPDATE face_sample SET sampledata=@sampledata, sampledataver=@sampledataver WHERE id=@id;";
+            string sql = "UPDATE face_sample SET sampledata=@FaceFeature, sampledataver=@SampleDataVer WHERE id=@Id;";
             try
             {
                 using (this.Conn)
@@ -176,7 +200,43 @@ namespace ArcFace.DAL
             }
             catch (Exception ex)
             {
+                throw ex;
+            }
+            return update_Result;
+        }
 
+        public int Update<T>(T model)
+        {
+            int update_Result = 0;
+            string sql = "UPDATE face_sample SET sampledata=@sampledata, sampledataver=@sampledataver WHERE id=@id;";
+            try
+            {
+                using (this.Conn)
+                {
+                    update_Result = this.Conn.Execute(sql, model);
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+            return update_Result;
+        }
+
+        public int ResetDBTestData()
+        {
+            int update_Result = 0;
+            string sql = "UPDATE face_sample SET sampledata=0, sampledataver=0.0;";
+            try
+            {
+                using (this.Conn)
+                {
+                    update_Result = this.Conn.Execute(sql);
+                }
+            }
+            catch (Exception ex)
+            {
                 throw;
             }
             return update_Result;

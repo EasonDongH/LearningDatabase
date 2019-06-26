@@ -20,7 +20,7 @@ namespace ArcFace2._2
         private bool isProcessing = false;// 是否正在处理数据
         private string currentJudgeId = string.Empty; // 当前正在做判断的图像的Id
         private FaceSampleBLL objFaceSampleBLL = new FaceSampleBLL();
-        private ReplaceSampleDataControl replaceControl = null;
+        private ReplaceSampleDataControl<FaceSampleModel> replaceControl = null;
         private AsfFaceControl faceControl = null;
         private List<FaceSampleModel> modelsWaitForJudge = new List<FaceSampleModel>();
         private CancellationTokenSource cancelTokenSource = null;
@@ -32,8 +32,9 @@ namespace ArcFace2._2
             try
             {
                 this.faceControl = new AsfFaceControl();
+                ColumnMapper.SetMapper();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
                 throw;
@@ -47,13 +48,13 @@ namespace ArcFace2._2
         {
             if (isDBSettingOk == false)
             {
-                MessageBox.Show("请设置数据库配置信息！", "提示",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                MessageBox.Show("请设置数据库配置信息！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
             try
             {
                 this.cancelTokenSource = new CancellationTokenSource();
-                this.replaceControl = new ReplaceSampleDataControl(BeforeProcess, AfterProcess, EndProcess, HandleSpecialCase, HandleError, this.cancelTokenSource);
+                this.replaceControl = new ReplaceSampleDataControl<FaceSampleModel>(DataBaseTable.face_sample, BeforeProcess, AfterProcess, EndProcess, HandleSpecialCase, HandleError, this.cancelTokenSource);
 
                 this.isProcessing = false;
                 this.pgb_Progress.Maximum = this.replaceControl.TotalSize;
@@ -81,7 +82,7 @@ namespace ArcFace2._2
 
         private void BeforeProcess(byte[] imageData)
         {
-            this.Invoke(new Action(delegate
+            this.BeginInvoke(new MethodInvoker(delegate
             {
                 Bitmap image = ImageHelper.BytesToBitmap(imageData);
                 this.pb_Image.Image = image;
@@ -112,7 +113,7 @@ namespace ArcFace2._2
 
                 string reminder = string.Format("成功自动替换{0}条数据！", processValue);
 
-                MessageBox.Show(reminder,"提示",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                MessageBox.Show(reminder, "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }));
         }
 
@@ -121,9 +122,9 @@ namespace ArcFace2._2
             this.BeginInvoke(new MethodInvoker(delegate
             {
                 ListViewItem lvi = new ListViewItem();
-                lvi.Tag = model.id;
+                lvi.Tag = model.Id;
                 lvi.SubItems.AddRange(new string[]{
-                        model.childno,
+                        model.DisplayName,
                         "×"
                     });
 
@@ -137,6 +138,7 @@ namespace ArcFace2._2
         private void HandleError(Exception ex)
         {
             this.cancelTokenSource.Cancel();
+            MessageBox.Show("出现异常！请检查后重试！", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private void btn_StartProcess_Click(object sender, EventArgs e)
@@ -179,7 +181,7 @@ namespace ArcFace2._2
             this.pb_Image.Image = imgFace.SourceImage;
             foreach (var face in imgFace.FaceDatas)
             {
-                AddFaceImage(face.Face,face.FaceFeature);
+                AddFaceImage(face.Face, face.FaceFeature);
             }
         }
 
@@ -260,7 +262,7 @@ namespace ArcFace2._2
                 if (this.replaceControl.UpdateSingleData(this.currentJudgeId, feature))
                 {
                     MessageBox.Show("保存成功！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    
+
                     foreach (ListViewItem item in this.lv_SpecialCase.Items)
                     {
                         if (item.Tag.ToString() == this.currentJudgeId)
@@ -291,6 +293,16 @@ namespace ArcFace2._2
             if (DialogResult.OK != frm.ShowDialog())
                 return;
             this.isDBSettingOk = true;
+        }
+
+        private void ReplaceSampleDataForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            // 预防在线程处理中强制关闭UI后，可能出现的访问UI控件异常
+            //if (this.cancelTokenSource != null)
+            //{
+            //    this.cancelTokenSource.Cancel();
+            //    Thread.Sleep(100);
+            //}
         }
     }
 }

@@ -42,6 +42,7 @@
             this.flp_FaceImg = new System.Windows.Forms.FlowLayoutPanel();
             this.pb_DBImg = new System.Windows.Forms.PictureBox();
             this.btn_Clear = new System.Windows.Forms.Button();
+            this.btn_ClearDBData = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Image)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nud_SimilarValue)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_DBImg)).BeginInit();
@@ -183,11 +184,22 @@
             this.btn_Clear.UseVisualStyleBackColor = true;
             this.btn_Clear.Click += new System.EventHandler(this.btn_Clear_Click);
             // 
+            // btn_ClearDBData
+            // 
+            this.btn_ClearDBData.Location = new System.Drawing.Point(10, 368);
+            this.btn_ClearDBData.Name = "btn_ClearDBData";
+            this.btn_ClearDBData.Size = new System.Drawing.Size(100, 40);
+            this.btn_ClearDBData.TabIndex = 14;
+            this.btn_ClearDBData.Text = "数据库置零";
+            this.btn_ClearDBData.UseVisualStyleBackColor = true;
+            this.btn_ClearDBData.Click += new System.EventHandler(this.btn_ClearDBData_Click);
+            // 
             // TestForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(859, 396);
+            this.ClientSize = new System.Drawing.Size(859, 464);
+            this.Controls.Add(this.btn_ClearDBData);
             this.Controls.Add(this.btn_Clear);
             this.Controls.Add(this.pb_DBImg);
             this.Controls.Add(this.flp_FaceImg);
@@ -226,5 +238,6 @@
         private System.Windows.Forms.FlowLayoutPanel flp_FaceImg;
         private System.Windows.Forms.PictureBox pb_DBImg;
         private System.Windows.Forms.Button btn_Clear;
+        private System.Windows.Forms.Button btn_ClearDBData;
     }
 }

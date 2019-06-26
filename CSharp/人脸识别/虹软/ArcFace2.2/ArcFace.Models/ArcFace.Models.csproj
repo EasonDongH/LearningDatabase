@@ -31,6 +31,26 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisIgnoreBuiltInRuleSets>true</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisIgnoreBuiltInRuleSets>true</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Dapper">
       <HintPath>..\ArcFace.Base\refDLL\Dapper\Dapper.dll</HintPath>
@@ -51,14 +71,16 @@
     <Compile Include="AsfFace\AsfConstants.cs" />
     <Compile Include="AsfFace\AsfEnums.cs" />
     <Compile Include="AsfFace\AsfStructs.cs" />
-    <Compile Include="Face3DAngleModel.cs" />
-    <Compile Include="FaceInfoModel.cs" />
+    <Compile Include="数据库列与实体属性的映射\ColumnAttributeTypeMapper.cs" />
+    <Compile Include="数据库列与实体属性的映射\ColumnMapper.cs" />
+    <Compile Include="人脸相关的Model\Face3DAngleModel.cs" />
+    <Compile Include="人脸相关的Model\FaceInfoModel.cs" />
     <Compile Include="FaceSampleModel.cs" />
-    <Compile Include="ImageDataModel.cs" />
-    <Compile Include="ImageFaceDataModel.cs" />
-    <Compile Include="MultiFaceModel.cs" />
+    <Compile Include="人脸相关的Model\ImageDataModel.cs" />
+    <Compile Include="人脸相关的Model\ImageFaceDataModel.cs" />
+    <Compile Include="人脸相关的Model\MultiFaceModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ReplaceSampleDataModel.cs" />
+    <Compile Include="IReplaceSampleDataModel.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

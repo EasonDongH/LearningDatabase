@@ -7,16 +7,27 @@ using Dapper;
 namespace ArcFace.Models
 {
     [Table("face_sample")]
-    public class FaceSampleModel:ReplaceSampleDataModel
+    public class FaceSampleModel : IReplaceSampleDataModel
     {
-        //[Key]
-        //public string id { get; set; }
+        [Key]
+        [Column(Name="id")]
+        public string Id { get; set; }
 
-        //public string childno { get; set; }
+        [Column(Name = "childname")]
+        public string DisplayName { get; set; }
+
+        [Column(Name = "sampledata")]
+        public byte[] FaceFeature { get; set; }
+
+        [Column(Name = "sampleface")]
+        public byte[] FaceImage { get; set; }
+
+        [Column(Name = "sampledataver")]
+        public decimal SampleDataVer { get; set; }
+
+        public string childno { get; set; }
 
         public string barcode { get; set; }
-
-        public string childname { get; set; }
 
         public string childsex { get; set; }
 
@@ -24,11 +35,7 @@ namespace ArcFace.Models
 
         public string mothername { get; set; }
 
-        //public byte[] sampledata { get; set; }
-
         public int sampleorient { get; set; }
-
-        //public byte[] sampleface { get; set; }
 
         public string familykind { get; set; }
 
@@ -45,7 +52,5 @@ namespace ArcFace.Models
         public DateTime createtime { get; set; }
 
         public DateTime updatetime { get; set; }
-
-        //public decimal sampledataver { get; set; }
     }
 }

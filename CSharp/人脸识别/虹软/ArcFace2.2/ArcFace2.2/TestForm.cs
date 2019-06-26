@@ -103,11 +103,11 @@ namespace ArcFace2._2
                     MessageBox.Show("请选择人脸");
                     return null;
                 }
-                model.sampledata = feature;
-                model.sampleface = ImageHelper.ImageToBytes(this.pb_Image.Image, ImageFormat.Jpeg);
+                model.FaceFeature = feature;
+                model.FaceImage = ImageHelper.ImageToBytes(this.pb_Image.Image, ImageFormat.Jpeg);
                 model.barcode = DateTime.Now.ToString("yyyyMMddHHmmssms");
                 model.childno = "Test" + model.barcode;
-                model.childname = "Test";
+                model.DisplayName = "Test" + model.barcode;
                 model.childsex = "男";
                 model.childbirth = DateTime.Now.ToString("yyyy-MM-dd");
                 model.mothername = "Test";
@@ -120,7 +120,6 @@ namespace ArcFace2._2
                 model.status = 1;
                 model.createtime = DateTime.Now;
                 model.updatetime = DateTime.Now;
-                model.sampledataver = 2.1M;
             }
             catch (Exception ex)
             {
@@ -203,7 +202,7 @@ namespace ArcFace2._2
                 {
                     this.Invoke(new Action(delegate
                     {
-                        Bitmap match_Image = ImageHelper.BytesToBitmap(match_Result.sampleface);
+                        Bitmap match_Image = ImageHelper.BytesToBitmap(match_Result.FaceImage);
                         this.pb_DBImg.Image = match_Image;
                     }));
                 }
@@ -251,6 +250,22 @@ namespace ArcFace2._2
             this.pb_Image.Image = null;
             this.flp_FaceImg.Controls.Clear();
             this.lbl_TimeCost.Visible = false;
+        }
+
+        private void btn_ClearDBData_Click(object sender, EventArgs e)
+        {
+            if (DialogResult.Yes != MessageBox.Show("即将将数据库相关相关测试数据置零，是否确认？", "提示", MessageBoxButtons.YesNo))
+                return;
+            try
+            {
+                if (this.objFaceSampleBLL.ResetDBTestData())
+                    MessageBox.Show("重置成功！");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("重置失败！"+Environment.NewLine + ex.Message);
+            }
+            
         }
 
 

@@ -254,7 +254,7 @@ namespace ArcFace.BLL
             IEnumerator<FaceSampleModel> modelsIEnumerator = faceSampleDAL.GetAllSampleInfo().GetEnumerator();
             while (modelsIEnumerator.MoveNext())
             {
-                byte[] feature2 = modelsIEnumerator.Current.sampledata;
+                byte[] feature2 = modelsIEnumerator.Current.FaceFeature;
 
                 AsfStruct.ASF_FaceFeature faceFeature2 = new AsfStruct.ASF_FaceFeature();
                 IntPtr f2 = CommonMethod.BytesToIntptr(feature2);
@@ -325,7 +325,7 @@ namespace ArcFace.BLL
             IEnumerator<FaceSampleModel> modelsIEnumerator = faceSampleDAL.GetAllSampleInfo().GetEnumerator();
             while (modelsIEnumerator.MoveNext())
             {
-                FaceMatching(matchImg, modelsIEnumerator.Current.sampleface, out match_Result);
+                FaceMatching(matchImg, modelsIEnumerator.Current.FaceImage, out match_Result);
                 if (match_Result >= similar)
                 {
                     model = modelsIEnumerator.Current;

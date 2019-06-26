@@ -20,7 +20,7 @@ namespace ArcFace.BLL
         /// <returns></returns>
         public bool Add(FaceSampleModel model)
         {
-            model.id = System.Guid.NewGuid().ToString();
+            model.Id = System.Guid.NewGuid().ToString();
             int add_Result = this.objFaceSampleDAL.Add(model);
             return add_Result > 0;
         }
@@ -54,5 +54,11 @@ namespace ArcFace.BLL
         {
             return this.objFaceSampleDAL.Update(model) > 0;
         }
+
+        public bool ResetDBTestData()
+        {
+            return this.objFaceSampleDAL.ResetDBTestData() > 0;
+        }
+
     }
 }

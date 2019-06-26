@@ -1,0 +1,14 @@
+E:\Work\ArcSoft人脸识别\ArcFace2.2\ArcFace.DAL\bin\x86\Debug\ArcFace.DAL.dll
+E:\Work\ArcSoft人脸识别\ArcFace2.2\ArcFace.DAL\bin\x86\Debug\ArcFace.DAL.pdb
+E:\Work\ArcSoft人脸识别\ArcFace2.2\ArcFace.DAL\bin\x86\Debug\ArcFace.DBUtil.dll
+E:\Work\ArcSoft人脸识别\ArcFace2.2\ArcFace.DAL\bin\x86\Debug\ArcFace.Models.dll
+E:\Work\ArcSoft人脸识别\ArcFace2.2\ArcFace.DAL\bin\x86\Debug\Dapper.Contrib.dll
+E:\Work\ArcSoft人脸识别\ArcFace2.2\ArcFace.DAL\bin\x86\Debug\Dapper.dll
+E:\Work\ArcSoft人脸识别\ArcFace2.2\ArcFace.DAL\bin\x86\Debug\Dapper.Mapper.dll
+E:\Work\ArcSoft人脸识别\ArcFace2.2\ArcFace.DAL\bin\x86\Debug\Dapper.SimpleCRUD.dll
+E:\Work\ArcSoft人脸识别\ArcFace2.2\ArcFace.DAL\bin\x86\Debug\MySql.Data.dll
+E:\Work\ArcSoft人脸识别\ArcFace2.2\ArcFace.DAL\bin\x86\Debug\ArcFace.DBUtil.pdb
+E:\Work\ArcSoft人脸识别\ArcFace2.2\ArcFace.DAL\bin\x86\Debug\ArcFace.Models.pdb
+E:\Work\ArcSoft人脸识别\ArcFace2.2\ArcFace.DAL\obj\x86\Debug\ArcFace.DAL.csprojResolveAssemblyReference.cache
+E:\Work\ArcSoft人脸识别\ArcFace2.2\ArcFace.DAL\obj\x86\Debug\ArcFace.DAL.dll
+E:\Work\ArcSoft人脸识别\ArcFace2.2\ArcFace.DAL\obj\x86\Debug\ArcFace.DAL.pdb
