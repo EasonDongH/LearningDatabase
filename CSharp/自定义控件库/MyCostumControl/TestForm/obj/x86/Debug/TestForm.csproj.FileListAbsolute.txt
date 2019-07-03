@@ -1,0 +1,7 @@
+E:\WorkSpace\MyCostumControl\TestForm\bin\Debug\TestForm.exe
+E:\WorkSpace\MyCostumControl\TestForm\bin\Debug\TestForm.pdb
+E:\WorkSpace\MyCostumControl\TestForm\obj\x86\Debug\TestForm.Form1.resources
+E:\WorkSpace\MyCostumControl\TestForm\obj\x86\Debug\TestForm.Properties.Resources.resources
+E:\WorkSpace\MyCostumControl\TestForm\obj\x86\Debug\TestForm.csproj.GenerateResource.Cache
+E:\WorkSpace\MyCostumControl\TestForm\obj\x86\Debug\TestForm.exe
+E:\WorkSpace\MyCostumControl\TestForm\obj\x86\Debug\TestForm.pdb
