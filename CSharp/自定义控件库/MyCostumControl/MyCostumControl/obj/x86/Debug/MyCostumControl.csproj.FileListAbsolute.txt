@@ -5,3 +5,10 @@ E:\WorkSpace\MyCostumControl\MyCostumControl\obj\x86\Debug\MyCostumControl.Scrol
 E:\WorkSpace\MyCostumControl\MyCostumControl\obj\x86\Debug\MyCostumControl.csproj.GenerateResource.Cache
 E:\WorkSpace\MyCostumControl\MyCostumControl\obj\x86\Debug\MyCostumControl.dll
 E:\WorkSpace\MyCostumControl\MyCostumControl\obj\x86\Debug\MyCostumControl.pdb
+E:\GitHub\LearningDatabase\CSharp\自定义控件库\MyCostumControl\MyCostumControl\bin\Debug\MyCostumControl.dll
+E:\GitHub\LearningDatabase\CSharp\自定义控件库\MyCostumControl\MyCostumControl\bin\Debug\MyCostumControl.pdb
+E:\GitHub\LearningDatabase\CSharp\自定义控件库\MyCostumControl\MyCostumControl\obj\x86\Debug\MyCostumControl.Properties.Resources.resources
+E:\GitHub\LearningDatabase\CSharp\自定义控件库\MyCostumControl\MyCostumControl\obj\x86\Debug\MyCostumControl.ScrollBar.resources
+E:\GitHub\LearningDatabase\CSharp\自定义控件库\MyCostumControl\MyCostumControl\obj\x86\Debug\MyCostumControl.csproj.GenerateResource.Cache
+E:\GitHub\LearningDatabase\CSharp\自定义控件库\MyCostumControl\MyCostumControl\obj\x86\Debug\MyCostumControl.dll
+E:\GitHub\LearningDatabase\CSharp\自定义控件库\MyCostumControl\MyCostumControl\obj\x86\Debug\MyCostumControl.pdb

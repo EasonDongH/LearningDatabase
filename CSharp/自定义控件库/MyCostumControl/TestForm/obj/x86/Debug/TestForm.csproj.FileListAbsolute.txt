@@ -5,3 +5,13 @@ E:\WorkSpace\MyCostumControl\TestForm\obj\x86\Debug\TestForm.Properties.Resource
 E:\WorkSpace\MyCostumControl\TestForm\obj\x86\Debug\TestForm.csproj.GenerateResource.Cache
 E:\WorkSpace\MyCostumControl\TestForm\obj\x86\Debug\TestForm.exe
 E:\WorkSpace\MyCostumControl\TestForm\obj\x86\Debug\TestForm.pdb
+E:\GitHub\LearningDatabase\CSharp\自定义控件库\MyCostumControl\TestForm\obj\x86\Debug\TestForm.exe
+E:\GitHub\LearningDatabase\CSharp\自定义控件库\MyCostumControl\TestForm\obj\x86\Debug\TestForm.pdb
+E:\GitHub\LearningDatabase\CSharp\自定义控件库\MyCostumControl\TestForm\bin\Debug\TestForm.exe
+E:\GitHub\LearningDatabase\CSharp\自定义控件库\MyCostumControl\TestForm\bin\Debug\TestForm.pdb
+E:\GitHub\LearningDatabase\CSharp\自定义控件库\MyCostumControl\TestForm\bin\Debug\MyCostumControl.dll
+E:\GitHub\LearningDatabase\CSharp\自定义控件库\MyCostumControl\TestForm\bin\Debug\MyCostumControl.pdb
+E:\GitHub\LearningDatabase\CSharp\自定义控件库\MyCostumControl\TestForm\obj\x86\Debug\TestForm.Form1.resources
+E:\GitHub\LearningDatabase\CSharp\自定义控件库\MyCostumControl\TestForm\obj\x86\Debug\TestForm.Properties.Resources.resources
+E:\GitHub\LearningDatabase\CSharp\自定义控件库\MyCostumControl\TestForm\obj\x86\Debug\TestForm.csproj.GenerateResource.Cache
+E:\GitHub\LearningDatabase\CSharp\自定义控件库\MyCostumControl\TestForm\obj\x86\Debug\TestForm.csprojResolveAssemblyReference.cache

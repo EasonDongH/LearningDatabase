@@ -15,5 +15,25 @@ namespace TestForm
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            List<dgv> list = new List<dgv>() { 
+                new dgv(){Column1=1,Column2=2,Column3=3},
+                new dgv(){Column1=4,Column2=5,Column3=6},
+                new dgv(){Column1=7,Column2=8,Column3=9}
+            };
+
+            this.exDataGridView1.DataSource = list;
+        }
+    }
+
+    class dgv
+    {
+        public int Column1 { get; set; }
+
+        public int Column2 { get; set; }
+
+        public int Column3 { get; set; }
     }
 }
