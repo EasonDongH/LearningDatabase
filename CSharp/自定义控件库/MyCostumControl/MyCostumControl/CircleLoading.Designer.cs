@@ -1,6 +1,6 @@
 ﻿namespace MyCostumControl
 {
-    partial class ScrollBar
+    partial class CircleLoading
     {
         /// <summary> 
         /// 必需的设计器变量。
@@ -28,33 +28,35 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lbl_Text = new System.Windows.Forms.Label();
+            this.pictureBox = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             this.SuspendLayout();
             // 
-            // lbl_Text
+            // pictureBox
             // 
-            this.lbl_Text.AutoSize = true;
-            this.lbl_Text.Location = new System.Drawing.Point(3, 30);
-            this.lbl_Text.Name = "lbl_Text";
-            this.lbl_Text.Size = new System.Drawing.Size(53, 12);
-            this.lbl_Text.TabIndex = 0;
-            this.lbl_Text.Text = "提示内容";
+            this.pictureBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox.Name = "pictureBox";
+            this.pictureBox.Size = new System.Drawing.Size(50, 50);
+            this.pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox.TabIndex = 0;
+            this.pictureBox.TabStop = false;
             // 
-            // ScrollBar
+            // CircleLoading
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.lbl_Text);
-            this.Name = "ScrollBar";
-            this.Size = new System.Drawing.Size(256, 73);
-            this.Load += new System.EventHandler(this.ScrollBar_Load);
+            this.Controls.Add(this.pictureBox);
+            this.Name = "CircleLoading";
+            this.Size = new System.Drawing.Size(50, 50);
+            this.Load += new System.EventHandler(this.CircleLoading_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Label lbl_Text;
+        private System.Windows.Forms.PictureBox pictureBox;
     }
 }

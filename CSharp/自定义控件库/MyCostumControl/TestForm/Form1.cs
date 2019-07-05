@@ -26,6 +26,16 @@ namespace TestForm
 
             this.exDataGridView1.DataSource = list;
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.circleLoading1.Start();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.circleLoading1.Stop();
+        }
     }
 
     class dgv

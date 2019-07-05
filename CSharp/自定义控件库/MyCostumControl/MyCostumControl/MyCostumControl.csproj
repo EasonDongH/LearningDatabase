@@ -50,9 +50,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CircleLoading.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CircleLoading.Designer.cs">
+      <DependentUpon>CircleLoading.cs</DependentUpon>
+    </Compile>
     <Compile Include="ExDataGridView.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="ExGroupGox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ExTabControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="GraphicsUtil.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ScrollBar.cs">
       <SubType>UserControl</SubType>
@@ -60,6 +73,9 @@
     <Compile Include="ScrollBar.Designer.cs">
       <DependentUpon>ScrollBar.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="CircleLoading.resx">
+      <DependentUpon>CircleLoading.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -82,6 +98,27 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\close.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\collapse.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Dropmenu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\expend.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\left.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\right.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Wait.gif" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
