@@ -1,0 +1,8 @@
+E:\Work\ArcSoft人脸识别\ArcFace2.2\ArcFace.Base\bin\Debug\ArcFace.Base.dll
+E:\Work\ArcSoft人脸识别\ArcFace2.2\ArcFace.Base\bin\Debug\ArcFace.Base.pdb
+E:\Work\ArcSoft人脸识别\ArcFace2.2\ArcFace.Base\bin\Debug\ArcFace.Models.dll
+E:\Work\ArcSoft人脸识别\ArcFace2.2\ArcFace.Base\bin\Debug\Dapper.SimpleCRUD.dll
+E:\Work\ArcSoft人脸识别\ArcFace2.2\ArcFace.Base\bin\Debug\ArcFace.Models.pdb
+E:\Work\ArcSoft人脸识别\ArcFace2.2\ArcFace.Base\obj\Debug\ArcFace.Base.csprojResolveAssemblyReference.cache
+E:\Work\ArcSoft人脸识别\ArcFace2.2\ArcFace.Base\obj\Debug\ArcFace.Base.dll
+E:\Work\ArcSoft人脸识别\ArcFace2.2\ArcFace.Base\obj\Debug\ArcFace.Base.pdb
