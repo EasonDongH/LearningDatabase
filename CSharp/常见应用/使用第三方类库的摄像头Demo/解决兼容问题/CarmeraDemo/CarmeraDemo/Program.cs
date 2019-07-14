@@ -15,7 +15,7 @@ namespace CarmeraDemo
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmTestCamera());
+            Application.Run(new TestAforgeCameraForm());
         }
     }
 }

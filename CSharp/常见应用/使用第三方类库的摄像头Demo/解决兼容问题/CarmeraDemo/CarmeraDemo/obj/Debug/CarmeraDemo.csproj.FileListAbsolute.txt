@@ -37,3 +37,27 @@ C:\2. GitHub\LeariningCodeBase\CSharp\使用第三方类库的摄像头Demo\解�
 C:\2. GitHub\LeariningCodeBase\CSharp\使用第三方类库的摄像头Demo\解决兼容问题\CarmeraDemo\CarmeraDemo\obj\Debug\CarmeraDemo.csproj.CopyComplete
 C:\2. GitHub\LeariningCodeBase\CSharp\使用第三方类库的摄像头Demo\解决兼容问题\CarmeraDemo\CarmeraDemo\obj\Debug\CarmeraDemo.exe
 C:\2. GitHub\LeariningCodeBase\CSharp\使用第三方类库的摄像头Demo\解决兼容问题\CarmeraDemo\CarmeraDemo\obj\Debug\CarmeraDemo.pdb
+C:\GitHub\LearningDatabase\CSharp\常见应用\使用第三方类库的摄像头Demo\解决兼容问题\CarmeraDemo\CarmeraDemo\bin\Debug\CarmeraDemo.exe.config
+C:\GitHub\LearningDatabase\CSharp\常见应用\使用第三方类库的摄像头Demo\解决兼容问题\CarmeraDemo\CarmeraDemo\bin\Debug\CarmeraDemo.exe
+C:\GitHub\LearningDatabase\CSharp\常见应用\使用第三方类库的摄像头Demo\解决兼容问题\CarmeraDemo\CarmeraDemo\bin\Debug\CarmeraDemo.pdb
+C:\GitHub\LearningDatabase\CSharp\常见应用\使用第三方类库的摄像头Demo\解决兼容问题\CarmeraDemo\CarmeraDemo\bin\Debug\AForge.Controls.dll
+C:\GitHub\LearningDatabase\CSharp\常见应用\使用第三方类库的摄像头Demo\解决兼容问题\CarmeraDemo\CarmeraDemo\bin\Debug\AForge.dll
+C:\GitHub\LearningDatabase\CSharp\常见应用\使用第三方类库的摄像头Demo\解决兼容问题\CarmeraDemo\CarmeraDemo\bin\Debug\AForge.Imaging.dll
+C:\GitHub\LearningDatabase\CSharp\常见应用\使用第三方类库的摄像头Demo\解决兼容问题\CarmeraDemo\CarmeraDemo\bin\Debug\AForge.Math.dll
+C:\GitHub\LearningDatabase\CSharp\常见应用\使用第三方类库的摄像头Demo\解决兼容问题\CarmeraDemo\CarmeraDemo\bin\Debug\AForge.Video.DirectShow.dll
+C:\GitHub\LearningDatabase\CSharp\常见应用\使用第三方类库的摄像头Demo\解决兼容问题\CarmeraDemo\CarmeraDemo\bin\Debug\AForge.Video.dll
+C:\GitHub\LearningDatabase\CSharp\常见应用\使用第三方类库的摄像头Demo\解决兼容问题\CarmeraDemo\CarmeraDemo\bin\Debug\AForge.xml
+C:\GitHub\LearningDatabase\CSharp\常见应用\使用第三方类库的摄像头Demo\解决兼容问题\CarmeraDemo\CarmeraDemo\bin\Debug\AForge.Controls.xml
+C:\GitHub\LearningDatabase\CSharp\常见应用\使用第三方类库的摄像头Demo\解决兼容问题\CarmeraDemo\CarmeraDemo\bin\Debug\AForge.Imaging.xml
+C:\GitHub\LearningDatabase\CSharp\常见应用\使用第三方类库的摄像头Demo\解决兼容问题\CarmeraDemo\CarmeraDemo\bin\Debug\AForge.Math.xml
+C:\GitHub\LearningDatabase\CSharp\常见应用\使用第三方类库的摄像头Demo\解决兼容问题\CarmeraDemo\CarmeraDemo\bin\Debug\AForge.Video.xml
+C:\GitHub\LearningDatabase\CSharp\常见应用\使用第三方类库的摄像头Demo\解决兼容问题\CarmeraDemo\CarmeraDemo\bin\Debug\AForge.Video.DirectShow.xml
+C:\GitHub\LearningDatabase\CSharp\常见应用\使用第三方类库的摄像头Demo\解决兼容问题\CarmeraDemo\CarmeraDemo\obj\Debug\CarmeraDemo.csprojAssemblyReference.cache
+C:\GitHub\LearningDatabase\CSharp\常见应用\使用第三方类库的摄像头Demo\解决兼容问题\CarmeraDemo\CarmeraDemo\obj\Debug\CarmeraDemo.FrmTestCamera.resources
+C:\GitHub\LearningDatabase\CSharp\常见应用\使用第三方类库的摄像头Demo\解决兼容问题\CarmeraDemo\CarmeraDemo\obj\Debug\CarmeraDemo.Properties.Resources.resources
+C:\GitHub\LearningDatabase\CSharp\常见应用\使用第三方类库的摄像头Demo\解决兼容问题\CarmeraDemo\CarmeraDemo\obj\Debug\CarmeraDemo.TestAforgeCameraForm.resources
+C:\GitHub\LearningDatabase\CSharp\常见应用\使用第三方类库的摄像头Demo\解决兼容问题\CarmeraDemo\CarmeraDemo\obj\Debug\CarmeraDemo.csproj.GenerateResource.cache
+C:\GitHub\LearningDatabase\CSharp\常见应用\使用第三方类库的摄像头Demo\解决兼容问题\CarmeraDemo\CarmeraDemo\obj\Debug\CarmeraDemo.csproj.CoreCompileInputs.cache
+C:\GitHub\LearningDatabase\CSharp\常见应用\使用第三方类库的摄像头Demo\解决兼容问题\CarmeraDemo\CarmeraDemo\obj\Debug\CarmeraDemo.csproj.CopyComplete
+C:\GitHub\LearningDatabase\CSharp\常见应用\使用第三方类库的摄像头Demo\解决兼容问题\CarmeraDemo\CarmeraDemo\obj\Debug\CarmeraDemo.exe
+C:\GitHub\LearningDatabase\CSharp\常见应用\使用第三方类库的摄像头Demo\解决兼容问题\CarmeraDemo\CarmeraDemo\obj\Debug\CarmeraDemo.pdb
