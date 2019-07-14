@@ -1,0 +1,14 @@
+E:\WorkSpace\ArcSoft_Face2.2\ArcSoft.Base\obj\Debug\ArcSoft.Base.csprojResolveAssemblyReference.cache
+E:\WorkSpace\ArcSoft_Face2.2\ArcSoft.Base\bin\Debug\ArcSoft.Base.dll
+E:\WorkSpace\ArcSoft_Face2.2\ArcSoft.Base\bin\Debug\ArcSoft.Base.pdb
+E:\WorkSpace\ArcSoft_Face2.2\ArcSoft.Base\bin\Debug\ArcSoft.Model.dll
+E:\WorkSpace\ArcSoft_Face2.2\ArcSoft.Base\bin\Debug\ArcSoft.Model.pdb
+E:\WorkSpace\ArcSoft_Face2.2\ArcSoft.Base\obj\Debug\ArcSoft.Base.dll
+E:\WorkSpace\ArcSoft_Face2.2\ArcSoft.Base\obj\Debug\ArcSoft.Base.pdb
+C:\WorkSpace\ArcSoft_Face2.2\ArcSoft.Base\bin\Debug\ArcSoft.Base.dll
+C:\WorkSpace\ArcSoft_Face2.2\ArcSoft.Base\bin\Debug\ArcSoft.Base.pdb
+C:\WorkSpace\ArcSoft_Face2.2\ArcSoft.Base\bin\Debug\ArcSoft.Model.dll
+C:\WorkSpace\ArcSoft_Face2.2\ArcSoft.Base\bin\Debug\ArcSoft.Model.pdb
+C:\WorkSpace\ArcSoft_Face2.2\ArcSoft.Base\obj\Debug\ArcSoft.Base.csprojResolveAssemblyReference.cache
+C:\WorkSpace\ArcSoft_Face2.2\ArcSoft.Base\obj\Debug\ArcSoft.Base.dll
+C:\WorkSpace\ArcSoft_Face2.2\ArcSoft.Base\obj\Debug\ArcSoft.Base.pdb
