@@ -1,0 +1,7 @@
+C:\WorkSpace\CSharp\ArcSoftFaceIDTest\Base\bin\Debug\Base.dll
+C:\WorkSpace\CSharp\ArcSoftFaceIDTest\Base\bin\Debug\Base.pdb
+C:\WorkSpace\CSharp\ArcSoftFaceIDTest\Base\bin\Debug\Emgu.CV.UI.dll
+C:\WorkSpace\CSharp\ArcSoftFaceIDTest\Base\bin\Debug\Emgu.CV.World.dll
+C:\WorkSpace\CSharp\ArcSoftFaceIDTest\Base\bin\Debug\ZedGraph.dll
+C:\WorkSpace\CSharp\ArcSoftFaceIDTest\Base\obj\Debug\Base.dll
+C:\WorkSpace\CSharp\ArcSoftFaceIDTest\Base\obj\Debug\Base.pdb

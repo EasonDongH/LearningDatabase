@@ -1,0 +1,4 @@
+C:\WorkSpace\CSharp\ArcSoftFaceIDTest\ArcSoft.Face2.2\bin\Debug\ArcSoft.Face2.2.dll
+C:\WorkSpace\CSharp\ArcSoftFaceIDTest\ArcSoft.Face2.2\bin\Debug\ArcSoft.Face2.2.pdb
+C:\WorkSpace\CSharp\ArcSoftFaceIDTest\ArcSoft.Face2.2\obj\Debug\ArcSoft.Face2.2.dll
+C:\WorkSpace\CSharp\ArcSoftFaceIDTest\ArcSoft.Face2.2\obj\Debug\ArcSoft.Face2.2.pdb

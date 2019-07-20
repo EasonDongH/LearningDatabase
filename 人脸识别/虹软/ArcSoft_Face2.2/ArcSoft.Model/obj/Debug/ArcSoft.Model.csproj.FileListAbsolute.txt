@@ -1,8 +1,0 @@
-E:\WorkSpace\ArcSoft_Face2.2\ArcSoft.Model\bin\Debug\ArcSoft.Model.dll
-E:\WorkSpace\ArcSoft_Face2.2\ArcSoft.Model\bin\Debug\ArcSoft.Model.pdb
-E:\WorkSpace\ArcSoft_Face2.2\ArcSoft.Model\obj\Debug\ArcSoft.Model.dll
-E:\WorkSpace\ArcSoft_Face2.2\ArcSoft.Model\obj\Debug\ArcSoft.Model.pdb
-C:\WorkSpace\ArcSoft_Face2.2\ArcSoft.Model\bin\Debug\ArcSoft.Model.dll
-C:\WorkSpace\ArcSoft_Face2.2\ArcSoft.Model\bin\Debug\ArcSoft.Model.pdb
-C:\WorkSpace\ArcSoft_Face2.2\ArcSoft.Model\obj\Debug\ArcSoft.Model.dll
-C:\WorkSpace\ArcSoft_Face2.2\ArcSoft.Model\obj\Debug\ArcSoft.Model.pdb
