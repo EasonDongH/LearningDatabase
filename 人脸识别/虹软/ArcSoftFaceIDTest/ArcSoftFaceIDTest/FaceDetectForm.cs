@@ -27,7 +27,6 @@ namespace ArcSoftFaceIDTest
 
         private void FaceDetectForm_Load(object sender, EventArgs e)
         {
-            this._faceControl = new FaceControl();
             this.cmbDetectMode.SelectedIndex = 0;
         }
 
@@ -55,6 +54,7 @@ namespace ArcSoftFaceIDTest
 
         private void VideoMode()
         {
+            this._faceControl = new FaceControl(AsfEnums.AsfFaceDetectMode.ASF_DETECT_MODE_VIDEO);
             if (this._camera == null)
             {
                 InitCamera(0);
@@ -69,6 +69,7 @@ namespace ArcSoftFaceIDTest
         {
             if (this._camera != null) this._camera.StopCapture();
 
+            this._faceControl = new FaceControl(AsfEnums.AsfFaceDetectMode.ASF_DETECT_MODE_IMAGE);
             OpenFileDialog ofd = new OpenFileDialog();
             ofd.Multiselect = false;
             if (ofd.ShowDialog() == DialogResult.OK)
