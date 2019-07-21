@@ -3,11 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Emgu.CV;
+using log4net;
+using System.Reflection;
 
 namespace Camera
 {
     public class Camera
     {
+        private static ILog _log = log4net.LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
+
         private Emgu.CV.Capture _capture = null;
         private bool _captureInProgress = false;
         private int _captureTotalCount = 0;//采集帧数
@@ -66,7 +70,7 @@ namespace Camera
             }
             catch (Exception ex)
             {
-
+                _log.Error(ex);
             }
         }
 
@@ -83,7 +87,7 @@ namespace Camera
             }
             catch (Exception ex)
             {
-               
+                _log.Error(ex);
             }
         }
 
@@ -99,7 +103,7 @@ namespace Camera
             }
             catch (Exception ex)
             {
-                
+                _log.Error(ex);
             }
         }
 
@@ -116,7 +120,7 @@ namespace Camera
             }
             catch (Exception ex)
             {
-                
+                _log.Error(ex);
             }
         }
 
@@ -132,7 +136,7 @@ namespace Camera
             }
             catch (Exception ex)
             {
-              
+                _log.Error(ex);
             }
         }
     }

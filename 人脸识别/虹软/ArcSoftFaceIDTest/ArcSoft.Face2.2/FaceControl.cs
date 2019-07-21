@@ -4,11 +4,17 @@ using System.Linq;
 using System.Text;
 using System.Drawing;
 using System.Runtime.InteropServices;
+using System.Drawing.Imaging;
+using System.Reflection;
+using log4net;
+using System.Reflection;
 
 namespace ArcSoft.Face2._2
 {
-    public class FaceControl
+    public class FaceControl:IDisposable
     {
+        private static ILog _log = log4net.LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
+
         private const string APPId = "TLGv6eAQ3ihsBwFwzM9SdtgzS5HLUuL8vfTGGr72wv2";
         private const string SDKKey = "5GSobsVbGYosjxGEWLjUM9g1nW7roZT1D36QEhneQLkL";
         /// <summary>
@@ -19,6 +25,7 @@ namespace ArcSoft.Face2._2
         private const int nScale = 30;
         private const int nMaxFaceNum = 50;
         private IntPtr hEngine = IntPtr.Zero;
+        private bool disposed = false;
 
         /// <summary>
         /// 初始化引擎
@@ -53,31 +60,14 @@ namespace ArcSoft.Face2._2
         }
 
         /// <summary>
-        /// 初始化引擎
+        /// 初始化人脸识别控制模块
         /// </summary>
         /// <param name="detectMode">默认图像模式</param>
         public FaceControl(AsfEnums.AsfFaceDetectMode detectMode = AsfEnums.AsfFaceDetectMode.ASF_DETECT_MODE_IMAGE)
         {
-            AsfEnums.ResultCode res = InitAsfSDK(out this.hEngine, detectMode == AsfEnums.AsfFaceDetectMode.ASF_DETECT_MODE_IMAGE? AsfConstants.AsfFaceDetectMode.ASF_DETECT_MODE_IMAGE : AsfConstants.AsfFaceDetectMode.ASF_DETECT_MODE_VIDEO); 
+            AsfEnums.ResultCode res = InitAsfSDK(out this.hEngine, detectMode == AsfEnums.AsfFaceDetectMode.ASF_DETECT_MODE_IMAGE ? AsfConstants.AsfFaceDetectMode.ASF_DETECT_MODE_IMAGE : AsfConstants.AsfFaceDetectMode.ASF_DETECT_MODE_VIDEO);
             if (res != AsfEnums.ResultCode.MOK)
                 throw new Exception(res.ToString());
-        }
-
-        /// <summary>
-        /// 根据singleFaceInfo来获取sourceImage中相应位置的人脸图像
-        /// </summary>
-        /// <param name="sourceImage"></param>
-        /// <param name="singleFaceInfo"></param>
-        /// <returns></returns>
-        private Bitmap GetSingleFaceImage(Bitmap sourceImage, AsfStruct.ASF_SingleFaceInfo singleFaceInfo)
-        {
-            Rectangle faceRect = singleFaceInfo.faceRect.GetRectangle();
-            Bitmap singleFace = new Bitmap(faceRect.Width, faceRect.Height);
-            using (Graphics draw = Graphics.FromImage(singleFace))
-            {
-                draw.DrawImage(sourceImage, 0, 0, faceRect, GraphicsUnit.Pixel);
-            }
-            return singleFace;
         }
 
         /// <summary>
@@ -99,12 +89,10 @@ namespace ArcSoft.Face2._2
             catch (Exception ex)
             {
                 res = AsfEnums.ResultCode.ERROR_UNKNOWN;
-                //throw ex;
+                _log.Error(ex);
             }
             finally
             {
-                if (bmp != null)
-                    bmp.Dispose();
                 if (image != null)
                     image.Dispose();
             }
@@ -123,7 +111,7 @@ namespace ArcSoft.Face2._2
             catch (Exception ex)
             {
                 res = AsfEnums.ResultCode.ERROR_UNKNOWN;
-                throw ex;
+                _log.Error(ex);
             }
             finally
             {
@@ -147,22 +135,22 @@ namespace ArcSoft.Face2._2
             catch (Exception ex)
             {
                 res = AsfEnums.ResultCode.ERROR_UNKNOWN;
-                throw ex;
+                _log.Error(ex);
             }
             finally
             {
-                if (bmp != null)
-                    bmp.Dispose();
+
             }
             return res;
         }
+
         /// <summary>
         /// 根据原始图像，提取图像中的所有人脸图像，及每个人脸对应的特征
         /// </summary>
         /// <param name="sourceImage"></param>
         /// <param name="faceData"></param>
         /// <returns></returns>
-        public AsfEnums.ResultCode GetImageFaceInfo(Bitmap sourceImage, ref ImageFaceDataModel faceData)
+        public AsfEnums.ResultCode GetDetectedFaceInfo(Bitmap sourceImage, ref ImageFaceDataModel faceData)
         {
             AsfEnums.ResultCode res = AsfEnums.ResultCode.MOK;
             ImageDataModel image = null;
@@ -192,25 +180,84 @@ namespace ArcSoft.Face2._2
                     Marshal.Copy(faceFeature.feature, featureData, 0, featureData.Length);
                     faceData.FaceDatas.Add(new FaceData()
                     {
-                        Face = GetSingleFaceImage(sourceImage, singleFaceInfo),
+                        Rect = singleFaceInfo.faceRect.GetRectangle(),
+                        Face = ImageHelper.GetRectangleImage(sourceImage, singleFaceInfo.faceRect.GetRectangle()),
                         FaceFeature = featureData
                     });
-                    //if (faceFeature.feature != IntPtr.Zero)
-                    //    Marshal.FreeCoTaskMem(faceFeature.feature);
                 }
             }
             catch (Exception ex)
             {
                 res = AsfEnums.ResultCode.ERROR_UNKNOWN;
-                throw ex;
+                _log.Error(ex);
             }
             finally
             {
-                image.Dispose();
+                if (image != null)
+                    image.Dispose();
                 //if (faceFeature.feature != IntPtr.Zero)
                 //    Marshal.FreeCoTaskMem(faceFeature.feature);
             }
             return res;
+        }
+
+        /// <summary>
+        /// 根据单人脸信息，获取该人脸的特征值
+        /// </summary>
+        /// <param name="faceBmp"></param>
+        /// <param name="singleFace"></param>
+        /// <param name="feature"></param>
+        /// <returns></returns>
+        public AsfEnums.ResultCode GetFaceFeature(Bitmap faceBmp, AsfStruct.ASF_SingleFaceInfo singleFace, out byte[] feature)
+        {
+            feature = new byte[1];
+            AsfEnums.ResultCode res = AsfEnums.ResultCode.MOK;
+            ImageDataModel image = null;
+            AsfStruct.ASF_FaceFeature faceFeature = new AsfStruct.ASF_FaceFeature();
+            try
+            {
+                res = (AsfEnums.ResultCode)AsfFunctions.ASFFaceFeatureExtract(hEngine, image.Width, image.Height, AsfConstants.AsfFacePixelFormat.ASVL_PAF_RGB24_B8G8R8, image.PImageData, ref singleFace, ref faceFeature);
+                if (res != AsfEnums.ResultCode.MOK)
+                    return res;
+                feature = new byte[faceFeature.featureSize];
+                Marshal.Copy(faceFeature.feature, feature, 0, feature.Length);
+            }
+            catch (Exception ex)
+            {
+                res = AsfEnums.ResultCode.ERROR_UNKNOWN;
+                _log.Error(ex);
+            }
+            finally
+            {
+                if (image != null)
+                    image.Dispose();
+            }
+            return res;
+        }
+
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        protected virtual void Dispose(bool disposing)
+        {
+            // Check to see if Dispose has already been called.
+            if (!this.disposed)
+            {
+                if (disposing)
+                {
+                    UnInitAsfSDK();
+                }
+                // Note disposing has been done.
+                disposed = true;
+            }
+        }
+
+        ~FaceControl()
+        {
+            Dispose(false);
         }
     }
 }

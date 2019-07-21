@@ -10,6 +10,13 @@ namespace ArcSoft.Face2._2
     {
         public Bitmap Face { get; set; }
 
+        /// <summary>
+        /// 在原图像中的矩形信息
+        /// </summary>
+        public Rectangle Rect { get; set; }
+
+        public AsfStruct.ASF_SingleFaceInfo SingleFace { get; set; }
+
         public byte[] FaceFeature { get; set; }
     }
 
@@ -22,7 +29,12 @@ namespace ArcSoft.Face2._2
         {
             get { return FaceDatas == null ? 0 : FaceDatas.Count(); }
         }
-        public List<FaceData> FaceDatas { get; set; }
+        public List<FaceData> FaceDatas = new List<FaceData>();
+
+        public ImageFaceDataModel()
+        { 
+
+        }
 
         public void Dispose()
         {

@@ -1,0 +1,169 @@
+
+记录时间：2019-07-21 11:04:44,384 
+线程ID:[1] 
+日志级别：INFO  
+出错位置：ArcSoftFaceIDTest.Program.Main  
+错误描述：【开始运行】
+ 
+ 
+记录时间：2019-07-21 11:04:46,618 
+线程ID:[1] 
+日志级别：INFO  
+出错位置：ArcSoftFaceIDTest.Program.Main  
+错误描述：【结束运行】
+ 
+ 
+记录时间：2019-07-21 11:05:29,947 
+线程ID:[10] 
+日志级别：INFO  
+出错位置：ArcSoftFaceIDTest.Program.Main  
+错误描述：【开始运行】
+ 
+ 
+记录时间：2019-07-21 11:05:31,005 
+线程ID:[10] 
+日志级别：INFO  
+出错位置：ArcSoftFaceIDTest.Program.Main  
+错误描述：【结束运行】
+ 
+ 
+记录时间：2019-07-21 11:18:56,948 
+线程ID:[8] 
+日志级别：INFO  
+出错位置：ArcSoftFaceIDTest.Program.Main  
+错误描述：【开始运行】
+ 
+ 
+记录时间：2019-07-21 11:19:00,403 
+线程ID:[8] 
+日志级别：INFO  
+出错位置：ArcSoftFaceIDTest.Program.Main  
+错误描述：【结束运行】
+ 
+ 
+记录时间：2019-07-21 11:19:15,013 
+线程ID:[10] 
+日志级别：INFO  
+出错位置：ArcSoftFaceIDTest.Program.Main  
+错误描述：【开始运行】
+ 
+ 
+记录时间：2019-07-21 11:19:20,588 
+线程ID:[10] 
+日志级别：INFO  
+出错位置：ArcSoftFaceIDTest.Program.Main  
+错误描述：【结束运行】
+ 
+ 
+记录时间：2019-07-21 11:19:49,903 
+线程ID:[9] 
+日志级别：INFO  
+出错位置：ArcSoftFaceIDTest.Program.Main  
+错误描述：【开始运行】
+ 
+ 
+记录时间：2019-07-21 11:19:52,596 
+线程ID:[9] 
+日志级别：INFO  
+出错位置：ArcSoftFaceIDTest.Program.Main  
+错误描述：【结束运行】
+ 
+ 
+记录时间：2019-07-21 11:22:14,581 
+线程ID:[9] 
+日志级别：INFO  
+出错位置：ArcSoftFaceIDTest.Program.Main  
+错误描述：【开始运行】
+ 
+ 
+记录时间：2019-07-21 11:22:26,147 
+线程ID:[9] 
+日志级别：INFO  
+出错位置：ArcSoftFaceIDTest.Program.Main  
+错误描述：【结束运行】
+ 
+ 
+记录时间：2019-07-21 11:22:45,748 
+线程ID:[10] 
+日志级别：INFO  
+出错位置：ArcSoftFaceIDTest.Program.Main  
+错误描述：【开始运行】
+ 
+ 
+记录时间：2019-07-21 11:23:47,565 
+线程ID:[9] 
+日志级别：INFO  
+出错位置：ArcSoftFaceIDTest.Program.Main  
+错误描述：【开始运行】
+ 
+ 
+记录时间：2019-07-21 11:24:38,333 
+线程ID:[9] 
+日志级别：INFO  
+出错位置：ArcSoftFaceIDTest.Program.Main  
+错误描述：【开始运行】
+ 
+ 
+记录时间：2019-07-21 11:25:40,037 
+线程ID:[9] 
+日志级别：INFO  
+出错位置：ArcSoftFaceIDTest.Program.Main  
+错误描述：【结束运行】
+ 
+ 
+记录时间：2019-07-21 11:34:45,552 
+线程ID:[9] 
+日志级别：INFO  
+出错位置：ArcSoftFaceIDTest.Program.Main  
+错误描述：【开始运行】
+ 
+ 
+记录时间：2019-07-21 11:34:56,715 
+线程ID:[9] 
+日志级别：INFO  
+出错位置：ArcSoftFaceIDTest.Program.Main  
+错误描述：【结束运行】
+ 
+ 
+记录时间：2019-07-21 11:35:03,103 
+线程ID:[9] 
+日志级别：INFO  
+出错位置：ArcSoftFaceIDTest.Program.Main  
+错误描述：【开始运行】
+ 
+ 
+记录时间：2019-07-21 11:35:24,787 
+线程ID:[9] 
+日志级别：INFO  
+出错位置：ArcSoftFaceIDTest.Program.Main  
+错误描述：【结束运行】
+ 
+ 
+记录时间：2019-07-21 11:36:54,220 
+线程ID:[9] 
+日志级别：INFO  
+出错位置：ArcSoftFaceIDTest.Program.Main  
+错误描述：【开始运行】
+ 
+ 
+记录时间：2019-07-21 11:37:12,930 
+线程ID:[9] 
+日志级别：INFO  
+出错位置：ArcSoftFaceIDTest.Program.Main  
+错误描述：【结束运行】
+ 
+ 
+记录时间：2019-07-21 11:37:36,617 
+线程ID:[9] 
+日志级别：INFO  
+出错位置：ArcSoftFaceIDTest.Program.Main  
+错误描述：【开始运行】
+ 
+ 
+记录时间：2019-07-21 11:37:56,069 
+线程ID:[9] 
+日志级别：INFO  
+出错位置：ArcSoftFaceIDTest.Program.Main  
+错误描述：【结束运行】
+ 
+ 

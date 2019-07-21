@@ -62,10 +62,12 @@
     <Content Include="refDLL\Emgu\Emgu.CV.UI.dll" />
     <Content Include="refDLL\Emgu\Emgu.CV.World.dll" />
     <Content Include="refDLL\Emgu\ZedGraph.dll" />
+    <Content Include="refDLL\log4net\log4net.dll" />
   </ItemGroup>
   <ItemGroup>
     <None Include="refDLL\ArcSoft\libarcsoft_face_engine.lib" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

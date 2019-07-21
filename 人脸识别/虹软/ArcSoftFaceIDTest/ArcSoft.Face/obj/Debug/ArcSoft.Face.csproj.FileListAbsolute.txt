@@ -1,4 +1,0 @@
-C:\WorkSpace\CSharp\ArcSoftFaceIDTest\ArcSoft.Face\bin\Debug\ArcSoft.Face.dll
-C:\WorkSpace\CSharp\ArcSoftFaceIDTest\ArcSoft.Face\bin\Debug\ArcSoft.Face.pdb
-C:\WorkSpace\CSharp\ArcSoftFaceIDTest\ArcSoft.Face\obj\Debug\ArcSoft.Face.dll
-C:\WorkSpace\CSharp\ArcSoftFaceIDTest\ArcSoft.Face\obj\Debug\ArcSoft.Face.pdb

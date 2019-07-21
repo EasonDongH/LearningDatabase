@@ -5,6 +5,7 @@ using System.Drawing.Imaging;
 using System.IO;
 using System.Text;
 using System.Reflection;
+using System.Runtime.Serialization.Formatters.Binary;
 
 namespace ArcSoft.Face2._2
 {
@@ -131,6 +132,48 @@ namespace ArcSoft.Face2._2
                 stream.Close();
             }
             return res;
+        }
+
+        /// <summary>
+        /// 根据faceRect来获取矩形图像
+        /// </summary>
+        /// <param name="sourceImage"></param>
+        /// <param name="singleFaceInfo"></param>
+        /// <returns></returns>
+        public static Bitmap GetRectangleImage(Bitmap sourceImage, Rectangle faceRect)
+        {
+            Bitmap singleFace = new Bitmap(faceRect.Width, faceRect.Height);
+            using (Graphics draw = Graphics.FromImage(singleFace))
+            {
+                draw.DrawImage(sourceImage, 0, 0, faceRect, GraphicsUnit.Pixel);
+            }
+            return singleFace;
+        }
+
+        /// <summary>
+        /// 深度复制
+        /// </summary>
+        /// <param name="bitmap"></param>
+        /// <returns></returns>
+        public static Bitmap DeepCopyBitmap(Bitmap bitmap)
+        {
+            try
+            {
+                Bitmap dstBitmap = null;
+                using (MemoryStream ms = new MemoryStream())
+                {
+                    BinaryFormatter bf = new BinaryFormatter();
+                    bf.Serialize(ms, bitmap);
+                    ms.Seek(0, SeekOrigin.Begin);
+                    dstBitmap = (Bitmap)bf.Deserialize(ms);
+                    ms.Close();
+                }
+                return dstBitmap;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
         }
     }
 }

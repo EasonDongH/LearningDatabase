@@ -36,3 +36,4 @@ C:\GitHub\LearningDatabase\人脸识别\虹软\ArcSoftFaceIDTest\ArcSoftFaceIDTe
 C:\GitHub\LearningDatabase\人脸识别\虹软\ArcSoftFaceIDTest\ArcSoftFaceIDTest\obj\x86\Debug\ArcSoftFaceIDTest.MainForm.resources
 C:\GitHub\LearningDatabase\人脸识别\虹软\ArcSoftFaceIDTest\ArcSoftFaceIDTest\obj\x86\Debug\ArcSoftFaceIDTest.Properties.Resources.resources
 C:\GitHub\LearningDatabase\人脸识别\虹软\ArcSoftFaceIDTest\ArcSoftFaceIDTest\obj\x86\Debug\ArcSoftFaceIDTest.csproj.GenerateResource.Cache
+C:\GitHub\LearningDatabase\人脸识别\虹软\ArcSoftFaceIDTest\ArcSoftFaceIDTest\bin\Debug\log4net.dll
