@@ -28,5 +28,10 @@ namespace ArcSoft.Face2._2
         /// 0为正常
         /// </summary>
         public int status { get; set; }
+
+        public override string ToString()
+        {
+            return string.Format(" 检测状态(0为正常)：{0}    横滚角度：{1}    偏航角度：{2}    俯仰角度：{3}", status, roll, yaw, pitch);
+        }
     }
 }

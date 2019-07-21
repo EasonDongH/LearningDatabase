@@ -114,14 +114,14 @@ namespace ArcSoft.Face2._2
             /// <param name="self">年龄句柄handle</param>
             /// <param name="length">句柄长度</param>
             /// <returns></returns>
-            public List<int> PtrToAgeArray(IntPtr self, int length)
+            public static List<int> PtrToAgeArray(ASF_AgeInfo ageInfo)
             {
                 var size = Marshal.SizeOf(typeof(int));
                 List<int> ageArray = new List<int>();
-                for (var i = 0; i < length; i++)
+                for (var i = 0; i < ageInfo.num; i++)
                 {
                     int age = 0;
-                    var iPtr = new IntPtr(self.ToInt32() + i * size);
+                    var iPtr = new IntPtr(ageInfo.ageArray.ToInt32() + i * size);
                     age = (int)Marshal.PtrToStructure(iPtr, typeof(int));
                     ageArray.Add(age);
                 }
@@ -150,14 +150,14 @@ namespace ArcSoft.Face2._2
             /// <param name="self">性别句柄handle</param>
             /// <param name="length">句柄长度</param>
             /// <returns></returns>
-            public List<int> PtrToGenderArray(IntPtr self, int length)
+            public static List<int> PtrToGenderArray(ASF_GenderInfo genderInfo)
             {
                 var size = Marshal.SizeOf(typeof(int));
                 List<int> genderArray = new List<int>();
-                for (var i = 0; i < length; i++)
+                for (var i = 0; i < genderInfo.num; i++)
                 {
                     int gender = 0;
-                    var iPtr = new IntPtr(self.ToInt32() + i * size);
+                    var iPtr = new IntPtr(genderInfo.genderArray.ToInt32() + i * size);
                     gender = (int)Marshal.PtrToStructure(iPtr, typeof(int));
                     genderArray.Add(gender);
                 }
@@ -181,6 +181,21 @@ namespace ArcSoft.Face2._2
             /// </summary>
             [MarshalAs(UnmanagedType.I4)]
             public int featureSize;
+
+            /// <summary>
+            /// 将特征值数组转为ASF_FaceFeature类型
+            /// </summary>
+            /// <param name="feature"></param>
+            /// <returns></returns>
+            public static ASF_FaceFeature ToFaceFeature(byte[] feature)
+            {
+                AsfStruct.ASF_FaceFeature faceFeature = new AsfStruct.ASF_FaceFeature();
+                IntPtr f = CommonMethod.BytesToIntptr(feature);
+                faceFeature.feature = Marshal.AllocCoTaskMem(feature.Length);
+                faceFeature.featureSize = feature.Length;
+                CommonMethod.CopyMemory(faceFeature.feature, f, feature.Length);
+                return faceFeature;
+            }
         }
 
         /// <summary>
@@ -222,30 +237,30 @@ namespace ArcSoft.Face2._2
             /// <param name="status">状态值handle</param>
             /// <param name="length">句柄长度</param>
             /// <returns></returns>
-            public List<Face3DAngleModel> PtrToFace3DAngleArray(IntPtr roll, IntPtr yaw, IntPtr pitch, IntPtr status, int length)
+            public static List<Face3DAngleModel> PtrToFace3DAngleArray(ASF_Face3DAngle angle)
             {
                 List<Face3DAngleModel> Face3DAngleList = new List<Face3DAngleModel>();
                 var size = Marshal.SizeOf(typeof(int));
-                for (var i = 0; i < length; i++)
+                for (var i = 0; i < angle.num; i++)
                 {
                     Face3DAngleModel model = new Face3DAngleModel();
                     int r = 0;
-                    var iPtr = new IntPtr(roll.ToInt32() + i * size);
+                    var iPtr = new IntPtr(angle.roll.ToInt32() + i * size);
                     r = (int)Marshal.PtrToStructure(iPtr, typeof(int));
                     model.roll = r;
 
                     int y = 0;
-                    iPtr = new IntPtr(yaw.ToInt32() + i * size);
+                    iPtr = new IntPtr(angle.yaw.ToInt32() + i * size);
                     y = (int)Marshal.PtrToStructure(iPtr, typeof(int));
                     model.yaw = y;
 
                     int p = 0;
-                    iPtr = new IntPtr(pitch.ToInt32() + i * size);
+                    iPtr = new IntPtr(angle.pitch.ToInt32() + i * size);
                     p = (int)Marshal.PtrToStructure(iPtr, typeof(int));
                     model.pitch = p;
 
                     int s = 0;
-                    iPtr = new IntPtr(status.ToInt32() + i * size);
+                    iPtr = new IntPtr(angle.status.ToInt32() + i * size);
                     s = (int)Marshal.PtrToStructure(iPtr, typeof(int));
                     model.status = s;
 

@@ -39,6 +39,16 @@ namespace ArcSoft.Face2._2
         }
 
         /// <summary>
+        /// 以ImageFormat.Jpeg格式转换图片
+        /// </summary>
+        /// <param name="Image"></param>
+        /// <returns></returns>
+        public static byte[] ImageToBytes(Image Image)
+        {
+            return ImageToBytes(Image, ImageFormat.Jpeg);
+        }
+
+        /// <summary>
         /// Convert Byte[] to Image
         /// </summary>
         /// <param name="buffer"></param>

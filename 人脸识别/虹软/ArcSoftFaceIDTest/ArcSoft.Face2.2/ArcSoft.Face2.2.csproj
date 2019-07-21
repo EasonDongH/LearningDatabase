@@ -48,6 +48,7 @@
     <Compile Include="AsfEnums.cs" />
     <Compile Include="AsfFunctions.cs" />
     <Compile Include="AsfStruct.cs" />
+    <Compile Include="CommonMethod.cs" />
     <Compile Include="Face3DAngleModel.cs" />
     <Compile Include="FaceControl.cs" />
     <Compile Include="FaceInfoModel.cs" />

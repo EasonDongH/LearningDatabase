@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnCompareFace = new System.Windows.Forms.Button();
             this.btnAnalysisFace = new System.Windows.Forms.Button();
             this.btnSearchFace = new System.Windows.Forms.Button();
             this.btnDetectFace = new System.Windows.Forms.Button();
@@ -36,29 +37,46 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.rtbInfo = new System.Windows.Forms.RichTextBox();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.pb_CurrentFace = new System.Windows.Forms.PictureBox();
+            this.pbFace1 = new System.Windows.Forms.PictureBox();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.pbFace2 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_CurrentFace)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbFace1)).BeginInit();
+            this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbFace2)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.btnCompareFace);
             this.panel1.Controls.Add(this.btnAnalysisFace);
             this.panel1.Controls.Add(this.btnSearchFace);
             this.panel1.Controls.Add(this.btnDetectFace);
             this.panel1.Controls.Add(this.btnSaveFace);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1141, 76);
+            this.panel1.Size = new System.Drawing.Size(1138, 74);
             this.panel1.TabIndex = 0;
+            // 
+            // btnCompareFace
+            // 
+            this.btnCompareFace.Location = new System.Drawing.Point(255, 12);
+            this.btnCompareFace.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnCompareFace.Name = "btnCompareFace";
+            this.btnCompareFace.Size = new System.Drawing.Size(120, 50);
+            this.btnCompareFace.TabIndex = 4;
+            this.btnCompareFace.Text = "对比人脸";
+            this.btnCompareFace.UseVisualStyleBackColor = true;
+            this.btnCompareFace.Click += new System.EventHandler(this.btnCompareFace_Click);
             // 
             // btnAnalysisFace
             // 
-            this.btnAnalysisFace.Location = new System.Drawing.Point(255, 12);
+            this.btnAnalysisFace.Location = new System.Drawing.Point(129, 12);
+            this.btnAnalysisFace.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnAnalysisFace.Name = "btnAnalysisFace";
             this.btnAnalysisFace.Size = new System.Drawing.Size(120, 50);
             this.btnAnalysisFace.TabIndex = 3;
@@ -69,6 +87,7 @@
             // btnSearchFace
             // 
             this.btnSearchFace.Location = new System.Drawing.Point(381, 12);
+            this.btnSearchFace.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnSearchFace.Name = "btnSearchFace";
             this.btnSearchFace.Size = new System.Drawing.Size(120, 50);
             this.btnSearchFace.TabIndex = 2;
@@ -79,6 +98,7 @@
             // btnDetectFace
             // 
             this.btnDetectFace.Location = new System.Drawing.Point(3, 12);
+            this.btnDetectFace.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnDetectFace.Name = "btnDetectFace";
             this.btnDetectFace.Size = new System.Drawing.Size(120, 50);
             this.btnDetectFace.TabIndex = 0;
@@ -88,7 +108,8 @@
             // 
             // btnSaveFace
             // 
-            this.btnSaveFace.Location = new System.Drawing.Point(129, 12);
+            this.btnSaveFace.Location = new System.Drawing.Point(507, 12);
+            this.btnSaveFace.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnSaveFace.Name = "btnSaveFace";
             this.btnSaveFace.Size = new System.Drawing.Size(120, 50);
             this.btnSaveFace.TabIndex = 1;
@@ -100,18 +121,20 @@
             // 
             this.panel2.Controls.Add(this.rtbInfo);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 528);
+            this.panel2.Location = new System.Drawing.Point(0, 588);
+            this.panel2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1141, 189);
+            this.panel2.Size = new System.Drawing.Size(1138, 150);
             this.panel2.TabIndex = 1;
             // 
             // rtbInfo
             // 
             this.rtbInfo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.rtbInfo.Location = new System.Drawing.Point(0, 0);
+            this.rtbInfo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.rtbInfo.Name = "rtbInfo";
             this.rtbInfo.ReadOnly = true;
-            this.rtbInfo.Size = new System.Drawing.Size(1141, 189);
+            this.rtbInfo.Size = new System.Drawing.Size(1138, 150);
             this.rtbInfo.TabIndex = 0;
             this.rtbInfo.Text = "";
             this.rtbInfo.TextChanged += new System.EventHandler(this.rtbInfo_TextChanged);
@@ -119,42 +142,65 @@
             // panel3
             // 
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel3.Controls.Add(this.pb_CurrentFace);
+            this.panel3.Controls.Add(this.pbFace1);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel3.Location = new System.Drawing.Point(0, 76);
+            this.panel3.Location = new System.Drawing.Point(0, 74);
+            this.panel3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(578, 452);
+            this.panel3.Size = new System.Drawing.Size(570, 514);
             this.panel3.TabIndex = 2;
             // 
-            // pb_CurrentFace
+            // pbFace1
             // 
-            this.pb_CurrentFace.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pb_CurrentFace.Location = new System.Drawing.Point(0, 0);
-            this.pb_CurrentFace.Name = "pb_CurrentFace";
-            this.pb_CurrentFace.Size = new System.Drawing.Size(576, 450);
-            this.pb_CurrentFace.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pb_CurrentFace.TabIndex = 0;
-            this.pb_CurrentFace.TabStop = false;
-            this.pb_CurrentFace.Click += new System.EventHandler(this.btnDetectFace_Click);
+            this.pbFace1.BackgroundImage = global::ArcSoftFaceIDTest.Properties.Resources.添加;
+            this.pbFace1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pbFace1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pbFace1.Location = new System.Drawing.Point(0, 0);
+            this.pbFace1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.pbFace1.Name = "pbFace1";
+            this.pbFace1.Size = new System.Drawing.Size(568, 512);
+            this.pbFace1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbFace1.TabIndex = 0;
+            this.pbFace1.TabStop = false;
+            this.pbFace1.Click += new System.EventHandler(this.pbSelectFace_Click);
             // 
             // panel4
             // 
             this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel4.Controls.Add(this.pbFace2);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(578, 76);
+            this.panel4.Location = new System.Drawing.Point(570, 74);
+            this.panel4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(563, 452);
+            this.panel4.Size = new System.Drawing.Size(568, 514);
             this.panel4.TabIndex = 3;
+            // 
+            // pbFace2
+            // 
+            this.pbFace2.BackgroundImage = global::ArcSoftFaceIDTest.Properties.Resources.添加;
+            this.pbFace2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pbFace2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pbFace2.Location = new System.Drawing.Point(0, 0);
+            this.pbFace2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.pbFace2.Name = "pbFace2";
+            this.pbFace2.Size = new System.Drawing.Size(566, 512);
+            this.pbFace2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbFace2.TabIndex = 0;
+            this.pbFace2.TabStop = false;
+            this.pbFace2.Click += new System.EventHandler(this.pbSelectFace_Click);
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1141, 717);
+            this.ClientSize = new System.Drawing.Size(1138, 738);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
+            this.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.MaximizeBox = false;
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
@@ -163,7 +209,9 @@
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pb_CurrentFace)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbFace1)).EndInit();
+            this.panel4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pbFace2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -175,11 +223,13 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.RichTextBox rtbInfo;
-        private System.Windows.Forms.PictureBox pb_CurrentFace;
+        private System.Windows.Forms.PictureBox pbFace1;
         private System.Windows.Forms.Button btnDetectFace;
         private System.Windows.Forms.Button btnSaveFace;
         private System.Windows.Forms.Button btnAnalysisFace;
         private System.Windows.Forms.Button btnSearchFace;
+        private System.Windows.Forms.PictureBox pbFace2;
+        private System.Windows.Forms.Button btnCompareFace;
 
 
     }

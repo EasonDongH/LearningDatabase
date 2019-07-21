@@ -208,7 +208,7 @@ namespace ArcSoft.Face2._2
         /// <param name="singleFace"></param>
         /// <param name="feature"></param>
         /// <returns></returns>
-        public AsfEnums.ResultCode GetFaceFeature(Bitmap faceBmp, AsfStruct.ASF_SingleFaceInfo singleFace, out byte[] feature)
+        public AsfEnums.ResultCode GetSingleFaceFeature(Bitmap faceBmp, AsfStruct.ASF_SingleFaceInfo singleFace, out byte[] feature)
         {
             feature = new byte[1];
             AsfEnums.ResultCode res = AsfEnums.ResultCode.MOK;
@@ -231,6 +231,175 @@ namespace ArcSoft.Face2._2
             {
                 if (image != null)
                     image.Dispose();
+            }
+            return res;
+        }
+
+        /// <summary>
+        /// 获取图像中第一个人脸的特征信息
+        /// 如果图像中没有人脸或有多个人脸，则不会返回MOK
+        /// </summary>
+        /// <param name="imageData"></param>
+        /// <param name="faceFeature"></param>
+        /// <returns></returns>
+        private AsfEnums.ResultCode GetFirstFaceFeature(byte[] imageData, out AsfStruct.ASF_FaceFeature faceFeature)
+        {
+            faceFeature = new AsfStruct.ASF_FaceFeature();
+            AsfEnums.ResultCode res = AsfEnums.ResultCode.MOK;
+            AsfStruct.ASF_MultiFaceInfo detectedFaces = new AsfStruct.ASF_MultiFaceInfo();
+            Bitmap bmp = null;
+            ImageDataModel image = null;
+            try
+            {
+                bmp = ImageHelper.BytesToBitmap(imageData);
+                image = ImageDataConverter.ConvertToImageData(bmp);
+                res = (AsfEnums.ResultCode)AsfFunctions.ASFDetectFaces(hEngine, image.Width, image.Height, AsfConstants.AsfFacePixelFormat.ASVL_PAF_RGB24_B8G8R8, image.PImageData, ref detectedFaces);
+                if (res != AsfEnums.ResultCode.MOK)
+                    return res;
+
+                if (detectedFaces.faceNum == 0)
+                    return AsfEnums.ResultCode.ERROR_NOFACE;
+                if (detectedFaces.faceNum > 1)
+                    return AsfEnums.ResultCode.ERROR_MULTIFACES;
+
+                AsfStruct.ASF_FaceFeature featureout = new AsfStruct.ASF_FaceFeature();
+                MultiFaceModel faceModel = new MultiFaceModel(detectedFaces);
+                AsfStruct.ASF_SingleFaceInfo faceInfo = faceModel.FaceInfoList[0];
+                res = (AsfEnums.ResultCode)AsfFunctions.ASFFaceFeatureExtract(hEngine, image.Width, image.Height, AsfConstants.AsfFacePixelFormat.ASVL_PAF_RGB24_B8G8R8, image.PImageData, ref faceInfo, ref featureout);
+                if (res != AsfEnums.ResultCode.MOK)
+                    return res;
+                faceFeature.feature = Marshal.AllocCoTaskMem(featureout.featureSize);
+                faceFeature.featureSize = featureout.featureSize;
+                CommonMethod.CopyMemory(faceFeature.feature, featureout.feature, featureout.featureSize);
+            }
+            catch (Exception ex)
+            {
+                res = AsfEnums.ResultCode.ERROR_UNKNOWN;
+                _log.Error(ex);
+            }
+            finally
+            {
+                if (bmp != null)
+                    bmp.Dispose();
+                if (image != null)
+                    image.Dispose();
+            }
+            return res;
+        }
+
+        private AsfEnums.ResultCode GetFirstFaceFeature(Bitmap bmp, out AsfStruct.ASF_FaceFeature faceFeature)
+        {
+            faceFeature = new AsfStruct.ASF_FaceFeature();
+            AsfEnums.ResultCode res = AsfEnums.ResultCode.MOK;
+            try
+            {
+                byte[] imageData = ImageHelper.ImageToBytes(bmp, ImageFormat.Jpeg);
+                res = GetFirstFaceFeature(imageData, out faceFeature);
+            }
+            catch (Exception ex) 
+            {
+                res = AsfEnums.ResultCode.ERROR_UNKNOWN;
+                _log.Error(ex);
+            }
+            return res;
+        }
+
+        /// <summary>
+        /// 人脸比对（比对的两张图片必须只有1张人脸）
+        /// </summary>
+        /// <param name="hEngine">引擎handle</param>
+        /// <param name="imageData1">图片1</param>
+        /// <param name="imageData2">图片2</param>
+        /// <param name="similscore">返回相似度</param>
+        /// <returns></returns>
+        public AsfEnums.ResultCode FaceMatching(byte[] imageData1, byte[] imageData2, out float similscore)
+        {
+            similscore = 0;
+            AsfEnums.ResultCode res = new AsfEnums.ResultCode();
+            try
+            {
+                AsfStruct.ASF_FaceFeature faceFeature1 = new AsfStruct.ASF_FaceFeature();
+                AsfStruct.ASF_FaceFeature faceFeature2 = new AsfStruct.ASF_FaceFeature();
+
+                res = GetFirstFaceFeature(imageData1, out faceFeature1);
+                if (res != AsfEnums.ResultCode.MOK)
+                    return res;
+
+                res = GetFirstFaceFeature(imageData2, out faceFeature2);
+                if (res != AsfEnums.ResultCode.MOK)
+                    return res;
+                res = (AsfEnums.ResultCode)AsfFunctions.ASFFaceFeatureCompare(hEngine, ref faceFeature1, ref faceFeature2, ref similscore);
+                if (res != AsfEnums.ResultCode.MOK)
+                    return res;
+                return 0;
+            }
+            catch (Exception ex)
+            {
+                res = AsfEnums.ResultCode.ERROR_UNKNOWN;
+                _log.Error(ex);
+            }
+            return res;
+        }
+
+        /// <summary>
+        /// 根据特征值数组来进行人脸匹配
+        /// </summary>
+        /// <param name="feature1"></param>
+        /// <param name="simileScore"></param>
+        /// <returns></returns>
+        public AsfEnums.ResultCode FaceMatchingByFeature(byte[] feature1, byte[] feature2,out float simileScore)
+        {
+            simileScore = 0;
+            AsfEnums.ResultCode res = AsfEnums.ResultCode.MOK;
+            try
+            {
+                AsfStruct.ASF_FaceFeature faceFeature1 = AsfStruct.ASF_FaceFeature.ToFaceFeature(feature1);
+                AsfStruct.ASF_FaceFeature faceFeature2 = AsfStruct.ASF_FaceFeature.ToFaceFeature(feature2);
+                res = (AsfEnums.ResultCode)AsfFunctions.ASFFaceFeatureCompare(hEngine, ref faceFeature1, ref faceFeature2, ref simileScore);
+            }
+            catch (Exception ex)
+            {
+                res = AsfEnums.ResultCode.ERROR_UNKNOWN;
+                _log.Error(ex);
+            }
+            return res;
+        }
+
+        /// <summary>
+        /// 解析人脸，一次得出所有人脸相关信息
+        /// </summary>
+        /// <param name="imgData"></param>
+        /// <param name="ageInfo"></param>
+        /// <param name="genderInfo"></param>
+        /// <param name="face3dAngle"></param>
+        /// <returns></returns>
+        public AsfEnums.ResultCode AnalysisFace(byte[] imgData, ref AsfStruct.ASF_AgeInfo ageInfo, ref AsfStruct.ASF_GenderInfo genderInfo, ref AsfStruct.ASF_Face3DAngle face3dAngle)
+        {
+            AsfEnums.ResultCode res = AsfEnums.ResultCode.MOK;
+            AsfStruct.ASF_MultiFaceInfo detectedFaces = new AsfStruct.ASF_MultiFaceInfo();
+            Bitmap bmp = null;
+            ImageDataModel image = null;
+            uint combinedMask = AsfConstants.AsfFaceFunction.ASF_FACE_AGE | AsfConstants.AsfFaceFunction.ASF_FACE_GENDER | AsfConstants.AsfFaceFunction.ASF_FACE_3DANGLE;
+            try
+            {
+                bmp = ImageHelper.BytesToBitmap(imgData);
+                image = ImageDataConverter.ConvertToImageData(bmp);
+                res = (AsfEnums.ResultCode)AsfFunctions.ASFDetectFaces(hEngine, image.Width, image.Height, AsfConstants.AsfFacePixelFormat.ASVL_PAF_RGB24_B8G8R8, image.PImageData, ref detectedFaces);
+                if (res != AsfEnums.ResultCode.MOK)
+                    return res;
+                if (detectedFaces.faceNum == 0)
+                    return AsfEnums.ResultCode.ERROR_NOFACE;
+                res = (AsfEnums.ResultCode)AsfFunctions.ASFProcess(this.hEngine, image.Width, image.Height, AsfConstants.AsfFacePixelFormat.ASVL_PAF_RGB24_B8G8R8, image.PImageData, ref detectedFaces, combinedMask);
+                if (res != AsfEnums.ResultCode.MOK)
+                    return res;
+                res = (AsfEnums.ResultCode)AsfFunctions.ASFGetAge(this.hEngine, ref ageInfo);
+                res = (AsfEnums.ResultCode)AsfFunctions.ASFGetGender(this.hEngine, ref genderInfo);
+                res = (AsfEnums.ResultCode)AsfFunctions.ASFGetFace3DAngle(this.hEngine, ref face3dAngle);
+            }
+            catch (Exception ex)
+            {
+                res = AsfEnums.ResultCode.ERROR_UNKNOWN;
+                _log.Error(ex);
             }
             return res;
         }
