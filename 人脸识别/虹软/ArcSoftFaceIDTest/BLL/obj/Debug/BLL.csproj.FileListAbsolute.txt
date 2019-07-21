@@ -1,0 +1,4 @@
+C:\GitHub\LearningDatabase\人脸识别\虹软\ArcSoftFaceIDTest\BLL\bin\Debug\BLL.dll
+C:\GitHub\LearningDatabase\人脸识别\虹软\ArcSoftFaceIDTest\BLL\bin\Debug\BLL.pdb
+C:\GitHub\LearningDatabase\人脸识别\虹软\ArcSoftFaceIDTest\BLL\obj\Debug\BLL.dll
+C:\GitHub\LearningDatabase\人脸识别\虹软\ArcSoftFaceIDTest\BLL\obj\Debug\BLL.pdb

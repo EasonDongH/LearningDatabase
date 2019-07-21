@@ -7,7 +7,6 @@ using System.Runtime.InteropServices;
 using System.Drawing.Imaging;
 using System.Reflection;
 using log4net;
-using System.Reflection;
 
 namespace ArcSoft.Face2._2
 {

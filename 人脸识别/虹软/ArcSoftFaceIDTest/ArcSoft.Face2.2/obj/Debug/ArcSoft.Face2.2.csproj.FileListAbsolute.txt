@@ -7,3 +7,4 @@ C:\GitHub\LearningDatabase\人脸识别\虹软\ArcSoftFaceIDTest\ArcSoft.Face2.2
 C:\GitHub\LearningDatabase\人脸识别\虹软\ArcSoftFaceIDTest\ArcSoft.Face2.2\bin\Debug\ArcSoft.Face2.2.pdb
 C:\GitHub\LearningDatabase\人脸识别\虹软\ArcSoftFaceIDTest\ArcSoft.Face2.2\obj\Debug\ArcSoft.Face2.2.dll
 C:\GitHub\LearningDatabase\人脸识别\虹软\ArcSoftFaceIDTest\ArcSoft.Face2.2\bin\Debug\log4net.dll
+C:\GitHub\LearningDatabase\人脸识别\虹软\ArcSoftFaceIDTest\ArcSoft.Face2.2\obj\Debug\ArcSoft.Face2.2.csprojResolveAssemblyReference.cache

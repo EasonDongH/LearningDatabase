@@ -1,0 +1,8 @@
+C:\GitHub\LearningDatabase\人脸识别\虹软\ArcSoftFaceIDTest\DAL\bin\Debug\DAL.dll
+C:\GitHub\LearningDatabase\人脸识别\虹软\ArcSoftFaceIDTest\DAL\bin\Debug\DAL.pdb
+C:\GitHub\LearningDatabase\人脸识别\虹软\ArcSoftFaceIDTest\DAL\bin\Debug\Dapper.Contrib.dll
+C:\GitHub\LearningDatabase\人脸识别\虹软\ArcSoftFaceIDTest\DAL\bin\Debug\Dapper.dll
+C:\GitHub\LearningDatabase\人脸识别\虹软\ArcSoftFaceIDTest\DAL\bin\Debug\Dapper.Mapper.dll
+C:\GitHub\LearningDatabase\人脸识别\虹软\ArcSoftFaceIDTest\DAL\bin\Debug\Dapper.SimpleCRUD.dll
+C:\GitHub\LearningDatabase\人脸识别\虹软\ArcSoftFaceIDTest\DAL\obj\Debug\DAL.dll
+C:\GitHub\LearningDatabase\人脸识别\虹软\ArcSoftFaceIDTest\DAL\obj\Debug\DAL.pdb

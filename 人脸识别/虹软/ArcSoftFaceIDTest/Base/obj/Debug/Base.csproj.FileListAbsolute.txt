@@ -12,3 +12,4 @@ C:\GitHub\LearningDatabase\人脸识别\虹软\ArcSoftFaceIDTest\Base\bin\Debug\
 C:\GitHub\LearningDatabase\人脸识别\虹软\ArcSoftFaceIDTest\Base\bin\Debug\ZedGraph.dll
 C:\GitHub\LearningDatabase\人脸识别\虹软\ArcSoftFaceIDTest\Base\obj\Debug\Base.dll
 C:\GitHub\LearningDatabase\人脸识别\虹软\ArcSoftFaceIDTest\Base\obj\Debug\Base.pdb
+C:\GitHub\LearningDatabase\人脸识别\虹软\ArcSoftFaceIDTest\Base\obj\Debug\Base.csprojResolveAssemblyReference.cache

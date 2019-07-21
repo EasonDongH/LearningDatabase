@@ -86,7 +86,7 @@
             // 
             // btnSearchFace
             // 
-            this.btnSearchFace.Location = new System.Drawing.Point(381, 12);
+            this.btnSearchFace.Location = new System.Drawing.Point(507, 13);
             this.btnSearchFace.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnSearchFace.Name = "btnSearchFace";
             this.btnSearchFace.Size = new System.Drawing.Size(120, 50);
@@ -108,7 +108,7 @@
             // 
             // btnSaveFace
             // 
-            this.btnSaveFace.Location = new System.Drawing.Point(507, 12);
+            this.btnSaveFace.Location = new System.Drawing.Point(381, 12);
             this.btnSaveFace.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnSaveFace.Name = "btnSaveFace";
             this.btnSaveFace.Size = new System.Drawing.Size(120, 50);

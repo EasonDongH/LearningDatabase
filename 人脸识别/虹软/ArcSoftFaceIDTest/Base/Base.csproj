@@ -59,10 +59,15 @@
   <ItemGroup>
     <Content Include="refDLL\ArcSoft\libarcsoft_face.dll" />
     <Content Include="refDLL\ArcSoft\libarcsoft_face_engine.dll" />
+    <Content Include="refDLL\Dapper\Dapper.Contrib.dll" />
+    <Content Include="refDLL\Dapper\Dapper.dll" />
+    <Content Include="refDLL\Dapper\Dapper.Mapper.dll" />
+    <Content Include="refDLL\Dapper\Dapper.SimpleCRUD.dll" />
     <Content Include="refDLL\Emgu\Emgu.CV.UI.dll" />
     <Content Include="refDLL\Emgu\Emgu.CV.World.dll" />
     <Content Include="refDLL\Emgu\ZedGraph.dll" />
     <Content Include="refDLL\log4net\log4net.dll" />
+    <Content Include="refDLL\SQLite\System.Data.SQLite.dll" />
   </ItemGroup>
   <ItemGroup>
     <None Include="refDLL\ArcSoft\libarcsoft_face_engine.lib" />

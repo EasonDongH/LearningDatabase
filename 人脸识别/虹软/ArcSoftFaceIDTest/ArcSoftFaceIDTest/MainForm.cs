@@ -91,7 +91,7 @@ namespace ArcSoftFaceIDTest
                 txt += "人脸信息如下：" + Environment.NewLine;
                 for (int i = 0; i < ageList.Count; ++i)
                 {
-                    txt += string.Format("年龄：{0}；性别(0男1女-1未知)：{1}；脸部3D角度：{2}", ageList[i], genderList[i], face3dAngleList[i].ToString()); 
+                    txt += string.Format("年龄：{0}；性别(0男1女-1未知)：{1}；脸部3D角度：{2}" + Environment.NewLine, ageList[i], genderList[i], face3dAngleList[i].ToString()); 
                 }
             }
             this.rtbInfo.Text += string.Format(txtFormat, DateTime.Now.ToString(timeFormat), txt);
