@@ -13,3 +13,11 @@ C:\GitHub\LearningDatabase\人脸识别\虹软\ArcSoftFaceIDTest\Base\bin\Debug\
 C:\GitHub\LearningDatabase\人脸识别\虹软\ArcSoftFaceIDTest\Base\obj\Debug\Base.dll
 C:\GitHub\LearningDatabase\人脸识别\虹软\ArcSoftFaceIDTest\Base\obj\Debug\Base.pdb
 C:\GitHub\LearningDatabase\人脸识别\虹软\ArcSoftFaceIDTest\Base\obj\Debug\Base.csprojResolveAssemblyReference.cache
+E:\GitHub\LearningDatabase\人脸识别\虹软\ArcSoftFaceIDTest\Base\bin\Debug\Base.dll
+E:\GitHub\LearningDatabase\人脸识别\虹软\ArcSoftFaceIDTest\Base\bin\Debug\Base.pdb
+E:\GitHub\LearningDatabase\人脸识别\虹软\ArcSoftFaceIDTest\Base\bin\Debug\Emgu.CV.UI.dll
+E:\GitHub\LearningDatabase\人脸识别\虹软\ArcSoftFaceIDTest\Base\bin\Debug\Emgu.CV.World.dll
+E:\GitHub\LearningDatabase\人脸识别\虹软\ArcSoftFaceIDTest\Base\bin\Debug\ZedGraph.dll
+E:\GitHub\LearningDatabase\人脸识别\虹软\ArcSoftFaceIDTest\Base\obj\Debug\Base.csprojResolveAssemblyReference.cache
+E:\GitHub\LearningDatabase\人脸识别\虹软\ArcSoftFaceIDTest\Base\obj\Debug\Base.dll
+E:\GitHub\LearningDatabase\人脸识别\虹软\ArcSoftFaceIDTest\Base\obj\Debug\Base.pdb

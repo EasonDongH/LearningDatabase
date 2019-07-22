@@ -215,6 +215,7 @@ namespace ArcSoft.Face2._2
             AsfStruct.ASF_FaceFeature faceFeature = new AsfStruct.ASF_FaceFeature();
             try
             {
+                image = ImageDataConverter.ConvertToImageData(faceBmp);
                 res = (AsfEnums.ResultCode)AsfFunctions.ASFFaceFeatureExtract(hEngine, image.Width, image.Height, AsfConstants.AsfFacePixelFormat.ASVL_PAF_RGB24_B8G8R8, image.PImageData, ref singleFace, ref faceFeature);
                 if (res != AsfEnums.ResultCode.MOK)
                     return res;

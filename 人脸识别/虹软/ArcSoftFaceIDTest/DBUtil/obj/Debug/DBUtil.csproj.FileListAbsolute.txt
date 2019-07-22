@@ -8,3 +8,13 @@ C:\GitHub\LearningDatabase\人脸识别\虹软\ArcSoftFaceIDTest\DBUtil\bin\Debu
 C:\GitHub\LearningDatabase\人脸识别\虹软\ArcSoftFaceIDTest\DBUtil\bin\Debug\System.Data.SQLite.dll
 C:\GitHub\LearningDatabase\人脸识别\虹软\ArcSoftFaceIDTest\DBUtil\obj\Debug\DBUtil.dll
 C:\GitHub\LearningDatabase\人脸识别\虹软\ArcSoftFaceIDTest\DBUtil\obj\Debug\DBUtil.pdb
+E:\GitHub\LearningDatabase\人脸识别\虹软\ArcSoftFaceIDTest\DBUtil\bin\Debug\DBUtil.dll
+E:\GitHub\LearningDatabase\人脸识别\虹软\ArcSoftFaceIDTest\DBUtil\bin\Debug\DBUtil.pdb
+E:\GitHub\LearningDatabase\人脸识别\虹软\ArcSoftFaceIDTest\DBUtil\bin\Debug\Dapper.Contrib.dll
+E:\GitHub\LearningDatabase\人脸识别\虹软\ArcSoftFaceIDTest\DBUtil\bin\Debug\Dapper.dll
+E:\GitHub\LearningDatabase\人脸识别\虹软\ArcSoftFaceIDTest\DBUtil\bin\Debug\Dapper.Mapper.dll
+E:\GitHub\LearningDatabase\人脸识别\虹软\ArcSoftFaceIDTest\DBUtil\bin\Debug\Dapper.SimpleCRUD.dll
+E:\GitHub\LearningDatabase\人脸识别\虹软\ArcSoftFaceIDTest\DBUtil\bin\Debug\System.Data.SQLite.dll
+E:\GitHub\LearningDatabase\人脸识别\虹软\ArcSoftFaceIDTest\DBUtil\obj\Debug\DBUtil.csprojResolveAssemblyReference.cache
+E:\GitHub\LearningDatabase\人脸识别\虹软\ArcSoftFaceIDTest\DBUtil\obj\Debug\DBUtil.dll
+E:\GitHub\LearningDatabase\人脸识别\虹软\ArcSoftFaceIDTest\DBUtil\obj\Debug\DBUtil.pdb

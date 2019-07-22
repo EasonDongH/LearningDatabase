@@ -1,0 +1,115 @@
+
+记录时间：2019-07-22 09:18:40,120 
+线程ID:[8] 
+日志级别：INFO  
+出错位置：ArcSoftFaceIDTest.Program.Main  
+错误描述：【开始运行】
+ 
+ 
+记录时间：2019-07-22 09:19:47,702 
+线程ID:[8] 
+日志级别：INFO  
+出错位置：ArcSoftFaceIDTest.Program.Main  
+错误描述：【结束运行】
+ 
+ 
+记录时间：2019-07-22 09:37:46,706 
+线程ID:[8] 
+日志级别：INFO  
+出错位置：ArcSoftFaceIDTest.Program.Main  
+错误描述：【开始运行】
+ 
+ 
+记录时间：2019-07-22 09:38:08,959 
+线程ID:[10] 
+日志级别：INFO  
+出错位置：ArcSoftFaceIDTest.Program.Main  
+错误描述：【开始运行】
+ 
+ 
+记录时间：2019-07-22 09:38:27,369 
+线程ID:[10] 
+日志级别：INFO  
+出错位置：ArcSoftFaceIDTest.Program.Main  
+错误描述：【结束运行】
+ 
+ 
+记录时间：2019-07-22 09:39:56,733 
+线程ID:[9] 
+日志级别：INFO  
+出错位置：ArcSoftFaceIDTest.Program.Main  
+错误描述：【开始运行】
+ 
+ 
+记录时间：2019-07-22 09:40:10,039 
+线程ID:[9] 
+日志级别：INFO  
+出错位置：ArcSoftFaceIDTest.Program.Main  
+错误描述：【结束运行】
+ 
+ 
+记录时间：2019-07-22 09:40:15,222 
+线程ID:[10] 
+日志级别：INFO  
+出错位置：ArcSoftFaceIDTest.Program.Main  
+错误描述：【开始运行】
+ 
+ 
+记录时间：2019-07-22 09:41:10,668 
+线程ID:[10] 
+日志级别：INFO  
+出错位置：ArcSoftFaceIDTest.Program.Main  
+错误描述：【开始运行】
+ 
+ 
+记录时间：2019-07-22 09:41:47,017 
+线程ID:[10] 
+日志级别：INFO  
+出错位置：ArcSoftFaceIDTest.Program.Main  
+错误描述：【开始运行】
+ 
+ 
+记录时间：2019-07-22 09:41:58,323 
+线程ID:[10] 
+日志级别：ERROR 
+出错位置：ArcSoft.Face2._2.FaceControl.GetSingleFaceFeature  
+错误描述：System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 ArcSoft.Face2._2.FaceControl.GetSingleFaceFeature(Bitmap faceBmp, ASF_SingleFaceInfo singleFace, Byte[]& feature) 位置 E:\GitHub\LearningDatabase\人脸识别\虹软\ArcSoftFaceIDTest\ArcSoft.Face2.2\FaceControl.cs:行号 218
+ 
+ 
+记录时间：2019-07-22 09:42:58,253 
+线程ID:[9] 
+日志级别：INFO  
+出错位置：ArcSoftFaceIDTest.Program.Main  
+错误描述：【开始运行】
+ 
+ 
+记录时间：2019-07-22 09:43:14,368 
+线程ID:[9] 
+日志级别：ERROR 
+出错位置：ArcSoft.Face2._2.FaceControl.GetSingleFaceFeature  
+错误描述：System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 ArcSoft.Face2._2.FaceControl.GetSingleFaceFeature(Bitmap faceBmp, ASF_SingleFaceInfo singleFace, Byte[]& feature) 位置 E:\GitHub\LearningDatabase\人脸识别\虹软\ArcSoftFaceIDTest\ArcSoft.Face2.2\FaceControl.cs:行号 218
+ 
+ 
+记录时间：2019-07-22 09:43:25,069 
+线程ID:[10] 
+日志级别：INFO  
+出错位置：ArcSoftFaceIDTest.Program.Main  
+错误描述：【开始运行】
+ 
+ 
+记录时间：2019-07-22 09:44:51,322 
+线程ID:[9] 
+日志级别：INFO  
+出错位置：ArcSoftFaceIDTest.Program.Main  
+错误描述：【开始运行】
+ 
+ 
+记录时间：2019-07-22 09:46:07,954 
+线程ID:[10] 
+日志级别：INFO  
+出错位置：ArcSoftFaceIDTest.Program.Main  
+错误描述：【开始运行】
+ 
+ 

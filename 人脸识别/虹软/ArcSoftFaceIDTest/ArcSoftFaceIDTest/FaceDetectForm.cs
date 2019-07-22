@@ -181,10 +181,11 @@ namespace ArcSoftFaceIDTest
                 this.BeginInvoke(new Action(delegate
                     {
                         this.flpMultiFace.Controls.Clear();
+                        this.flpMultiFace.Tag = multiFaceModel.FaceInfoList;
                         for (int i = 0; i < multiFaceModel.FaceInfoList.Count; ++i)
                         {
                             Rectangle faceRect = multiFaceModel.FaceInfoList[i].faceRect.GetRectangle();
-                            AddFaceImage(ImageHelper.GetRectangleImage(face.Bitmap, faceRect), multiFaceModel.FaceInfoList[i], i);
+                            AddFaceImage(ImageHelper.GetRectangleImage(face.Bitmap, faceRect), i);
                             //MatExtendsions.DrawDashRect(m, 8, 8, faceRect, Color.LightGreen, 2);//直接在图像上画框
                         }
                         // 发现人脸后，停止摄像头
@@ -200,12 +201,12 @@ namespace ArcSoftFaceIDTest
             }
         }
 
-        private void AddFaceImage(Bitmap singleFaceImg, AsfStruct.ASF_SingleFaceInfo single, int index)
+        private void AddFaceImage(Bitmap singleFaceImg, int index)
         {
             try
             {
                 RadioButton rb = new RadioButton();
-                rb.Tag = new object[] { single, index };
+                rb.Tag = index;
                 rb.Padding = new System.Windows.Forms.Padding(0);
                 rb.Appearance = Appearance.Button;
                 rb.FlatStyle = FlatStyle.Flat;
@@ -256,6 +257,7 @@ namespace ArcSoftFaceIDTest
         private bool GetFaceInfo(out object[] obj)
         {
             obj = new object[2];
+            obj[0] = this.flpMultiFace.Tag;// 保存单人脸list
             bool res = false;
             foreach (var ctrl in this.flpMultiFace.Controls)
             {
@@ -264,7 +266,7 @@ namespace ArcSoftFaceIDTest
                     RadioButton rb = ctrl as RadioButton;
                     if (rb.Checked)
                     {
-                        obj = rb.Tag as object[];
+                        obj[1] = rb.Tag;// 保存人脸index
                         res = true;
                         break;
                     }

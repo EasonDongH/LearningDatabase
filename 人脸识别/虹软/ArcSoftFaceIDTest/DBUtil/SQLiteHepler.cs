@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Dapper;
+using System.Data.SQLite;
 
 namespace DBUtil
 {
@@ -21,9 +22,9 @@ namespace DBUtil
             SetDBType();
         }
 
-        //public static IDbConnection Conn
-        //{
-        //    get { return new IDbConnection(connString); }
-        //}
+        public static IDbConnection Conn
+        {
+            get { return new SQLiteConnection(connString); }
+        }
     }
 }

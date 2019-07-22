@@ -110,9 +110,17 @@
       <Project>{D15A3D0F-8FBD-4E53-BB9C-81AACF84400F}</Project>
       <Name>Base</Name>
     </ProjectReference>
+    <ProjectReference Include="..\BLL\BLL.csproj">
+      <Project>{BC33D372-E89D-4653-9987-5FE203D4D028}</Project>
+      <Name>BLL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Camera\Camera.csproj">
       <Project>{946816F6-33C9-4204-AE05-D1B02B5C3508}</Project>
       <Name>Camera</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Model\Model.csproj">
+      <Project>{4A949B02-3355-4661-8BDD-876A874F1D57}</Project>
+      <Name>Model</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

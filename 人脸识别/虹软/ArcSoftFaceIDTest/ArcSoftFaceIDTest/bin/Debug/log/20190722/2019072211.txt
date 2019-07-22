@@ -1,0 +1,90 @@
+
+记录时间：2019-07-22 11:56:34,017 
+线程ID:[9] 
+日志级别：INFO  
+出错位置：ArcSoftFaceIDTest.Program.Main  
+错误描述：【开始运行】
+ 
+ 
+记录时间：2019-07-22 11:56:45,731 
+线程ID:[9] 
+日志级别：INFO  
+出错位置：ArcSoftFaceIDTest.Program.Main  
+错误描述：【结束运行】
+ 
+ 
+记录时间：2019-07-22 11:57:48,943 
+线程ID:[9] 
+日志级别：INFO  
+出错位置：ArcSoftFaceIDTest.Program.Main  
+错误描述：【开始运行】
+ 
+ 
+记录时间：2019-07-22 11:57:56,821 
+线程ID:[9] 
+日志级别：ERROR 
+出错位置：ArcSoft.Face2._2.FaceControl.FaceMatchingByFeature  
+错误描述：System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 ArcSoft.Face2._2.CommonMethod.BytesToIntptr(Byte[] bytes) 位置 E:\GitHub\LearningDatabase\人脸识别\虹软\ArcSoftFaceIDTest\ArcSoft.Face2.2\CommonMethod.cs:行号 47
+   在 ArcSoft.Face2._2.AsfStruct.ASF_FaceFeature.ToFaceFeature(Byte[] feature) 位置 E:\GitHub\LearningDatabase\人脸识别\虹软\ArcSoftFaceIDTest\ArcSoft.Face2.2\AsfStruct.cs:行号 193
+   在 ArcSoft.Face2._2.FaceControl.FaceMatchingByFeature(Byte[] feature1, Byte[] feature2, Single& simileScore) 位置 E:\GitHub\LearningDatabase\人脸识别\虹软\ArcSoftFaceIDTest\ArcSoft.Face2.2\FaceControl.cs:行号 356
+ 
+ 
+记录时间：2019-07-22 11:57:56,837 
+线程ID:[9] 
+日志级别：ERROR 
+出错位置：ArcSoft.Face2._2.FaceControl.FaceMatchingByFeature  
+错误描述：System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 ArcSoft.Face2._2.CommonMethod.BytesToIntptr(Byte[] bytes) 位置 E:\GitHub\LearningDatabase\人脸识别\虹软\ArcSoftFaceIDTest\ArcSoft.Face2.2\CommonMethod.cs:行号 47
+   在 ArcSoft.Face2._2.AsfStruct.ASF_FaceFeature.ToFaceFeature(Byte[] feature) 位置 E:\GitHub\LearningDatabase\人脸识别\虹软\ArcSoftFaceIDTest\ArcSoft.Face2.2\AsfStruct.cs:行号 193
+   在 ArcSoft.Face2._2.FaceControl.FaceMatchingByFeature(Byte[] feature1, Byte[] feature2, Single& simileScore) 位置 E:\GitHub\LearningDatabase\人脸识别\虹软\ArcSoftFaceIDTest\ArcSoft.Face2.2\FaceControl.cs:行号 356
+ 
+ 
+记录时间：2019-07-22 11:57:56,849 
+线程ID:[9] 
+日志级别：ERROR 
+出错位置：ArcSoft.Face2._2.FaceControl.FaceMatchingByFeature  
+错误描述：System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 ArcSoft.Face2._2.CommonMethod.BytesToIntptr(Byte[] bytes) 位置 E:\GitHub\LearningDatabase\人脸识别\虹软\ArcSoftFaceIDTest\ArcSoft.Face2.2\CommonMethod.cs:行号 47
+   在 ArcSoft.Face2._2.AsfStruct.ASF_FaceFeature.ToFaceFeature(Byte[] feature) 位置 E:\GitHub\LearningDatabase\人脸识别\虹软\ArcSoftFaceIDTest\ArcSoft.Face2.2\AsfStruct.cs:行号 193
+   在 ArcSoft.Face2._2.FaceControl.FaceMatchingByFeature(Byte[] feature1, Byte[] feature2, Single& simileScore) 位置 E:\GitHub\LearningDatabase\人脸识别\虹软\ArcSoftFaceIDTest\ArcSoft.Face2.2\FaceControl.cs:行号 356
+ 
+ 
+记录时间：2019-07-22 11:58:12,216 
+线程ID:[9] 
+日志级别：ERROR 
+出错位置：ArcSoft.Face2._2.FaceControl.FaceMatchingByFeature  
+错误描述：System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 ArcSoft.Face2._2.CommonMethod.BytesToIntptr(Byte[] bytes) 位置 E:\GitHub\LearningDatabase\人脸识别\虹软\ArcSoftFaceIDTest\ArcSoft.Face2.2\CommonMethod.cs:行号 47
+   在 ArcSoft.Face2._2.AsfStruct.ASF_FaceFeature.ToFaceFeature(Byte[] feature) 位置 E:\GitHub\LearningDatabase\人脸识别\虹软\ArcSoftFaceIDTest\ArcSoft.Face2.2\AsfStruct.cs:行号 193
+   在 ArcSoft.Face2._2.FaceControl.FaceMatchingByFeature(Byte[] feature1, Byte[] feature2, Single& simileScore) 位置 E:\GitHub\LearningDatabase\人脸识别\虹软\ArcSoftFaceIDTest\ArcSoft.Face2.2\FaceControl.cs:行号 356
+ 
+ 
+记录时间：2019-07-22 11:58:35,004 
+线程ID:[10] 
+日志级别：INFO  
+出错位置：ArcSoftFaceIDTest.Program.Main  
+错误描述：【开始运行】
+ 
+ 
+记录时间：2019-07-22 11:58:51,743 
+线程ID:[10] 
+日志级别：INFO  
+出错位置：ArcSoftFaceIDTest.Program.Main  
+错误描述：【结束运行】
+ 
+ 
+记录时间：2019-07-22 11:59:07,095 
+线程ID:[10] 
+日志级别：INFO  
+出错位置：ArcSoftFaceIDTest.Program.Main  
+错误描述：【开始运行】
+ 
+ 
+记录时间：2019-07-22 11:59:43,809 
+线程ID:[10] 
+日志级别：INFO  
+出错位置：ArcSoftFaceIDTest.Program.Main  
+错误描述：【开始运行】
+ 
+ 

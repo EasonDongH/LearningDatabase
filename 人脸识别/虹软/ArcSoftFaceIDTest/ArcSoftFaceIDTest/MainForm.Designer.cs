@@ -40,6 +40,7 @@
             this.pbFace1 = new System.Windows.Forms.PictureBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.pbFace2 = new System.Windows.Forms.PictureBox();
+            this.btnClear = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -50,6 +51,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.btnClear);
             this.panel1.Controls.Add(this.btnCompareFace);
             this.panel1.Controls.Add(this.btnAnalysisFace);
             this.panel1.Controls.Add(this.btnSearchFace);
@@ -59,7 +61,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1138, 74);
+            this.panel1.Size = new System.Drawing.Size(909, 74);
             this.panel1.TabIndex = 0;
             // 
             // btnCompareFace
@@ -121,10 +123,10 @@
             // 
             this.panel2.Controls.Add(this.rtbInfo);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 588);
+            this.panel2.Location = new System.Drawing.Point(0, 461);
             this.panel2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1138, 150);
+            this.panel2.Size = new System.Drawing.Size(909, 150);
             this.panel2.TabIndex = 1;
             // 
             // rtbInfo
@@ -134,7 +136,7 @@
             this.rtbInfo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.rtbInfo.Name = "rtbInfo";
             this.rtbInfo.ReadOnly = true;
-            this.rtbInfo.Size = new System.Drawing.Size(1138, 150);
+            this.rtbInfo.Size = new System.Drawing.Size(909, 150);
             this.rtbInfo.TabIndex = 0;
             this.rtbInfo.Text = "";
             this.rtbInfo.TextChanged += new System.EventHandler(this.rtbInfo_TextChanged);
@@ -147,7 +149,7 @@
             this.panel3.Location = new System.Drawing.Point(0, 74);
             this.panel3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(570, 514);
+            this.panel3.Size = new System.Drawing.Size(443, 387);
             this.panel3.TabIndex = 2;
             // 
             // pbFace1
@@ -158,7 +160,7 @@
             this.pbFace1.Location = new System.Drawing.Point(0, 0);
             this.pbFace1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pbFace1.Name = "pbFace1";
-            this.pbFace1.Size = new System.Drawing.Size(568, 512);
+            this.pbFace1.Size = new System.Drawing.Size(441, 385);
             this.pbFace1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbFace1.TabIndex = 0;
             this.pbFace1.TabStop = false;
@@ -169,10 +171,10 @@
             this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel4.Controls.Add(this.pbFace2);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(570, 74);
+            this.panel4.Location = new System.Drawing.Point(443, 74);
             this.panel4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(568, 514);
+            this.panel4.Size = new System.Drawing.Size(466, 387);
             this.panel4.TabIndex = 3;
             // 
             // pbFace2
@@ -183,17 +185,28 @@
             this.pbFace2.Location = new System.Drawing.Point(0, 0);
             this.pbFace2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pbFace2.Name = "pbFace2";
-            this.pbFace2.Size = new System.Drawing.Size(566, 512);
+            this.pbFace2.Size = new System.Drawing.Size(464, 385);
             this.pbFace2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbFace2.TabIndex = 0;
             this.pbFace2.TabStop = false;
             this.pbFace2.Click += new System.EventHandler(this.pbSelectFace_Click);
             // 
+            // btnClear
+            // 
+            this.btnClear.Location = new System.Drawing.Point(633, 12);
+            this.btnClear.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(120, 50);
+            this.btnClear.TabIndex = 5;
+            this.btnClear.Text = "清空数据";
+            this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
+            // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1138, 738);
+            this.ClientSize = new System.Drawing.Size(909, 611);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
@@ -201,6 +214,8 @@
             this.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(925, 650);
+            this.MinimumSize = new System.Drawing.Size(925, 650);
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
@@ -230,6 +245,7 @@
         private System.Windows.Forms.Button btnSearchFace;
         private System.Windows.Forms.PictureBox pbFace2;
         private System.Windows.Forms.Button btnCompareFace;
+        private System.Windows.Forms.Button btnClear;
 
 
     }
