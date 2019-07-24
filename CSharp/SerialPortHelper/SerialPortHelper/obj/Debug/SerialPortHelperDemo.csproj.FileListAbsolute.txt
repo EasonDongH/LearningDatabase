@@ -1,0 +1,79 @@
+C:\Users\Administrator\Desktop\自己设计的源码\温度、电压监测+继电器控制\SerialPortHelper\SerialPortHelper\bin\Debug\SerialPortHelperDemo.exe
+C:\Users\Administrator\Desktop\自己设计的源码\温度、电压监测+继电器控制\SerialPortHelper\SerialPortHelper\bin\Debug\SerialPortHelperDemo.pdb
+C:\Users\Administrator\Desktop\自己设计的源码\温度、电压监测+继电器控制\SerialPortHelper\SerialPortHelper\obj\Debug\SerialPortHelperDemo.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\自己设计的源码\温度、电压监测+继电器控制\SerialPortHelper\SerialPortHelper\obj\Debug\SerialPortHelperDemo.Properties.Resources.resources
+C:\Users\Administrator\Desktop\自己设计的源码\温度、电压监测+继电器控制\SerialPortHelper\SerialPortHelper\obj\Debug\SerialPortHelperDemo.csproj.GenerateResource.Cache
+C:\Users\Administrator\Desktop\自己设计的源码\温度、电压监测+继电器控制\SerialPortHelper\SerialPortHelper\obj\Debug\SerialPortHelperDemo.exe
+C:\Users\Administrator\Desktop\自己设计的源码\温度、电压监测+继电器控制\SerialPortHelper\SerialPortHelper\obj\Debug\SerialPortHelperDemo.pdb
+C:\Users\Administrator\Desktop\自己设计的源码\温度、电压监测+继电器控制\SerialPortHelper\SerialPortHelper\obj\Debug\SerialPortHelperDemo.FrmHelper.resources
+C:\Users\Administrator\Desktop\自己设计的源码\【01】通用串口助手\SerialPortHelper\SerialPortHelper\obj\Debug\SerialPortHelperDemo.exe
+C:\Users\Administrator\Desktop\自己设计的源码\【01】通用串口助手\SerialPortHelper\SerialPortHelper\obj\Debug\SerialPortHelperDemo.pdb
+C:\Users\Administrator\Desktop\自己设计的源码\【01】通用串口助手\SerialPortHelper\SerialPortHelper\bin\Debug\SerialPortHelperDemo.exe
+C:\Users\Administrator\Desktop\自己设计的源码\【01】通用串口助手\SerialPortHelper\SerialPortHelper\bin\Debug\SerialPortHelperDemo.pdb
+C:\Users\Administrator\Desktop\自己设计的源码\【01】通用串口助手\SerialPortHelper\SerialPortHelper\obj\Debug\SerialPortHelperDemo.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\自己设计的源码\【01】通用串口助手\SerialPortHelper\SerialPortHelper\obj\Debug\SerialPortHelperDemo.FrmHelper.resources
+C:\Users\Administrator\Desktop\自己设计的源码\【01】通用串口助手\SerialPortHelper\SerialPortHelper\obj\Debug\SerialPortHelperDemo.Properties.Resources.resources
+C:\Users\Administrator\Desktop\自己设计的源码\【01】通用串口助手\SerialPortHelper\SerialPortHelper\obj\Debug\SerialPortHelperDemo.csproj.GenerateResource.Cache
+E:\【1】课程课件\【1】.NET\【10】工控课程开发\工控课程开发\自己设计的源码\【01】通用串口助手\SerialPortHelper\SerialPortHelper\obj\Debug\SerialPortHelperDemo.exe
+E:\【1】课程课件\【1】.NET\【10】工控课程开发\工控课程开发\自己设计的源码\【01】通用串口助手\SerialPortHelper\SerialPortHelper\obj\Debug\SerialPortHelperDemo.pdb
+G:\【1】课程课件\【1】.NET\【10】工控课程开发\工控课程开发\自己设计的源码\【01】通用串口助手\SerialPortHelper\SerialPortHelper\obj\Debug\SerialPortHelperDemo.exe
+G:\【1】课程课件\【1】.NET\【10】工控课程开发\工控课程开发\自己设计的源码\【01】通用串口助手\SerialPortHelper\SerialPortHelper\obj\Debug\SerialPortHelperDemo.pdb
+F:\【1】课程课件\【1】.NET\【9】工控上位机课程开发\工控课程开发\自己设计的源码\【01】通用串口助手\SerialPortHelper\SerialPortHelper\obj\Debug\SerialPortHelperDemo.exe
+F:\【1】课程课件\【1】.NET\【9】工控上位机课程开发\工控课程开发\自己设计的源码\【01】通用串口助手\SerialPortHelper\SerialPortHelper\obj\Debug\SerialPortHelperDemo.pdb
+F:\【1】课程课件\【1】.NET\【9】工控上位机课程开发\工控课程开发\自己设计的源码\【01】通用串口助手\SerialPortHelper\SerialPortHelper\bin\Debug\SerialPortHelperDemo.exe
+F:\【1】课程课件\【1】.NET\【9】工控上位机课程开发\工控课程开发\自己设计的源码\【01】通用串口助手\SerialPortHelper\SerialPortHelper\bin\Debug\SerialPortHelperDemo.pdb
+F:\【1】课程课件\【1】.NET\【9】工控上位机课程开发\工控课程开发\自己设计的源码\【01】通用串口助手\SerialPortHelper\SerialPortHelper\obj\Debug\SerialPortHelperDemo.csprojResolveAssemblyReference.cache
+F:\【1】课程课件\【1】.NET\【9】工控上位机课程开发\工控课程开发\自己设计的源码\【01】通用串口助手\SerialPortHelper\SerialPortHelper\obj\Debug\SerialPortHelperDemo.FrmHelper.resources
+F:\【1】课程课件\【1】.NET\【9】工控上位机课程开发\工控课程开发\自己设计的源码\【01】通用串口助手\SerialPortHelper\SerialPortHelper\obj\Debug\SerialPortHelperDemo.Properties.Resources.resources
+F:\【1】课程课件\【1】.NET\【9】工控上位机课程开发\工控课程开发\自己设计的源码\【01】通用串口助手\SerialPortHelper\SerialPortHelper\obj\Debug\SerialPortHelperDemo.csproj.GenerateResource.Cache
+F:\【1】课程课件\【1】.NET\【9】工控上位机课程开发\工控课程开发\自己设计的源码\【01】通用串口助手\框架\SerialPortHelper\SerialPortHelper\obj\Debug\SerialPortHelperDemo.exe
+F:\【1】课程课件\【1】.NET\【9】工控上位机课程开发\工控课程开发\自己设计的源码\【01】通用串口助手\框架\SerialPortHelper\SerialPortHelper\obj\Debug\SerialPortHelperDemo.pdb
+F:\【1】课程课件\【1】.NET\【9】工控上位机课程开发\工控课程开发\自己设计的源码\【01】通用串口助手\框架\SerialPortHelper\SerialPortHelper\obj\Debug\SerialPortHelperDemo.csprojResolveAssemblyReference.cache
+F:\【1】课程课件\【1】.NET\【9】工控上位机课程开发\工控课程开发\自己设计的源码\【01】通用串口助手\框架\SerialPortHelper\SerialPortHelper\obj\Debug\SerialPortHelperDemo.FrmHelper.resources
+F:\【1】课程课件\【1】.NET\【9】工控上位机课程开发\工控课程开发\自己设计的源码\【01】通用串口助手\框架\SerialPortHelper\SerialPortHelper\obj\Debug\SerialPortHelperDemo.Properties.Resources.resources
+F:\【1】课程课件\【1】.NET\【9】工控上位机课程开发\工控课程开发\自己设计的源码\【01】通用串口助手\框架\SerialPortHelper\SerialPortHelper\obj\Debug\SerialPortHelperDemo.csproj.GenerateResource.Cache
+F:\【1】课程课件\【1】.NET\【9】工控上位机课程开发\工控课程开发\自己设计的源码\【01】通用串口助手\框架\SerialPortHelper\SerialPortHelper\bin\Debug\SerialPortHelperDemo.exe
+F:\【1】课程课件\【1】.NET\【9】工控上位机课程开发\工控课程开发\自己设计的源码\【01】通用串口助手\框架\SerialPortHelper\SerialPortHelper\bin\Debug\SerialPortHelperDemo.pdb
+C:\Users\Administrator\Desktop\VIP录制\SerialPortHelper\SerialPortHelper\obj\Debug\SerialPortHelperDemo.exe
+C:\Users\Administrator\Desktop\VIP录制\SerialPortHelper\SerialPortHelper\obj\Debug\SerialPortHelperDemo.pdb
+C:\Users\Administrator\Desktop\VIP录制\SerialPortHelper\SerialPortHelper\bin\Debug\SerialPortHelperDemo.exe
+C:\Users\Administrator\Desktop\VIP录制\SerialPortHelper\SerialPortHelper\bin\Debug\SerialPortHelperDemo.pdb
+C:\Users\Administrator\Desktop\VIP录制\SerialPortHelper\SerialPortHelper\obj\Debug\SerialPortHelperDemo.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\VIP录制\SerialPortHelper\SerialPortHelper\obj\Debug\SerialPortHelperDemo.FrmHelper.resources
+C:\Users\Administrator\Desktop\VIP录制\SerialPortHelper\SerialPortHelper\obj\Debug\SerialPortHelperDemo.Properties.Resources.resources
+C:\Users\Administrator\Desktop\VIP录制\SerialPortHelper\SerialPortHelper\obj\Debug\SerialPortHelperDemo.csproj.GenerateResource.Cache
+F:\【1】课程课件\【1】.NET\【9】工控上位机课程开发\基于C#面向对象的工控上位机必备技能\授课代码和资料\101-109\SerialPortHelper\SerialPortHelper\obj\Debug\SerialPortHelperDemo.exe
+F:\【1】课程课件\【1】.NET\【9】工控上位机课程开发\基于C#面向对象的工控上位机必备技能\授课代码和资料\101-109\SerialPortHelper\SerialPortHelper\obj\Debug\SerialPortHelperDemo.pdb
+C:\Users\123\Documents\Tencent Files\1035264115\FileRecv\【01】基于OOP设计C#上位机串口助手【视频和代码】\源码和笔记\SerialPortHelper\SerialPortHelper\obj\Debug\SerialPortHelperDemo.exe
+C:\Users\123\Documents\Tencent Files\1035264115\FileRecv\【01】基于OOP设计C#上位机串口助手【视频和代码】\源码和笔记\SerialPortHelper\SerialPortHelper\obj\Debug\SerialPortHelperDemo.pdb
+C:\Users\123\Documents\Tencent Files\1035264115\FileRecv\【01】基于OOP设计C#上位机串口助手【视频和代码】\源码和笔记\SerialPortHelper\SerialPortHelper\bin\Debug\SerialPortHelperDemo.exe
+C:\Users\123\Documents\Tencent Files\1035264115\FileRecv\【01】基于OOP设计C#上位机串口助手【视频和代码】\源码和笔记\SerialPortHelper\SerialPortHelper\bin\Debug\SerialPortHelperDemo.pdb
+C:\Users\123\Documents\Tencent Files\1035264115\FileRecv\【01】基于OOP设计C#上位机串口助手【视频和代码】\源码和笔记\SerialPortHelper\SerialPortHelper\obj\Debug\SerialPortHelperDemo.csprojResolveAssemblyReference.cache
+C:\Users\123\Documents\Tencent Files\1035264115\FileRecv\【01】基于OOP设计C#上位机串口助手【视频和代码】\源码和笔记\SerialPortHelper\SerialPortHelper\obj\Debug\SerialPortHelperDemo.FrmHelper.resources
+C:\Users\123\Documents\Tencent Files\1035264115\FileRecv\【01】基于OOP设计C#上位机串口助手【视频和代码】\源码和笔记\SerialPortHelper\SerialPortHelper\obj\Debug\SerialPortHelperDemo.Properties.Resources.resources
+C:\Users\123\Documents\Tencent Files\1035264115\FileRecv\【01】基于OOP设计C#上位机串口助手【视频和代码】\源码和笔记\SerialPortHelper\SerialPortHelper\obj\Debug\SerialPortHelperDemo.csproj.GenerateResource.Cache
+C:\Users\123\Desktop\【01】基于OOP设计C#上位机串口助手【视频和代码】\源码和笔记\SerialPortHelper\SerialPortHelper\obj\Debug\SerialPortHelperDemo.exe
+C:\Users\123\Desktop\【01】基于OOP设计C#上位机串口助手【视频和代码】\源码和笔记\SerialPortHelper\SerialPortHelper\obj\Debug\SerialPortHelperDemo.pdb
+C:\Users\123\Desktop\【01】基于OOP设计C#上位机串口助手【视频和代码】\源码和笔记\SerialPortHelper\SerialPortHelper\bin\Debug\SerialPortHelperDemo.exe
+C:\Users\123\Desktop\【01】基于OOP设计C#上位机串口助手【视频和代码】\源码和笔记\SerialPortHelper\SerialPortHelper\bin\Debug\SerialPortHelperDemo.pdb
+C:\Users\123\Desktop\【01】基于OOP设计C#上位机串口助手【视频和代码】\源码和笔记\SerialPortHelper\SerialPortHelper\obj\Debug\SerialPortHelperDemo.csprojResolveAssemblyReference.cache
+C:\Users\123\Desktop\【01】基于OOP设计C#上位机串口助手【视频和代码】\源码和笔记\SerialPortHelper\SerialPortHelper\obj\Debug\SerialPortHelperDemo.FrmHelper.resources
+C:\Users\123\Desktop\【01】基于OOP设计C#上位机串口助手【视频和代码】\源码和笔记\SerialPortHelper\SerialPortHelper\obj\Debug\SerialPortHelperDemo.Properties.Resources.resources
+C:\Users\123\Desktop\【01】基于OOP设计C#上位机串口助手【视频和代码】\源码和笔记\SerialPortHelper\SerialPortHelper\obj\Debug\SerialPortHelperDemo.csproj.GenerateResource.Cache
+C:\2Study\C#\喜课堂VIP资源\上位机开发\【01】基于OOP设计C#上位机串口助手【视频和代码】\源码和笔记\SerialPortHelper\SerialPortHelper\obj\Debug\SerialPortHelperDemo.exe
+C:\2Study\C#\喜课堂VIP资源\上位机开发\【01】基于OOP设计C#上位机串口助手【视频和代码】\源码和笔记\SerialPortHelper\SerialPortHelper\obj\Debug\SerialPortHelperDemo.pdb
+C:\2Study\C#\喜课堂VIP资源\上位机开发\【01】基于OOP设计C#上位机串口助手【视频和代码】\源码和笔记\SerialPortHelper\SerialPortHelper\bin\Debug\SerialPortHelperDemo.exe
+C:\2Study\C#\喜课堂VIP资源\上位机开发\【01】基于OOP设计C#上位机串口助手【视频和代码】\源码和笔记\SerialPortHelper\SerialPortHelper\bin\Debug\SerialPortHelperDemo.pdb
+C:\2Study\C#\喜课堂VIP资源\上位机开发\【01】基于OOP设计C#上位机串口助手【视频和代码】\源码和笔记\SerialPortHelper\SerialPortHelper\obj\Debug\SerialPortHelperDemo.csprojResolveAssemblyReference.cache
+C:\2Study\C#\喜课堂VIP资源\上位机开发\【01】基于OOP设计C#上位机串口助手【视频和代码】\源码和笔记\SerialPortHelper\SerialPortHelper\obj\Debug\SerialPortHelperDemo.FrmHelper.resources
+C:\2Study\C#\喜课堂VIP资源\上位机开发\【01】基于OOP设计C#上位机串口助手【视频和代码】\源码和笔记\SerialPortHelper\SerialPortHelper\obj\Debug\SerialPortHelperDemo.Properties.Resources.resources
+C:\2Study\C#\喜课堂VIP资源\上位机开发\【01】基于OOP设计C#上位机串口助手【视频和代码】\源码和笔记\SerialPortHelper\SerialPortHelper\obj\Debug\SerialPortHelperDemo.csproj.GenerateResource.Cache
+D:\2. GitHub\SerialPortHelper\SerialPortHelper\bin\Debug\SerialPortHelperDemo.exe
+D:\2. GitHub\SerialPortHelper\SerialPortHelper\bin\Debug\SerialPortHelperDemo.pdb
+D:\2. GitHub\SerialPortHelper\SerialPortHelper\obj\Debug\SerialPortHelperDemo.csprojAssemblyReference.cache
+D:\2. GitHub\SerialPortHelper\SerialPortHelper\obj\Debug\SerialPortHelperDemo.FrmHelper.resources
+D:\2. GitHub\SerialPortHelper\SerialPortHelper\obj\Debug\SerialPortHelperDemo.Properties.Resources.resources
+D:\2. GitHub\SerialPortHelper\SerialPortHelper\obj\Debug\SerialPortHelperDemo.csproj.GenerateResource.cache
+D:\2. GitHub\SerialPortHelper\SerialPortHelper\obj\Debug\SerialPortHelperDemo.csproj.CoreCompileInputs.cache
+D:\2. GitHub\SerialPortHelper\SerialPortHelper\obj\Debug\SerialPortHelperDemo.exe
+D:\2. GitHub\SerialPortHelper\SerialPortHelper\obj\Debug\SerialPortHelperDemo.pdb

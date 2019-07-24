@@ -1,0 +1,18 @@
+D:\我的文档\Visual Studio 2008\c#Projects\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe
+D:\我的文档\Visual Studio 2008\c#Projects\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.pdb
+D:\我的文档\Visual Studio 2008\c#Projects\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\ResolveAssemblyReference.cache
+D:\我的文档\Visual Studio 2008\c#Projects\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Properties.Resources.resources
+D:\我的文档\Visual Studio 2008\c#Projects\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.csproj.GenerateResource.Cache
+D:\我的文档\Visual Studio 2008\c#Projects\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.exe
+D:\我的文档\Visual Studio 2008\c#Projects\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.pdb
+D:\我的文档\Visual Studio 2008\c#Projects\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Form1.resources
+H:\【1】课程课件\【1】.NET\【14】工控课程开发\【30】C#上位机学习\c#串口上位机参考代码\串口助手源码\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.exe
+H:\【1】课程课件\【1】.NET\【14】工控课程开发\【30】C#上位机学习\c#串口上位机参考代码\串口助手源码\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.pdb
+H:\【1】课程课件\【1】.NET\【14】工控课程开发\【30】C#上位机学习\c#串口上位机参考代码\串口助手源码\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe
+H:\【1】课程课件\【1】.NET\【14】工控课程开发\【30】C#上位机学习\c#串口上位机参考代码\串口助手源码\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.pdb
+H:\【1】课程课件\【1】.NET\【14】工控课程开发\【30】C#上位机学习\c#串口上位机参考代码\串口助手源码\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.csprojResolveAssemblyReference.cache
+H:\【1】课程课件\【1】.NET\【14】工控课程开发\【30】C#上位机学习\c#串口上位机参考代码\串口助手源码\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Form1.resources
+H:\【1】课程课件\【1】.NET\【14】工控课程开发\【30】C#上位机学习\c#串口上位机参考代码\串口助手源码\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Properties.Resources.resources
+H:\【1】课程课件\【1】.NET\【14】工控课程开发\【30】C#上位机学习\c#串口上位机参考代码\串口助手源码\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.csproj.GenerateResource.Cache
+H:\【1】课程课件\【1】.NET\【14】工控课程开发\【30】C#上位机学习\c#串口上位机参考代码\串口助手源码\重构的串口助手\SerialPortHelper\SerialPortHelper\obj\Debug\WindowsFormsApplication1.exe
+H:\【1】课程课件\【1】.NET\【14】工控课程开发\【30】C#上位机学习\c#串口上位机参考代码\串口助手源码\重构的串口助手\SerialPortHelper\SerialPortHelper\obj\Debug\WindowsFormsApplication1.pdb
