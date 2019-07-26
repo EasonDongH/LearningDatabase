@@ -1,0 +1,8 @@
+E:\WorkCodeSpace\VoiceBoxDemo\VoiceBoxDemo\obj\x86\Debug\VoiceBoxDemo.MainForm.resources
+E:\WorkCodeSpace\VoiceBoxDemo\VoiceBoxDemo\obj\x86\Debug\VoiceBoxDemo.csproj.GenerateResource.Cache
+E:\WorkCodeSpace\VoiceBoxDemo\VoiceBoxDemo\bin\Debug\VoiceBoxDemo.exe
+E:\WorkCodeSpace\VoiceBoxDemo\VoiceBoxDemo\bin\Debug\VoiceBoxDemo.pdb
+E:\WorkCodeSpace\VoiceBoxDemo\VoiceBoxDemo\obj\x86\Debug\VoiceBoxDemo.Properties.Resources.resources
+E:\WorkCodeSpace\VoiceBoxDemo\VoiceBoxDemo\obj\x86\Debug\VoiceBoxDemo.exe
+E:\WorkCodeSpace\VoiceBoxDemo\VoiceBoxDemo\obj\x86\Debug\VoiceBoxDemo.pdb
+E:\WorkCodeSpace\VoiceBoxDemo\VoiceBoxDemo\obj\x86\Debug\VoiceBoxDemo.csprojResolveAssemblyReference.cache
