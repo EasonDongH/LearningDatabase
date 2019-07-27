@@ -133,7 +133,7 @@ namespace VoiceBoxDemo
 
         private SerialPortHelper _serialProtHelper = null;
 
-        private bool _isPause = false, _isCancel = false;
+        private bool _isPause = false, _isCancel = false, _isEmergency = false;
 
         /// <summary>
         /// 线程安全的语音播报队列
@@ -205,6 +205,7 @@ namespace VoiceBoxDemo
         /// <param name="msg"></param>
         public void EmergencyIntercut(string msg)
         {
+            SetStatus(VoiceBoxBackInfo.Status_Busy);
             Compound(msg);
             Console.WriteLine(msg + "    " + this._status.ToString());
         }
@@ -344,7 +345,7 @@ namespace VoiceBoxDemo
             {
                 while (this._cancelTokenSource.IsCancellationRequested == false)
                 {
-                    WaitFree(5);
+                    WaitFree();
 
                     // 【插播队列】出队成功后不会执行【排队队列】出队
                     if (this._intercutQueue.TryDequeue(out msg) == false && this._compoundQueue.TryDequeue(out msg) == false)
@@ -357,16 +358,20 @@ namespace VoiceBoxDemo
         }
 
         /// <summary>
-        /// 阻塞，直到得到连续cnt次查询结果为free
+        /// 阻塞，直到得到cnt次查询结果为free
         /// </summary>
         /// <param name="cnt"></param>
-        private void WaitFree(int cnt = 5)
+        private void WaitFree(int cnt = 15)
         {
             for (int i = 0; i < cnt; )
             {
                 QueryStatus();
-                i = this._status == VoiceBoxBackInfo.Status_Free ? i + 1 : 0;
-                Thread.Sleep(100);
+                if (this._status == VoiceBoxBackInfo.Status_Free)
+                {
+                    i += 1;
+                    SetStatus(VoiceBoxBackInfo.Status_Busy);
+                }
+                //i = this._status == VoiceBoxBackInfo.Status_Free ? i + 1 : 0;
             }
         }
 

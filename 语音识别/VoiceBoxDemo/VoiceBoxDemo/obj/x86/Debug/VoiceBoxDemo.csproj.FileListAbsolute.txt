@@ -6,3 +6,11 @@ E:\WorkCodeSpace\VoiceBoxDemo\VoiceBoxDemo\obj\x86\Debug\VoiceBoxDemo.Properties
 E:\WorkCodeSpace\VoiceBoxDemo\VoiceBoxDemo\obj\x86\Debug\VoiceBoxDemo.exe
 E:\WorkCodeSpace\VoiceBoxDemo\VoiceBoxDemo\obj\x86\Debug\VoiceBoxDemo.pdb
 E:\WorkCodeSpace\VoiceBoxDemo\VoiceBoxDemo\obj\x86\Debug\VoiceBoxDemo.csprojResolveAssemblyReference.cache
+C:\GitHub\LearningDatabase\语音识别\VoiceBoxDemo\VoiceBoxDemo\obj\x86\Debug\VoiceBoxDemo.exe
+C:\GitHub\LearningDatabase\语音识别\VoiceBoxDemo\VoiceBoxDemo\obj\x86\Debug\VoiceBoxDemo.pdb
+C:\GitHub\LearningDatabase\语音识别\VoiceBoxDemo\VoiceBoxDemo\bin\Debug\VoiceBoxDemo.exe.config
+C:\GitHub\LearningDatabase\语音识别\VoiceBoxDemo\VoiceBoxDemo\bin\Debug\VoiceBoxDemo.exe
+C:\GitHub\LearningDatabase\语音识别\VoiceBoxDemo\VoiceBoxDemo\bin\Debug\VoiceBoxDemo.pdb
+C:\GitHub\LearningDatabase\语音识别\VoiceBoxDemo\VoiceBoxDemo\obj\x86\Debug\VoiceBoxDemo.MainForm.resources
+C:\GitHub\LearningDatabase\语音识别\VoiceBoxDemo\VoiceBoxDemo\obj\x86\Debug\VoiceBoxDemo.Properties.Resources.resources
+C:\GitHub\LearningDatabase\语音识别\VoiceBoxDemo\VoiceBoxDemo\obj\x86\Debug\VoiceBoxDemo.csproj.GenerateResource.Cache

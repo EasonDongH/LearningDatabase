@@ -364,11 +364,11 @@ namespace VoiceBoxDemo
         {
             string msg = "这是第{0}条测试数据", msg1 = "这是第{0}条普通插播", msg2 = "这是第{0}条紧急插播";
             this._voiceBox.QueueCompound(string.Format(msg, ++index));
-            if (index % 3 == 0)
+            if (index % 5 == 0)
             {
                 this._voiceBox.CommonIntercut(string.Format(msg1, ++index1));
             }
-            if (index % 5 == 0)
+            if (index % 7 == 0)
             {
                 this._voiceBox.EmergencyIntercut(string.Format(msg2, ++index2));
             }
