@@ -1,0 +1,11 @@
+D:\WorkSpace\CSharp\TestSharpZipLib\TestSharpZipLib\bin\Debug\TestSharpZipLib.exe.config
+D:\WorkSpace\CSharp\TestSharpZipLib\TestSharpZipLib\bin\Debug\TestSharpZipLib.exe
+D:\WorkSpace\CSharp\TestSharpZipLib\TestSharpZipLib\bin\Debug\TestSharpZipLib.pdb
+D:\WorkSpace\CSharp\TestSharpZipLib\TestSharpZipLib\bin\Debug\ICSharpCode.SharpZipLib.dll
+D:\WorkSpace\CSharp\TestSharpZipLib\TestSharpZipLib\obj\x86\Debug\TestSharpZipLib.Form1.resources
+D:\WorkSpace\CSharp\TestSharpZipLib\TestSharpZipLib\obj\x86\Debug\TestSharpZipLib.Properties.Resources.resources
+D:\WorkSpace\CSharp\TestSharpZipLib\TestSharpZipLib\obj\x86\Debug\TestSharpZipLib.csproj.GenerateResource.cache
+D:\WorkSpace\CSharp\TestSharpZipLib\TestSharpZipLib\obj\x86\Debug\TestSharpZipLib.csproj.CoreCompileInputs.cache
+D:\WorkSpace\CSharp\TestSharpZipLib\TestSharpZipLib\obj\x86\Debug\TestSharpZipLib.csproj.CopyComplete
+D:\WorkSpace\CSharp\TestSharpZipLib\TestSharpZipLib\obj\x86\Debug\TestSharpZipLib.exe
+D:\WorkSpace\CSharp\TestSharpZipLib\TestSharpZipLib\obj\x86\Debug\TestSharpZipLib.pdb
