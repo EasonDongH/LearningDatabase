@@ -9,3 +9,5 @@ D:\WorkSpace\CSharp\TestSharpZipLib\TestSharpZipLib\obj\x86\Debug\TestSharpZipLi
 D:\WorkSpace\CSharp\TestSharpZipLib\TestSharpZipLib\obj\x86\Debug\TestSharpZipLib.csproj.CopyComplete
 D:\WorkSpace\CSharp\TestSharpZipLib\TestSharpZipLib\obj\x86\Debug\TestSharpZipLib.exe
 D:\WorkSpace\CSharp\TestSharpZipLib\TestSharpZipLib\obj\x86\Debug\TestSharpZipLib.pdb
+D:\WorkSpace\CSharp\TestSharpZipLib\TestSharpZipLib\bin\Debug\SharpCompress.dll
+D:\WorkSpace\CSharp\TestSharpZipLib\TestSharpZipLib\obj\x86\Debug\TestSharpZipLib.csprojAssemblyReference.cache

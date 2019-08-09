@@ -30,5 +30,10 @@ namespace TestSharpZipLib
         {
             SharpZipLibHelper.ZipCompress(@"C:\Users\EasonDongH\Desktop\新建文件夹 (3)", @"C:\Users\EasonDongH\Desktop\123.zip");
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            SharpCompress.Decompression(@"C:\Users\EasonDongH\Desktop\Python Cookbook第三版中文.rar", @"C:\Users\EasonDongH\Desktop\新建文件夹\");
+        }
     }
 }
