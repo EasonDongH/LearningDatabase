@@ -11,3 +11,15 @@ D:\WorkSpace\CSharp\TestSharpZipLib\TestSharpZipLib\obj\x86\Debug\TestSharpZipLi
 D:\WorkSpace\CSharp\TestSharpZipLib\TestSharpZipLib\obj\x86\Debug\TestSharpZipLib.pdb
 D:\WorkSpace\CSharp\TestSharpZipLib\TestSharpZipLib\bin\Debug\SharpCompress.dll
 D:\WorkSpace\CSharp\TestSharpZipLib\TestSharpZipLib\obj\x86\Debug\TestSharpZipLib.csprojAssemblyReference.cache
+D:\GitHub\LearningDatabase\CSharp\压缩与解压缩\TestSharpZipLib\TestSharpZipLib\bin\Debug\TestSharpZipLib.exe.config
+D:\GitHub\LearningDatabase\CSharp\压缩与解压缩\TestSharpZipLib\TestSharpZipLib\bin\Debug\TestSharpZipLib.exe
+D:\GitHub\LearningDatabase\CSharp\压缩与解压缩\TestSharpZipLib\TestSharpZipLib\bin\Debug\TestSharpZipLib.pdb
+D:\GitHub\LearningDatabase\CSharp\压缩与解压缩\TestSharpZipLib\TestSharpZipLib\bin\Debug\ICSharpCode.SharpZipLib.dll
+D:\GitHub\LearningDatabase\CSharp\压缩与解压缩\TestSharpZipLib\TestSharpZipLib\obj\x86\Debug\TestSharpZipLib.csprojAssemblyReference.cache
+D:\GitHub\LearningDatabase\CSharp\压缩与解压缩\TestSharpZipLib\TestSharpZipLib\obj\x86\Debug\TestSharpZipLib.Form1.resources
+D:\GitHub\LearningDatabase\CSharp\压缩与解压缩\TestSharpZipLib\TestSharpZipLib\obj\x86\Debug\TestSharpZipLib.Properties.Resources.resources
+D:\GitHub\LearningDatabase\CSharp\压缩与解压缩\TestSharpZipLib\TestSharpZipLib\obj\x86\Debug\TestSharpZipLib.csproj.GenerateResource.cache
+D:\GitHub\LearningDatabase\CSharp\压缩与解压缩\TestSharpZipLib\TestSharpZipLib\obj\x86\Debug\TestSharpZipLib.csproj.CoreCompileInputs.cache
+D:\GitHub\LearningDatabase\CSharp\压缩与解压缩\TestSharpZipLib\TestSharpZipLib\obj\x86\Debug\TestSharpZipLib.csproj.CopyComplete
+D:\GitHub\LearningDatabase\CSharp\压缩与解压缩\TestSharpZipLib\TestSharpZipLib\obj\x86\Debug\TestSharpZipLib.exe
+D:\GitHub\LearningDatabase\CSharp\压缩与解压缩\TestSharpZipLib\TestSharpZipLib\obj\x86\Debug\TestSharpZipLib.pdb

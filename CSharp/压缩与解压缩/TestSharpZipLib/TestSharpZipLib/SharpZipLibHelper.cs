@@ -1,6 +1,6 @@
-﻿using System;
+﻿using ICSharpCode.SharpZipLib.Zip;
+using System;
 using System.IO;
-using ICSharpCode.SharpZipLib.Zip;
 
 namespace TestSharpZipLib
 {
@@ -29,9 +29,9 @@ namespace TestSharpZipLib
                 throw new FileNotFoundException(string.Format("未能找到文件 '{0}' ", sourceDir));
             }
             #endregion
-            string searchPattern = zipFileName.Substring(0, zipFileName.LastIndexOf('.'));
+            string searchPattern = zipFileName.Substring(0, zipFileName.LastIndexOf('.')) + "*";
             // 搜索与指定压缩包同名的分割包
-            string[] fileNames = Directory.GetFiles(sourceDir, searchPattern + "*");
+            string[] fileNames = Directory.GetFiles(sourceDir, searchPattern);
             if (fileNames == null || fileNames.Length == 0)
             {
                 throw new Exception("压缩文件异常");
@@ -47,9 +47,7 @@ namespace TestSharpZipLib
                     tfileName = System.IO.Path.GetFileName(fileItem).ToLower();
                     //排除zip指定文件,让其最后加载
                     if (zipFileName == tfileName)
-                    {
                         continue;
-                    }
                     tBytes = File.ReadAllBytes(fileItem);
                     mStream.Write(tBytes, 0, tBytes.Length);
                 }
@@ -101,7 +99,7 @@ namespace TestSharpZipLib
             {
                 targetPath += ".zip";
             }
-            
+
             using (ZipFile zip = ZipFile.Create(targetPath))
             {
                 zip.BeginUpdate();
@@ -112,7 +110,7 @@ namespace TestSharpZipLib
                 }
                 zip.CommitUpdate();
             }
-           
+
             return true;
         }
 

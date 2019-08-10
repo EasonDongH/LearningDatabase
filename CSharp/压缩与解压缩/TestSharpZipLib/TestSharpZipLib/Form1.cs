@@ -33,7 +33,14 @@ namespace TestSharpZipLib
 
         private void button4_Click(object sender, EventArgs e)
         {
-            SharpCompress.Decompression(@"C:\Users\EasonDongH\Desktop\Python Cookbook第三版中文.rar", @"C:\Users\EasonDongH\Desktop\新建文件夹\");
+            SharpCompressHelper.Decompress(@"C:\Users\EasonDongH\Desktop\压缩\", "Python Cookbook第三版中文.rar", @"C:\Users\EasonDongH\Desktop\解压\");
+
+           // SharpCompressHelper.Decompression(@"C:\Users\EasonDongH\Desktop\压缩\Python Cookbook第三版中文.rar", @"C:\Users\EasonDongH\Desktop\解压\");
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            SharpCompressHelper.Compress(@"C:\Users\EasonDongH\Desktop\压缩文件\", @"C:\Users\EasonDongH\Desktop\得到压缩包\", "测试.zip");
         }
     }
 }
