@@ -1,0 +1,12 @@
+E:\GitHub\LearningDatabase\CSharp\压缩与解压缩\CompressDemo\CompressDemo\bin\Debug\CompressDemo.exe
+E:\GitHub\LearningDatabase\CSharp\压缩与解压缩\CompressDemo\CompressDemo\bin\Debug\CompressDemo.pdb
+E:\GitHub\LearningDatabase\CSharp\压缩与解压缩\CompressDemo\CompressDemo\bin\Debug\ICSharpCode.SharpZipLib.dll
+E:\GitHub\LearningDatabase\CSharp\压缩与解压缩\CompressDemo\CompressDemo\bin\Debug\SevenZipSharp.dll
+E:\GitHub\LearningDatabase\CSharp\压缩与解压缩\CompressDemo\CompressDemo\bin\Debug\SharpCompress.dll
+E:\GitHub\LearningDatabase\CSharp\压缩与解压缩\CompressDemo\CompressDemo\obj\Debug\CompressDemo.csprojAssemblyReference.cache
+E:\GitHub\LearningDatabase\CSharp\压缩与解压缩\CompressDemo\CompressDemo\obj\Debug\CompressDemo.Properties.Resources.resources
+E:\GitHub\LearningDatabase\CSharp\压缩与解压缩\CompressDemo\CompressDemo\obj\Debug\CompressDemo.csproj.GenerateResource.cache
+E:\GitHub\LearningDatabase\CSharp\压缩与解压缩\CompressDemo\CompressDemo\obj\Debug\CompressDemo.csproj.CoreCompileInputs.cache
+E:\GitHub\LearningDatabase\CSharp\压缩与解压缩\CompressDemo\CompressDemo\obj\Debug\CompressDemo.csproj.CopyComplete
+E:\GitHub\LearningDatabase\CSharp\压缩与解压缩\CompressDemo\CompressDemo\obj\Debug\CompressDemo.exe
+E:\GitHub\LearningDatabase\CSharp\压缩与解压缩\CompressDemo\CompressDemo\obj\Debug\CompressDemo.pdb
