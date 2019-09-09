@@ -1,0 +1,12 @@
+E:\WorkCodeSpace\FTPDemo\FTPDemo\bin\Debug\FTPDemo.exe
+E:\WorkCodeSpace\FTPDemo\FTPDemo\bin\Debug\FTPDemo.pdb
+E:\WorkCodeSpace\FTPDemo\FTPDemo\bin\Debug\FTP.Base.dll
+E:\WorkCodeSpace\FTPDemo\FTPDemo\bin\Debug\FTP.Base.pdb
+E:\WorkCodeSpace\FTPDemo\FTPDemo\obj\x86\Debug\FTPDemo.csprojResolveAssemblyReference.cache
+E:\WorkCodeSpace\FTPDemo\FTPDemo\obj\x86\Debug\FTPDemo.MainForm.resources
+E:\WorkCodeSpace\FTPDemo\FTPDemo\obj\x86\Debug\FTPDemo.Properties.Resources.resources
+E:\WorkCodeSpace\FTPDemo\FTPDemo\obj\x86\Debug\FTPDemo.csproj.GenerateResource.Cache
+E:\WorkCodeSpace\FTPDemo\FTPDemo\obj\x86\Debug\FTPDemo.exe
+E:\WorkCodeSpace\FTPDemo\FTPDemo\obj\x86\Debug\FTPDemo.pdb
+E:\WorkCodeSpace\FTPDemo\FTPDemo\bin\Debug\FTP.Model.dll
+E:\WorkCodeSpace\FTPDemo\FTPDemo\bin\Debug\FTP.Model.pdb

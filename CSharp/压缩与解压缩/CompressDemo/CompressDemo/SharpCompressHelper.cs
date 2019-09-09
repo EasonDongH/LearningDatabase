@@ -4,7 +4,6 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using SharpCompress.Common;
-using SharpCompress.Archive;
 using SharpCompress.Reader;
 using SharpCompress.Writer;
 
@@ -19,22 +18,30 @@ namespace CompressDemo
         /// <param name="sourceFileName"></param>
         /// <param name="targetDir"></param>
         /// <returns></returns>
-        public static bool Decompress(string sourceDir, string sourceFileName, string targetDir)
+        public static bool Decompress(string sourcePath, string targetDir)
         {
-            if (sourceDir.EndsWith("\\") == false) sourceDir += "\\";
-            if (targetDir.EndsWith("\\") == false) targetDir += "\\";
-            if (Directory.Exists(targetDir) == false) Directory.CreateDirectory(targetDir);
-
-            string sourcePath = sourceDir + sourceFileName;
-            using (Stream stream = File.OpenRead(sourcePath))
+            if (Directory.Exists(targetDir) == false)
             {
-                var reader = ReaderFactory.Open(stream);
-                while(reader.MoveToNextEntry())
+                Directory.CreateDirectory(targetDir);
+            }
+            try
+            {
+                using (Stream stream = File.OpenRead(sourcePath))
                 {
-                    if (reader.Entry.IsDirectory) continue;
-                    reader.WriteEntryToDirectory(targetDir, ExtractOptions.ExtractFullPath | ExtractOptions.Overwrite);
+                    var reader = ReaderFactory.Open(stream);
+                    while (reader.MoveToNextEntry())
+                    {
+                        if (reader.Entry.IsDirectory) continue;
+                        reader.WriteEntryToDirectory(targetDir, ExtractOptions.ExtractFullPath | ExtractOptions.Overwrite);
+                    }
                 }
             }
+            catch (Exception ex)
+            {
+                if(ex.Message == "Invalid Rar Header: 223")
+                    throw;
+            }
+            
             return true;
         }
 

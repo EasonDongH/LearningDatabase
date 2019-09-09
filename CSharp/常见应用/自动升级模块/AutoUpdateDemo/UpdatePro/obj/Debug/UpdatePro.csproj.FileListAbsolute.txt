@@ -12,3 +12,17 @@ C:\WorkSpace\CSharp\AutoUpdateDemo\UpdatePro\obj\Debug\UpdatePro.csproj.CopyComp
 C:\WorkSpace\CSharp\AutoUpdateDemo\UpdatePro\obj\Debug\UpdatePro.exe
 C:\WorkSpace\CSharp\AutoUpdateDemo\UpdatePro\obj\Debug\UpdatePro.pdb
 C:\WorkSpace\CSharp\AutoUpdateDemo\UpdatePro\obj\Debug\UpdatePro.FrmTips.resources
+E:\GitHub\LearningDatabase\CSharp\常见应用\自动升级模块\AutoUpdateDemo\UpdatePro\bin\Debug\UpdatePro.exe.config
+E:\GitHub\LearningDatabase\CSharp\常见应用\自动升级模块\AutoUpdateDemo\UpdatePro\bin\Debug\UpdatePro.exe
+E:\GitHub\LearningDatabase\CSharp\常见应用\自动升级模块\AutoUpdateDemo\UpdatePro\bin\Debug\UpdatePro.pdb
+E:\GitHub\LearningDatabase\CSharp\常见应用\自动升级模块\AutoUpdateDemo\UpdatePro\bin\Debug\Models.dll
+E:\GitHub\LearningDatabase\CSharp\常见应用\自动升级模块\AutoUpdateDemo\UpdatePro\bin\Debug\Models.pdb
+E:\GitHub\LearningDatabase\CSharp\常见应用\自动升级模块\AutoUpdateDemo\UpdatePro\obj\Debug\UpdatePro.csprojAssemblyReference.cache
+E:\GitHub\LearningDatabase\CSharp\常见应用\自动升级模块\AutoUpdateDemo\UpdatePro\obj\Debug\UpdatePro.FrmTips.resources
+E:\GitHub\LearningDatabase\CSharp\常见应用\自动升级模块\AutoUpdateDemo\UpdatePro\obj\Debug\UpdatePro.FrmUpdateMain.resources
+E:\GitHub\LearningDatabase\CSharp\常见应用\自动升级模块\AutoUpdateDemo\UpdatePro\obj\Debug\UpdatePro.Properties.Resources.resources
+E:\GitHub\LearningDatabase\CSharp\常见应用\自动升级模块\AutoUpdateDemo\UpdatePro\obj\Debug\UpdatePro.csproj.GenerateResource.cache
+E:\GitHub\LearningDatabase\CSharp\常见应用\自动升级模块\AutoUpdateDemo\UpdatePro\obj\Debug\UpdatePro.csproj.CoreCompileInputs.cache
+E:\GitHub\LearningDatabase\CSharp\常见应用\自动升级模块\AutoUpdateDemo\UpdatePro\obj\Debug\UpdatePro.csproj.CopyComplete
+E:\GitHub\LearningDatabase\CSharp\常见应用\自动升级模块\AutoUpdateDemo\UpdatePro\obj\Debug\UpdatePro.exe
+E:\GitHub\LearningDatabase\CSharp\常见应用\自动升级模块\AutoUpdateDemo\UpdatePro\obj\Debug\UpdatePro.pdb

@@ -23,12 +23,12 @@ namespace AutoUpdateDemo
         private void Button1_Click(object sender, EventArgs e)
         {
             VersionInfo versionInfo = new VersionInfo();
-            versionInfo.ReadRemoteVersion();
-            if (versionInfo.NeedUpdate)
-            {
+            // versionInfo.ReadRemoteVersion();
+            //if (versionInfo.NeedUpdate)
+            //{
                 Application.Exit();
                 System.Diagnostics.Process.Start("UpdatePro.exe");
-            }
+            //}
         }
 
         private void Timer1_Tick(object sender, EventArgs e)

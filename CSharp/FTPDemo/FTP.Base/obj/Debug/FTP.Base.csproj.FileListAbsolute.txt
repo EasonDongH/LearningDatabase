@@ -1,0 +1,7 @@
+E:\WorkCodeSpace\FTPDemo\FTP.Base\bin\Debug\FTP.Base.dll
+E:\WorkCodeSpace\FTPDemo\FTP.Base\bin\Debug\FTP.Base.pdb
+E:\WorkCodeSpace\FTPDemo\FTP.Base\obj\Debug\FTP.Base.dll
+E:\WorkCodeSpace\FTPDemo\FTP.Base\obj\Debug\FTP.Base.pdb
+E:\WorkCodeSpace\FTPDemo\FTP.Base\obj\Debug\FTP.Base.csprojResolveAssemblyReference.cache
+E:\WorkCodeSpace\FTPDemo\FTP.Base\bin\Debug\FTP.Model.dll
+E:\WorkCodeSpace\FTPDemo\FTP.Base\bin\Debug\FTP.Model.pdb

@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
 <AutoUpdater>
-  <RemoteVersionInfoURL URL="http://192.168.95.1/RemoteUpdateFile/AppVersionInfo.xml" />
+  <RemoteVersionInfoURL URL="http://www.epicard.com.cn/vopd/vodieo/XwzHelperVideo.rar" />
   <VersionInfo>
     <LastUpdateTime Date="2019/04/20 11:00:00" />
     <CurrentVersion Version="1.0.0.5" />

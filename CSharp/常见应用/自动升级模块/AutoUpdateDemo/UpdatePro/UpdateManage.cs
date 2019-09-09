@@ -37,7 +37,7 @@ namespace UpdatePro
                 WebRequest webRequest = WebRequest.Create(file.URL);
                 WebResponse webResponse = webRequest.GetResponse();
                 Stream stream = webResponse.GetResponseStream();
-                StreamReader streamReader = new StreamReader(stream);
+                //StreamReader streamReader = new StreamReader(stream);
 
                 long fileLength = webResponse.ContentLength;// 获取实际下载文件的字节数
                 byte[] bufferByte = new byte[fileLength];

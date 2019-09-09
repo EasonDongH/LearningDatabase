@@ -1,0 +1,4 @@
+E:\WorkCodeSpace\FTPDemo\FTP.Model\bin\Debug\FTP.Model.dll
+E:\WorkCodeSpace\FTPDemo\FTP.Model\bin\Debug\FTP.Model.pdb
+E:\WorkCodeSpace\FTPDemo\FTP.Model\obj\Debug\FTP.Model.dll
+E:\WorkCodeSpace\FTPDemo\FTP.Model\obj\Debug\FTP.Model.pdb

@@ -9,3 +9,14 @@ C:\WorkSpace\CSharp\SocketDemo\SocketDemo\obj\Debug\SocketDemo.exe
 C:\WorkSpace\CSharp\SocketDemo\SocketDemo\obj\Debug\SocketDemo.pdb
 C:\WorkSpace\CSharp\SocketDemo\SocketDemo\obj\Debug\SocketDemo.FrmTCPClient.resources
 C:\WorkSpace\CSharp\SocketDemo\SocketDemo\obj\Debug\SocketDemo.FrmTCPServer.resources
+E:\GitHub\LearningDatabase\CSharp\SocketDemo\SocketDemo\bin\Debug\SocketDemo.exe.config
+E:\GitHub\LearningDatabase\CSharp\SocketDemo\SocketDemo\bin\Debug\SocketDemo.exe
+E:\GitHub\LearningDatabase\CSharp\SocketDemo\SocketDemo\bin\Debug\SocketDemo.pdb
+E:\GitHub\LearningDatabase\CSharp\SocketDemo\SocketDemo\obj\Debug\SocketDemo.csprojAssemblyReference.cache
+E:\GitHub\LearningDatabase\CSharp\SocketDemo\SocketDemo\obj\Debug\SocketDemo.FrmTCPClient.resources
+E:\GitHub\LearningDatabase\CSharp\SocketDemo\SocketDemo\obj\Debug\SocketDemo.FrmTCPServer.resources
+E:\GitHub\LearningDatabase\CSharp\SocketDemo\SocketDemo\obj\Debug\SocketDemo.Properties.Resources.resources
+E:\GitHub\LearningDatabase\CSharp\SocketDemo\SocketDemo\obj\Debug\SocketDemo.csproj.GenerateResource.cache
+E:\GitHub\LearningDatabase\CSharp\SocketDemo\SocketDemo\obj\Debug\SocketDemo.csproj.CoreCompileInputs.cache
+E:\GitHub\LearningDatabase\CSharp\SocketDemo\SocketDemo\obj\Debug\SocketDemo.exe
+E:\GitHub\LearningDatabase\CSharp\SocketDemo\SocketDemo\obj\Debug\SocketDemo.pdb

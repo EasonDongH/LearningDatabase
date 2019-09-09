@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.IO;
 
 namespace CompressDemo
 {
@@ -33,9 +34,7 @@ namespace CompressDemo
 
         private void button4_Click(object sender, EventArgs e)
         {
-            SharpCompressHelper.Decompress(@"C:\Users\EasonDongH\Desktop\压缩\", "Python Cookbook第三版中文.rar", @"C:\Users\EasonDongH\Desktop\解压\");
-
-            // SharpCompressHelper.Decompression(@"C:\Users\EasonDongH\Desktop\压缩\Python Cookbook第三版中文.rar", @"C:\Users\EasonDongH\Desktop\解压\");
+           
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -51,6 +50,57 @@ namespace CompressDemo
         private void btnRarCompress_Click(object sender, EventArgs e)
         {
             WinRARHelper.CompressedFile(@"C:\Users\Administrator\Desktop\Test\data1.txt", @"C:\Users\Administrator\Desktop\TestRar\Test.rar", true, string.Empty);
+        }
+
+        private void btnSharpCompressDeCompress_Click(object sender, EventArgs e)
+        {
+            if (IsValid() == false)
+                return;
+            SharpCompressHelper.Decompress(this.txtPackage.Text.Trim(), this.txtFilePath.Text.Trim());
+        }
+
+        private bool IsValid()
+        {
+            if (this.txtPackage.Text.Trim() == string.Empty)
+            {
+                MessageBox.Show("压缩包路径不能为空");
+                return false;
+            }
+            if (this.txtFilePath.Text.Trim() == string.Empty)
+            {
+                this.txtFilePath.Text = "TempFile\\";
+            }
+            if (System.IO.Directory.Exists(this.txtFilePath.Text) == false)
+            {
+                System.IO.Directory.CreateDirectory(this.txtFilePath.Text);
+            }
+            return true;
+        }
+
+        private void lblPackage_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFile = new OpenFileDialog();
+            openFile.Multiselect = false;
+            if (openFile.ShowDialog() == DialogResult.OK)
+            {
+                this.txtPackage.Text = openFile.FileName;
+            }
+        }
+
+        private void lblFile_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog saveFile = new SaveFileDialog();
+            if (saveFile.ShowDialog() == DialogResult.OK)
+            {
+                this.txtFilePath.Text = saveFile.FileName;
+            }
+        }
+
+        private void btnAutoDecompress_Click(object sender, EventArgs e)
+        {
+            if (IsValid() == false)
+                return;
+            CompressHelper.Decompress(this.txtPackage.Text.Trim(), this.txtFilePath.Text.Trim());
         }
     }
 }

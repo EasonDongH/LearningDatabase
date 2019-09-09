@@ -36,10 +36,6 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\TestSharpZipLib\TestSharpZipLib\refDLL\ICSharpCode.SharpZipLib.dll</HintPath>
     </Reference>
-    <Reference Include="SevenZipSharp, Version=0.64.7158.30075, Culture=neutral, PublicKeyToken=c8ff6ba0184838bb, processorArchitecture=x86">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\TestSharpZipLib\TestSharpZipLib\refDLL\7z\SevenZipSharp.dll</HintPath>
-    </Reference>
     <Reference Include="SharpCompress, Version=0.8.1.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\TestSharpZipLib\TestSharpZipLib\refDLL\SharpCompress.dll</HintPath>
@@ -56,6 +52,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CompressHelper.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -64,10 +61,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SevenZipHelper.cs" />
     <Compile Include="SharpCompressHelper.cs" />
     <Compile Include="SharpZipLibHelper.cs" />
     <Compile Include="WinrarHelper.cs" />
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

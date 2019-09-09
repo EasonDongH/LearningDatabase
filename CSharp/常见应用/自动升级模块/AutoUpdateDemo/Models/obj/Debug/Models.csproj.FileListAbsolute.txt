@@ -4,3 +4,9 @@ C:\WorkSpace\CSharp\AutoUpdateDemo\Models\obj\Debug\Models.csprojAssemblyReferen
 C:\WorkSpace\CSharp\AutoUpdateDemo\Models\obj\Debug\Models.csproj.CoreCompileInputs.cache
 C:\WorkSpace\CSharp\AutoUpdateDemo\Models\obj\Debug\Models.dll
 C:\WorkSpace\CSharp\AutoUpdateDemo\Models\obj\Debug\Models.pdb
+E:\GitHub\LearningDatabase\CSharp\常见应用\自动升级模块\AutoUpdateDemo\Models\bin\Debug\Models.dll
+E:\GitHub\LearningDatabase\CSharp\常见应用\自动升级模块\AutoUpdateDemo\Models\bin\Debug\Models.pdb
+E:\GitHub\LearningDatabase\CSharp\常见应用\自动升级模块\AutoUpdateDemo\Models\obj\Debug\Models.csprojAssemblyReference.cache
+E:\GitHub\LearningDatabase\CSharp\常见应用\自动升级模块\AutoUpdateDemo\Models\obj\Debug\Models.csproj.CoreCompileInputs.cache
+E:\GitHub\LearningDatabase\CSharp\常见应用\自动升级模块\AutoUpdateDemo\Models\obj\Debug\Models.dll
+E:\GitHub\LearningDatabase\CSharp\常见应用\自动升级模块\AutoUpdateDemo\Models\obj\Debug\Models.pdb
