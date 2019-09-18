@@ -1,0 +1,11 @@
+D:\WorkSpace\CSharp\MQTTDemo\MQTT.Server\bin\Debug\MQTT.Server.exe.config
+D:\WorkSpace\CSharp\MQTTDemo\MQTT.Server\bin\Debug\MQTT.Server.exe
+D:\WorkSpace\CSharp\MQTTDemo\MQTT.Server\bin\Debug\MQTT.Server.pdb
+D:\WorkSpace\CSharp\MQTTDemo\MQTT.Server\bin\Debug\MQTT.Util.dll
+D:\WorkSpace\CSharp\MQTTDemo\MQTT.Server\bin\Debug\MQTTnet.dll
+D:\WorkSpace\CSharp\MQTTDemo\MQTT.Server\bin\Debug\MQTT.Util.pdb
+D:\WorkSpace\CSharp\MQTTDemo\MQTT.Server\obj\Debug\MQTT.Server.csprojAssemblyReference.cache
+D:\WorkSpace\CSharp\MQTTDemo\MQTT.Server\obj\Debug\MQTT.Server.csproj.CoreCompileInputs.cache
+D:\WorkSpace\CSharp\MQTTDemo\MQTT.Server\obj\Debug\MQTT.Server.csproj.CopyComplete
+D:\WorkSpace\CSharp\MQTTDemo\MQTT.Server\obj\Debug\MQTT.Server.exe
+D:\WorkSpace\CSharp\MQTTDemo\MQTT.Server\obj\Debug\MQTT.Server.pdb

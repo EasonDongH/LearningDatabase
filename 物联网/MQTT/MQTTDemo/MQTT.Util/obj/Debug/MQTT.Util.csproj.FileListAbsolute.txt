@@ -1,0 +1,8 @@
+D:\WorkSpace\CSharp\MQTTDemo\MQTT.Util\bin\Debug\MQTT.Util.dll
+D:\WorkSpace\CSharp\MQTTDemo\MQTT.Util\bin\Debug\MQTT.Util.pdb
+D:\WorkSpace\CSharp\MQTTDemo\MQTT.Util\bin\Debug\MQTTnet.dll
+D:\WorkSpace\CSharp\MQTTDemo\MQTT.Util\obj\Debug\MQTT.Util.csprojAssemblyReference.cache
+D:\WorkSpace\CSharp\MQTTDemo\MQTT.Util\obj\Debug\MQTT.Util.csproj.CoreCompileInputs.cache
+D:\WorkSpace\CSharp\MQTTDemo\MQTT.Util\obj\Debug\MQTT.Util.csproj.CopyComplete
+D:\WorkSpace\CSharp\MQTTDemo\MQTT.Util\obj\Debug\MQTT.Util.dll
+D:\WorkSpace\CSharp\MQTTDemo\MQTT.Util\obj\Debug\MQTT.Util.pdb

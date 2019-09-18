@@ -1,0 +1,9 @@
+D:\WorkSpace\CSharp\MQTTDemo\MQTTDemo\bin\Debug\MQTTDemo.exe.config
+D:\WorkSpace\CSharp\MQTTDemo\MQTTDemo\bin\Debug\MQTTDemo.exe
+D:\WorkSpace\CSharp\MQTTDemo\MQTTDemo\bin\Debug\MQTTDemo.pdb
+D:\WorkSpace\CSharp\MQTTDemo\MQTTDemo\obj\Debug\MQTTDemo.csprojAssemblyReference.cache
+D:\WorkSpace\CSharp\MQTTDemo\MQTTDemo\obj\Debug\MQTTDemo.Properties.Resources.resources
+D:\WorkSpace\CSharp\MQTTDemo\MQTTDemo\obj\Debug\MQTTDemo.csproj.GenerateResource.cache
+D:\WorkSpace\CSharp\MQTTDemo\MQTTDemo\obj\Debug\MQTTDemo.csproj.CoreCompileInputs.cache
+D:\WorkSpace\CSharp\MQTTDemo\MQTTDemo\obj\Debug\MQTTDemo.exe
+D:\WorkSpace\CSharp\MQTTDemo\MQTTDemo\obj\Debug\MQTTDemo.pdb
