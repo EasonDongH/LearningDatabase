@@ -1,0 +1,14 @@
+E:\GitHub\LearningDatabase\物联网\MQTT\MQTTDemo\MQTT.Base\bin\Debug\MQTT.Base.dll
+E:\GitHub\LearningDatabase\物联网\MQTT\MQTTDemo\MQTT.Base\bin\Debug\MQTT.Base.pdb
+E:\GitHub\LearningDatabase\物联网\MQTT\MQTTDemo\MQTT.Base\bin\Debug\MQTTnet.dll
+E:\GitHub\LearningDatabase\物联网\MQTT\MQTTDemo\MQTT.Base\bin\Debug\System.Net.Security.dll
+E:\GitHub\LearningDatabase\物联网\MQTT\MQTTDemo\MQTT.Base\bin\Debug\System.Net.WebSockets.Client.dll
+E:\GitHub\LearningDatabase\物联网\MQTT\MQTTDemo\MQTT.Base\bin\Debug\System.Net.WebSockets.dll
+E:\GitHub\LearningDatabase\物联网\MQTT\MQTTDemo\MQTT.Base\bin\Debug\System.Security.Cryptography.Algorithms.dll
+E:\GitHub\LearningDatabase\物联网\MQTT\MQTTDemo\MQTT.Base\bin\Debug\System.Security.Cryptography.Encoding.dll
+E:\GitHub\LearningDatabase\物联网\MQTT\MQTTDemo\MQTT.Base\bin\Debug\System.Security.Cryptography.Primitives.dll
+E:\GitHub\LearningDatabase\物联网\MQTT\MQTTDemo\MQTT.Base\bin\Debug\System.Security.Cryptography.X509Certificates.dll
+E:\GitHub\LearningDatabase\物联网\MQTT\MQTTDemo\MQTT.Base\obj\Debug\MQTT.Base.csproj.CoreCompileInputs.cache
+E:\GitHub\LearningDatabase\物联网\MQTT\MQTTDemo\MQTT.Base\obj\Debug\MQTT.Base.csproj.CopyComplete
+E:\GitHub\LearningDatabase\物联网\MQTT\MQTTDemo\MQTT.Base\obj\Debug\MQTT.Base.dll
+E:\GitHub\LearningDatabase\物联网\MQTT\MQTTDemo\MQTT.Base\obj\Debug\MQTT.Base.pdb

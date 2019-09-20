@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.757
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MQTTDemo", "MQTTDemo\MQTTDemo.csproj", "{FE85543E-445E-45F5-8E77-9459E26AE876}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MQTT.Base", "MQTT.Base\MQTT.Base.csproj", "{F9E7FDF8-5BE1-4754-81B0-0F1FEC62A40D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MQTT.Client", "MQTT.Client\MQTT.Client.csproj", "{5A47DA2F-1D71-49A0-88FC-625A2B66B3BE}"
@@ -19,10 +17,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{FE85543E-445E-45F5-8E77-9459E26AE876}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FE85543E-445E-45F5-8E77-9459E26AE876}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FE85543E-445E-45F5-8E77-9459E26AE876}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FE85543E-445E-45F5-8E77-9459E26AE876}.Release|Any CPU.Build.0 = Release|Any CPU
 		{F9E7FDF8-5BE1-4754-81B0-0F1FEC62A40D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{F9E7FDF8-5BE1-4754-81B0-0F1FEC62A40D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F9E7FDF8-5BE1-4754-81B0-0F1FEC62A40D}.Release|Any CPU.ActiveCfg = Release|Any CPU
