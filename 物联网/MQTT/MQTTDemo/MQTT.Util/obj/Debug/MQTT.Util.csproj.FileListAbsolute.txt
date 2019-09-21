@@ -212,4 +212,3 @@ D:\GitHub\LearningDatabase\物联网\MQTT\MQTTDemo\MQTT.Util\obj\Debug\MQTT.Util
 D:\GitHub\LearningDatabase\物联网\MQTT\MQTTDemo\MQTT.Util\obj\Debug\MQTT.Util.csproj.CopyComplete
 D:\GitHub\LearningDatabase\物联网\MQTT\MQTTDemo\MQTT.Util\obj\Debug\MQTT.Util.dll
 D:\GitHub\LearningDatabase\物联网\MQTT\MQTTDemo\MQTT.Util\obj\Debug\MQTT.Util.pdb
-D:\GitHub\LearningDatabase\物联网\MQTT\MQTTDemo\MQTT.Util\obj\Debug\MQTT.Util.csprojAssemblyReference.cache
