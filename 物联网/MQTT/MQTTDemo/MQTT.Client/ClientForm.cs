@@ -18,8 +18,8 @@ namespace MQTT.Client
 
         private void ClientForm_Load(object sender, EventArgs e)
         {
-            this.cmbSubQoS.SelectedIndex = 0;
-            this.cmbPublishQoS.SelectedIndex = 0;
+            this.cmbSubQoS.SelectedIndex = 1;
+            this.cmbPublishQoS.SelectedIndex = 1;
             this.btnDisConnect.Enabled = false;
 
             this.lblClientId.Text = CountSameProcess().ToString();
@@ -28,16 +28,21 @@ namespace MQTT.Client
             this._mqttClient.ApplicationMessageReceived = ApplicationMessageReceived;
             this._mqttClient.ClientConnected = ClientConnected;
             this._mqttClient.ClientDisconnected = ClientDisconnected;
-            this._mqttClient.Init();
         }
 
+        bool hasInit = false;
         private void btnConnect_Click(object sender, EventArgs e)
         {
             if (this._mqttClient == null)
                 return;
+            if (!hasInit)
+            {
+                hasInit = true;
+                this._mqttClient.Init(this.txtServer.Text.Trim(), this.txtPort.Text.Trim(), "admin", "admin");
+            }
             try
             {
-                this._mqttClient.Connect("", "", this.txtServer.Text.Trim(), this.txtPort.Text.Trim());
+                this._mqttClient.Connect();
                 this.btnConnect.Enabled = false;
                 this.btnDisConnect.Enabled = true;
             }

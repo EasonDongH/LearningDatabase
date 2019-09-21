@@ -23,25 +23,40 @@ namespace MQTT.Util
         public EventHandler<MqttClientConnectedEventArgs> ClientConnected = null;
         public EventHandler<MqttClientDisconnectedEventArgs> ClientDisconnected = null;
 
-        public MqttClient(string clientId = "", string ip="", string port="")
+        public MqttClient(string clientId = "")
         {
-            this._serverIP = ip;
-            this._serverPort = port;
             if (clientId == string.Empty)
                 clientId = Guid.NewGuid().ToString();
 
             this._clientOption = new MqttClientOptions() { ClientId = clientId };
             this._clientOption.CleanSession = false;
             this._clientOption.KeepAlivePeriod = TimeSpan.FromSeconds(90);
+            this._clientOption.CommunicationTimeout = TimeSpan.FromSeconds(10);
+            // 遗嘱信息
+            // this._clientOption.WillMessage = 
+            this._clientOption.ProtocolVersion = MQTTnet.Serializer.MqttProtocolVersion.V310;
 
             this._mqttClient = new MqttFactory().CreateMqttClient();
         }
 
-        public void Init()
+        public void Init(string ip, string port, string userName, string pwd)
         {
+            this._serverIP = ip;
+            this._serverPort = port;
+
             _mqttClient.ApplicationMessageReceived += this.ApplicationMessageReceived;
             _mqttClient.Connected += this.ClientConnected;
             _mqttClient.Disconnected += this.ClientDisconnected;
+            this._clientOption.ChannelOptions = new MqttClientTcpOptions()
+            {
+                Server = this._serverIP,
+                Port = Convert.ToInt32(this._serverPort)
+            };
+            this._clientOption.Credentials = new MqttClientCredentials()
+            {
+                Username = userName,
+                Password = pwd
+            };
         }
 
         /**
@@ -58,34 +73,17 @@ namespace MQTT.Util
       willQos: 接收离线消息的级别
       clientId: 客户端id，需要特别指出的是这个id需要全局唯一，因为服务端是根据这个来区分不同的客户端的，默认情况下一个id登录后，假如有另外的连接以这个id登录，上一个连接会被踢下线, 我使用的设备UUID
 */
-        public async void Connect(string userName, string pwd, string ip = "", string port = "")
+        public async void Connect()
         {
-            if (ip != string.Empty)
-                this._serverIP = ip;
-            if (port != string.Empty)
-                this._serverPort = port;
+            if (this._mqttClient == null)
+                return;
+
             try
             {
-                if (_mqttClient == null)
+                if (this._mqttClient.IsConnected)
                 {
-                    this._mqttClient = new MqttFactory().CreateMqttClient();
-                    Init();
+                    return;
                 }
-                else if (this._mqttClient.IsConnected)
-                {
-                    await this._mqttClient.DisconnectAsync();
-                }
-
-                this._clientOption.ChannelOptions = new MqttClientTcpOptions()
-                {
-                    Server = this._serverIP,
-                    Port = Convert.ToInt32(this._serverPort)
-                };
-                this._clientOption.Credentials = new MqttClientCredentials()
-                {
-                    Username = userName,
-                    Password = pwd
-                };
 
                 await _mqttClient.ConnectAsync(this._clientOption);
             }

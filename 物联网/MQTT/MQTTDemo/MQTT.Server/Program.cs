@@ -14,7 +14,7 @@ namespace MQTT.Server
     {
         static void Main(string[] args)
         {
-            Util.MqttServer mqttServer = new Util.MqttServer("192.168.1.11", "1883");
+            Util.MqttServer mqttServer = new Util.MqttServer("127.0.0.1", "1883");
             mqttServer.ConnectionValidator = ConnectionValidator;
             mqttServer.ClientConnected = CliendConnected;
             mqttServer.ClientDisconnected = ClientDisconnected;

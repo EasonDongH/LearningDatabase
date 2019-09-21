@@ -43,6 +43,8 @@ namespace MQTT.Util
 
             var options = optionBuilder.Build() as MqttServerOptions;
             options.ConnectionValidator += this.ConnectionValidator;
+            options.MaxPendingMessagesPerClient = 1000;
+            options.EnablePersistentSessions = true;
 
             this._mqttServer = new MqttFactory().CreateMqttServer();
             this._mqttServer.ClientConnected += this.ClientConnected;
