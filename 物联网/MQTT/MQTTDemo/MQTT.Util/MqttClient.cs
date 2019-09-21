@@ -33,7 +33,13 @@ namespace MQTT.Util
             this._clientOption.KeepAlivePeriod = TimeSpan.FromSeconds(90);
             this._clientOption.CommunicationTimeout = TimeSpan.FromSeconds(10);
             // 遗嘱信息
-            // this._clientOption.WillMessage = 
+            this._clientOption.WillMessage = new MqttApplicationMessage()
+            {
+                Topic = "Test",
+                Payload =  Encoding.UTF8.GetBytes("异常中断"),
+                QualityOfServiceLevel = MqttQualityOfServiceLevel.AtLeastOnce
+            };
+                
             this._clientOption.ProtocolVersion = MQTTnet.Serializer.MqttProtocolVersion.V310;
 
             this._mqttClient = new MqttFactory().CreateMqttClient();
