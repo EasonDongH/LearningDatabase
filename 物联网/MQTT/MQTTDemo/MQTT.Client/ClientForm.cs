@@ -125,7 +125,7 @@ namespace MQTT.Client
 
         private void ApplicationMessageReceived(object sender, MqttApplicationMessageReceivedEventArgs args)
         {
-            string msg = string.Format("主题：{0}  负载：{1}  QoS：{2}", args.ApplicationMessage.Topic, Encoding.UTF8.GetString(args.ApplicationMessage.Payload), args.ApplicationMessage.QualityOfServiceLevel.ToString());
+            string msg = string.Format("接收信息：主题：{0}  负载：{1}  QoS：{2}", args.ApplicationMessage.Topic, Encoding.UTF8.GetString(args.ApplicationMessage.Payload), args.ApplicationMessage.QualityOfServiceLevel.ToString());
             AppentText(msg);
         }
 
