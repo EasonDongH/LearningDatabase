@@ -1,9 +1,0 @@
-E:\Work\ArcSoft人脸识别\ArcFace2.2\ArcFace.DBUtil\bin\x86\Debug\ArcFace.DBUtil.dll
-E:\Work\ArcSoft人脸识别\ArcFace2.2\ArcFace.DBUtil\bin\x86\Debug\ArcFace.DBUtil.pdb
-E:\Work\ArcSoft人脸识别\ArcFace2.2\ArcFace.DBUtil\bin\x86\Debug\Dapper.Contrib.dll
-E:\Work\ArcSoft人脸识别\ArcFace2.2\ArcFace.DBUtil\bin\x86\Debug\Dapper.dll
-E:\Work\ArcSoft人脸识别\ArcFace2.2\ArcFace.DBUtil\bin\x86\Debug\Dapper.Mapper.dll
-E:\Work\ArcSoft人脸识别\ArcFace2.2\ArcFace.DBUtil\bin\x86\Debug\Dapper.SimpleCRUD.dll
-E:\Work\ArcSoft人脸识别\ArcFace2.2\ArcFace.DBUtil\bin\x86\Debug\mysql.data.dll
-E:\Work\ArcSoft人脸识别\ArcFace2.2\ArcFace.DBUtil\obj\x86\Debug\ArcFace.DBUtil.dll
-E:\Work\ArcSoft人脸识别\ArcFace2.2\ArcFace.DBUtil\obj\x86\Debug\ArcFace.DBUtil.pdb

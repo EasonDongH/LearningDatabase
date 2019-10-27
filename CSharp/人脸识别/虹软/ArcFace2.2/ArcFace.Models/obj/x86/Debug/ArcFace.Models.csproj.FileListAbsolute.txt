@@ -1,6 +1,0 @@
-E:\Work\ArcSoft人脸识别\ArcFace2.2\ArcFace.Models\bin\x86\Debug\ArcFace.Models.dll
-E:\Work\ArcSoft人脸识别\ArcFace2.2\ArcFace.Models\bin\x86\Debug\ArcFace.Models.pdb
-E:\Work\ArcSoft人脸识别\ArcFace2.2\ArcFace.Models\bin\x86\Debug\Dapper.dll
-E:\Work\ArcSoft人脸识别\ArcFace2.2\ArcFace.Models\bin\x86\Debug\Dapper.SimpleCRUD.dll
-E:\Work\ArcSoft人脸识别\ArcFace2.2\ArcFace.Models\obj\x86\Debug\ArcFace.Models.dll
-E:\Work\ArcSoft人脸识别\ArcFace2.2\ArcFace.Models\obj\x86\Debug\ArcFace.Models.pdb

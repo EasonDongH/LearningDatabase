@@ -1,7 +1,0 @@
-C:\WorkSpace\CSharp\InheritanceTest\AbstractDemo\obj\Debug\AbstractDemo.csproj.CoreCompileInputs.cache
-C:\WorkSpace\CSharp\InheritanceTest\AbstractDemo\bin\Debug\AbstractDemo.exe.config
-C:\WorkSpace\CSharp\InheritanceTest\AbstractDemo\bin\Debug\AbstractDemo.exe
-C:\WorkSpace\CSharp\InheritanceTest\AbstractDemo\bin\Debug\AbstractDemo.pdb
-C:\WorkSpace\CSharp\InheritanceTest\AbstractDemo\obj\Debug\AbstractDemo.exe
-C:\WorkSpace\CSharp\InheritanceTest\AbstractDemo\obj\Debug\AbstractDemo.pdb
-C:\WorkSpace\CSharp\InheritanceTest\AbstractDemo\obj\Debug\AbstractDemo.csprojAssemblyReference.cache
