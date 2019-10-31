@@ -93,8 +93,52 @@
             border: 1px solid #FFD026 ;
         }
 
-    </style>
+        #td_submit{
+            padding-left: 150px;
+        }
 
+        .error{
+            color: red;
+        }
+    </style>
+    <script>
+        function checkUserName() {
+            var usename = document.getElementById("username").value;
+            var exp = /^\w{6,12}$/;
+            var flag = exp.test(usename);
+            var s_username = document.getElementById("s_username");
+            if(flag){
+                s_username.innerHTML = "<img src='image/gou.png' width='25' height='25'>";
+            }
+            else{
+                s_username.innerHTML = "用户名格式错误";
+            }
+            return flag;
+        }
+
+        function checkPassword() {
+            var password = document.getElementById("password").value;
+            var exp = /^\w{6,12}$/;
+            var flag = exp.test(password);
+            var s_password = document.getElementById("s_password");
+            if(flag){
+                s_password.innerHTML = "<img src='image/gou.png' width='25' height='25'>";
+            }
+            else{
+                s_password.innerHTML = "密码格式错误";
+            }
+            return flag;
+        }
+        window.onload = function (ev) { 
+            var form = document.getElementById("submit_form");
+            form.onsubmit = function () {
+                return checkUserName() && checkPassword();
+            }
+
+            document.getElementById("username").onblur = checkUserName;
+            document.getElementById("password").onblur = checkPassword;
+        }
+    </script>
 </head>
 <body>
 
@@ -108,16 +152,21 @@
     <div class="rg_center">
         <div class="rg_form">
             <!--定义表单 form-->
-            <form action="#" method="post">
+            <form action="#" method="post" id="submit_form">
                 <table>
                     <tr>
                         <td class="td_left"><label for="username">用户名</label></td>
-                        <td class="td_right"><input type="text" name="username" id="username" placeholder="请输入用户名"></td>
+                        <td class="td_right">
+                            <input type="text" name="username" id="username" placeholder="请输入用户名">
+                            <span id="s_username" class="error"></span>
+                        </td>
                     </tr>
 
                     <tr>
                         <td class="td_left"><label for="password">密码</label></td>
-                        <td class="td_right"><input type="password" name="password" id="password" placeholder="请输入密码">
+                        <td class="td_right">
+                            <input type="password" name="password" id="password" placeholder="请输入密码">
+                            <span id="s_password" class="error"></span>
                         </td>
                     </tr>
 
@@ -158,13 +207,12 @@
 
 
                     <tr>
-                        <td colspan="2" align="center"><input type="submit" id="btn_sub" value="注册"></td>
+                        <td colspan="2" id="td_submit"><input type="submit" id="btn_sub" value="注册"></td>
                     </tr>
                 </table>
 
             </form>
-
-
+            
         </div>
 
     </div>

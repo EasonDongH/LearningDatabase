@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>事件</title>
+
+    <script>
+        window.onload = function(){
+            var input = document.getElementById("username");
+            input.onmousedown = function (ev) {
+              alert(ev.button);// 左0 中1 右2
+            };
+        };
+    </script>
+</head>
+<body>
+<input type="text" id="username">
+</body>
+</html>
