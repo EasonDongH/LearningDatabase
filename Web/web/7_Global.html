@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Global</title>
+    <script>
+        var str = "传智播客";
+        var encode = encodeURI(str);
+        document.write(encode +"<br>");
+
+        var str2 = decodeURI(encode);
+        document.write(str2 +"<br>");
+
+        document.write("+++++++++++++++++<br>");
+
+        // encodeURIComponent将：、//等字符也进行编码
+        var str = "传智播客";
+        var encode = encodeURIComponent(str);
+        document.write(encode +"<br>");
+
+        var str2 = decodeURIComponent(encode);
+        document.write(str2 +"<br>");
+
+        var num = parseInt("123aab");
+        document.write(num);// 123
+
+        var jscode = "alert(123)";
+        eval(jscode);
+    </script>
+</head>
+<body>
+
+</body>
+</html>

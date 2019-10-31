@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        // 方式1
+        var func1 = new Function("a", "b", "alert(a)");
+        func1(2,3);
+        // 方式2
+        function func2(a, b) {
+            alert(a + b);
+        }
+        func2(1,2);
+        // 方式3
+        var func3 = function (a,b) {
+            alert(a + b);
+        }
+        func3(2, 3);
+
+        var func4  = function () {
+            var a = arguments[0];
+            var b = arguments[1];
+            return a + b;
+        }
+        var sum = func4(1,2);
+        document.write(sum);
+    </script>
+</head>
+<body>
+
+</body>
+</html>

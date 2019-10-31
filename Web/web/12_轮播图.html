@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>轮播图</title>
+
+
+</head>
+<body>
+<img src="image/banner_1.jpg" alt="" id="imgBanner" width="100%">
+
+<script>
+    var index = 0;
+    setInterval(function () {
+        var imgBanner = document.getElementById("imgBanner");
+        switch (index) {
+            case 0:
+                index = 1;
+                imgBanner.src = "image/banner_2.jpg";
+                break;
+            case 1:
+                index = 2;
+                imgBanner.src = "image/banner_3.jpg";
+                break;
+            case 2:
+                index = 0;
+                imgBanner.src = "image/banner_1.jpg";
+                break;
+        }
+    },2000);
+</script>
+</body>
+</html>

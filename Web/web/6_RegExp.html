@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>RegExp</title>
+    <script>
+        var reg1 = new RegExp("^\\w{2,12}$");
+        var usename = "zhangsan";
+        var flag = reg1.test(usename);
+        document.write(flag + "<br>");
+
+
+        var usename = "zhangsan";
+        var reg2 = /^\w{2,12}$/;
+        var flag = reg2.test(usename);
+        document.write(flag);
+    </script>
+</head>
+<body>
+
+</body>
+</html>

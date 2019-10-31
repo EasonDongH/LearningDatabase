@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>定时器</title>
+</head>
+<body>
+<script>
+    // 一次性的定时器，返回唯一标识
+    var timer1 = window.setTimeout(function (args) {
+        alert('Boom~');
+    }, 1000);
+    // 取消定时器
+    // clearTimeout(timer1);
+
+    // 循环定时器
+    var timer2 = window.setInterval(function () {
+        document.write("Boom~");
+    }, 1000)
+    // 取消定时器
+    // clearInterval(timer2);
+</script>
+</body>
+</html>
