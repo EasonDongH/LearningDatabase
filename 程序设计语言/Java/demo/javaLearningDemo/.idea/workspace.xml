@@ -67,8 +67,25 @@
         <entry file="jar://C:/DevelopSpace/apache-tomcat-8.5.31-windows-64bit/apache-tomcat-8.5.31/lib/servlet-api.jar!/javax/servlet/http/HttpServlet.class">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="6600">
-              <caret line="234" column="20" lean-forward="true" selection-start-line="234" selection-start-column="20" selection-end-line="234" selection-end-column="20" />
-              <folding />
+              <caret line="234" column="20" lean-forward="false" selection-start-line="234" selection-start-column="20" selection-end-line="234" selection-end-column="20" />
+              <folding>
+                <marker date="1524835498000" expanded="false" signature="0:104" ph="/.../" />
+                <marker date="1524835498000" expanded="false" signature="142:572" ph="..." />
+                <marker date="1524835498000" expanded="true" signature="1431:1438" ph="{}" />
+                <marker date="1524835498000" expanded="true" signature="1552:1822" ph="{...}" />
+                <marker date="1524835498000" expanded="false" signature="1882:1893" ph=" { " />
+                <marker date="1524835498000" expanded="false" signature="1904:1910" ph=" }" />
+                <marker date="1524835498000" expanded="true" signature="2025:2309" ph="{...}" />
+                <marker date="1524835498000" expanded="true" signature="2424:2695" ph="{...}" />
+                <marker date="1524835498000" expanded="true" signature="2809:3079" ph="{...}" />
+                <marker date="1524835498000" expanded="true" signature="3196:3469" ph="{...}" />
+                <marker date="1524835498000" expanded="true" signature="3533:4217" ph="{...}" />
+                <marker date="1524835498000" expanded="true" signature="4335:6891" ph="{...}" />
+                <marker date="1524835498000" expanded="true" signature="7007:7743" ph="{...}" />
+                <marker date="1524835498000" expanded="true" signature="7859:9523" ph="{...}" />
+                <marker date="1524835498000" expanded="true" signature="9608:9798" ph="{...}" />
+                <marker date="1524835498000" expanded="true" signature="9902:10261" ph="{...}" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -128,7 +145,7 @@
     <option name="FILTER_DEBUG" value="true" />
     <option name="CUSTOM_FILTER" />
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="1272" />
     <option name="width" value="1296" />
     <option name="height" value="1398" />
@@ -442,15 +459,15 @@
       <workItem from="1572658481517" duration="699000" />
       <workItem from="1572665547318" duration="63000" />
       <workItem from="1572665639131" duration="2744000" />
-      <workItem from="1572696903762" duration="4280000" />
+      <workItem from="1572696903762" duration="4485000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="10800000" />
+    <option name="totallyTimeSpent" value="11005000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="-9" width="2578" height="1408" extended-state="7" />
+    <frame x="-9" y="-9" width="2578" height="1408" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -667,8 +684,25 @@
     <entry file="jar://C:/DevelopSpace/apache-tomcat-8.5.31-windows-64bit/apache-tomcat-8.5.31/lib/servlet-api.jar!/javax/servlet/http/HttpServlet.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="6600">
-          <caret line="234" column="20" lean-forward="true" selection-start-line="234" selection-start-column="20" selection-end-line="234" selection-end-column="20" />
-          <folding />
+          <caret line="234" column="20" lean-forward="false" selection-start-line="234" selection-start-column="20" selection-end-line="234" selection-end-column="20" />
+          <folding>
+            <marker date="1524835498000" expanded="false" signature="0:104" ph="/.../" />
+            <marker date="1524835498000" expanded="false" signature="142:572" ph="..." />
+            <marker date="1524835498000" expanded="true" signature="1431:1438" ph="{}" />
+            <marker date="1524835498000" expanded="true" signature="1552:1822" ph="{...}" />
+            <marker date="1524835498000" expanded="false" signature="1882:1893" ph=" { " />
+            <marker date="1524835498000" expanded="false" signature="1904:1910" ph=" }" />
+            <marker date="1524835498000" expanded="true" signature="2025:2309" ph="{...}" />
+            <marker date="1524835498000" expanded="true" signature="2424:2695" ph="{...}" />
+            <marker date="1524835498000" expanded="true" signature="2809:3079" ph="{...}" />
+            <marker date="1524835498000" expanded="true" signature="3196:3469" ph="{...}" />
+            <marker date="1524835498000" expanded="true" signature="3533:4217" ph="{...}" />
+            <marker date="1524835498000" expanded="true" signature="4335:6891" ph="{...}" />
+            <marker date="1524835498000" expanded="true" signature="7007:7743" ph="{...}" />
+            <marker date="1524835498000" expanded="true" signature="7859:9523" ph="{...}" />
+            <marker date="1524835498000" expanded="true" signature="9608:9798" ph="{...}" />
+            <marker date="1524835498000" expanded="true" signature="9902:10261" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
