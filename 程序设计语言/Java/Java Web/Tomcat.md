@@ -104,3 +104,11 @@ Apache基金组织，中小型JavaEE服务器，仅支持少量Java规范的serv
    - 之后更新页面资源后，无需重启项目
 6. 部署完成
 
+#### IDEA项目路径与Tomcat部署路径
+
+1. IDEA为每一个Tomcat部署的项目单独建立一份配置文件
+   - Using CATALINA_BASE:   "..."
+2. IDEA工作目录 vs. Tomcat部署的web项目
+   - Tomcat访问的是【Tomcat部署的web项目】，在\out\artifacts文件夹下
+   - 【Tomcat部署的web项目】对应【IDEA工作目录】下的web目录下的资源
+   - WEB-INF目录下的资源不能被浏览器直接访问

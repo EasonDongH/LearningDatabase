@@ -1,9 +1,11 @@
 package servlet;
 
 import javax.servlet.*;
+import javax.servlet.annotation.WebServlet;
 import java.io.IOException;
 
-public class servletDemo01 implements Servlet{
+@WebServlet(urlPatterns = "/demo02", loadOnStartup = -1)
+public class servletDemo02 implements Servlet{
     @Override
     public void init(ServletConfig servletConfig) throws ServletException {
         System.out.println("Servlet init");
@@ -16,7 +18,7 @@ public class servletDemo01 implements Servlet{
 
     @Override
     public void service(ServletRequest servletRequest, ServletResponse servletResponse) throws ServletException, IOException {
-        System.out.println("Hello Servlet");
+        System.out.println("【来自注解】Hello Servlet");
     }
 
     @Override
