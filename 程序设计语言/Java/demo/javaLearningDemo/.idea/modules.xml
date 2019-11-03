@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/servlet/servlet.iml" filepath="$PROJECT_DIR$/servlet/servlet.iml" />
-      <module fileurl="file://$PROJECT_DIR$/tomcat/tomcat.iml" filepath="$PROJECT_DIR$/tomcat/tomcat.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Web/Web.iml" filepath="$PROJECT_DIR$/Web/Web.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Web/Request/request.iml" filepath="$PROJECT_DIR$/Web/Request/request.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Web/servlet/servlet.iml" filepath="$PROJECT_DIR$/Web/servlet/servlet.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Web/tomcat/tomcat.iml" filepath="$PROJECT_DIR$/Web/tomcat/tomcat.iml" />
     </modules>
   </component>
 </project>
