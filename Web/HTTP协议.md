@@ -38,7 +38,27 @@
 4. 请求体
    - 封装POST的请求参数
 
-##### 响应信息
+##### 响应信息：服务器端响应客户端
+
+- 数据格式
+  1. 响应行
+     - 组成：协议/版本 响应状态码 状态码描述【HTTP/1.1 200 OK】
+       - 状态码：服务器告诉浏览器，本次请求/响应的状态
+         - 常见状态码
+           - 1xx：服务器接收客户端消息，但服务器认为没有接收完成，等待一段时间后，发送1xx状态码询问是否还有数据
+           - 2xx：成功，如：200（OK）
+           - 3xx：302（重定向）、304（访问缓存）
+           - 4xx：客户端错误，如404（请求资源的URL不存在）、405（服务器不存在所需的请求方式，如服务器没有提供GET方法）
+           - 5xx：服务器错误，如：500（服务器内部出现异常）
+  2. 响应头
+     - 格式：响应头名称：值
+     - 常见响应头
+       - Content-Type：本次响应体的数据格式、编码格式【Content-Type: text/html;charset=UTF-8】
+       - Contetnt-disposition：以什么格式打开响应体数据
+         - in-line：默认值，在当前页面内打开
+         - attachment；filename=xxx：以附件形式打开
+  3. 响应空行
+  4. 响应体
 
 ##### Request
 
@@ -85,13 +105,13 @@
 
      - 请求转发：一种在服务器内部进行资源跳转（从AServlet跳转到BServlet中）的方式
 
-       ```
+       ```java
        request.getRequestDispatcher("服务器内的另一个Servlet").forward(request, response);
        ```
 
        - 特点：
          1. 浏览器地址栏URL不发生变化
-         2. 只能转发到服务器内部资源
+         2. 只能转发到当前服务器内部资源
          3. **对于浏览器来说，只进行了一次请求**
 
      - 共享数据
@@ -106,4 +126,64 @@
      - 获取ServletContext
 
        - ServletContext getServletContext()
+       
+     - 动态获取虚拟目录
+     
+       - String contextPath = request.getContextPath();
 
+##### Response
+
+- 功能：设置响应消息
+
+  - 设置响应行
+
+    - 设置状态码：setStatus(int sc)
+
+  - 设置响应头
+
+    - setHeader(String name, String value)
+
+  - 设置响应体
+
+    - 使用步骤：
+
+      1. 获取输出流
+
+         - 字符输出流：PrinterWriter getWriter()
+         - 字节输出流：ServletOutputStream getOutputStream()
+
+      2. 使用输出流，将数据输出到客户端浏览器
+
+         - 中文乱码：编解码码表不一致（Tomcat默认ISO-8859-1）
+
+           - 获取输出流对象之前，进行编码设置
+
+           - 并告诉浏览器自己的编码码表
+
+             ```java
+             // response.setCharacterEncoding("utf-8"); // 可以忽略
+             
+             response.setHeader("content-type", "text/html;charset=utf-8");
+             // 简单形式设置编码
+             response.setContentType("text/html;charset=utf-8");
+             
+             ```
+
+- 方法
+
+  - 重定向
+
+    ```java
+    // 在ResponseDemo01中，重定向到ResponseDemo02
+    // response.setStatus(302);
+    // response.setHeader("location", "/ResponseDemo/ResponseDemo02");        response.sendRedirect("/ResponseDemo/ResponseDemo02");
+    ```
+
+    - 特点
+      - 地址栏发生变化
+      - 重定向可访问其他站点的资源
+      - 重定向是两次请求（**意味着不能通过request域对象来共享数据**）
+
+  - 动态获取虚拟目录
+
+    
