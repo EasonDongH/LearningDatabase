@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>验证码</title>
+    <script>
+        window.onload = function (ev) {
+            var img = document.getElementById("imgCheckCodeRefresh");
+            img.onclick = function (ev2) {
+                img.src = "/demo/checkCodeServlet?" + new Date().getTime();
+            };
+
+            var link = document.getElementById("aCheckCodeRefresh");
+            link.onclick = function (ev2) {
+                img.src = "/demo/checkCodeServlet?" + new Date().getTime();
+            };
+        };
+    </script>
+</head>
+<body>
+<img id="imgCheckCodeRefresh" src="/demo/checkCodeServlet" alt="">
+<a id="aCheckCodeRefresh" href="#">看不清？</a>
+</body>
+</html>

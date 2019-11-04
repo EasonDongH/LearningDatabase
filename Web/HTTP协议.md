@@ -54,9 +54,9 @@
      - 格式：响应头名称：值
      - 常见响应头
        - Content-Type：本次响应体的数据格式、编码格式【Content-Type: text/html;charset=UTF-8】
-       - Contetnt-disposition：以什么格式打开响应体数据
+       - Content-disposition：以什么格式打开响应体数据
          - in-line：默认值，在当前页面内打开
-         - attachment；filename=xxx：以附件形式打开
+         - attachment;filename=xxx：以附件形式打开
   3. 响应空行
   4. 响应体
 
@@ -184,6 +184,41 @@
       - 重定向可访问其他站点的资源
       - 重定向是两次请求（**意味着不能通过request域对象来共享数据**）
 
-  - 动态获取虚拟目录
 
-    
+##### ServletContext对象
+
+- 概念：**代表整个Web应用，可以和程序的容器（服务器）通信**
+
+- 获取：
+
+  - 通过request对象获取：request.getServletContext()
+  - 通过HttpServlet获取：this.getServletContext()
+
+- 功能：
+
+  - 获取MIME类型
+
+    - MIME类型：互联网通信过程中定义的一种文件数据类型
+      - 格式：大类型/小类型，如：text/html、image/jpeg
+    - 获取方式：String getMimeType(String file)
+
+  - 域对象：共享数据
+
+    - 范围：共享所有用户请求的数据；生命周期=整个软件运行生命周期（启动便创建）
+
+  - 获取文件的真实路径（服务器项目所在路径）
+
+    - 获取真实路径后，作为服务器路径下所有资源的路径**前缀**
+
+    - String getReadlPath(String path)
+
+      ```
+      // 获取web目录下的资源
+      String path1 = context.getRealPath("/a.txt");
+      // 获取WEB-INF目录下的资源
+      String path2 = context.getReadlPath("/WEB-INF/b.txt");
+      // 获取src目录下的资源
+      String path3 = context.getRealPaht("/WEB-INF/classes/c.txt");
+      ```
+
+    - 下载文件名中的中文乱码问题：问题在于浏览器的不同导致的编码不一致，解决方法就是根据“user-agent”请求头获取浏览器信息，从而根据浏览器对文件名进行不同的编码
