@@ -9,6 +9,7 @@
       <module fileurl="file://$PROJECT_DIR$/Web/request/request.iml" filepath="$PROJECT_DIR$/Web/request/request.iml" />
       <module fileurl="file://$PROJECT_DIR$/Web/response/response.iml" filepath="$PROJECT_DIR$/Web/response/response.iml" />
       <module fileurl="file://$PROJECT_DIR$/Web/servlet/servlet.iml" filepath="$PROJECT_DIR$/Web/servlet/servlet.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Web/sessionDemo/sessionDemo.iml" filepath="$PROJECT_DIR$/Web/sessionDemo/sessionDemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/Web/tomcat/tomcat.iml" filepath="$PROJECT_DIR$/Web/tomcat/tomcat.iml" />
     </modules>
   </component>

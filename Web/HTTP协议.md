@@ -100,7 +100,7 @@
 
          ```
          // 设置流的字符集
-         requst.setCharacterEncoding("utf-8");
+         request.setCharacterEncoding("utf-8");
          ```
 
      - 请求转发：一种在服务器内部进行资源跳转（从AServlet跳转到BServlet中）的方式
@@ -117,7 +117,7 @@
      - 共享数据
 
        - 域对象：在一定范围内可以共享数据的对象
-       - request域：代表一次请求的范围，一般用于**在请求转发的多个资源中共享数据**
+       - request域：代表**一次请求**的范围，一般用于**在请求转发的多个资源中共享数据**
        - 方法：
          - setAttribute(String name, Object obj)：存储数据
          - Object getAttribute(String name)
@@ -305,6 +305,50 @@
   3. Cookie一般用于存储少量的、不太敏感的数据
      - 比如，在不登录的情况下，完成服务器对客户端的身份识别
 
+
+#### Session
+
+- 概念：服务器端会话技术，在**一次会话**的**多次请求**之间共享数据，将数据保存在服务器对象中，如HttpSession
+
+- 方法
+
+  ```
+  HttpSession session = request.getSession();
+  session.setAttribute("msg", "hello");
+  Object obj = session.getAttribute("msg");
+  removeAttribute("msg");
+  ```
+
+- 原理
+
+  - Session的实现是依赖于Cookie的
+    - 在服务器端第一次获取Session时，会在服务器创建一个Session对象，该对象有一个JSESSIONID
+    - 并且该JSESSIONID会作为响应头的一部分传给浏览器：set-cookie:JSESSIONID=xxxx
+    - 接下来的浏览器请求将会携带这个JSESSIONID，作为请求头到服务器：cookie:JSESSIONID=xxxx
+    - 服务器会自动获取该JSESSIONID，并且寻找是否存在该ID的Session对象，如果找到了则返回
+    - 因此，**一次会话中的Session对象是唯一的**
+
+- 细节
+
+  1. 当客户端关闭后，服务器不关闭，两次获取的Session是同一个吗？
+     - 默认情况下：不是
+     - 可以通过在本地保存一个name为JSESSIONID的Cookie，其值为服务器的session.getID()，并且将其Cookie的MaxAge设置为一定大的值，即可
+  2. 客户端不关闭，服务器关闭，两次获取的Session是同一个吗？
+     - 不是同一个，但要确保数据不丢失
+     - Session的钝化：在服务器正常关闭之前，将Session对象序列化至硬盘
+     - Session的活化：在服务器启动后，将Session文件反序列化为对象（Session的地址值发生了变化，但SessionID不变）
+     - 通过Tomcat去启动服务，能够自动进行钝化/活化；而使用IDEA，会进行钝化，但重启服务器时IDEA会先将work文件夹删除（存储Session.ser文件的文件夹），从而不会活化成功
+  3. Session什么时候被销毁
+     - 服务器关闭
+     - session.invalidate()
+     - session默认的实效时间：30分钟
+       - 可以在web.xml中重新配置：session-timeout
+
+- 特点
+
+  - Session用于存储一次会话的多次请求的数据，存在服务器端（相对安全），也称为会话域
+  - Session可以存储任意类型、任意大小的数据（Cookie值类型只能是String，且有大小、数量的限制）
+
 ## JSP
 
 - 概念
@@ -319,6 +363,7 @@
 
 - 原理
   - JSP本质就是一个Servlet（继承了HttpServlet），编译阶段会自动生成.java文件，并被编译为字节码文件
+
 - JSP脚本
   1. <% 代码 %>
      - 其定义的内容，转换后到了Servlet接口中的service方法中
@@ -327,9 +372,67 @@
   3. <%= 代码 %>
      - 定义的java代码，会将执行结果输出到页面上
 
+- JSP指令
+
+  - 作用：用于配置JSP页面，导入资源文件
+
+  - 格式
+
+    ```
+    <%@ 指令名称 属性名1=值1 属性名2=值2 ... %>
+    ```
+
+  - 指令分类
+
+    1. page：配置JSP页面
+
+       - contentType：等同于response.setContentType("...")
+       - pageEncoding：设置当前页面编码
+       - buff：缓冲器大小
+       - import：给JSP里的java代码导入jar包
+       - errorPage：当前页面发生异常后跳转的页面
+       - isErrorPage：标识当前页面是否是错误页面，标识后可以使用内置对象：exception
+
+    2. include：导入其他页面资源，作为当前页面的一部分
+
+       ```
+       <%@ include file="..." %>
+       ```
+
+    3. taglib：导入资源（标签库）
+
+       ```
+       <%@ taglib prefix="自定义" uri="..." %>
+       ```
+
+- JSP特有注释
+
+  - <%-- --%>：可以注释java代码和HTML标签，并且被注释的内容不会发送到响应体
+
 - JSP内置对象：在jsp页面中不需要获取或创建，即可使用的对象
-  - 一共有9个内置对象：
-    - request
-    - response
-    - out：字符输出流对象
+
+  - 一共有9个内置对象（其实都是变量名）：
+    - pageContext（PageContext）：当前页面内共享数据，还可以获取其它8个对象
+
+      ```
+      pageContext.getXxxx()
+      ```
+
+    - request（HTTPServletRequest）：一次请求内共享数据（页面转发）
+
+    - response（HTTPServletResponse）：响应对象
+
+    - session（HttpSession）：一次会话，多次请求
+
+    - application（ServletContext）：所有用户间共享数据
+
+    - page（Object）：当前页面（Servlet，this）对象
+
+    - out（JspWriter）：字符输出流对象
       - 与response.getWriter()的区别：Tomcat服务器会先找response的输出，之后再进行out的输出
+
+    - config（ServletConfig）：Servlet的配置对象
+
+    - exception（Throwable）：异常对象
+
+      - 需要在page指令里，配置isErrorPage=true

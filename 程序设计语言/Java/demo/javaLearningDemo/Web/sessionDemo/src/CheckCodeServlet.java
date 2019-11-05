@@ -4,12 +4,13 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.Random;
 
-@WebServlet("/CheckCodeServlet")
+@WebServlet("/checkCodeServlet")
 public class CheckCodeServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int width = 100, height = 50;
@@ -22,10 +23,14 @@ public class CheckCodeServlet extends HttpServlet {
         Random ran = new Random();
         g.setColor(Color.BLUE);
         g.setFont(new Font("微软雅黑", 0, 20));
+        String checkCode = "";
         for(int i=1; i<=4; i++) {
             int cur = ran.nextInt(code.length());
+            checkCode += code.charAt(cur);
             g.drawString(code.charAt(cur) + "", width/5 * i, 30);
         }
+        HttpSession session = request.getSession();
+        session.setAttribute("checkCode", checkCode);
 
         for (int i = 0; i < 10; i++) {
             int x1 = ran.nextInt(width);
