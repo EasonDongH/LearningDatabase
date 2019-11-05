@@ -222,3 +222,114 @@
       ```
 
     - 下载文件名中的中文乱码问题：问题在于浏览器的不同导致的编码不一致，解决方法就是根据“user-agent”请求头获取浏览器信息，从而根据浏览器对文件名进行不同的编码
+
+### 会话
+
+- 浏览器第一次给服务器发送请求，会话建立，直到有一方断开
+- 一次会话中包含多次请求和响应
+- 功能：在一次会话的多次请求/响应之间共享数据
+- 分类：
+  - 客户端会话技术：Cookie
+  - 服务器端会话技术：Session
+
+#### Cookie
+
+- 概念：客户端会话技术，将数据保存至客户端
+
+- 过程：
+
+  - 浏览器发起第一次请求，服务器返回响应信息，响应头中携带Cookie信息
+
+    ```
+    Set-Cookie:键=值
+    ```
+
+  - 浏览器将Cookie信息保持在自身内存中，在下一次发送请求时附加在请求头上
+
+    ```
+    Cookie:键=值
+    ```
+
+- 方法：
+
+  ```
+  // 服务器在响应头添加Cookie信息
+  response.addCookie(new Cookie("键", "值"));
+  // 服务器获取请求头中的Cookie信息
+  Cookie[] cookies = request.getCookies();
+  for(Cookie ck : cookies) {
+      if(ck.getName() == "我想要的键") {
+          ck.getValue();
+      }
+  }
+  ```
+
+  ### 细节
+
+  1. 一次可不可以发送多个Cookie？
+
+     - 可以；在HTTP协议中，同一个响应头对应多个数据时，用”;“分隔
+
+  2. Cookie在浏览器保存多久？
+
+     - 默认情况：浏览器关闭时，销毁Cookie
+
+     - 持久化存储：
+
+       ```
+       cookie.setMaxAge(int seconds)
+       ```
+
+       - 参数说明
+         - 正数：将Cookie写到硬盘，并指明存活时间（到时自动删除）
+         - 负数：默认值
+         - 0：表示删除该Cookie信息
+
+  3. Cookie能不能存中文？
+
+     - 在Tomcat 8之前，Cookie不能直接存中文，否则报错
+     - 一般采用URL编码中文进行存储
+     - Tomcat 8之后，支持中文，但对一些特殊字符依旧不支持
+  
+  4. Cookie获取范围？
+  
+     - 同一个Tomcat中，不同Web项目间共享Cookie
+       - 使用cookie.setPath(String path)，path设置为"/"即为共享
+     - 不同Tomcat中，一级域名相同，则可以共享Cookie
+       - setDomain(".baidu.com"); tieba.baidu.com、news.baidu.com中的Cookie可以共享
+  
+  ### 特点
+  
+  1. Cookie存储数据在客户端浏览器
+  2. 【持久化存储时】浏览器对单个Cookie的大小有限制（4kb），以及对同一个域名下的Cookie总数也有限制（20个）
+  3. Cookie一般用于存储少量的、不太敏感的数据
+     - 比如，在不登录的情况下，完成服务器对客户端的身份识别
+
+## JSP
+
+- 概念
+
+  - Java Server Pages：Java服务器端页面，可以同时写HTML标签以及java代码
+
+    ```
+    <% java代码 %>
+    ```
+
+  - 其用于简化书写与服务器交互的数据展示部分的代码
+
+- 原理
+  - JSP本质就是一个Servlet（继承了HttpServlet），编译阶段会自动生成.java文件，并被编译为字节码文件
+- JSP脚本
+  1. <% 代码 %>
+     - 其定义的内容，转换后到了Servlet接口中的service方法中
+  2. <%! 代码 %>
+     - 其定义的内容，转换后到了java类的成员位置
+  3. <%= 代码 %>
+     - 定义的java代码，会将执行结果输出到页面上
+
+- JSP内置对象：在jsp页面中不需要获取或创建，即可使用的对象
+  - 一共有9个内置对象：
+    - request
+    - response
+    - out：字符输出流对象
+      - 与response.getWriter()的区别：Tomcat服务器会先找response的输出，之后再进行out的输出
