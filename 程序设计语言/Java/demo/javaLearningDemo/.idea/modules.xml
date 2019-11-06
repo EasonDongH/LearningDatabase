@@ -6,6 +6,7 @@
       <module fileurl="file://$PROJECT_DIR$/Web/checkCode/checkCode.iml" filepath="$PROJECT_DIR$/Web/checkCode/checkCode.iml" />
       <module fileurl="file://$PROJECT_DIR$/Web/cookieDemo/cookieDemo.iml" filepath="$PROJECT_DIR$/Web/cookieDemo/cookieDemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/Web/downloadDemo/downloadDemo.iml" filepath="$PROJECT_DIR$/Web/downloadDemo/downloadDemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Web/jstlDemo/jstlDemo.iml" filepath="$PROJECT_DIR$/Web/jstlDemo/jstlDemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/Web/request/request.iml" filepath="$PROJECT_DIR$/Web/request/request.iml" />
       <module fileurl="file://$PROJECT_DIR$/Web/response/response.iml" filepath="$PROJECT_DIR$/Web/response/response.iml" />
       <module fileurl="file://$PROJECT_DIR$/Web/servlet/servlet.iml" filepath="$PROJECT_DIR$/Web/servlet/servlet.iml" />

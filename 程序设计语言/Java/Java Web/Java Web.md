@@ -1,3 +1,5 @@
+# Java Web
+
 ## HTTP协议
 
 ### 概念
@@ -13,7 +15,7 @@
 
 ### 数据格式
 
-##### 请求信息
+#### 请求信息
 
 1. 请求行
    - 请求方式 请求URL 请求协议/版本，如：GET /login.html HTTP/1.1
@@ -38,7 +40,7 @@
 4. 请求体
    - 封装POST的请求参数
 
-##### 响应信息：服务器端响应客户端
+#### 响应信息：服务器端响应客户端
 
 - 数据格式
   1. 响应行
@@ -60,7 +62,7 @@
   3. 响应空行
   4. 响应体
 
-##### Request
+#### Request
 
 - **由Tomcat创建Request对象**，传递给service方法
 
@@ -131,7 +133,7 @@
      
        - String contextPath = request.getContextPath();
 
-##### Response
+#### Response
 
 - 功能：设置响应消息
 
@@ -185,7 +187,7 @@
       - 重定向是两次请求（**意味着不能通过request域对象来共享数据**）
 
 
-##### ServletContext对象
+#### ServletContext对象
 
 - 概念：**代表整个Web应用，可以和程序的容器（服务器）通信**
 
@@ -349,21 +351,225 @@
   - Session用于存储一次会话的多次请求的数据，存在服务器端（相对安全），也称为会话域
   - Session可以存储任意类型、任意大小的数据（Cookie值类型只能是String，且有大小、数量的限制）
 
+## Tomcat
+
+#### 简介
+
+Apache基金组织，中小型JavaEE服务器，仅支持少量Java规范的servlet/jsp，开源免费。
+
+#### 安装
+
+- 免安装，解压、进行配置即可
+
+- 建议安装路径不要有中文
+
+- Tomcat目录结构
+
+  |  目录   |         说明         |
+  | :-----: | :------------------: |
+  |   bin   |      可执行文件      |
+  |  conf   |       配置文件       |
+  |   lib   |      依赖jar包       |
+  |  logs   |         日志         |
+  |  temp   |       临时文件       |
+  | webapps |     存放web项目      |
+  |  work   |    存放运行时数据    |
+  |  其他   | 版权信息、版本信息等 |
+
+#### 使用
+
+- 开启：bin/startup.bat
+- 关闭：bin/shutdown.bat
+- 在浏览器输入：http://127.0.0.1:***8080***，即可访问Tomcat默认项目
+- 一般将端口号修改为HTTP协议默认端口号：80，即可在浏览器访问时不用再输入端口号
+
+#### 常见问题
+
+- 启动时cmd窗口一闪而过
+  - 原因1：没有正确配置JAVA_HOME环境变量，或注意JDK版本是否符合要求
+    - 在catalina.ini文件中需要读取JAVA_HOME
+  - 原因2：注意端口号是否被占用？查看logs日志记录
+    - 关闭占用端口的程序：cmd => netstat -ano => 找到port对应的PID => kill该进程
+    - 修改端口号：conf/server.xml => 修改所有带有port属性的节点值
+
+#### 项目部署
+
+1. 方式1：直接将项目放到webapps文件夹中
+
+   - 访问时：http://127.0.0.1:8080/hello/hello.html
+     - \hello：项目的访问路径，也称虚拟路径
+     - hello.html称为资源文
+
+2. 方式2：将项目打成war包，然后放入webapps路径下，Tomcat将会自动进行解压缩
+
+3. 方式3：不需要将项目复制到webapps路径下
+
+   - 在**conf\server.xml**中进行配置（注意该配置方式需要关闭服务，修改后重启服务）
+
+     1. 在<host>节点下添加：
+
+        ```
+        <Context docBase="项目路径" path="将要使用的虚拟路径">
+        ```
+
+     2. 访问方式：http://127.0.0.1:8080/将要使用的虚拟路径/hello.html
+
+   - 在**\conf\Catalina\localhost**中添加配置文件（这种配置方式不要重启服务，最为推荐，称为**热部署**）
+
+     1. 添加备注文件：xml配置文件.xml
+     2. 在配置文件中添加内容：如上
+     3. 访问方式：http://127.0.0.1:8080/xml配置文件/hello.html
+     4. 如果要不使用该项目，修改配置文件名称即可
+
+#### 静态项目与动态项目
+
+- 目录结构
+
+  - Java动态项目的目录结构
+
+    -- 项目的根目录
+
+    ​	-- WEB-INF目录
+
+    ​		-- web.xml：web项目的核心配置文件
+
+    ​		-- classes目录：放置字节码文件的目录
+
+    ​		-- lib目录：放置依赖的jar包
+
+#### 与IDEA结合
+
+1. Run => Edit Configuration
+2. 左侧栏选择 => Defaults => Tomcat Server => Local
+   - Application server => 定位Tomcat路径
+   - OK
+3. 再次打开Edit Configuration
+   - 在左侧出现Tomcat Server栏，选中
+   - 在右侧选择Deployment页面
+   - 在Application context定义项目虚拟路径
+4. 新建Module => 选择Java Enterprise，右侧
+   -  Java EE version：Java EE 7
+   - Application Server：选择Tomcat版本
+   - 在Additional Lib...中，勾选Web Application
+   - OK
+5. **【热部署配置】**再次Run => Edit Configuration，在右侧选择Tomcat Server
+   - 将On Update action与OnFrame deactivation更改为：Update resources
+   - 之后更新页面资源后，无需重启项目
+6. 部署完成
+
+#### IDEA项目路径与Tomcat部署路径
+
+1. IDEA为每一个Tomcat部署的项目单独建立一份配置文件
+   - Using CATALINA_BASE:   "..."
+2. IDEA工作目录 vs. Tomcat部署的web项目
+   - Tomcat访问的是【Tomcat部署的web项目】，在\out\artifacts文件夹下
+   - 【Tomcat部署的web项目】对应【IDEA工作目录】下的web目录下的资源
+   - WEB-INF目录下的资源不能被浏览器直接访问
+
+## Servlet
+
+### 概念
+
+- Server applet，运行在服务器端的小程序
+- Servlet就是一个接口，定义了Java类被浏览器访问到的规则
+
+### 快速入门
+
+1. 在已创建好的Java EE项目中，新建实现Servlet接口的类，如
+
+   ```
+   public class servletDemo01 implements Servlet
+   ```
+
+2. 在/WEB-INF/web.xml中，在web-app节点中添加
+
+   ```
+   <servlet>
+       <servlet-name>demo01</servlet-name>
+       <!-- 全类名 -->
+       <servlet-class>servlet.servletDemo01</servlet-class>
+   </servlet>
+   <servlet-mapping>
+       <!-- 与上面的servlet-name对应，从而找到class -->
+       <servlet-name>demo01</servlet-name>
+       <!-- 定义资源请求路径 -->
+       <url-pattern>/demo01</url-pattern>
+   </servlet-mapping>
+   ```
+
+3. 请求资源时，URL如http://localhost:8080/servelt/demo01，即可访问Servlet接口中的service具体实现。
+
+### 执行步骤
+
+1. 浏览器向服务器发出请求，服务器解析URL路径，以获取访问servlet的资源路径，这里是/demo01
+2. Tomcat会去/WEB-INF/web.xml下寻找<url-pattern>值为/demo01的<servlet-mapping>节点，并获取其节点中<servlet-name>的属性值，这里是demo01
+3. Tomcat继续去寻找<servlet-name>的属性值为demo01的<servlet>节点，以获取<servlet-class>的属性值，得到响应资源的全类名
+4. 然后Tomcat会去加载该类的字节码到内存，以反射的方式创建该类的实例
+5. 再去调用该实例的service方法，以响应资源请求
+
+### Servlet的生命周期（即接口函数执行时机）
+
+- 同一个资源（完整URL），都只有一个Servlet对象
+
+  - 因此为了避免并发，所以**不要在Servlet接口的实现类中定义可修改的全局变量**（加锁会导致严重性能问题）
+
+- init：仅Servlet接口实现类对象创建时被执行一次
+
+  - 默认情况下，第一次访问该资源时，Servlet被创建
+
+  - 可以配置为跟随服务器启动，在/WEB-INF/web.xml里的<servlet>节点中添加
+
+    ```
+    <!-- <0：第一次调用时创建（默认：-1）；>=0：服务器启动时创建 -->
+    <load-on-startup>5</load-on-startup>
+    ```
+
+- service：每次资源请求时，都会被执行
+
+- destroy：当Servlet被正常关闭时执行
+
+  - 即服务器正常关闭时，先调用destroy方法，再销毁Servlet接口实现类对象
+
+### Servlet注解配置（不再需要配置web.xml）
+
+- Servlet 3.0以上支持
+
+- 注解写在Servlet实现类上
+
+  ```
+  @WebServlet("/demo02")
+  // @WebServlet(urlPatterns = "/demo02", loadOnStartup = -1)
+  ```
+
+### Servlet体系结构
+
+- abstract GenericServlet implements Servlet
+
+- - 对**除service方法**外的方法进行了**空实现**，以简化代码
+
+- abstract HttpServlet extends GenericServlet
+
+  - 简化基于Http协议的代码编写
+  - 其实现的service方法，根据数据请求形式（七种请求形式），分别调用不同的数据处理方法
+    - 如最常用的：doGet()、doPost()
+    - 仅需重写所需要的数据处理方法即可
+
 ## JSP
 
-- 概念
+### 概念
 
-  - Java Server Pages：Java服务器端页面，可以同时写HTML标签以及java代码
+- Java Server Pages：Java服务器端页面，可以同时写HTML标签以及java代码
 
-    ```
-    <% java代码 %>
-    ```
+  ```
+  <% java代码 %>
+  ```
 
-  - 其用于简化书写与服务器交互的数据展示部分的代码
+- 其用于简化书写与服务器交互的数据展示部分的代码
 
-- 原理
-  - JSP本质就是一个Servlet（继承了HttpServlet），编译阶段会自动生成.java文件，并被编译为字节码文件
+### 原理
 
+- JSP本质就是一个Servlet（继承了HttpServlet），编译阶段会自动生成.java文件，并被编译为字节码文件
+  
 - JSP脚本
   1. <% 代码 %>
      - 其定义的内容，转换后到了Servlet接口中的service方法中
@@ -409,30 +615,190 @@
 
   - <%-- --%>：可以注释java代码和HTML标签，并且被注释的内容不会发送到响应体
 
-- JSP内置对象：在jsp页面中不需要获取或创建，即可使用的对象
+### JSP内置对象
 
-  - 一共有9个内置对象（其实都是变量名）：
-    - pageContext（PageContext）：当前页面内共享数据，还可以获取其它8个对象
+- 在jsp页面中不需要获取或创建，即可使用的对象
 
-      ```
-      pageContext.getXxxx()
-      ```
+- 一共有9个内置对象（其实都是变量名）：
+  - pageContext（PageContext）：当前页面内共享数据，还可以获取其它8个对象
 
-    - request（HTTPServletRequest）：一次请求内共享数据（页面转发）
+    ```
+    pageContext.getXxxx()
+    ```
 
-    - response（HTTPServletResponse）：响应对象
+  - request（HTTPServletRequest）：一次请求内共享数据（页面转发）
 
-    - session（HttpSession）：一次会话，多次请求
+  - response（HTTPServletResponse）：响应对象
 
-    - application（ServletContext）：所有用户间共享数据
+  - session（HttpSession）：一次会话，多次请求
 
-    - page（Object）：当前页面（Servlet，this）对象
+  - application（ServletContext）：所有用户间共享数据
 
-    - out（JspWriter）：字符输出流对象
-      - 与response.getWriter()的区别：Tomcat服务器会先找response的输出，之后再进行out的输出
+  - page（Object）：当前页面（Servlet，this）对象
 
-    - config（ServletConfig）：Servlet的配置对象
+  - out（JspWriter）：字符输出流对象
+  
+- 与response.getWriter()的区别：Tomcat服务器会先找response的输出，之后再进行out的输出
 
-    - exception（Throwable）：异常对象
+- config（ServletConfig）：Servlet的配置对象
+
+- exception（Throwable）：异常对象
 
       - 需要在page指令里，配置isErrorPage=true
+
+# MVC
+
+### 简介
+
+##### 发展史
+
+- 早期只有Servlet，只能使用response输出标签数据
+- 后来有了jsp，但过度使用jsp会使得前端页面过于复杂、混乱，难于分析、维护
+- 再后来，java引入MVC开发模式，来使得程序设计更加合理
+
+##### MVC
+
+- M：model，模型（JavaBean）
+
+  - 完成具体的业务操作，如查询数据库、封装对象
+
+- V：View，视图（JSP）
+
+  - 展示数据
+
+- C：Controller，控制器（Servlet）
+
+  - 获取用户输入（请求参数）
+  - 调用模型
+  - 将数据交给视图
+
+- 流程
+
+  - 浏览器请求由Controller处理
+
+  - Controller去请求Model，Model进行业务处理
+
+  - Controller获取数据后，送给View，View做数据展示
+
+    ![](https://note.youdao.com/yws/public/resource/48d56fd49a97c59bb18680cdc52cd835/xmlnote/E17B60EE98B949188FE2ECD02D0D063C/17490)
+
+- 优点
+  - 可维护性高
+  - 耦合性低，便于分工
+- 缺点
+  
+  - 使得项目变得复杂，不适用于小型项目
+
+### EL表达式
+
+##### 简介
+
+- Expression Language，表达式语言
+- 用于替换和简化jsp页面中java代码的编写
+- 一般用于运算、获取值
+
+##### 语法
+
+- ${表达式}
+- \\${表达式}：将忽略该条EL表达式
+
+##### 作用
+
+- 运算：
+  1. 算数运算符：/(div) %(mod)
+  2. 空运算符：empty，用于判断字符串、集合、数组的长度是否为null或为0
+     - ${empty list}：仅当对象为null或list长度为0返回true；这个list是某个域中的键
+     - ${not empty list}
+- 获取值
+  - el表达式只能从域对象中获取值
+    - ${域名称.键名}：从指定域中获取键的值，域对象没有该键的情况下返回空字符串
+      - 域名称（**域范围从小到大排列**）：
+        - pageScope ---> pageContext
+        - requestScope ---> request
+        - sessionScope ---> session
+        - applicationScope ---> application（ServletContext）
+    - ${键名}：依次从最小的域开始寻找该键，直到找到为止
+  - 如何获取对象、Map、List的值
+    - ${requestScope .user.name}：将获取request域中找键为user的值，并使用user.getName()获取值
+    - ${requestScope .map.键}或${request.map["键"]}
+    - ${reqrequestScope est.list[索引]}：索引越界不会报错
+
+##### 隐式对象
+
+- 不用创建直接使用的对象，比如上面的四个域对象
+
+- el有11个隐式对象
+
+  - pageContext：
+
+    - 获取JSP其他八个内置对象
+
+      - 在jsp动态获取虚拟目录
+
+        ```
+        ${pageCOntext.request.contextPath}
+        ```
+
+##### 注意
+
+- 在page属性中配置isELIngored=true将会忽略页面中所有EL表达式
+
+### JSTL
+
+##### 概念
+
+- Java Server Page Tag Library，JSP标准标签库
+
+  - 由Apache提供的开源jsp标签
+
+- 用于简化和替换jsp页面上的java代码
+
+- 使用java.sun.com/jsp/jstl/core，常用prefix=“c”
+
+  ```
+  <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+  ```
+
+##### 常用标签
+
+- if
+
+  ```
+  <!-- 
+  	test表达式为true，则显示标签内容 
+  -->
+  <c:if test="${not empty list}">
+  	标签内容
+  </c:if>
+  ```
+
+- choose：相当于switch语句
+
+  ```
+  <c:choose>
+  	<c:when test="${num==1}">星期一</c:when>
+  	<c:when test="${num==2}">星期二</c:when>
+  	<c:when test="${num==3}">星期三</c:when>
+  	...
+  	<c:otherwise>输入有误</c:otherwise>
+  </c:choose>
+  ```
+
+- foreach
+
+  - varStatus：
+    - s.count：遍历的次数
+    - s.index：容器中元素的索引
+
+  ```
+  <c:forEach begain="1" end="10" var="i" step="1" >
+  	${i}<br>
+  </c:forEach>//1 2 3 4 ... 10 
+  <!-- 遍历容器 -->
+  <c:forEach items="${request.list}" var="str" varStatus="s">
+  	${str} ${s.index} ${s.count} <br>
+  </c:forEach>
+  ```
+
+  
+
