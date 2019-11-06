@@ -2,16 +2,17 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Web/Web.iml" filepath="$PROJECT_DIR$/Web/Web.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Web/checkCode/checkCode.iml" filepath="$PROJECT_DIR$/Web/checkCode/checkCode.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Web/cookieDemo/cookieDemo.iml" filepath="$PROJECT_DIR$/Web/cookieDemo/cookieDemo.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Web/downloadDemo/downloadDemo.iml" filepath="$PROJECT_DIR$/Web/downloadDemo/downloadDemo.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Web/jstlDemo/jstlDemo.iml" filepath="$PROJECT_DIR$/Web/jstlDemo/jstlDemo.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Web/request/request.iml" filepath="$PROJECT_DIR$/Web/request/request.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Web/response/response.iml" filepath="$PROJECT_DIR$/Web/response/response.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Web/servlet/servlet.iml" filepath="$PROJECT_DIR$/Web/servlet/servlet.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Web/sessionDemo/sessionDemo.iml" filepath="$PROJECT_DIR$/Web/sessionDemo/sessionDemo.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Web/tomcat/tomcat.iml" filepath="$PROJECT_DIR$/Web/tomcat/tomcat.iml" />
+      <module fileurl="file://$PROJECT_DIR$/web/checkCode/checkCode.iml" filepath="$PROJECT_DIR$/web/checkCode/checkCode.iml" />
+      <module fileurl="file://$PROJECT_DIR$/web/cookieDemo/cookieDemo.iml" filepath="$PROJECT_DIR$/web/cookieDemo/cookieDemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/web/downloadDemo/downloadDemo.iml" filepath="$PROJECT_DIR$/web/downloadDemo/downloadDemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/web/jstlDemo/jstlDemo.iml" filepath="$PROJECT_DIR$/web/jstlDemo/jstlDemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/web/request/request.iml" filepath="$PROJECT_DIR$/web/request/request.iml" />
+      <module fileurl="file://$PROJECT_DIR$/web/response/response.iml" filepath="$PROJECT_DIR$/web/response/response.iml" />
+      <module fileurl="file://$PROJECT_DIR$/web/servlet/servlet.iml" filepath="$PROJECT_DIR$/web/servlet/servlet.iml" />
+      <module fileurl="file://$PROJECT_DIR$/web/sessionDemo/sessionDemo.iml" filepath="$PROJECT_DIR$/web/sessionDemo/sessionDemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/web/tomcat/tomcat.iml" filepath="$PROJECT_DIR$/web/tomcat/tomcat.iml" />
+      <module fileurl="file://$PROJECT_DIR$/web/userInfoDemo/userInfoDemo.iml" filepath="$PROJECT_DIR$/web/userInfoDemo/userInfoDemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/web/web.iml" filepath="$PROJECT_DIR$/web/web.iml" />
     </modules>
   </component>
 </project>
