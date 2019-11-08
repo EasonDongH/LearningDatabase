@@ -15,18 +15,18 @@ public interface UserDao {
 
     boolean add(User user);
 
-    void delete(int id);
+    boolean delete(int id);
 
     User findById(int i);
 
-    void update(User user);
+    boolean update(User user);
 
     /**
      * 查询总记录数
      * @return
      * @param condition
      */
-    int findTotalCount(Map<String, String[]> condition);
+    int findTotalCount(Map<String, String> condition);
 
     /**
      * 分页查询每页记录
@@ -35,5 +35,5 @@ public interface UserDao {
      * @param condition
      * @return
      */
-    List<User> findByPage(int start, int rows, Map<String, String[]> condition);
+    List<User> findByPage(int start, int rows, Map<String, String> condition);
 }

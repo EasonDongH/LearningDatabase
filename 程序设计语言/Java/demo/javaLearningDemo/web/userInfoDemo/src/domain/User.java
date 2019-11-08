@@ -87,4 +87,18 @@ public class User {
     public void setQq(String qq) {
         this.qq = qq;
     }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", password='" + password + '\'' +
+                ", age=" + age +
+                ", gender='" + gender + '\'' +
+                ", email='" + email + '\'' +
+                ", address='" + address + '\'' +
+                ", qq='" + qq + '\'' +
+                '}';
+    }
 }

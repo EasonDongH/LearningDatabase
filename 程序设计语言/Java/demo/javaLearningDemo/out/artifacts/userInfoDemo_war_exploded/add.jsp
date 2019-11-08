@@ -22,16 +22,50 @@
     <script src="js/jquery-2.1.0.min.js"></script>
     <!-- 3. 导入bootstrap的js文件 -->
     <script src="js/bootstrap.min.js"></script>
+
+    <script>
+        window.onload = function(){
+            document.getElementById("addForm").onsubmit = function(){
+                // return checkUserName() && checkPassword();
+            };
+        };
+
+        function checkUserName(){
+            var name = document.getElementById("name").value;
+            var reg_username = /^\w{6,12}$/;
+            var flag = reg_username.test(name);
+            if(flag) {
+                name.innerHTML = "<img width='24' height='24' src='img/right.png'>";
+                document.getElementById("nameDiv").classList.add(" has-success has-feedback");
+            } else {
+                name.innerHTML = "用户名格式错误";
+            }
+            return flag;
+        };
+
+        function checkPassword(){
+            var name = document.getElementById("password").value;
+            var reg_password = /^\w{6,12}$/;
+            var flag = reg_password.test(name);
+            if(flag) {
+                name.innerHTML = "<img width='24' height='24' src='img/right.png'>";
+                document.getElementById("passwordDiv").classList.add(" has-success has-feedback");
+            } else {
+                name.innerHTML = "密码格式错误";
+            }
+            return flag;
+        };
+    </script>
 </head>
 <body>
 <div class="container">
     <center><h3>添加联系人页面</h3></center>
-    <form action="${pageContext.request.contextPath}/AddUserServlet" method="post">
-        <div class="form-group">
+    <form action="${pageContext.request.contextPath}/AddUserServlet" method="post" id="addForm">
+        <div class="form-group" id="nameDiv">
             <label for="name">姓名：</label>
-            <input type="text" class="form-control" id="name" name="name" placeholder="请输入姓名">
+            <input type="text" class="form-control" id="name" name="name" placeholder="请输入姓名" aria-describedby="inputSuccess2Status">
         </div>
-        <div class="form-group">
+        <div class="form-group" id="passwordDiv">
             <label for="password">密码：</label>
             <input type="password" class="form-control" id="password" name="password" placeholder="请输入密码">
         </div>
@@ -74,3 +108,4 @@
 </div>
 </body>
 </html>
+
