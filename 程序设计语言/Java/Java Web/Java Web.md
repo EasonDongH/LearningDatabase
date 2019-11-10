@@ -646,6 +646,76 @@ Apache基金组织，中小型JavaEE服务器，仅支持少量Java规范的serv
 
       - 需要在page指令里，配置isErrorPage=true
 
+## Filter
+
+### 概念
+
+- web中的过滤器：当访问服务器资源时，过滤器可以将请求拦截下来，完成一些特殊的功能。
+- 作用：一般用于完成通用的操作，比如：登录验证、统一编码处理、敏感字符过滤
+
+### 快速入门
+
+- implements Filter
+- 使用注解@WebFilter，加上**拦截路径**
+- 在doFilter中进行验证
+- filterChain.doFilter会将请求放行
+
+### 细节
+
+#### web.xml配置
+
+```
+<filter>
+	<filter-name>filterName</filter-name>
+	<filter-class>过滤器接口实现类的绝对路径</filter-class>
+</filter>
+<filter-mapping>
+	<filter-name>filterName</filter-name>
+	<url-pattern>/*</url-pattern>
+</filter-mapping>
+```
+
+#### 执行流程
+
+1. 浏览器请求资源，先被过滤器，此时一般是对request对象进行消息增强
+
+2. 如果放行，则执行chain.doFilter
+
+3. 接着，该请求返回时，会执行chain.doFilter下面的代码，此时一般用于对response对象进行消息增强
+
+   ![](https://note.youdao.com/yws/public/resource/48d56fd49a97c59bb18680cdc52cd835/xmlnote/BD7B6432D51B4ADE94803572ACB646F3/17494)
+
+#### 生命周期
+
+- init方法：在服务器成功启动后，执行该方法
+  - 用于加载资源
+- destroy方法：在服务器正常关闭前，执行该方法
+  - 用于是否资源
+- doFilter方法：每一次请求被该Filter拦截时，都会被执行
+
+#### 配置详解
+
+- 配置拦截路径：
+  1. 指定资源拦截，如：/index.jsp
+  2. 目录拦截，如：/user/*，拦截user目录（指的是虚拟路径）下的所有资源
+  3. 后缀名拦截，如：*.jsp
+  4. 拦截所有资源：/*
+- 配置拦截方式：
+  - 指的是访问资源的方式，比如：浏览器访问、转发访问等
+  - 注解配置：设置dispatcherTypes属性
+    1. REQUEST：默认值，浏览器请求
+    2. FORWARD：转发访问
+    3. INCLUDE：包含访问资源
+    4. ERROR：错误跳转资源
+    5. ASYNC：异步访问资源
+
+#### 过滤器链
+
+- 配置多个过滤器，对同一类资源进行过滤
+- 过滤器顺序
+  - 注解配置：按照类名字符串比较规则降序排序，依次执行
+  - web.xml配置：按filter-mapping中书写的顺序排序，依次执行
+
 # MVC
 
 ### 简介
@@ -801,6 +871,10 @@ Apache基金组织，中小型JavaEE服务器，仅支持少量Java规范的serv
   ```
 
   
+
+
+
+
 
 # 知识点
 
