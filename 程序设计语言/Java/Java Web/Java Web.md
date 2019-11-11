@@ -994,10 +994,34 @@ $("#btn").click(function(){
     - $("A[属性名=值]") ：获取该属性=值得所有A元素
     - $("A[属性名!=值]") ：获取该属性不等于值，或**不包含该属性**的A元素
     - $("A[属性名^=‘aaa’]") ：获取该属性以aaa开头的元素
-    - $("A[属性名$=‘aaa’]") ：获取该属性以aaa结尾的元素
+    - $("A[属性名\$=‘aaa’]") ：获取该属性以aaa结尾的元素
     - $("A[属性名*=‘aaa’]") ：获取该属性包含aaa的元素
   - 复合属性选择器
     - $("A\[属性名1][属性名2*=‘aaa’]") ：先筛选出有属性名1的A元素，在结果集中再次筛选出属性名2包含aaa的元素
+- 过滤选择器
+- 表单选择器
+
+## DOM操作
+
+- 内容操作
+  - html()：获取/设置元素的标签体内容
+  - text()：获取/设置元素的标签体纯文本内容
+  - val()：获取/设置元素的value属性值
+- 属性操作
+  - 通用属性：获取/设置/移除属性
+    - attr()、removeAttr()、prop()、removeProp()
+    - attr与prop区别：prop操作元素的固有属性，attr操作元素的自定义属性
+      - 如果用attr去获取checkbox的checked状态，或select的option状态，只能获取到undefined
+  - class属性
+    - addClass、removeClass
+    - toggleClass：切换class属性，存在则删除，不存在则添加
+- CRUD操作
+  - A.append/prepend(B)：将元素A添加到元素B的内部，并且在末尾/开头
+  - A.appendTo/prependTo(B)：将元素B添加到元素A的内部，并且在末尾/开头
+  - A.after/before(B)：将B添加到A元素的后面/前面，两者同级
+  - A.insertAfter/insertBefore(B)：将B添加到A元素后面/前面，两者同级
+  - A.remove()：删除A元素
+  - A.empty()：清空A元素的所有后代元素（保留当前元素与当前元素的所有属性）
 
 # 知识点
 
