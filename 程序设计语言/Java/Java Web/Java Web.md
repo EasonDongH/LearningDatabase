@@ -62,7 +62,7 @@
   3. 响应空行
   4. 响应体
 
-#### Request
+### Request
 
 - **由Tomcat创建Request对象**，传递给service方法
 
@@ -133,7 +133,7 @@
      
        - String contextPath = request.getContextPath();
 
-#### Response
+### Response
 
 - 功能：设置响应消息
 
@@ -185,45 +185,6 @@
       - 地址栏发生变化
       - 重定向可访问其他站点的资源
       - 重定向是两次请求（**意味着不能通过request域对象来共享数据**）
-
-
-#### ServletContext对象
-
-- 概念：**代表整个Web应用，可以和程序的容器（服务器）通信**
-
-- 获取：
-
-  - 通过request对象获取：request.getServletContext()
-  - 通过HttpServlet获取：this.getServletContext()
-
-- 功能：
-
-  - 获取MIME类型
-
-    - MIME类型：互联网通信过程中定义的一种文件数据类型
-      - 格式：大类型/小类型，如：text/html、image/jpeg
-    - 获取方式：String getMimeType(String file)
-
-  - 域对象：共享数据
-
-    - 范围：共享所有用户请求的数据；生命周期=整个软件运行生命周期（启动便创建）
-
-  - 获取文件的真实路径（服务器项目所在路径）
-
-    - 获取真实路径后，作为服务器路径下所有资源的路径**前缀**
-
-    - String getReadlPath(String path)
-
-      ```
-      // 获取web目录下的资源
-      String path1 = context.getRealPath("/a.txt");
-      // 获取WEB-INF目录下的资源
-      String path2 = context.getReadlPath("/WEB-INF/b.txt");
-      // 获取src目录下的资源
-      String path3 = context.getRealPaht("/WEB-INF/classes/c.txt");
-      ```
-
-    - 下载文件名中的中文乱码问题：问题在于浏览器的不同导致的编码不一致，解决方法就是根据“user-agent”请求头获取浏览器信息，从而根据浏览器对文件名进行不同的编码
 
 ### 会话
 
@@ -554,6 +515,44 @@ Apache基金组织，中小型JavaEE服务器，仅支持少量Java规范的serv
     - 如最常用的：doGet()、doPost()
     - 仅需重写所需要的数据处理方法即可
 
+### ServletContext对象
+
+- 概念：**代表整个Web应用，可以和程序的容器（服务器）通信**
+
+- 获取：
+
+  - 通过request对象获取：request.getServletContext()
+  - 通过HttpServlet获取：this.getServletContext()
+
+- 功能：
+
+  - 获取MIME类型
+
+    - MIME类型：互联网通信过程中定义的一种文件数据类型
+      - 格式：大类型/小类型，如：text/html、image/jpeg
+    - 获取方式：String getMimeType(String file)
+
+  - 域对象：共享数据
+
+    - 范围：共享所有用户请求的数据；生命周期=整个软件运行生命周期（启动便创建）
+
+  - 获取文件的真实路径（服务器项目所在路径）
+
+    - 获取真实路径后，作为服务器路径下所有资源的路径**前缀**
+
+    - String getReadlPath(String path)
+
+      ```
+      // 获取web目录下的资源
+      String path1 = context.getRealPath("/a.txt");
+      // 获取WEB-INF目录下的资源
+      String path2 = context.getReadlPath("/WEB-INF/b.txt");
+      // 获取src目录下的资源
+      String path3 = context.getRealPaht("/WEB-INF/classes/c.txt");
+      ```
+
+    - 下载文件名中的中文乱码问题：问题在于浏览器的不同导致的编码不一致，解决方法就是根据“user-agent”请求头获取浏览器信息，从而根据浏览器对文件名进行不同的编码
+
 ## JSP
 
 ### 概念
@@ -716,6 +715,61 @@ Apache基金组织，中小型JavaEE服务器，仅支持少量Java规范的serv
   - 注解配置：按照类名字符串比较规则降序排序，依次执行
   - web.xml配置：按filter-mapping中书写的顺序排序，依次执行
 
+### 增强对象---代理模式
+
+- 考虑：想要对request对象进行过滤后再往后传，如何改变其中的参数值？
+
+- 一般是新建一个对象，将其中需要过滤的内容进行过滤，其他内容不做处理。使用代理模式能够很好地完成这项功能。
+
+- 静态代理：有一个类文件描述代理模式
+
+- 动态代理：直接new一个新的代理类，不需要提前定义
+
+  ```
+  Object proxy_Lenove = Proxy.newProxyInstance(Lenovo.class.getClassLoader(), Lenovo.class.getInterfaces(), new InvocationHandler() {
+  	 /**
+        *
+        * @param proxy 代理对象：这里就是proxy_Lenove
+        * @param method 代理方法
+        * @param args 代理方法的参数
+        * @return
+        * @throws Throwable
+        */
+  	@Override
+      public Object invoke(Object proxy, Method method, Object[] args) throws Throwable{
+      	// 找到代理对象中，需要代理的方法
+          if (method.getName() == "sale") {
+              // 对参数进行增强
+              double money = Double.parseDouble(args[0].toString());
+              money -= 1000;// 代理商收取1000
+              args[0] = money;
+              // 对方法体进行增强
+              System.out.println("增强方法体……前");
+              Object invoke = method.invoke(lenovo, args);
+              System.out.println("增强方法体……后");
+              // 对返回值进行增强
+          	return invoke.toString() + " 外增鼠标垫";
+          } else {
+              Object invoke = method.invoke(lenovo, args);
+              return invoke;
+          }
+      }
+  });
+  ```
+
+  
+
+## Listener
+
+### 概念
+
+- 监听器，web三大组件之一（Servlet、Filter、Listener）
+- 事件监听机制
+
+### 常用监听器
+
+- ServletContextListener：监听ServletContext对象的创建与销毁
+
 # MVC
 
 ### 简介
@@ -872,9 +926,78 @@ Apache基金组织，中小型JavaEE服务器，仅支持少量Java规范的serv
 
   
 
+# jQuery
 
+## 概念
 
+- JavaScript的框架，简化JS开发，本质上就是一些js文件
+- 宗旨：Write Less，Do More
+- 提供一种简便的JavaScript设计模式，优化HTML文档操作、事件处理、动画设计、Ajax交互
 
+## jQuery对象与JS对象
+
+- 区别
+  - 两者方法不通用
+  - jQuery对象操作更加方便
+- 互转
+  - jq ---> js：jq对象[索引] 或 jq对象.get(索引)
+  - js ---> jq：$(js对象)
+
+## 事件绑定
+
+```
+<body>
+<input type="button" value="点我" id="b1">
+<script>
+    $("#b1").click(function () {
+        alert("b1")
+    });
+</script>
+</body>
+```
+
+## 入口函数
+
+- DOM文档加载完之后执行的函数
+
+```
+$(function () {
+        
+});
+```
+
+- 与window.onload的区别：window.onload只能定义一次（后面覆盖前面），$(function ()）可以定义多次，后面定义的不会覆盖前面定义的，而是会形成调用链，依次执行
+
+## 样式控制
+
+```
+$("#btn").click(function(){
+	$("span, #div").css("backgroundColor","pink");
+});
+```
+
+## 选择器
+
+- 筛选具有相似特征的元素（标签）
+- 基本选择器
+  - 元素选择器：$("html标签")
+  - 类选择器：$(".class名")
+  - id选择器：$("#id值")
+  - 并集选择器：$("选择器1，选择器2, ...")
+- 层级选择器
+  - 后代选择器：$("A B") 选择A元素下的所有B元素
+  - 子选择器：$("A > B") 选择A元素的所有B类**子**元素
+- 属性选择器
+  - 属性名称选择器：
+    - $("A[属性名]") ：获取包含该属性的A元素
+  - 属性选择器：
+    - $("A[属性名=值]") ：获取该属性=值得所有A元素
+    - $("A[属性名!=值]") ：获取该属性不等于值，或**不包含该属性**的A元素
+    - $("A[属性名^=‘aaa’]") ：获取该属性以aaa开头的元素
+    - $("A[属性名$=‘aaa’]") ：获取该属性以aaa结尾的元素
+    - $("A[属性名*=‘aaa’]") ：获取该属性包含aaa的元素
+  - 复合属性选择器
+    - $("A\[属性名1][属性名2*=‘aaa’]") ：先筛选出有属性名1的A元素，在结果集中再次筛选出属性名2包含aaa的元素
 
 # 知识点
 
