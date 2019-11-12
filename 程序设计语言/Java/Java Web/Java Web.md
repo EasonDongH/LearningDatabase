@@ -1023,6 +1023,181 @@ $("#btn").click(function(){
   - A.remove()：删除A元素
   - A.empty()：清空A元素的所有后代元素（保留当前元素与当前元素的所有属性）
 
+## 动画
+
+### 显示元素
+
+- 默认方式
+  - show/hide/toggle([speed],[easing],[fn])
+    - speed：slow、normal、fast、毫秒值
+    - easing：swing-慢快慢、linear-匀速
+    - fn：动画完成后执行的函数
+- 滑动方式
+  - slideDown/slideUp/shlideToggle([speed],[easing],[fn])
+- 淡入淡出方式
+  - fadeIn([speed],[easing],[fn])
+
+## 遍历方式
+
+- 常规JS方式：for(var i=0; i<elements.length; i++)
+
+- jQuerty方式
+
+  - 对象.each(callback)
+
+  ```
+  $("#id").each(function(){
+      // 获取对象：this
+      // function带参数：index  element(当前的JS对象)
+      
+      // return true; // 结束本次循环 = continue
+      // return false; // 结束循环 = break
+  });
+  ```
+
+  - $.each(Object, [callback])
+
+  - for...of：需要3.0之后的jQuery
+
+    ```
+    for(每个元素 of $("#id")) {
+    
+    };
+    ```
+
+## 事件绑定
+
+- 方式1
+
+  ```
+  $("#id").事件名(回调函数)
+  ```
+
+- 方式2
+
+  ```
+  $("#id").on("事件名",回调函数)
+  $("#id").off("事件名") // 解绑事件，如果不传参，则去除控件上所有事件
+  ```
+
+- 链式编程
+
+  ```
+  $("#id").事件1(回调1).事件2(回调2)...
+  ```
+
+- 事件切换：1.9版本后删除，使用Migrate插件（jquery-migrate-1.0.0.js）
+
+  ```
+  $("#id").toggle(fn1,fn2,...) // 第一次点击执行fn1，第二次执行fn2，循环执行
+  ```
+
+## 插件机制
+
+- 使用插件机制，给所有jQuery对象添加方法
+
+  - 扩展对象方法，需要使用jq对象.方法来调用
+
+  ```
+  $.fn.extend({
+  	方法名1:function(){
+  		// this = 调用该函数的jQuery对象
+  	},
+  	方法名2:function(){}
+  });
+  ```
+
+  - 扩展全局方法，直接使用“$.方法名”来调用方法
+
+  ```
+  $.extend({});
+  ```
+
+  
+
+# AJAX
+
+## 概念
+
+- Asynchronous Javascript And Xml
+- 用于创建快速动态页面的技术
+- Ajax是一种在无需重新加载整个页面的情况下，更新部分网页的技术
+  - 通过在后台与服务器进行少量的数据交互，Ajax可以使网页实现异步刷新
+  - 传统网页如果需要更新内容，则必须重新加载证功网页页面
+- 有利于提升用户体验
+
+## 实现方式
+
+- 原生JS实现（了解）
+
+- jQuery实现
+
+  - $.ajax(url, [settings]) 或 $.ajax({键值对})
+
+    ```
+    function fun() {
+        $.ajax({
+            url: "ajaxServlet",
+            type: "POST",
+            data: {"username": "jQuery-Ajax", "age": 23},
+            success:function (data) {
+            	alert(data)
+            },
+            error:function () {
+                alert("出错啦");
+            },
+            dataType:"json"
+        });
+    };
+    ```
+
+  - $.get()
+
+    ```
+    $.get(url,[data],[callback],[dataType])
+    ```
+
+  - $.post()
+
+# JSON
+
+## 概念
+
+- JavaScript Object Notation，JavaScript对象表示法
+- 多用于存储和交互文本信息、数据传输
+- 与XML相比，更小、更快、更容易解析
+
+## 语法
+
+- 基本规则
+
+  - {"键1":"值1", "键2":"值2", ...}
+  - 键的引号可有可无
+  - 值类型：数字、字符串（引号）、逻辑值、数组（方括号）、对象（花括号）、null
+
+- 获取数据
+
+  - json对象.键名 或 json对象["键名"]
+  - json对象.数组对象的键名[index].键名
+
+- 遍历JSON对象
+
+  ```
+  for(var key in json对象) {
+  	alert(key + ":" + json对象[key]);
+  }
+  ```
+
+  
+
+
+
+
+
+
+
+
+
 # 知识点
 
 ## 前端

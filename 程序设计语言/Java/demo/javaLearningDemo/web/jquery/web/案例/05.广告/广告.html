@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #content{width: 100%; height: 500px; background-color: chocolate}
+    </style>
+    <script src="../../js/jquery-3.3.1.js"></script>
+
+    <script>
+        function adShow () {
+            $("#divAdv").slideDown("slow");
+            setTimeout(adHide, 5000);
+        } ;
+        function adHide() {
+          $("#divAdv").slideUp("slow");
+        };
+        $(function () {
+           setTimeout(adShow, 3000);
+        });
+    </script>
+</head>
+<body>
+<div id="divAdv" style="display: none">
+    <img src="../../img/adv.jpg" height="300" width="100%"/>
+</div>
+<div id="content">
+
+正文
+</div>
+</body>
+</html>

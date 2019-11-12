@@ -2,11 +2,12 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/web/ajax/ajax.iml" filepath="$PROJECT_DIR$/web/ajax/ajax.iml" />
       <module fileurl="file://$PROJECT_DIR$/web/checkCode/checkCode.iml" filepath="$PROJECT_DIR$/web/checkCode/checkCode.iml" />
       <module fileurl="file://$PROJECT_DIR$/web/cookieDemo/cookieDemo.iml" filepath="$PROJECT_DIR$/web/cookieDemo/cookieDemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/web/downloadDemo/downloadDemo.iml" filepath="$PROJECT_DIR$/web/downloadDemo/downloadDemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/web/filter/filter.iml" filepath="$PROJECT_DIR$/web/filter/filter.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Web/jquery/jquery.iml" filepath="$PROJECT_DIR$/Web/jquery/jquery.iml" />
+      <module fileurl="file://$PROJECT_DIR$/web/jquery/jquery.iml" filepath="$PROJECT_DIR$/web/jquery/jquery.iml" />
       <module fileurl="file://$PROJECT_DIR$/web/jstlDemo/jstlDemo.iml" filepath="$PROJECT_DIR$/web/jstlDemo/jstlDemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/web/request/request.iml" filepath="$PROJECT_DIR$/web/request/request.iml" />
       <module fileurl="file://$PROJECT_DIR$/web/response/response.iml" filepath="$PROJECT_DIR$/web/response/response.iml" />
