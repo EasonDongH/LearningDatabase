@@ -8,6 +8,7 @@
       <module fileurl="file://$PROJECT_DIR$/web/downloadDemo/downloadDemo.iml" filepath="$PROJECT_DIR$/web/downloadDemo/downloadDemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/web/filter/filter.iml" filepath="$PROJECT_DIR$/web/filter/filter.iml" />
       <module fileurl="file://$PROJECT_DIR$/web/jquery/jquery.iml" filepath="$PROJECT_DIR$/web/jquery/jquery.iml" />
+      <module fileurl="file://$PROJECT_DIR$/web/json/json.iml" filepath="$PROJECT_DIR$/web/json/json.iml" />
       <module fileurl="file://$PROJECT_DIR$/web/jstlDemo/jstlDemo.iml" filepath="$PROJECT_DIR$/web/jstlDemo/jstlDemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/web/request/request.iml" filepath="$PROJECT_DIR$/web/request/request.iml" />
       <module fileurl="file://$PROJECT_DIR$/web/response/response.iml" filepath="$PROJECT_DIR$/web/response/response.iml" />

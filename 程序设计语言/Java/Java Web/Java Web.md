@@ -1188,6 +1188,38 @@ $("#btn").click(function(){
   }
   ```
 
+## 数据转换
+
+- 解析器
+
+  - Jsonlib、Gson（谷歌）、fastjson（阿里）、jackson（Spring内置）
+
+- JSON转Java对象
+
+  ```
+  ObjectMapper mapper = new ObjectMapper();
+  String s = mapper.writeValueAsString(person);
+  ```
+
+  - 注解：
+
+    - @JsonIgnore：排除属性
+
+    - @JsonFormat：属性值格式化
+
+      ```
+      @JsonFormat(pattern = "yyyy-MM-dd")
+      private Date birth;
+      ```
+
+- Java对象转JSON
+
+  ```
+  ObjectMapper mapper = new ObjectMapper();
+  String s = "{\"name\":\"张三\",\"age\":23,\"birth\":\"2019-11-12\"}";
+  Person person = mapper.readValue(s, Person.class);
+  ```
+
   
 
 
