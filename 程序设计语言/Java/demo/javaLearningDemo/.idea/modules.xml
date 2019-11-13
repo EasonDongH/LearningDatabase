@@ -10,6 +10,7 @@
       <module fileurl="file://$PROJECT_DIR$/web/jquery/jquery.iml" filepath="$PROJECT_DIR$/web/jquery/jquery.iml" />
       <module fileurl="file://$PROJECT_DIR$/web/json/json.iml" filepath="$PROJECT_DIR$/web/json/json.iml" />
       <module fileurl="file://$PROJECT_DIR$/web/jstlDemo/jstlDemo.iml" filepath="$PROJECT_DIR$/web/jstlDemo/jstlDemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/web/redis/redis.iml" filepath="$PROJECT_DIR$/web/redis/redis.iml" />
       <module fileurl="file://$PROJECT_DIR$/web/request/request.iml" filepath="$PROJECT_DIR$/web/request/request.iml" />
       <module fileurl="file://$PROJECT_DIR$/web/response/response.iml" filepath="$PROJECT_DIR$/web/response/response.iml" />
       <module fileurl="file://$PROJECT_DIR$/web/servlet/servlet.iml" filepath="$PROJECT_DIR$/web/servlet/servlet.iml" />

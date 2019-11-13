@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script>
+        $(function () {
+           $.get("getProvincesServlet", {}, function (data) {
+                var province = $("#seleProvince");
+                $(data).each(function () {
+                   var option = "<option name='"+ this.id+"'>"+ this.name + "</option>";
+                   province.append(option);
+                });
+           });
+        });
+    </script>
+</head>
+<body>
+<select name="" id="seleProvince">
+    <option value="">--请选择--</option>
+</select>
+</body>
+</html>
