@@ -99,3 +99,13 @@
 ![](https://note.youdao.com/yws/public/resource/48d56fd49a97c59bb18680cdc52cd835/xmlnote/CD7F5F1849054F74A09FD33A0837F87B/17501)
 - 填写VM Options：-DarchetypeCatalog=internal，用于在不能联网的情况下，maven自己寻找已下载好的插件，而不会启动失败
 
+- 因为Maven中央仓库的服务器在国外，可能被墙，可以配置用阿里云的Maven，速度杠杠的
+
+  - 在settings.xml中添加
+
+    ```
+    
+    ```
+
+    
+
