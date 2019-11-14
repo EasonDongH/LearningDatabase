@@ -1,7 +1,11 @@
 /*==============================================================*/
 /* DBMS name:      MySQL 5.0                                    */
-/* Created on:     2018/2/14 23:10:29                           */
 /*==============================================================*/
+
+CREATE DATABASE IF NOT EXISTS travel ;
+
+USE travel;
+
 set names utf8;
 
 drop table if exists tab_favorite;
