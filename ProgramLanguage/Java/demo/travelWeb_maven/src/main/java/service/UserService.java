@@ -14,5 +14,5 @@ public interface UserService {
      * @param user
      * @return
      */
-    boolean saveUser(User user);
+    boolean registUser(User user);
 }
