@@ -42,4 +42,9 @@ public class UserServiceImpl implements UserService {
         }
         return result;
     }
+
+    @Override
+    public User login(User user) {
+        return this.userDao.findUserByUserNameAndPwd(user.getUsername(), user.getPassword());
+    }
 }

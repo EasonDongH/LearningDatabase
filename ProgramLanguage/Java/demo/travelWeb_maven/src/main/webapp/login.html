@@ -18,6 +18,20 @@
     <script src="js/angular.min.js"></script>
 	<!--导入jquery-->
 	<script src="js/jquery-3.3.1.js"></script>
+
+	<script>
+		$(function () {
+			$("#btn_login").click(function () {
+				$.post("loginServlet", $("#loginForm").serialize(), function (data) {
+					if (data.flag) {
+					    location.href = "index.html";
+					} else {
+					    $("#errorMsg").html(data.errorMsg);
+					}
+                });
+            });
+        });
+	</script>
 </head>
 
 <body>
@@ -40,7 +54,7 @@
 				<form id="loginForm" action="" method="post" accept-charset="utf-8">
         			<input type="hidden" name="action" value="login"/>
 					<input name="username" type="text" placeholder="请输入账号" autocomplete="off">
-        			<input name="password" type="text" placeholder="请输入密码" autocomplete="off">
+        			<input name="password" type="password" placeholder="请输入密码" autocomplete="off">
         			<div class="verify">
 					<input name="check" type="text" placeholder="请输入验证码" autocomplete="off">
 					<span><img src="checkCode" alt="" onclick="changeCheckCode(this)"></span>
@@ -51,7 +65,7 @@
 						}
 					</script>
 			</div>
-			<div class="submit_btn">
+			<div class="submit_btn" id="btn_login">
         				<button type="button">登录</button>
         				<div class="auto_login">
         					<input type="checkbox" name="" class="checkbox">

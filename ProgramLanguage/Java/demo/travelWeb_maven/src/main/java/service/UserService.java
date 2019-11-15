@@ -34,4 +34,6 @@ public interface UserService {
      * @return
      */
     boolean registUser(User user);
+
+    User login(User user);
 }

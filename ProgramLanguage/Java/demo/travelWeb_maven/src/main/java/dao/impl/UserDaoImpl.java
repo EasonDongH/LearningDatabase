@@ -61,4 +61,16 @@ public class UserDaoImpl implements UserDao {
         }
         return  res;
     }
+
+    @Override
+    public User findUserByUserNameAndPwd(String username, String pwd) {
+        String sql = "SELECT * FROM tab_user WHERE username = ? AND password = ?";
+        User user = null;
+        try{
+            user = this.template.queryForObject(sql, new BeanPropertyRowMapper<>(User.class), username, pwd);
+        } catch (Exception e){
+            user = null;
+        }
+        return user;
+    }
 }

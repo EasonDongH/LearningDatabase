@@ -30,4 +30,12 @@ public interface UserDao {
      * @return
      */
     boolean saveUser(User user);
+
+    /**
+     * 根据用户名和密码查找用户
+     * @param username
+     * @param pwd
+     * @return
+     */
+    User findUserByUserNameAndPwd(String username,String pwd);
 }

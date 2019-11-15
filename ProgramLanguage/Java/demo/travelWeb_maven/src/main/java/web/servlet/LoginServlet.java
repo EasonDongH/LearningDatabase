@@ -17,8 +17,8 @@ import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Map;
 
-@WebServlet("/registerUserServlet")
-public class RegisterUserServlet extends HttpServlet {
+@WebServlet("/loginServlet")
+public class LoginServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("utf-8");
         response.setContentType("application/json;charset=utf-8");
@@ -27,20 +27,27 @@ public class RegisterUserServlet extends HttpServlet {
         try {
             String checkCode = request.getParameter("check");
             HttpSession session = request.getSession();
-            String checkcode_server = session.getAttribute("CHECKCODE_SERVER").toString();
-            if (checkcode_server == null || !checkcode_server.equalsIgnoreCase(checkCode)) {
+            Object checkcode_server = session.getAttribute("CHECKCODE_SERVER");
+            if (checkcode_server == null  || !checkcode_server.toString().equalsIgnoreCase(checkCode)) {
                 session.removeAttribute("CHECKCODE_SERVER");
                 resultInfo.setFlag(false);
                 resultInfo.setErrorMsg("验证码错误");
             } else {
                 Map<String, String[]> parameterMap = request.getParameterMap();
-                User user = new User();
-                BeanUtils.populate(user, parameterMap);
+                User loginUser = new User();
+                BeanUtils.populate(loginUser, parameterMap);
                 UserService userService = new UserServiceImpl();
-                boolean save_res = userService.registUser(user);
-                resultInfo.setFlag(save_res);
-                if (save_res == false) {
-                    resultInfo.setErrorMsg("注册失败，用户名已存在！"); // 这里忽略了数据库导致的保存失败情况
+                loginUser = userService.login(loginUser);
+                if (loginUser == null) {
+                    resultInfo.setFlag(false);
+                    resultInfo.setErrorMsg("用户名或密码错误！");
+                } else {
+                    if ("N".equalsIgnoreCase(loginUser.getStatus())) {
+                        resultInfo.setFlag(false);
+                        resultInfo.setErrorMsg("该用户尚未激活，不能登录！");
+                    } else {
+                        resultInfo.setFlag(true);
+                    }
                 }
             }
         } catch (Exception e) {
