@@ -1,6 +1,5 @@
 package dao.impl;
 
-import com.sun.tools.internal.xjc.reader.xmlschema.bindinfo.BIConversion;
 import dao.UserDao;
 import domain.User;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
@@ -22,6 +21,31 @@ public class UserDaoImpl implements UserDao {
 //            e.printStackTrace();
         }
         return user;
+    }
+
+    @Override
+    public User findUserByActiveCode(String activeCode) {
+        String sql = "select * from tab_user WHERE code = ?";
+        User user = null;
+        try{
+            user = this.template.queryForObject(sql, new BeanPropertyRowMapper<>(User.class), activeCode);
+        } catch (Exception e){
+            user = null;
+        }
+        return user;
+    }
+
+    @Override
+    public boolean activeUser(String activeCode) {
+        boolean res= false;
+        String sql = "UPDATE tab_user SET status='Y' WHERE code = ?";
+        try {
+            int cnt = this.template.update(sql, activeCode);
+            res = cnt > 0;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return  res;
     }
 
     @Override

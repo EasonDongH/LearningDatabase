@@ -15,6 +15,16 @@ public class UserServiceImpl implements UserService {
         return this.userDao.findUserByUserName(userName);
     }
 
+    @Override
+    public User findUserByActiveCode(String activeCode) {
+        return this.userDao.findUserByActiveCode(activeCode);
+    }
+
+    @Override
+    public boolean activeUser(String activeCode) {
+        return this.userDao.activeUser(activeCode);
+    }
+
     /**
      * 注册用户，进行用户名不能重复验证
      * 验证通过后，发送激活邮件

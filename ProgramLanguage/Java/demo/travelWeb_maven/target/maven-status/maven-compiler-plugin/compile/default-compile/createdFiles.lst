@@ -3,6 +3,7 @@ web\filter\CharchaterFilter.class
 util\UuidUtil.class
 util\MailUtils$1.class
 service\UserService.class
+web\servlet\ActiveServlet.class
 dao\UserDao.class
 util\JDBCUtils.class
 util\MailUtils.class
