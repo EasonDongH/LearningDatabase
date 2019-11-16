@@ -47,6 +47,7 @@ public class LoginServlet extends HttpServlet {
                         resultInfo.setErrorMsg("该用户尚未激活，不能登录！");
                     } else {
                         resultInfo.setFlag(true);
+                        request.getSession().setAttribute("currUser", loginUser);
                     }
                 }
             }

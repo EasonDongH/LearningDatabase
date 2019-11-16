@@ -20,3 +20,4 @@ domain\User.class
 domain\Route.class
 web\servlet\RegisterUserServlet.class
 domain\RouteImg.class
+web\servlet\GetLoginUserServlet.class
