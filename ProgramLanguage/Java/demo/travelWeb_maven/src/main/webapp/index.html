@@ -26,7 +26,7 @@
 
     <script>
         $(function () {
-            $.get("getLoginUserServlet", {}, function (data) {
+            $.get("user/getLoginUser", {}, function (data) {
                     $("#curr_user").html("欢迎您，" + data.name);
                     $("#notlogin_bar").hide();
                     $("#haslogin_bar").show();
@@ -40,17 +40,18 @@
 <!-- banner start-->
 <div class="shortcut">
     <!-- 未登录状态  -->
-    <div id="notlogin_bar" class="login_out">
+    <div id="notlogin_bar" class="login_out" style="float: right;">
         <a href="login.html">登录</a>
         <a href="register.html">注册</a>
     </div>
     <!-- 登录状态  -->
-    <div id="haslogin_bar" class="login" style="display: none">
+    <div id="haslogin_bar" class="login" style="display: none;float: right">
         <span id="curr_user"></span>
         <a href="myfavorite.html" class="collection">我的收藏</a>
-        <a href="javascript:;">退出</a>
+        <a href="javascript:location.href='user/exit';">退出</a>
     </div>
 </div>
+<div id="navitem"></div>
 <div class="header_wrap">
     <div class="topbar">
         <div class="logo">
@@ -71,6 +72,7 @@
         </div>
     </div>
 </div>
+
 <section id="banner">
     <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" data-interval="2000">
         <!-- Indicators -->

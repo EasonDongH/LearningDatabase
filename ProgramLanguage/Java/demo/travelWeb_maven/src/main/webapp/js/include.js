@@ -5,4 +5,7 @@ $(function () {
     $.get("footer.html",function (data) {
         $("#footer").html(data);
     });
+    $.get("navItem.html", function (data) {
+        $("#navitem").html(data);
+    })
 });

@@ -37,7 +37,7 @@ public class UserServiceImpl implements UserService {
         user.setStatus("N");
         boolean result = this.userDao.findUserByUserName(user.getUsername())==null && this.userDao.saveUser(user);
         if(result) {
-            String msg = "您正在注册【旅游网】，非本人操作请忽略！点击<a href='http://localhost/travel/activeServlet?activeCode="+user.getCode()+"'>激活</a>";
+            String msg = "您正在注册【旅游网】，非本人操作请忽略！点击<a href='http://localhost/travel/user/active?activeCode="+user.getCode()+"'>激活</a>";
             MailUtils.sendMail(user.getEmail(), msg, "旅游网注册信息");
         }
         return result;
