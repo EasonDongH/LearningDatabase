@@ -11,13 +11,13 @@ public class RouteServiceImpl implements RouteService {
     private RouteDao routeDao = new RouteDaoImpl();
 
     @Override
-    public int getTotalRouteSizeByCid(int cid) {
-        return this.routeDao.getTotalRouteSizeByCid(cid);
+    public int getTotalRouteSizeByCid(int cid,String rname) {
+        return this.routeDao.getTotalRouteSizeByCid(cid,rname);
     }
 
     @Override
-    public List<Route> getPageData(int cid, int start, int pageSize) {
+    public List<Route> getPageData(int cid, int start, int pageSize,String rname) {
         start = Math.max(0, start);
-        return this.routeDao.getPageData(cid, start, pageSize);
+        return this.routeDao.getPageData(cid, start, pageSize,rname);
     }
 }

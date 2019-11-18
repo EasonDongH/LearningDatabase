@@ -19,16 +19,18 @@ public class RouteServlet extends BaseServlet {
 
     public void pageQuery(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String cidStr = request.getParameter("cid");
-        String curentPageStr = request.getParameter("curentPage");
+        String currentPageStr = request.getParameter("currentPage");
         String pageSizeStr = request.getParameter("pageSize");
+        String rname = request.getParameter("rname");
+        rname = new String(rname.getBytes("iso-8859-1"),"utf-8");
 
         int cid = 0, currentPage = 1, pageSize = 5;
         try {
-            if(cidStr!=null && cidStr.length() > 0) {
+            if(cidStr!=null && cidStr.length() > 0 && cidStr != "null") {
                 cid = Integer.parseInt(cidStr);
             }
-            if(curentPageStr!=null && curentPageStr.length() > 0) {
-                currentPage = Integer.parseInt(curentPageStr);
+            if(currentPageStr!=null && currentPageStr.length() > 0) {
+                currentPage = Integer.parseInt(currentPageStr);
             }
             if(pageSizeStr!=null && pageSizeStr.length() > 0) {
                 pageSize = Integer.parseInt(pageSizeStr);
@@ -37,12 +39,12 @@ public class RouteServlet extends BaseServlet {
             e.printStackTrace();
         }
 
-        int totalCount = this.routeService.getTotalRouteSizeByCid(cid);
+        int totalCount = this.routeService.getTotalRouteSizeByCid(cid,rname);
         int totalPage = totalCount / pageSize;
         if(totalCount % pageSize != 0) {
             totalPage += 1;
         }
-        List<Route> pageData = this.routeService.getPageData(cid, (currentPage - 1) * pageSize, pageSize);
+        List<Route> pageData = this.routeService.getPageData(cid, (currentPage - 1) * pageSize, pageSize,rname);
         PageBean<Route> pageBean = new PageBean<>();
         pageBean.setTotalCount(totalCount);
         pageBean.setCurrentPage(currentPage);

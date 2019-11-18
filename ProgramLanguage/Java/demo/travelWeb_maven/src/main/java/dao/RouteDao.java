@@ -11,7 +11,7 @@ public interface RouteDao {
      * @param cid
      * @return
      */
-    int getTotalRouteSizeByCid(int cid);
+    int getTotalRouteSizeByCid(int cid, String rname);
 
     /**
      * 获取分页数据
@@ -19,5 +19,5 @@ public interface RouteDao {
      * @param pageSize
      * @return
      */
-    List<Route> getPageData(int cid, int start, int pageSize);
+    List<Route> getPageData(int cid, int start, int pageSize, String rname);
 }
