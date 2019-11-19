@@ -9,7 +9,10 @@ dao\impl\CategoryDaoImpl.class
 dao\impl\UserDaoImpl.class
 domain\Category.class
 service\impl\RouteServiceImpl.class
+dao\RouteImgDao.class
 service\CategoryService.class
+dao\impl\RouteImgDaoImpl.class
+dao\SellerDao.class
 util\Md5Util.class
 web\servlet\CheckCodeServlet.class
 dao\CategoryDao.class
@@ -17,6 +20,7 @@ web\servlet\CategoryServlet.class
 web\servlet\BaseServlet.class
 util\UuidUtil.class
 util\MailUtils$1.class
+dao\impl\SellerDaoImpl.class
 web\filter\LoginFilter.class
 util\JDBCUtils.class
 util\MailUtils.class

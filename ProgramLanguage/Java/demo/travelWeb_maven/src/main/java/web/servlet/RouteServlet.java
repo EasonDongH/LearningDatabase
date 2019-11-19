@@ -54,4 +54,21 @@ public class RouteServlet extends BaseServlet {
 
         super.writeValue(response,pageBean);
     }
+
+    /**
+     * 根据前台传入的rid获取线路详情
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
+    public void getRouteDetailById(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String ridStr = request.getParameter("rid");
+        int rid = 0;
+        if(ridStr != null && ridStr.matches("^\\d+$")) {
+            rid = Integer.parseInt(ridStr);
+            Route routeDetail = this.routeService.getRouteDetailById(rid);
+            super.writeValue(response,routeDetail);
+        }
+    }
 }

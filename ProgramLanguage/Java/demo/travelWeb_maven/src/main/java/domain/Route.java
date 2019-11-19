@@ -25,8 +25,6 @@ public class Route implements Serializable {
     private Seller seller;//所属商家
     private List<RouteImg> routeImgList;//商品详情图片列表
 
-
-
     /**
      * 无参构造方法
      */

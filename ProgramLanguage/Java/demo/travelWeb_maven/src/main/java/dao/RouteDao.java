@@ -20,4 +20,11 @@ public interface RouteDao {
      * @return
      */
     List<Route> getPageData(int cid, int start, int pageSize, String rname);
+
+    /**
+     * 根据rid获取线路详情
+     * @param rid
+     * @return
+     */
+    Route getRouteDetailById(int rid);
 }

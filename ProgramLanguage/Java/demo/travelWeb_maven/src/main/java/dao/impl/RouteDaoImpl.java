@@ -57,4 +57,18 @@ public class RouteDaoImpl implements RouteDao {
         }
         return result;
     }
+
+    @Override
+    public Route getRouteDetailById(int rid) {
+        String sql = "select * from tab_route where rid = ?";
+        Route result = null;
+        try {
+            result = this.template.queryForObject(sql, new BeanPropertyRowMapper<Route>(Route.class), rid);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
+
+
 }

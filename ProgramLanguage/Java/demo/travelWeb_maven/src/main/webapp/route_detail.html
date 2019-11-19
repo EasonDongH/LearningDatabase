@@ -7,6 +7,7 @@
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="css/common.css">
     <link rel="stylesheet" type="text/css" href="css/route-detail.css">
+    <script src="js/getParameter.js"></script>
 </head>
 
 <body>
@@ -24,10 +25,10 @@
     <div class="prosum_box">
         <dl class="prosum_left">
             <dt>
-                <img alt="" class="big_img"
+                <img id="firstBigImg" alt="" class="big_img"
                      src="http://www.jinmalvyou.com/Public/uploads/goods_img/img_size4/201703/m49788843d72171643297ccc033d9288ee.jpg">
             </dt>
-            <dd>
+            <dd id="dd">
                 <a class="up_img up_img_disable"></a>
                 <a title="" class="little_img"
                    data-bigpic="http://www.jinmalvyou.com/Public/uploads/goods_img/img_size4/201703/m40920d0669855e745d97f9ad1df966ebb.jpg">
@@ -74,15 +75,15 @@
             </dd>
         </dl>
         <div class="prosum_right">
-            <p class="pros_title">【尾单特卖】全国-曼谷6-7天自由行 泰国出境旅游 特价往返机票自由行二次确认</p>
-            <p class="hot">1-2月出发，网付立享￥1099/2人起！爆款位置有限，抢完即止！</p>
+            <p class="pros_title" id="rname">【尾单特卖】全国-曼谷6-7天自由行 泰国出境旅游 特价往返机票自由行二次确认</p>
+            <p class="hot" id="routeIntroduce">1-2月出发，网付立享￥1099/2人起！爆款位置有限，抢完即止！</p>
             <div class="pros_other">
-                <p>经营商家 ：黑马国旅</p>
-                <p>咨询电话 : 400-618-9090</p>
-                <p>地址 ： 传智播客黑马程序员</p>
+                <p>经营商家 ：<span id="sname">黑马国旅</span></p>
+                <p>咨询电话 : <span id="consphone">400-618-9090</span></p>
+                <p>地址 ： <span id="address">传智播客黑马程序员</span></p>
             </div>
             <div class="pros_price">
-                <p class="price"><strong>¥2699.00</strong><span>起</span></p>
+                <p class="price"><strong id="price">¥2699.00</strong><span>起</span></p>
                 <p class="collect">
                     <a class="btn"><i class="glyphicon glyphicon-heart-empty"></i>点击收藏</a>
 
@@ -132,6 +133,12 @@
 <script type="text/javascript" src="js/include.js"></script>
 <script>
     $(document).ready(function () {
+        goImg();
+        //自动播放
+        // var timer = setInterval("auto_play()", 5000);
+    });
+
+    function goImg() {
         //焦点图效果
         //点击图片切换图片
         $('.little_img').on('mousemove', function () {
@@ -161,9 +168,7 @@
                 nextindex = nextindex - 1;
             }
         });
-        //自动播放
-        // var timer = setInterval("auto_play()", 5000);
-    });
+    };
 
     //自动轮播方法
     function auto_play() {
@@ -187,6 +192,40 @@
             $('.big_img').attr('src', big_pic);
         }
     }
+
+    $(function () {
+        var rid = getParameter("rid");
+        $.get("route/getRouteDetailById", {rid: rid}, function (route) {
+            $("#rname").html(route.rname);
+            $("#routeIntroduce").html(route.routeIntroduce);
+            $("#sname").html(route.seller.sname);
+            $("#consphone").html(route.seller.consphone);
+            $("#address").html(route.seller.address);
+            $("#price").html("&yen;" + route.price);
+
+            // 图片展示
+            $("#firstBigImg").src = route.routeImgList[0].bigPic;
+            var ddstr = '<a class="up_img up_img_disable"></a>';
+            for (var i = 0; i < route.routeImgList.length; i++) {
+                var astr;
+                if (i >= 4) {
+                    astr = '<a title="" class="little_img" data-bigpic="' + route.routeImgList[i].bigPic + '" style="display:none;">\n' +
+                        '                        <img src="' + route.routeImgList[i].smallPic + '">\n' +
+                        '                    </a>';
+                } else {
+                    astr = '<a title="" class="little_img" data-bigpic="' + route.routeImgList[i].bigPic + '">\n' +
+                        '                        <img src="' + route.routeImgList[i].smallPic + '">\n' +
+                        '                    </a>';
+                }
+
+
+                ddstr += astr;
+            }
+            ddstr += '<a class="down_img down_img_disable" style="margin-bottom: 0;"></a>';
+            $("#dd").html(ddstr);
+            goImg();
+        });
+    });
 </script>
 </body>
 
