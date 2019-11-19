@@ -2,7 +2,9 @@ package web.servlet;
 
 import domain.PageBean;
 import domain.Route;
+import service.FavoriteService;
 import service.RouteService;
+import service.impl.FavoriteServiceImpl;
 import service.impl.RouteServiceImpl;
 
 import javax.servlet.ServletException;
@@ -16,6 +18,7 @@ import java.util.List;
 @WebServlet("/route/*")
 public class RouteServlet extends BaseServlet {
     private RouteService routeService = new RouteServiceImpl();
+    private FavoriteService favoriteService = new FavoriteServiceImpl();
 
     public void pageQuery(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String cidStr = request.getParameter("cid");
@@ -23,6 +26,9 @@ public class RouteServlet extends BaseServlet {
         String pageSizeStr = request.getParameter("pageSize");
         String rname = request.getParameter("rname");
         rname = new String(rname.getBytes("iso-8859-1"),"utf-8");
+        if("null".equals(rname)){
+            rname = null;
+        }
 
         int cid = 0, currentPage = 1, pageSize = 5;
         try {
@@ -68,6 +74,7 @@ public class RouteServlet extends BaseServlet {
         if(ridStr != null && ridStr.matches("^\\d+$")) {
             rid = Integer.parseInt(ridStr);
             Route routeDetail = this.routeService.getRouteDetailById(rid);
+            routeDetail.setCount(this.favoriteService.countFavorite(rid));
             super.writeValue(response,routeDetail);
         }
     }

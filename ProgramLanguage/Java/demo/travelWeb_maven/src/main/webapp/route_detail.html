@@ -85,10 +85,9 @@
             <div class="pros_price">
                 <p class="price"><strong id="price">¥2699.00</strong><span>起</span></p>
                 <p class="collect">
-                    <a class="btn"><i class="glyphicon glyphicon-heart-empty"></i>点击收藏</a>
-
-                    <a class="btn already" disabled="disabled"><i class="glyphicon glyphicon-heart-empty"></i>点击收藏</a>
-                    <span>已收藏100次</span>
+                    <a id="btn_favorite" class="btn" onclick="saveFavorite();"><i class="glyphicon glyphicon-heart-empty"></i>点击收藏</a>
+                    <!--<a class="btn already" disabled="disabled"><i class="glyphicon glyphicon-heart-empty"></i>点击收藏</a>-->
+                    <span>已收藏：<span id="countFavorite">0</span>次</span>
                 </p>
             </div>
         </div>
@@ -202,6 +201,7 @@
             $("#consphone").html(route.seller.consphone);
             $("#address").html(route.seller.address);
             $("#price").html("&yen;" + route.price);
+            $("#countFavorite").html(route.count);
 
             // 图片展示
             $("#firstBigImg").src = route.routeImgList[0].bigPic;
@@ -225,7 +225,28 @@
             $("#dd").html(ddstr);
             goImg();
         });
+
+        $.get("favorite/isFavorite",{rid:rid},function (flag) {
+           if(flag) {
+               // <a class="btn already" disabled="disabled">
+               $("#btn_favorite").addClass("already");
+               $("#btn_favorite").attr("disabled", "disabled");
+           }
+        });
     });
+    function saveFavorite() {
+        var rid = getParameter("rid");
+        $.get("user/getLoginUser",{},function (data) {
+            if(data){
+                $.get("favorite/saveFavorite",{rid:rid},function () {
+                    location.reload();
+                });
+            } else {
+                alert("您尚未登录，请先登录！");
+                location.href = "http://localhost/travel/login.html";
+            }
+        });
+    };
 </script>
 </body>
 

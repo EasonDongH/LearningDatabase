@@ -13,9 +13,12 @@ dao\RouteImgDao.class
 service\CategoryService.class
 dao\impl\RouteImgDaoImpl.class
 dao\SellerDao.class
+dao\impl\FavoriteDaoImpl.class
 util\Md5Util.class
+dao\FavoriteDao.class
 web\servlet\CheckCodeServlet.class
 dao\CategoryDao.class
+service\FavoriteService.class
 web\servlet\CategoryServlet.class
 web\servlet\BaseServlet.class
 util\UuidUtil.class
@@ -27,6 +30,7 @@ util\MailUtils.class
 dao\RouteDao.class
 service\RouteService.class
 dao\impl\RouteDaoImpl.class
+service\impl\FavoriteServiceImpl.class
 util\JedisUtil.class
 service\impl\CategoryServiceImpl.class
 domain\ResultInfo.class
@@ -34,4 +38,5 @@ domain\Seller.class
 domain\User.class
 web\servlet\UserServlet.class
 domain\Route.class
+web\servlet\FavoriteServlet.class
 domain\RouteImg.class

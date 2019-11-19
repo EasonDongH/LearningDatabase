@@ -112,14 +112,14 @@ public class UserServlet extends BaseServlet {
     public void getLoginUser(HttpServletRequest request, HttpServletResponse response) throws IOException{
         request.setCharacterEncoding("utf-8");
         response.setContentType("application/json;charset=utf-8");
-
+        User userInfo = null;
         Object currUser = request.getSession().getAttribute("currUser");
         if(currUser != null && currUser instanceof User) {
             User user = (User) currUser;
-            User userInfo = new User();
+            userInfo = new User();
             userInfo.setName(user.getName());
-            ObjectMapper mapper = new ObjectMapper();
-            mapper.writeValue(response.getWriter(), userInfo);
+
         }
+        super.writeValue(response, userInfo);
     }
 }
