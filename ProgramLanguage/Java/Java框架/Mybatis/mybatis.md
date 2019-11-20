@@ -16,6 +16,7 @@
 1. pom文件配置依赖项
 
    ```
+   <packaging>jar</packaging>
    <dependencies>
        <dependency>
            <groupId>org.mybatis</groupId>
@@ -42,7 +43,7 @@
 
 3. 在resources包中，**创建与UserDao同样的包路径**，不过文件类型为xml：resources.dao.UserDao.xml
 
-   ```
+   ```xml
    <?xml version="1.0" encoding="UTF-8"?>
    <!DOCTYPE mapper
            PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
@@ -56,7 +57,7 @@
 
 4. 在resources包下，配置数据库连接环境：resources.SqlMapperConfig.xml
 
-   ```
+   ```xml
    <?xml version="1.0" encoding="UTF-8"?>
    <!DOCTYPE configuration
            PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
@@ -92,7 +93,7 @@
 
 - 在dao.UserDao中
 
-  ```
+  ```java
   public interface UserDao {
       @Select("select * from user ")
       List<User> listAll();
@@ -103,7 +104,7 @@
 
 - resources.SqlMapperConfig.xml中
 
-  ```
+  ```xml
   <mappers>
   	<mapper class="dao.UserDao"></mapper>
   </mappers>
@@ -111,7 +112,7 @@
 
 ### mybatis执行自己实现的dao实现类
 
-```
+```java
 public class UserDaoImpl(){
 	private SqlSessionFactory factory;
 	public UserDaoImpl(SqlSessionFactory factory) {
@@ -149,7 +150,7 @@ public class UserDaoImpl(){
 
 5. 遍历结果集用于封装：
 
-   ```
+   ```java
    List<E> list = new ArrayList();
    while(resultSet.next()) {
    	E element = (E)Class.forName(类的完全限定名).newInstance();
@@ -159,3 +160,74 @@ public class UserDaoImpl(){
    ```
 
 6. 返回list
+
+## CRUD
+
+- 获取自增列id
+
+  ```
+  
+  ```
+
+## POJO对象
+
+- Plain Ordinary Java Objects，即普通的javabean对象
+- 有时可作为Vo(Value object)或DTO(Data Transform Object)来使用
+- 可以把POJO作为支持业务逻辑的协助类
+
+### OGNL表达式
+
+- Object Graphic Navigation Language，对象/图导航语言
+- mybatis使用ognl表达式解析对象字段的值，#{}或${}括号中的值为pojo属性名称
+
+
+
+## 数据库列名与JavaBean对象属性名不一致
+
+1. 起别名
+
+   ```sql
+   select id as userId, name as username from user;
+   ```
+
+   - id为数据库列名，userId为属性名
+   - **注意**：mysql在Windows不区分大小写，而在Linux严格区分大小写
+
+2. 通过mybatis配置
+
+   - 配置查询结果列名与实体类属性名的对应关系
+
+     ```
+     <resultMap id="userMap" type="domain.user">
+     	<!-- 主键 -->
+     	<id property="userId" column="id"></id>
+     	<result property="userName" column="name"></result>
+     </resultMap>
+     
+     <select id="..." resultMap="userMap">
+     	...
+     </select>
+     ```
+
+   - 注解实现
+
+     ```
+     @Select("select * from user ")
+     @Results({
+     	@Result(property = "userId", column = "id", id = true)
+     })
+     List<User> listAll();
+     ```
+
+     
+
+
+
+
+
+
+
+
+
+
+

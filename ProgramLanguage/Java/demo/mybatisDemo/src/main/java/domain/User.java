@@ -1,16 +1,16 @@
 package domain;
 
 public class User {
-    private int id;
+    private int userId;
     private String name;
     private String password;
 
-    public int getId() {
-        return id;
+    public int getUserId() {
+        return userId;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 
     public String getName() {
@@ -32,7 +32,7 @@ public class User {
     @Override
     public String toString() {
         return "User{" +
-                "id=" + id +
+                "id=" + userId +
                 ", name='" + name + '\'' +
                 ", password='" + password + '\'' +
                 '}';
