@@ -27,4 +27,11 @@ public interface FavoriteDao {
      */
     int saveFavorite(int rid, int uid);
 
+    /**
+     * 取消路线收藏
+     * @param rid
+     * @param uid
+     * @return
+     */
+    int removeFavorite(int rid, int uid);
 }

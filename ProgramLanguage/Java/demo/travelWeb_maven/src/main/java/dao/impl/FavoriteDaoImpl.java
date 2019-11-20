@@ -35,4 +35,10 @@ public class FavoriteDaoImpl implements FavoriteDao {
         String sql = "insert into tab_favorite(rid,date,uid) values(?,?,?) ";
         return this.template.update(sql, rid, new Date(), uid);
     }
+
+    @Override
+    public int removeFavorite(int rid, int uid) {
+        String sql = "DELETE FROM tab_favorite WHERE rid = ? AND uid = ? ";
+        return this.template.update(sql, rid, uid);
+    }
 }

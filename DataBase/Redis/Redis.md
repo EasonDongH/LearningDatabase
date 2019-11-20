@@ -109,7 +109,8 @@
   - 将redis注册为windows服务
 
   ```
-  
+  > redis-server.exe --service-install redis.windows.conf
   ```
 
   - 到服务中，设置redis的启动属性
+

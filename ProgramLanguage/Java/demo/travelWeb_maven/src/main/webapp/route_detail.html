@@ -85,7 +85,7 @@
             <div class="pros_price">
                 <p class="price"><strong id="price">¥2699.00</strong><span>起</span></p>
                 <p class="collect">
-                    <a id="btn_favorite" class="btn" onclick="saveFavorite();"><i class="glyphicon glyphicon-heart-empty"></i>点击收藏</a>
+                    <a id="btn_favorite" class="btn"><i class="glyphicon glyphicon-heart-empty"></i>点击收藏</a>
                     <!--<a class="btn already" disabled="disabled"><i class="glyphicon glyphicon-heart-empty"></i>点击收藏</a>-->
                     <span>已收藏：<span id="countFavorite">0</span>次</span>
                 </p>
@@ -226,25 +226,38 @@
             goImg();
         });
 
-        $.get("favorite/isFavorite",{rid:rid},function (flag) {
-           if(flag) {
-               // <a class="btn already" disabled="disabled">
-               $("#btn_favorite").addClass("already");
-               $("#btn_favorite").attr("disabled", "disabled");
-           }
+        $.get("favorite/isFavorite", {rid: rid}, function (flag) {
+            if (flag) {
+                // <a class="btn already" disabled="disabled">
+                $("#btn_favorite").addClass("already");
+                // $("#btn_favorite").attr("disabled", "disabled");
+                $("#btn_favorite").html("取消收藏");
+                $("#btn_favorite").click(removeFavorite);
+            } else {
+                $("#btn_favorite").html("点击收藏");
+                $("#btn_favorite").click(saveFavorite);
+            }
         });
     });
+
     function saveFavorite() {
         var rid = getParameter("rid");
-        $.get("user/getLoginUser",{},function (data) {
-            if(data){
-                $.get("favorite/saveFavorite",{rid:rid},function () {
+        $.get("user/getLoginUser", {}, function (data) {
+            if (data) {
+                $.get("favorite/saveFavorite", {rid: rid}, function () {
                     location.reload();
                 });
             } else {
                 alert("您尚未登录，请先登录！");
                 location.href = "http://localhost/travel/login.html";
             }
+        });
+    };
+
+    function removeFavorite() {
+        var rid = getParameter("rid");
+        $.get("favorite/removeFavorite", {rid: rid}, function () {
+            location.reload();
         });
     };
 </script>

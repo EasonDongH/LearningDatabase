@@ -26,4 +26,12 @@ public interface FavoriteService {
      * @return
      */
     boolean saveFavorite(String rid, int uid);
+
+    /**
+     *  取消收藏路线
+     * @param rid
+     * @param uid
+     * @return
+     */
+    boolean removeFavorite(String rid, int uid);
 }
