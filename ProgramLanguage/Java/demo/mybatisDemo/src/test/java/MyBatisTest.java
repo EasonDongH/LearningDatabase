@@ -32,7 +32,7 @@ public class MyBatisTest {
     }
 
     @After
-    public void destory() throws IOException {
+    public void destroy() throws IOException {
         this.session.commit();
         session.close();
         inputStream.close();

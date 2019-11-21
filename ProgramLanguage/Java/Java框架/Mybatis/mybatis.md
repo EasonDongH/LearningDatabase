@@ -161,6 +161,8 @@ public class UserDaoImpl(){
 
 6. 返回list
 
+![](https://note.youdao.com/yws/public/resource/48d56fd49a97c59bb18680cdc52cd835/xmlnote/007F0DECA4B143CD9A5062E6B5A5DB6B/17510)
+
 ## CRUD
 
 - 获取自增列id
@@ -219,15 +221,34 @@ public class UserDaoImpl(){
      List<User> listAll();
      ```
 
-     
+## 分析查询数据集执行流程
 
+- SqlSessionFactory.openSession()返回的是实现了**SqlSession**接口的**DefaultSqlSession**
 
+- 查询数据集时，调用SqlSession的selectList：
 
+  ```
+  public <E> List<E> selectList(String statement)
+  ```
 
+- 在selectList中，调用实现了**Executor**接口的**CachingExecutor**的query方法
 
+- 在query方法中，调用delegate.<E> query方法，其delegate是一个**BaseExecutor**对象，其实现了**Executor**接口
+- 在**BaseExecutor**的query方法中，对任务进行了分发，继而调用了抽象方法**doQuery**
 
+- **doQuery**被**BaseExecutor**的子类**SimpleExecutor**实现，并执行
 
+- 在**SimpleExecutor**的doQuery方法中，继而调用**prepareStatement**方法，其最终调用**handler**对象的prepare、parameterize、query方法，而**handler**又是一个**RoutingStatementHandler**对象
+- 重点研究**RoutingStatementHandler.query**方法，其内部调用**delegate.<E>query**，这里的delegate是一个**PreparedStatementHandler**对象
+- **PreparedStatementHandler**对象的query方法中，准备**PreparedStatement**对象，并执行**execute**方法
 
+## execute、executeUpdate、executeQuery区别
+
+- execute可执行CRUD语句，其返回结果为boolean
+  - 如果执行的是查询语句(R)，返回true则说明有结果集，用getResultSet获取结果集
+  - 如果执行的是CUD语句，返回true则说明对数据有影响，用getUpdateCount获取影响行数
+- executeUpdate仅可执行CUD语句，返回影响行数
+- executeQuery仅可执行R语句，返回结果集
 
 
 
