@@ -223,6 +223,22 @@ public class UserDaoImpl(){
 
 ## 分析查询数据集执行流程
 
+### **SqlSession与注解的映射**
+
+- SqlSession的实现类**DefaultSqlSession**提供<T> T **getMapper**(Class<T>)来产出dao实现类
+- **DefaultSqlSession**的**getMapper**中调用**Configuration**对象的<T> T getMapper(Class<T> , SqlSession) 
+- **Configuration**的getMapper调用**MapperRegistry**对象的<T> T getMapper(Class<T>, SqlSession)
+- **MapperRegistry**对象创建**MapperProxyFactory**对象，根据传入的SqlSession，调用其T **newInstance**(SqlSession)
+
+- **MapperProxyFactory**的**newInstance**方法创建**MapperProxy**代理对象，并最终调用Proxy.newProxyInstance创建最终代理，代理对象为**MapperProxy**
+- 在**MapperProxy**代理中，实现了**InvocationHandler**接口
+- 在**MapperProxy**的invoke方法中，根据传入的**Method**对象，从**Map<Method, MapperMethod> methodCache**中获取**MapperMethod**对象
+  - 若**methodCache**不存在该**Method**对象，就从sqlSession.getConfiguration()加载并保存到**methodCache**
+- 最终由**MapperMethod**执行Object execute(SqlSession, Object[]) 方法
+- 在**MapperMethod**的execute中，根据**Method**所创建的**SqlCommand**对象，来getType()，然后根据结果来执行SqlSession的insert、update、select等方法
+
+### **selectList执行流程**
+
 - SqlSessionFactory.openSession()返回的是实现了**SqlSession**接口的**DefaultSqlSession**
 
 - 查询数据集时，调用SqlSession的selectList：
@@ -234,12 +250,15 @@ public class UserDaoImpl(){
 - 在selectList中，调用实现了**Executor**接口的**CachingExecutor**的query方法
 
 - 在query方法中，调用delegate.<E> query方法，其delegate是一个**BaseExecutor**对象，其实现了**Executor**接口
+
 - 在**BaseExecutor**的query方法中，对任务进行了分发，继而调用了抽象方法**doQuery**
 
 - **doQuery**被**BaseExecutor**的子类**SimpleExecutor**实现，并执行
 
 - 在**SimpleExecutor**的doQuery方法中，继而调用**prepareStatement**方法，其最终调用**handler**对象的prepare、parameterize、query方法，而**handler**又是一个**RoutingStatementHandler**对象
+
 - 重点研究**RoutingStatementHandler.query**方法，其内部调用**delegate.<E>query**，这里的delegate是一个**PreparedStatementHandler**对象
+
 - **PreparedStatementHandler**对象的query方法中，准备**PreparedStatement**对象，并执行**execute**方法
 
 ## execute、executeUpdate、executeQuery区别
@@ -250,5 +269,48 @@ public class UserDaoImpl(){
 - executeUpdate仅可执行CUD语句，返回影响行数
 - executeQuery仅可执行R语句，返回结果集
 
+## properties标签
 
+- 其用于描述数据库连接参数
 
+  ```xml
+  <properties></properties>
+  ```
+
+- resource属性
+
+  - 以类路径的格式来描述配置文件位置
+
+    ```xml
+    <properties resource="jdbcConfig.properties"></properties>
+    ```
+
+- url属性
+
+  - 以file协议的格式来描述配置文件位置
+
+    ```xml
+    <properties url="file:///C:/Users/123/Desktop/jdbcConfig.properties"></properties>
+    ```
+
+## typeAliases标签与package标签
+
+- typeAliases
+
+  - 用以配置别名，用于dao.xml中限定paramType
+
+  - 内部可以嵌套typelAlias标签，也可以嵌套package标签
+
+    ```
+    <typelAlias type="实体类全限定名" alias="别名，不区分大小写"></typelAlias>
+    ```
+
+- package
+
+  - 将其用于typeAliases中时，即用来指定要配置别名的包，当指定之后，该包下的实体类都会注册别名，并且类名就是别名，不再区分大小写
+
+  ```
+  <package name="com.dao"></package>
+  ```
+
+  - 将其用于mappers中时，即可用来指定dao接口所在的包，指定之后就不需要再写resource或class
