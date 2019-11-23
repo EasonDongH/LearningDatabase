@@ -57,4 +57,8 @@ public interface UserDao {
      */
     @Select("select * from user where name like #{user.name}")
     List<User> listByQueryVoName(QueryVo queryVo);
+
+    @Select("select * from user where 1=1 ")
+
+    List<User> listByCondition(User user);
 }

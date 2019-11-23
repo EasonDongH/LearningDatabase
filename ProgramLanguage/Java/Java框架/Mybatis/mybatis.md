@@ -314,3 +314,137 @@ public class UserDaoImpl(){
   ```
 
   - 将其用于mappers中时，即可用来指定dao接口所在的包，指定之后就不需要再写resource或class
+
+# 连接池
+
+## 概念
+
+- 连接池就是用于存储连接的一个容器
+  - 该容器就是一个集合对象，且必须线程安全
+  - 该容器具有队列的特性
+- 将连接对象放在一个池子里，要用的时候拿，用完之后放回
+- 减少连接消耗时间
+
+## mybatis连接池
+
+## 配置
+
+- SqlMapConfig.xml中的dataSource标签的type属性，其取值可以是：
+  - POOLED：采用传统的javax.sql.dataSource规范中的连接池
+  - UNPOOLED：采用传统的获取连接方式，虽然也实现了以上的dataSource接口，但没有池的思想
+  - JNDI：采用服务器提供的JNDI技术实现，来获取DataSource对象，不同的服务器所能拿到的DataSource是不一样的。注意：非web或maven的war工程，不能使用
+
+## POOLED
+
+- 其内部准备了两个池：空闲池、活动池
+- 请求连接
+  - 空闲池有空闲连接，直接返回
+  - 否则，查看活动池中连接数量是否已达最大数量，不是则新建连接返回
+  - 否则，找出活动池中“最老”的连接，进行相关设置后返回
+
+# mybatis事务
+
+- 利用SqlSession的commit和rollback实现事务，最终还是调用的Connection的commit、rollback
+- 自动提交：一次性的多条更新，最好只进行一次提交
+
+# 动态SQL
+
+- 标签if、where、foreach、sql
+
+  ```xml
+  <sql id="defaultUser">
+  	SELECT * FROM USER
+  </sql>
+  ```
+
+  ```xml
+  <select id="listByIds" resultMap="userMap" parameterType="QueryVo">
+      <include refid="defaultUser"></include>
+      <where>
+          <if test="ids != null and ids.size > 0">
+              <foreach collection="ids" open=" and id in (" close=")" item="id" separator=",">
+              	#{id}
+              </foreach>
+          </if> 
+      </where>
+  </select>
+  ```
+
+# 多表查询
+
+## 一对一
+
+- Account实体中有一个User实体
+
+- AccountDao.xml
+
+  ```xml
+  <resultMap id="accountMap" type="account">
+      <!-- 主键字段的对应 -->
+      <id property="id" column="aid"></id>
+      <!--非主键字段的对应-->
+      <result property="uid" column="uid"></result>
+      <result property="money" column="money"></result>
+      <association property="user" column="uid" javaType="user">
+          <id property="userId" column="id"></id>
+          <result property="name" column="name"></result>
+          <result property="password" column="password"></result>
+      </association>
+  </resultMap>
+  <select id="listAll" resultMap="accountMap">
+  	SELECT u.*,a.id AS aid,a.uid,a.money FROM USER u, account a WHERE u.id = a.uid
+  </select>
+  ```
+
+## 一对多
+
+- User实体中有一个List<Accout>列表
+
+- UserDao.xml
+
+  ```xml
+  <resultMap id="userMap" type="user">
+      <!-- 主键字段的对应 -->
+      <id property="userId" column="id"></id>
+      <!--非主键字段的对应-->
+      <result property="name" column="name"></result>
+      <result property="password" column="password"></result>
+      <collection property="accounts" column="id" ofType="account">
+          <id property="id" column="aid"></id>
+          <result property="uid" column="uid"></result>
+          <result property="money" column="money"></result>
+      </collection>
+  </resultMap>
+      
+  <select id="listAllWithAccount" resultMap="userMap">
+  	SELECT u.*,a.id AS aid,a.uid,a.money FROM USER u, account a WHERE u.id = a.uid
+  </select>
+  ```
+
+## 多对多
+
+- User实体中有一个List<Account>，Account中也有一个List<User>
+
+- UserDao.xml
+
+  - resultMap与上面相仿
+
+  ```xml
+  <select id="listAllWithRoles" resultMap="userMap">
+      SELECT u.*,r.ID AS rid,r.ROLE_NAME,r.ROLE_DESC FROM user u
+          LEFT JOIN user_role ur ON u.ID = ur.UID
+          LEFT JOIN role r ON ur.RID = r.id
+  </select>
+  ```
+
+- AccountDao.xml
+
+  ```xml
+  <select id="listAllWithUsers" resultMap="roleMap">
+      SELECT r.ID AS rid,r.ROLE_NAME,r.ROLE_DESC, u.* FROM role r
+          LEFT JOIN user_role ur ON r.ID = ur.RID
+          LEFT JOIN user u ON ur.UID = u.id
+  </select>
+  ```
+
+  
