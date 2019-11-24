@@ -447,4 +447,175 @@ public class UserDaoImpl(){
   </select>
   ```
 
-  
+# JNDI
+
+## 概念
+
+- Java Naming and Directory Interface，是SUN推出的一套规范，属于JavaEE技术之一
+- 目的是模仿windows系统中的注册表在服务器中注册数据源
+
+## 部署
+
+http://note.youdao.com/yws/public/resource/48d56fd49a97c59bb18680cdc52cd835/xmlnote/1CB83AB7030A42E0A0C48DAF7A76297E/17553
+
+# 延迟加载
+
+## 概念
+
+- 在真正使用数据时，才发起查询；也称为按需加载、懒加载
+- 查询时机：用的第一时间进行查找并加载到内存
+- 通常情况，多对一、一对一的情况下都采用**立即加载**，而一对多、多对多的情况都采用**延迟加载**
+- 作用：在数据与对象进行mapping操作时，只有在真正使用到**该对象**（指的拥有可延迟加载属性的对象）时，才进行mapping操作，以**减少数据库查询开销**，提高系统性能
+- 缺点：按需加载时会增加连接数据库的次数，同时会增加数据库的压力，所以要按需使用延迟加载
+
+## 实现
+
+### 开启延迟加载
+
+- SqlMapConfig.xml
+
+```xml
+<configuration>
+	<!--配置参数-->
+    <settings>
+        <!--开启Mybatis支持延迟加载-->
+        <setting name="lazyLoadingEnabled" value="true"/>
+        <setting name="aggressiveLazyLoading" value="false"></setting>
+    </settings>
+</configuration>
+```
+
+### *对一的延迟加载
+
+- IAccountDao.xml
+  - association中的column不能少，其是延迟加载查询的参数
+
+```xml
+<resultMap id="accountUserMap" type="account">
+    <id property="id" column="id"></id>
+    <result property="uid" column="uid"></result>
+    <result property="money" column="money"></result>
+    <!-- 一对一的关系映射：配置封装user的内容
+    select属性指定的内容：查询用户的唯一标识：
+    column属性指定的内容：用户根据id查询时，所需要的参数的值
+    -->
+    <association property="user" column="uid" javaType="user" select="dao.IUserDao.findById"></association>
+</resultMap>
+```
+
+### *对多的延迟加载
+
+- 与上面相似，不过配置的是collection属性
+
+# 缓存
+
+## 概念
+
+- 存在于内存中的临时数据
+- 减少与数据库的交互次数，提高执行效率
+- 什么样的数据适用缓存：
+  - 经常查询并且不经常改变的数据
+  - 数据的正确与否对最终结果影响不大
+
+## mybatis的一级缓存
+
+- mybatis的一级缓存利用SqlSession来存储缓存，默认开启
+- 一级缓存存放的是**对象**，即从缓存得到的对象其引用是相同的
+- 当发生SqlSession.close()、update（并commit）时，SqlSession会更新缓存
+- 不同SqlSession**不共享**缓存
+
+## mybatis的二级缓存
+
+- mybatis的二级缓存利用SqlSessionFactory来存储缓存，默认**不开启**
+
+  - 配置开启：
+
+    - SqlMapConfig.xml
+
+      ```xml
+      <settings>
+      	<setting name="cacheEnabled" value="true"></setting><!-- 默认开始 -->
+      </settings>
+      ```
+
+    - IUserDao.xml
+
+      ```xml
+      <cache/><!-- 配置namespace节点下 -->
+      <select userCache="true"></select>
+      
+      ```
+
+- 同一个SqlSessionFactory打开的不同SqlSession之间共享缓存
+
+- 二级缓存存放的是**数据**，即从二级缓存得到的对象其地址是不同的 
+
+# 注解开发
+
+## 概念
+
+- 针对CRUD的四种注解：@Select、@Delete、@Update、@Insert
+- 注意：使用注解开发，不能在dao的同级目录下存在dao.xml配置文件
+
+## 注解建立对应关系
+
+```java
+@Select("select * from user")
+@Results(id="userMap", value = { 
+    @Result(id=true, column="id", property="userId"),
+    @Result(column="name", property="name"),
+    @Result(column="address", property="address")
+})
+List<User> findAll();
+
+@Select("select * from user where id=#{userId}")
+@ResultMap(value={"userMap"})
+User findById(int id);
+```
+
+## 一对一的查询配置---立即加载
+
+```java
+@Select("select * from account")
+@Results(id="acountMap", value={
+    @Result(id=true, column="id", property="id"),
+    @Result(column="uid", property="uid"),
+    @Result(column="money", property="money"),
+    @Result(property="user", column="uid", one=@One(select="dao.UserDao.findById", fetchType=FetchType.EAGER)) /* FetchType.EAGER：立即加载 */
+})
+List<Account> findAll();
+
+@Select("select * from aacount")
+Account findById(int id);
+```
+
+## 一对多的查询配置---延时加载
+
+```java
+@Select("select * from user")
+@Results(id="userMap", value = { 
+    @Result(id=true, column="id", property="userId"),
+    @Result(column="name", property="name"),
+    @Result(column="address", property="address")
+    @Result(property="accounts", colum="id", 
+            many=@Many(select="dao.Account.findById", fetchType=FethcType.LAZY))
+})
+List<User> findAll();
+```
+
+## 注解使用缓存
+
+- 一级缓存**默认开启**
+
+- 二级缓存
+
+  - SqlMapConfig开启二级缓存：默认开启
+
+  - dao.java
+
+    ```java
+    @CacheNamespace(blocking = true)
+    public interface UserDao{...}
+    ```
+
+    
