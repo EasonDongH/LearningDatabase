@@ -210,7 +210,6 @@
   </bean>
   ```
 
-  
 
 #### 复杂类型注入
 
@@ -247,3 +246,56 @@
 </bean>
 ```
 
+#### 3. 注解注入
+
+##### 快速实现
+
+- bean.xml
+
+  ```xml
+  <?xml version="1.0" encoding="UTF-8"?>
+  <beans xmlns="http://www.springframework.org/schema/beans"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns:context="http://www.springframework.org/schema/context"
+         xsi:schemaLocation="http://www.springframework.org/schema/beans
+          http://www.springframework.org/schema/beans/spring-beans.xsd
+          http://www.springframework.org/schema/context
+          http://www.springframework.org/schema/context/spring-context.xsd">
+  
+      <!--告知spring在创建容器时要扫描的包，配置所需要的标签不是在beans的约束中，而是一个名称为
+      context名称空间和约束中-->
+      <context:component-scan base-package="com.easondongh"></context:component-scan>
+  </beans>
+  ```
+
+- bean对象的类
+
+  ```java
+  @Component("accountService")/* 不写则默认为类名且首字母小写 */
+  public class AccountServiceImpl implements IAccountService {...}
+  ```
+
+- 调用
+  - 与xml配置相同，注意getBean时传递的类名与Component注解配置相同即可
+
+##### 更多注解
+
+- Spring专为三层框架提供的注解
+  - @Controller：一般用在表现层
+  - @Service：一般用在业务层
+  - @Repository：一般用在持久层
+- 用于注入数据的注解
+  - @Autowired：自动按照类型注入。只要容器中有**唯一一个**bean对象类型和要注入的变量类型匹配，就可以进行自动注入
+    - 可以写在变量上或方法上
+    - 如果**没有任何匹配**，则运行时异常
+    - 如果有多个匹配：@Autowired先按类型进行匹配，匹配多个时再以变量名（或方法参数名）与bean对象的注解id进行二次匹配（此时保证至多一个），如果匹配不到继续报异常
+  - @Qualifier：在按照类型注入的基础上再按照名称注入。不能单独给类成员使用
+    - 其value值即指定要注入的bean对象的id
+  - @Resource：直接按照bean的id注入，注意其需使用name属性
+  - **以上三种注解都不能注入基本类型和String类型**
+  - @Value：用于注入基本类型和String类型；可以使用Spring中的EL表达式（SpEL）
+- 用于改变作用范围的注解
+  - @Scope：默认单例
+- 与生命周期相关的注解
+  - @PreConstruct：初始化方法
+  - @PreDestory：销毁方法
