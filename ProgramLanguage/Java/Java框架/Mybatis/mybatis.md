@@ -163,14 +163,6 @@ public class UserDaoImpl(){
 
 ![](https://note.youdao.com/yws/public/resource/48d56fd49a97c59bb18680cdc52cd835/xmlnote/007F0DECA4B143CD9A5062E6B5A5DB6B/17510)
 
-## CRUD
-
-- 获取自增列id
-
-  ```
-  
-  ```
-
 ## POJO对象
 
 - Plain Ordinary Java Objects，即普通的javabean对象

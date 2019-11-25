@@ -1,5 +1,9 @@
 # Java综合案例1_旅游网
 
+## 注意事项
+
+1. 注意要在pom.xml中配置tomcat的plugin
+
 ## 整体框架
 
 ### Web层
