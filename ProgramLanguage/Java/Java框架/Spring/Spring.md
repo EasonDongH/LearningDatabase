@@ -299,3 +299,101 @@
 - 与生命周期相关的注解
   - @PreConstruct：初始化方法
   - @PreDestory：销毁方法
+
+#### 注解IOC导入第三方包
+
+- @Configuration：标注该类为配置类；Spring扫描包时仅扫描配置类，以及创建ApplicationContext传入的类
+
+- @ComponentScan(backPackages = {"类路径"})：通过该注解指定Spring再创建容器时要扫描的包；使用此注解就等同于xml配置
+
+- @Bean：用于把当前方法的返回值当作bean对象存入IOC容器中
+
+  - 属性name：指定bean的id，默认值是当前方法的名称
+  - 如果注解标注的方法有形参，则Spring自动到容器中寻找匹配对象
+
+- 改造前，需要有bean.xml
+
+  ```xml
+  <?xml version="1.0" encoding="UTF-8"?>
+  <beans xmlns="http://www.springframework.org/schema/beans"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns:context="http://www.springframework.org/schema/context"
+         xsi:schemaLocation="http://www.springframework.org/schema/beans
+          http://www.springframework.org/schema/beans/spring-beans.xsd
+          http://www.springframework.org/schema/context
+          http://www.springframework.org/schema/context/spring-context.xsd">
+  
+      <context:component-scan base-package="com.easondongh"></context:component-scan>
+      <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+          <property name="driverClass" value="com.mysql.jdbc.Driver"></property>
+          <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/dbtest"></property>
+          <property name="user" value="root1"></property>
+          <property name="password" value="root"></property>
+      </bean>
+  
+      <bean id="runner" class="org.apache.commons.dbutils.QueryRunner">
+          <constructor-arg name="ds" ref="dataSource"></constructor-arg>
+      </bean>
+  </beans>
+  ```
+
+- 改造
+
+  - 新建SpringConfiguration.java
+
+    ```java
+    package com.easondongh.config;
+    
+    import com.mchange.v2.c3p0.ComboPooledDataSource;
+    import org.apache.commons.dbutils.QueryRunner;
+    import org.springframework.context.annotation.Bean;
+    import org.springframework.context.annotation.ComponentScan;
+    import org.springframework.context.annotation.Configuration;
+    import org.springframework.context.annotation.Scope;
+    
+    import javax.sql.DataSource;
+    import java.beans.PropertyVetoException;
+    
+    @Configuration
+    @ComponentScan(basePackages = "com.easondongh")
+    public class SpringConfiguration {
+    
+        @Bean(name = "dataSource")
+        public DataSource createDataSource() {
+            ComboPooledDataSource dataSource = new ComboPooledDataSource();
+            try {
+                dataSource.setDriverClass("com.mysql.jdbc.Driver");
+            } catch (PropertyVetoException e) {
+                e.printStackTrace();
+            }
+            dataSource.setJdbcUrl("jdbc:mysql://localhost:3306/dbtest");
+            dataSource.setUser("root1");
+            dataSource.setPassword("root");
+            return dataSource;
+        }
+    
+        @Bean(name = "runner")
+        @Scope("prototype")
+        public QueryRunner createQueryRunner(DataSource dataSource) {
+            return new QueryRunner(dataSource);
+        }
+    }
+    ```
+
+- 创建对象时，需要使用注解子类
+
+  ```java
+  ApplicationContext ac = new AnnotationConfigApplicationContext(SpringConfiguration.class);
+  ```
+
+- @Import：用于在主配置类导入其他配置类
+
+- @Value：获取配置文件的值，如数据库连接参数
+
+  - 需要@PropertySource("**classpath:**配置文件路径")支持，放在主配置类上
+  - @Value(键名)放置在需要赋值的字段或属性上
+
+
+
+
+
