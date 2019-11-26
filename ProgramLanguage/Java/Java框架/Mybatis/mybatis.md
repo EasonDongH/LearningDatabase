@@ -15,7 +15,7 @@
 
 1. pom文件配置依赖项
 
-   ```
+   ```xml
    <packaging>jar</packaging>
    <dependencies>
        <dependency>
@@ -99,8 +99,6 @@
       List<User> listAll();
   }
   ```
-
-  
 
 - resources.SqlMapperConfig.xml中
 
