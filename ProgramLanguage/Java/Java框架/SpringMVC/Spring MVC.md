@@ -433,7 +433,8 @@
 
   ```java
   @Controller
-  @RequestMapping("/springmvc") @SessionAttributes(value ={"username","password"},types={Integer.class})
+  @RequestMapping("/springmvc") 
+  @SessionAttributes(value ={"username","password"},types={Integer.class})
   public class SessionAttributeController {
       /** 
        * 把数据存入SessionAttribute 
@@ -464,4 +465,190 @@
   }
   ```
 
+## 响应类型
+
+- 以上控制器方法都是返回的String类型，然后通过springmvc.xml中配置的视图解析器，来自动得到响应页面
+- 除此之外，SpringMVC的响应类型还可以是void、ModelAndView
+
+### 响应类型：String
+
+- 见上面的案例
+
+  - 同时，我们为了可以将数据存到session域或request域中，需要使用Model或ModelMap类型的形参
+
+- 另一种方式是使用Spring框架中的转发、重定向方式对页面进行响应
+
+  ```java
+  return "forward:/WEB-INF/pages/success.jsp"; // 转发
+  return "redirect:index.jsp"; // 框架自动补全项目路径
+  ```
+
+### 响应类型：void
+
+- 当响应类型为void时，则表示对浏览器的响应页面需要我们手动处理，**视图解析器不再参与**
+
+- 为了响应页面，我们可以使用Servlet的原生API
+
+  ```java
+  public String testGetServletAPI(HttpServletRequest request, HttpServletResponse response)
+  ```
+
+  - 当我们再次有了request、response对象后，一切就与之前写普通的Servlet一致了，可以对页面进行转发、重定向或直接响应（response.getWriter()）
+  - 知识点：**重定向算两次请求，所以不能访问WEB-INF**
+
+### 响应类型：ModelAndView
+
+- ModelAndView是Spring特有的对象，可以用来封装域值、跳转视图名
+
+  ```java
+  @RequestMapping("testReturnModelAndView")
+  public ModelAndView testReturnModelAndView(){
+      ModelAndView modelAndView = new ModelAndView();
   
+      // 模拟从数据库查数据
+      User user = new User();
+      user.setName("米ing吧");
+      user.setPassword("abc12345");
+  
+      modelAndView.addObject("user", user);
+      modelAndView.setViewName("success");
+  
+      return modelAndView;
+  }
+  ```
+
+### 响应类型：JSON
+
+- 知识点：需要在springmvc.xml中配置前端控制器（DispatcherServlet）不对静态资源进行过滤，静态资源比如：jquery、css、图片等资源
+
+  ```xml
+  <!--前端控制器，哪些静态资源不拦截-->
+  <mvc:resources location="/css/" mapping="/css/**"/>
+  <mvc:resources location="/images/" mapping="/images/**"/>
+  <mvc:resources location="/js/" mapping="/js/**"/>
+  ```
+
+- 前端准备：发送ajax请求
+
+  ```javascript
+  <script>
+      $(function () {
+          $("#btn").click(function () {
+              // alert("ajax");
+              $.ajax({
+                  url:"user/testReturnJSON",
+                  data:'{"name":"张赛","password":"123456"}',
+                  contentType:"application/json", // 发送给服务器的数据类型
+                  dataType:"json", // 预期接受到的数据类型
+                  type:"post",
+                  success:function () {
+  
+                  }
+              });
+          });
+      });
+  </script>
+  ```
+
+- 后台准备
+
+  - 导入jackson坐标，供Spring框架解析json格式数据
+
+    ```
+    <dependency>
+        <groupId>com.fasterxml.jackson.core</groupId>
+        <artifactId>jackson-databind</artifactId>
+        <version>2.0.5</version>
+    </dependency>
+    <dependency>
+        <groupId>com.fasterxml.jackson.core</groupId>
+        <artifactId>jackson-core</artifactId>
+        <version>2.0.5</version>
+    </dependency>
+    <dependency>
+        <groupId>com.fasterxml.jackson.core</groupId>
+        <artifactId>jackson-annotations</artifactId>
+        <version>2.0.5</version>
+    </dependency>
+    ```
+
+  - @ResponseBody注解的使用
+
+    ```java
+    @RequestMapping("testReturnJSON")
+    public @ResponseBody User testReturnJSON(@RequestBody User user){
+        user.setName("已修改的JSON对象");
+        return user;
+    }
+    ```
+
+## 案例1
+
+- 实现文件上传
+
+### 传统Web实现
+
+- 前端准备
+
+  - 设置form表单的enctype="multipart/form-data"
+  - 提供一个文件域，注意设置name属性：<input type="file" name="uploadfile">
+
+- 后端准备
+
+  - 依赖使用第三方jar包来解析上传文件，依赖坐标
+
+    ```xml
+    <dependency>
+        <groupId>commons-fileupload</groupId>
+        <artifactId>commons-fileupload</artifactId>
+        <version>1.3.1</version>
+    </dependency>
+    <dependency>
+        <groupId>commons-io</groupId>
+        <artifactId>commons-io</artifactId>
+        <version>2.4</version>
+    </dependency>
+    ```
+
+  - Controller方法
+
+    ```java
+    @Controller
+    @RequestMapping("file")
+    public class FileUploadController {
+        @RequestMapping("uploadFile")
+        public String uploadFile(HttpServletRequest request) throws Exception {
+            // 获取上传文件存放路径
+            // 注意获取的path，可能是目录下target的文件夹，也可能是在tomcat部署环境下
+            String path = request.getSession().getServletContext().getRealPath("/uploads/");
+            File file = new File(path);
+            if (!file.exists()) {
+                file.mkdirs();
+            }
+            // 解析request
+            DiskFileItemFactory factory = new DiskFileItemFactory();
+            ServletFileUpload upload = new ServletFileUpload(factory);
+            List<FileItem> items = upload.parseRequest(request);
+            for (FileItem item : items) {
+                if (!item.isFormField()) {// 是上传文件
+                    String prefix = UUID.randomUUID().toString().replace("-", "");
+                    String name = prefix + "_" + item.getName();
+                    item.write(new File(path, name));
+                    item.delete();
+                }
+            }
+    
+            request.getSession().setAttribute("msg", "上传成功");
+            return "success";
+        }
+    }
+    ```
+
+    
+
+
+
+
+
+
+
