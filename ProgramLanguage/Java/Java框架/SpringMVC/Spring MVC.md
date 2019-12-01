@@ -582,7 +582,7 @@
     }
     ```
 
-## 案例1
+## 案例：文件上传
 
 - 实现文件上传
 
@@ -644,9 +644,118 @@
     }
     ```
 
+### 基于Spring MVC框架
+
+- Spring MVC框架通过配置文件解析器的方式，简化了服务器端解析request文件对象的过程
+
+- 需要注意的时候，文件解析器解析之后封装到MultipartFile对象中，该对象的参数名**必须**与前端的选择文件对象同名
+
+- 原理分析
+
+  ![](https://note.youdao.com/yws/public/resource/48d56fd49a97c59bb18680cdc52cd835/xmlnote/48A1EBE5E91F433F9BF78BD57BBC53D1/17569)
+
+- 在springmvc.xml中配置文件解析器
+
+  ```xml
+  <!--配置文件解析器对象-->
+  <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+  	<property name="maxUploadSize" value="10485760" /> <!-- 10*1024*1024 -->
+  </bean>
+  ```
+
+- Controller
+
+  ```java
+  // uploadFile必须与前端type="file"的对象同名
+  @RequestMapping("uploadFile2")
+  public String uploadFile2(HttpServletRequest request, MultipartFile uploadFile) throws Exception {
+      // 获取上传文件存放路径
+      String path = request.getSession().getServletContext().getRealPath("/uploads/");
+      File file = new File(path);
+      if (!file.exists()) {
+      file.mkdirs();
+      }
+  
+      String prefix = UUID.randomUUID().toString().replace("-", "");
+      String name = prefix + "_" + uploadFile.getOriginalFilename();
+      uploadFile.transferTo(new File(path, name));
+  
+      request.getSession().setAttribute("msg", "基于SpringMVC框架：上传成功");
+      return "success";
+  }
+  ```
+
+### 跨服务器文件上传
+
+- 实际开发中，服务器分很多个：
+
+  - 应用服务器：负责部署应用
+  - 数据库服务器：运行数据库
+  - 缓存和消息服务器：负责处理大并发访问的缓存和消息
+  - 文件服务器：负责存储用户上传的资料
+
+- 基于以上案例，实现跨服务器的文件上传
+
+  - 开启两个tomcat来模拟两个服务器
+
+  - 应用服务器：
+
+    - 使用第三方jar包来支持跨服务器文件上传，依赖坐标：
+
+      ```xml
+      <dependency>
+          <groupId>com.sun.jersey</groupId>
+          <artifactId>jersey-core</artifactId>
+          <version>1.18.1</version>
+      </dependency>
+      <dependency>
+          <groupId>com.sun.jersey</groupId>
+          <artifactId>jersey-client</artifactId>
+          <version>1.18.1</version>
+      </dependency>
+      ```
+
+    - Controller
+
+      ```java
+      @RequestMapping("uploadFile3")
+      public String uploadFile3(HttpServletRequest request, MultipartFile uploadFile) throws Exception {
+          // 获取上传文件存放路径
+          String path = "http://localhost:9090/uploads/";
+      
+          String prefix = UUID.randomUUID().toString().replace("-", "");
+          String name = prefix + "_" + uploadFile.getOriginalFilename();
+      
+          // 与文件服务器建立连接
+          Client client = Client.create();
+          WebResource webResource = client.resource(path + name);
+          webResource.put(uploadFile.getBytes());
+      
+          request.getSession().setAttribute("msg", "基于SpringMVC框架：上传成功");
+          return "success";
+      }
+      ```
+
+    - 上面用的http://localhost:9090就是另一个服务器，这个服务器很普通，能基本运行，并且在运行路径下提供一个uploads文件夹即可
+
+  - 403：
+
+    - 实现该功能时在调用 webResource.put执行上传时出现403，是因为Tomcat默认禁止上传，解决方法为
+
+      - 到Tomcat配置文件中：conf/web.xml，找到<servlet>节点
+
+      - 添加或修改节点readonly为false即可
+
+        ```xml
+        <init-param>
+            <param-name>readonly</param-name>
+            <param-value>false</param-value>
+        </init-param>
+        ```
+
+        
+
     
-
-
 
 
 
