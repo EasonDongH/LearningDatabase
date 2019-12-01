@@ -229,22 +229,6 @@
   - SpringMVC框架提供了很多的View视图类型，包括：jstlView、freemarkerView、pdfView等
   - 一般情况下，需要通过页面标签或页面模板技术奖模型数据通过页面展示给用户
 
-## 相关注解
-
-### @RequestMapping
-
-- @Target({ElementType.METHOD, ElementType.TYPE})
-  - 可以修饰方法或类
-  - 如果修饰类，则表明给该类的所有方法都加一级URL请求路径
-- 属性
-  - value、path：互相等价
-  - method：不符合则405
-    - GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS, TRACE
-  - params：不符合则400
-    - params={"username"}：请求的URL必须包含username属性
-    - params={"username=haha"}：请求的URL必须包含username属性，且值为haha
-    - params={"username!haha"}：请求的URL必须包含username属性，且值**不为**haha
-
 ## 请求参数绑定
 
 - 讨论如何获取页面传递来的数据
@@ -328,5 +312,156 @@
   public String testGetServletAPI(HttpServletRequest request, HttpServletResponse response){...}
   ```
 
-  
 
+
+## RESTful
+
+- REST(Representational State Transfer)
+- REST相比于SOAP、XML-RPC更加简单明了，对URL处理或是对Payload编码，REST更倾向于用更加简单轻量的方法设计和实现
+- REST没有明确的标准，而是一种设计风格
+
+### 优点
+
+- 结构清晰、符合标准、易于理解、方便扩展
+
+### 特点
+
+- HTTP协议中有四个表示操作方式的动词：GET、POST、PUT、DELETE，分别对应四种基本操作：
+  - GET用户获取资源
+  - POST用来新建资源
+  - PUT用来更新资源
+  - DELETE用来删除资源
+- 在RESTful风格中，利用这四种操作方式来区分
+  - /account/1  HTTP GET：获取id=1的account
+  - /account/1  HTTP POST：新增id=1的account
+  - /account/1  HTTP PUT：更新id=1的account
+  - /account/1  HTTP DELETE：删除id=1的account
+
+
+
+## 常用注解
+
+### @RequestMapping
+
+- @Target({ElementType.METHOD, ElementType.TYPE})
+  - 可以修饰方法或类
+  - 如果修饰类，则表明给该类的所有方法都加一级URL请求路径
+- 属性
+  - value、path：互相等价
+  - method：不符合则405
+    - GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS, TRACE
+  - params：不符合则400
+    - params={"username"}：请求的URL必须包含username属性
+    - params={"username=haha"}：请求的URL必须包含username属性，且值为haha
+    - params={"username!haha"}：请求的URL必须包含username属性，且值**不为**haha
+
+### @RequestParam
+
+- 用于修饰形参，将URL携带的参数名称与形参名称对应起来
+
+  ```java
+  public String testRequestParam(@RequestParam("username") String name){...}
+  ```
+
+  - 此时URL携带的参数**必须**命名为username才行
+
+### @RequestBody
+
+- 用于修饰形参，然后获取请求体（Get没有请求体，所以不适用）
+
+  ```java
+  public String testRequestBody(@RequestBody String body){...}
+  ```
+
+  - 返回示例：name=%E8%91%A3%E6%B5%A9&password=abc123456
+
+### @PathVariable
+
+- 用于实现RESTful的编码风格
+
+  - RESTful中，参数以占位符的形式传入，而用@PathVariable来标识形参，从而使得传入的数据得以封装进形参
+
+  - RESTful中根据URL辨识具体处理方法的逻辑：
+
+    - 先根据RequestMapping的path属性
+    - 再根据RequestMapping的method属性
+    - 最后根据占位符匹配
+
+  - 示例
+
+    ```java
+    @RequestMapping("testPathVariable/{uid}")
+    public String testPathVariable(@PathVariable(name = "uid")String id){...}
+    ```
+
+    - 此时path中的占位符必须与@PathVariable的name属性命名相同，与形参无关
+
+### @RequestHeader
+
+- 用于获取请求头的值
+
+  ```java
+  public String testGetRequestHeader(@RequestHeader(value="Accept")String header){...}
+  ```
+
+  - @RequestHeader中的value指定要获取的请求头名
+
+### @CookieValue
+
+- 用于把指定cookie名称的值传入控制器方法的参数
+
+  ```java
+  public String testCookieValue(@CookieValue(value="JSESSIONID")String id){...}
+  ```
+
+### @ModelAttribute
+
+- 修饰方法
+  - 被@ModelAttribute修饰的方法会在其他普通控制器方法前执行
+  - 该方法会获取到传入的值，此时可以在这里对传入值进行修改，再传给相应的控制器方法
+  - 修改后的值有两个方式传入其他控制器方法：
+    - 直接作为返回值
+    - 在@ModelAttribute修饰的方法上加一个Map形参，将传入值修改完成后存入map中
+- 修饰形参
+  - 当被修改后的值存在map形参中时，通过@ModelAttribute("键值")来修饰控制器方法形参，以使其获取值
+
+### @SessionAttribute
+
+- 用于多次执行控制器方法见的参数共享
+
+- 只能用于修饰类，并需要提供session域中值的key
+
+  ```java
+  @Controller
+  @RequestMapping("/springmvc") @SessionAttributes(value ={"username","password"},types={Integer.class})
+  public class SessionAttributeController {
+      /** 
+       * 把数据存入SessionAttribute 
+       * @param model 
+       * @return 
+       * Model是spring提供的一个接口，该接口有一个实现类ExtendedModelMap 
+       * 该类继承了ModelMap，而ModelMap就是LinkedHashMap子类 
+      */ 
+      @RequestMapping("/testPut") 
+      public String testPut(Model model){ 
+          model.addAttribute("username", "泰斯特"); 
+          model.addAttribute("password","123456"); 
+          model.addAttribute("age", 31); //跳转之前将数据保存到username、password和age中，因为注解@SessionAttribute中有这几个参数 return "success"; 
+      } 
+  
+      @RequestMapping("/testGet") 
+      public String testGet(ModelMap model){
+          String msg = model.get("username")+";"+model.get("password")+";"+model.get("age")
+     	    System.out.println(msg); 			
+          return "success"; 
+      } 
+  
+      @RequestMapping("/testClean") 
+      public String complete(SessionStatus sessionStatus){ 
+      	sessionStatus.setComplete(); 
+          return "success"; 
+      } 
+  }
+  ```
+
+  
