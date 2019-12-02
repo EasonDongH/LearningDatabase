@@ -26,7 +26,7 @@
 - Java源码时经典学习的范例
   - Spring的源代码设计精妙、结构清晰、匠心独用，处处体现着大师对Java设计模式灵活运用以及对Java技术的高深造诣。它的源代码无意是Java技术的最佳实践的范例。
 
-## Spring解耦
+## IOC-解耦
 
 ### 什么是耦合
 
@@ -276,6 +276,7 @@
   ```
 
 - 调用
+  
   - 与xml配置相同，注意getBean时传递的类名与Component注解配置相同即可
 
 ##### 更多注解
@@ -393,20 +394,20 @@
   - 需要@PropertySource("**classpath:**配置文件路径")支持，放在主配置类上
   - @Value(键名)放置在需要赋值的字段或属性上
 
-# AOP
+## AOP-增强
 
-## 概念
+### 概念
 
 - Aspect Oriented Programming，即**面向切面编程**
 - 通过**预编译方式**和**运行期动态代理**实现程序功能的统一维护
 - AOP是**OOP的延续**，也是**函数式编**程的一种衍生范型
 
-## 优点
+### 优点
 
 - 利用AOP可以对业务逻辑的各个部分进行隔离，从而使得业务逻辑各部分之间的耦合度降低，提供程序的重用性，同时提高开发效率
 - 简单地说，就是把重复代码抽取，**在需要执行的时候使用动态代理技术，在不修改源码的基础上，对已有方法进行增强**
 
-## 相关术语
+### 相关术语
 
 - Joinpoint（连接点）
   - 指那些被拦截到的点，连接的是原始对象与被代理对象。在spring中这些点指的是方法（spring只支持方法类型的连接点）
@@ -416,7 +417,7 @@
   - 所有切入点都是连接点；没有被增强的连接点不是切入点
 - Advice（通知/增强）
   - 即拦截到Joinpoint之后要做的事
-  - 通知又分为：前置通知（在原始方法执行前的操作）、后置通知（在原始方法执行后的操作）、异常通知（原始方法发生异常时的操作）、最终通知（返回时的操作）、环绕通知（整个invoke方法）
+  - 通知又分为：前置通知（在原始方法执行前的操作）、后置通知（在原始方法正常执行后的操作）、异常通知（原始方法发生异常时的操作）、最终通知（无论原始方法有无异常都要的操作）、环绕通知（整个invoke方法）
 - Introduction（引介）
   - 引介是一种特殊的通知
   - 在不修改类代码的前提下，在运行期给类动态地增加一些方法或Field
@@ -428,4 +429,191 @@
   - 一个类被AOP织入增强后，就产生一个结果代理类
 - Aspect（切面）
   - 即切入点与通知（引介）的结合
+
+### 快速实现
+
+- 导入依赖
+
+  ```xml
+  <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-context</artifactId>
+      <version>5.0.2.RELEASE</version>
+  </dependency>
+  <dependency>
+      <groupId>org.aspectj</groupId>
+      <artifactId>aspectjweaver</artifactId>
+      <version>1.8.7</version>
+  </dependency>
+  ```
+
+- 新建接口：AccountService，其包含方法：
+
+  ```java
+   void save();
+   boolean transfer(String source,String target, double money);
+  ```
+
+- 实现接口：AccountServiceImpl，包路径为：com.eansondongh.service.impl.AccountServiceImpl
+
+- 新建方法Logger，来给AccountService中的指定方法都进行增强，提供以下方法
+
+  ```java
+  public void printBeforeLog(){
+  	System.out.println("printBeforeLog：执行");
+  }
+  public void printAfterReturningLog(){
+  	System.out.println("printAfterReturningLog：执行");
+  }
+  public void printAfterThrowingLog(){
+  	System.out.println("printAfterThrowingLog：执行");
+  }
+  public void printAfterLog(){
+  	System.out.println("printAfterLog：执行");
+  }
+  ```
+
+- 配置AOP的bean.xml
+
+  ```xml
+  <?xml version="1.0" encoding="UTF-8"?>
+  <beans xmlns="http://www.springframework.org/schema/beans"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns:aop="http://www.springframework.org/schema/aop"
+         xsi:schemaLocation="http://www.springframework.org/schema/beans
+          http://www.springframework.org/schema/beans/spring-beans.xsd
+          http://www.springframework.org/schema/aop
+          http://www.springframework.org/schema/aop/spring-aop.xsd">
+  
+      <bean id="accountService" class="com.easondongh.service.impl.AccountServiceImpl"></bean>
+  
+      <bean id="log" class="com.easondongh.log.Logger"></bean>
+  
+      <aop:config>
+          <aop:aspect id="logAdvice" ref="log">
+              <aop:before method="printBeforeLog" pointcut="execution(* com.easondongh.service.impl.*.*(..))"></aop:before>
+              <aop:after-returning method="printAfterReturningLog" pointcut="execution(* com.easondongh.service.impl.*.*(..))"></aop:after-returning>
+              <aop:after-throwing method="printAfterThrowingLog" pointcut="execution(* com.easondongh.service.impl.*.*(..))"></aop:after-throwing>
+              <aop:after method="printAfterLog" pointcut="execution(* com.easondongh.service.impl.*.*(..))"></aop:after>
+          </aop:aspect>
+      </aop:config>
+  </beans>
+  ```
+
+  - 配置说明
+
+    - 先将AccountServiceImpl、Logger配置到IOC容器
+
+    - 再进行AOP配置：aop:config标签
+
+      - 配置切面：aop:aspect标签
+
+        - 前置通知：aop:before标签
+
+      - 切入点表达式：
+
+        - 完全写法为：修饰符 返回值 全限定包名.类名.方法名(参数列表【只需要写类型】)
+
+        - 通配符写法：
+
+          - 修饰符可省略
+          - 返回值：*通配
+          - 全限定包名：每级包都需要一个*，两级之间.分隔；多级包可用\*..来通配，即：\* \*..类名.方法名(..)
+          - 类名与方法名都可以用*通配
+          - 参数列表：也可以用*通配，但*表示必须有一个而不论什么类型；用..则表示可有可无，且不论类型
+
+        - 切入点表达式优化：通过id的方式统一配置pointcut表达式
+
+          ```xml
+          <aop:pointcut id="pc1" expression="execution(* com.easondongh.service.impl.*.*(..))"></aop:pointcut>
+          <aop:before method="printBeforeLog" pointcut-ref="pc1"></aop:before>
+          ```
+
+    - 环绕通知
+
+      - Spring中的环绕通知就是通过代码的方式来配置其他的四种通知
+
+        ```xml
+        <aop:around method="printArroundLog" pointcut-ref="pc1"></aop:around>
+        ```
+
+      - Logger.printArroundLog
+
+        ```java
+        public Object printArroundLog(ProceedingJoinPoint pdjp){
+            Object result = null;
+            try {
+                System.out.println("printArroundLog：前置");
+                result = pdjp.proceed(pdjp.getArgs());
+                System.out.println("printArroundLog：后置");
+            } catch (Throwable t) {
+            	System.out.println("printArroundLog：异常");
+            }
+            System.out.println("printArroundLog：最终");
+            return result;
+        }
+        ```
+
+### 注解实现AOP
+
+- 改写bean.xml
+
+  ```xml
+  <?xml version="1.0" encoding="UTF-8"?>
+  <beans xmlns="http://www.springframework.org/schema/beans"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns:aop="http://www.springframework.org/schema/aop"
+         xmlns:context="http://www.springframework.org/schema/context"
+         xsi:schemaLocation="http://www.springframework.org/schema/beans
+          http://www.springframework.org/schema/beans/spring-beans.xsd
+          http://www.springframework.org/schema/aop
+          http://www.springframework.org/schema/aop/spring-aop.xsd
+          http://www.springframework.org/schema/context
+          http://www.springframework.org/schema/context/spring-context.xsd">
+  
+      <!-- 扫描包 -->
+      <context:component-scan base-package="com.easondongh"></context:component-scan>
+      <!-- 开启注解AOP -->
+      <aop:aspectj-autoproxy></aop:aspectj-autoproxy>
+  </beans>
+  ```
+
+  
+
+- 改写AccountServiceImpl
+
+  - 在类上添加：@Service("accountService")
+
+- 改写Logger类
+
+  ```java
+  @Component("log")
+  @Aspect
+  public class Logger {
+  
+      @Pointcut("execution(* com.easondongh.service.impl.*.*(..))")
+      private void pc1(){}
+  
+      @Before("pc1()")
+      public void printBeforeLog(){
+          System.out.println("printBeforeLog：执行");
+      }
+  
+  //    @Around("pc1()")
+  //    public Object printAroundLog(ProceedingJoinPoint pdjp){
+  //        Object result = null;
+  //        try {
+  //            System.out.println("printAroundLog：前置");
+  //            result = pdjp.proceed(pdjp.getArgs());
+  //            System.out.println("printAroundLog：后置");
+  //        } catch (Throwable t) {
+  //            System.out.println("printAroundLog：异常");
+  //        }
+  //        System.out.println("printAroundLog：最终");
+  //        return result;
+  //    }
+  }
+  ```
+
+  - **注意：注解配置的最终通知调用出现在后置或异常通知之前**
 

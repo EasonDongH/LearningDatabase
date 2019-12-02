@@ -8,5 +8,6 @@ public class AOPTest {
         ApplicationContext ac = new ClassPathXmlApplicationContext("bean.xml");
         AccountService accountService = (AccountService)ac.getBean("accountService");
         accountService.save();
+//        accountService.transfer("aaa", "bbb",100.0 );
     }
 }
