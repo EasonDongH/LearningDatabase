@@ -755,9 +755,155 @@
 
         
 
-    
 
+## 异常处理
 
+- 在服务器出现异常时，执行异常处理器（组件）
+
+### 原理
+
+- 在SpringMVC框架中，若有未处理的异常，该异常会一直上抛，直到展示在浏览器中，如下图
+
+  ![](https://note.youdao.com/yws/public/resource/48d56fd49a97c59bb18680cdc52cd835/xmlnote/14857071B21243CEB20DBB61AE39AE41/17571)
+
+- SpringMVC可通过注册异常处理组件的方式，在异常发生时，由前端控制器调用异常处理组件，如下图
+
+  ![](https://note.youdao.com/yws/public/resource/48d56fd49a97c59bb18680cdc52cd835/xmlnote/3687BA34E4884E3E837E8A166E437220/17573)
+
+- 代码示例
+
+  - 自定义异常
+
+    ```java
+    public class SysException extends Exception {
+        private String message;
+        public SysException(String message) {
+            this.message = message;
+        }
+        @Override
+        public String getMessage() {
+            return message;
+        }
+        public void setMessage(String message) {
+            this.message = message;
+        }
+    }
+    ```
+
+  - 自定义异常处理组件，该**处理器可以处理任何异常**
+
+    ```java
+    public class SysExceptionResolver implements HandlerExceptionResolver {
+        @Override
+        public ModelAndView resolveException(javax.servlet.http.HttpServletRequest httpServletRequest, javax.servlet.http.HttpServletResponse httpServletResponse, Object o, Exception e) {
+            SysException exception = null;
+            if(e instanceof SysException){
+                exception = (SysException)e;
+            } else {
+                exception = new SysException(e.getMessage());
+            }
+            ModelAndView mv = new ModelAndView();
+            mv.addObject("errorMsg", exception.getMessage());
+            mv.setViewName("error");
+            return mv;
+        }
+    }
+    ```
+
+  - 在springmvc.xml中注册异常处理组件
+
+    ```xml
+    <!--配置异常处理器-->
+    <bean id="sysExceptionResolver" class="com.easondongh.exception.SysExceptionResolver"/>
+    ```
+
+  - 模拟异常发生，并抛出自定义异常
+
+    ```java
+    @RequestMapping("/saveUser")
+    public String saveUser() throws SysException{
+        try {
+        	int i = 10 / 0;
+        } catch (Exception e){
+            e.printStackTrace();
+            throw new SysException("自定义异常……");
+        }
+        return "success";
+    }
+    ```
+
+## 拦截器
+
+### 概念
+
+- Spring MVC的拦截器类似于Servlet中的过滤器Filter，用于对处理器进行预处理和后处理
+- 拦截器链（Interceptor Chain）：将拦截器按一定的顺序联结为一条链
+- 与过滤器区别：
+  - 过滤器是Servlet规范中的一部分，任何java web工程都可使用；拦截器仅SpringMVC框架可用
+  - 如果过滤器在url-pattern中配置了/*将对所有资源进行拦截，包括静态资源；拦截器不会拦截静态资源
+
+### 快速实现
+
+- 自定义拦截器需要实现HandlerInterceptor接口，该接口有三个默认方法可重写：
+
+  - preHandle：预处理，在controller方法之前执行
+  - postHandle：后处理，在controller方法之后执行
+  - afterCompletion：最终处理，在传送完前端页面后执行
+
+  ```java
+  public class MyInterceptor1 implements HandlerInterceptor {
+      @Override
+      public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
+          System.out.println("MyInterceptor1 ---> preHandle");
+          return true;
+      }
+  
+      @Override
+      public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
+          System.out.println("MyInterceptor1 ---> postHandle");
+      }
+  
+      @Override
+      public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {
+          System.out.println("MyInterceptor1 ---> afterCompletion");
+      }
+  }
+  ```
+
+- 在springmvc.xml中配置拦截器
+
+  - 配置多个拦截器即组成拦截器链，**拦截器的配置顺序就是执行顺序**
+
+  ```xml
+  <!--配置拦截器-->
+  <mvc:interceptors>
+      <!--配置拦截器-->
+      <mvc:interceptor>
+          <!--要拦截的具体的方法-->
+          <mvc:mapping path="/user/*"/>
+          <!--不要拦截的方法
+          <mvc:exclude-mapping path=""/>
+          -->
+          <!--配置拦截器对象-->
+          <bean class="com.easondongh.interceptor.MyInterceptor1" />
+      </mvc:interceptor>
+  
+      <!--配置第二个拦截器-->
+      <mvc:interceptor>
+          <!--要拦截的具体的方法-->
+          <mvc:mapping path="/**"/>
+          <!--不要拦截的方法
+          <mvc:exclude-mapping path=""/>
+          -->
+          <!--配置拦截器对象-->
+          <bean class="com.easondongh.interceptor.MyInterceptor2" />
+      </mvc:interceptor>
+  </mvc:interceptors>
+  ```
+
+- 上面配置了两个拦截器，MyInterceptor1在前MyInterceptor2在后，其执行顺序如下：
+
+  ![](https://note.youdao.com/yws/public/resource/48d56fd49a97c59bb18680cdc52cd835/xmlnote/BB3DEDCED3974DB2BE8DD588B9F35AFE/17575)
 
 
 
