@@ -107,21 +107,29 @@
 
    ```xml
    <bean id="accountService" class="service.impl.AccountServiceImpl"></bean>
+   ```
    
+2. 使用带参构造函数
+
+   ```xml
+   <bean id="accountService" class="service.impl.AccountServiceImpl">
+       <constructor-arg name="name" value="泰斯特"></constructor-arg>
+       <constructor-arg name="age" value="18"></constructor-arg>
+       <constructor-arg name="birthday" ref="now"></constructor-arg>
+   </bean>
    ```
 
-2.  使用某个类（实例工厂）中的方法创建对象，并存入Spring容器
+3. 使用某个类（实例工厂）中的方法创建对象，并存入Spring容器
 
    ```xml
    <bean id="instanceFactory" class="factory.InstanceFactory"></bean>
    <bean id="accountService" factory-bean="instanceFactory" factory-method="getAccountService"></bean>
    ```
 
-3.  使用静态工厂的静态方法创建对象，并存入Spring容器
+4. 使用静态工厂的静态方法创建对象，并存入Spring容器
 
    ```xml
    <bean id="accountService" class="factory.StaticFactory" factory-method="getAccountService"></bean>
-   
    ```
 
 #### Bean对象的作用范围
@@ -140,6 +148,18 @@
 - 多例对象
   - 使用时创建；由GC决定销毁时机
 - Bean标签中相关的两个属性：init-method、destroy-method
+  - 分别实现InitialzingBean.afterPropertiesSet()、DisposableBean.destroy()方法也可以达到相同的作用
+
+#### 加载机制
+
+- 指Bean在何时进行加载
+- 配置bean的lazy-init属性即可，取值有
+  - true：使用懒加载，即延迟加载（第一次使用时加载）
+  - false：及时加载，容器启动时创建
+  - default：跟随上级标签的default-lazy-init指定的值；没有指定默认false
+- 比较
+  - 懒加载会使容器启动地更快
+  - 及时加载一般会更快地发现程序中的错误
 
 ### Spring的依赖注入
 
@@ -168,6 +188,7 @@
   - type：指定要注入的数据类型
   - index：指定注入数据所在索引，从0开始
   - name：指定注入数据所对应的参数名
+    - 1.8之后反射直接可以获取到参数名，1.8之前Spring通过ASM反编译工具解析class文件中再得到参数名（字节码拆装）
   - value：提供**基本类型和String类型**的数据
   - ref：指定其他bean类型数据
 
@@ -210,8 +231,20 @@
   </bean>
   ```
 
+#### 3. 自动注入
 
-#### 复杂类型注入
+- 设置bean标签的auto-wire属性，取值有：
+  - byType：在IOC容器中选择类型匹配的bean进行注入；多个匹配则报错
+    - 可在某个匹配的bean增加primary="true"的属性来帮助Spring选择
+    - 通过setter注入
+  - byName：根据IOC容器中的bean的id或name进行选择
+    - 通过setter注入
+  - constructor：与byType一样通过类型查找依赖对象
+    - 通过构造器注入
+  - default
+    - 根据上级标签beans配置的default-autowire属性来确定哪种注入方式
+
+#### 4. 复杂类型注入
 
 ```xml
 <bean id="accountService3" class="service.impl.AccountServiceImpl3">
@@ -246,7 +279,7 @@
 </bean>
 ```
 
-#### 3. 注解注入
+#### 5. 注解注入
 
 ##### 快速实现
 
@@ -300,6 +333,10 @@
 - 与生命周期相关的注解
   - @PreConstruct：初始化方法
   - @PreDestory：销毁方法
+
+#### 6. 方法注入
+
+- 使用look-up method的方式注入
 
 #### 注解IOC导入第三方包
 
