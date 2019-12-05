@@ -44,17 +44,6 @@
         <property name="dataSource" ref="dataSource" />
     </bean>
 
-    <!--配置事务通知-->
-    <tx:advice id="txAdvice" transaction-manager="transactionManager">
-        <tx:attributes>
-            <tx:method name="list*" read-only="true"/>
-            <tx:method name="*" isolation="DEFAULT"/>
-        </tx:attributes>
-    </tx:advice>
-
-    <!--配置AOP增强-->
-    <aop:config>
-        <aop:advisor advice-ref="txAdvice" pointcut="execution(* com.easondongh.service.impl.*.*(..))"/>
-    </aop:config>
+    <tx:annotation-driven transaction-manager="transactionManager"></tx:annotation-driven>
 
 </beans>

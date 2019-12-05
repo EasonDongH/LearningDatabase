@@ -27,14 +27,13 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    @Transactional
     public void save(User user) {
-        try {
+
             userDao.save(user);
             int i = 10 / 0;
             user.setName(user.getName() + "123");
             userDao.save(user);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+
     }
 }
