@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="EdMvc:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="EdMvc.war">
+      <element id="artifact" artifact-name="EdMvc:war exploded" />
+    </root>
+  </artifact>
+</component>
