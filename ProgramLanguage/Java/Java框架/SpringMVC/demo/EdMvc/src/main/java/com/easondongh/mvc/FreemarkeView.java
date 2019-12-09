@@ -4,12 +4,12 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- *  视图对象
+ * 视图对象
  */
 public class FreemarkeView {
 
     private String ftlPath;
-    private Map<String,Object> models = new HashMap<>();
+    private Map<String, Object> models = new HashMap<>();
 
     public FreemarkeView(String ftlPath) {
         this.ftlPath = ftlPath;
@@ -32,7 +32,7 @@ public class FreemarkeView {
         return models;
     }
 
-    public void setModels(Map<String, Object> models) {
-        this.models = models;
+    public void setModel(String key, Object model) {
+        this.models.put(key, model);
     }
 }
