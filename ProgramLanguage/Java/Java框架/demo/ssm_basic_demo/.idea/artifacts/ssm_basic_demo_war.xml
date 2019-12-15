@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="war" name="ssm_basic_demo:war">
-    <output-path>$PROJECT_DIR$/target</output-path>
-    <root id="archive" name="ssm_basic_demo.war">
-      <element id="artifact" artifact-name="ssm_basic_demo:war exploded" />
-    </root>
-  </artifact>
-</component>
