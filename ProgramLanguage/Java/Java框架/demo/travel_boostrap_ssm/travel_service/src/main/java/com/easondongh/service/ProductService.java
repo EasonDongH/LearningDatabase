@@ -11,4 +11,11 @@ public interface ProductService {
      * @return
      */
     List<Product> findAll();
+
+    /**
+     * 保存新产品
+     * @param product
+     * @return
+     */
+    boolean save(Product product);
 }

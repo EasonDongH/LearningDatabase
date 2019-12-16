@@ -1,5 +1,9 @@
 package com.easondongh.domain;
 
+import com.easondongh.util.DateUtil;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.io.Serializable;
 import java.util.Date;
 
@@ -9,6 +13,7 @@ public class Product implements Serializable {
     private String productNum; // 编号 唯一
     private String productName; // 名称
     private String cityName; // 出发城市
+//    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm")
     private Date departureTime; // 出发时间
     private String departureTimeStr;
     private double productPrice; // 产品价格
@@ -57,11 +62,10 @@ public class Product implements Serializable {
     }
 
     public String getDepartureTimeStr() {
+        if (this.departureTime != null) {
+            departureTimeStr = DateUtil.date2String(this.departureTime, "yyyy-MM-dd HH:mm:ss");
+        }
         return departureTimeStr;
-    }
-
-    public void setDepartureTimeStr(String departureTimeStr) {
-        this.departureTimeStr = departureTimeStr;
     }
 
     public double getProductPrice() {
@@ -89,10 +93,11 @@ public class Product implements Serializable {
     }
 
     public String getProductStatusStr() {
+        productStatusStr = "关闭";
+        if (this.productStatus != null) {
+            if (productStatus == 1)
+                productStatusStr = "开启";
+        }
         return productStatusStr;
-    }
-
-    public void setProductStatusStr(String productStatusStr) {
-        this.productStatusStr = productStatusStr;
     }
 }

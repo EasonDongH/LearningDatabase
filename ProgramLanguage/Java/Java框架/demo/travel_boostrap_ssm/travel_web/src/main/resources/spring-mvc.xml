@@ -35,7 +35,8 @@
     <!--<mvc:default-servlet-handler/>-->
 
     <!-- 开启对SpringMVC注解的支持 -->
-    <mvc:annotation-driven />
+    <!--<mvc:annotation-driven />-->
+    <mvc:annotation-driven conversion-service="conversionService"/>
 
     <!--
         支持AOP的注解支持，AOP底层使用代理技术
@@ -43,5 +44,15 @@
         cglib代理，生成子类对象，proxy-target-class="true" 默认使用cglib的方式
     -->
     <aop:aspectj-autoproxy proxy-target-class="true"/>
+
+    <!--配置自定义类型转换器-->
+    <bean id="conversionService" class="org.springframework.context.support.ConversionServiceFactoryBean">
+        <property name="converters">
+            <set>
+                <bean class="com.easondongh.util.DateUtil"/>
+            </set>
+        </property>
+    </bean>
+
 
 </beans>
