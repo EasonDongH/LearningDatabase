@@ -63,11 +63,11 @@ public class UserInfo implements Serializable {
     }
 
     public String getStatusStr() {
+        statusStr = "关闭";
+        if(status == 1) {
+            statusStr = "开启";
+        }
         return statusStr;
-    }
-
-    public void setStatusStr(String statusStr) {
-        this.statusStr = statusStr;
     }
 
     public List<Role> getRoles() {

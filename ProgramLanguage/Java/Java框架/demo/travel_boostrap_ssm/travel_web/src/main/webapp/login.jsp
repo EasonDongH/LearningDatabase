@@ -5,6 +5,8 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="_csrf" content=${_csrf.token}/>
+    <meta name="_csrf_header" content=${_csrf.headerName}/>
 
     <title>数据 - AdminLTE2定制版 | Log in</title>
 
@@ -35,12 +37,12 @@
 
         <form action="${pageContext.request.contextPath}/login.do" method="post">
             <div class="form-group has-feedback">
-                <input type="text" name="username" class="form-control"
+                <input id="username" type="text" name="username" class="form-control"
                        placeholder="用户名"> <span
                     class="glyphicon glyphicon-envelope form-control-feedback"></span>
             </div>
             <div class="form-group has-feedback">
-                <input type="password" name="password" class="form-control"
+                <input id="password" type="password" name="password" class="form-control"
                        placeholder="密码"> <span
                     class="glyphicon glyphicon-lock form-control-feedback"></span>
             </div>
@@ -52,7 +54,7 @@
                 </div>
                 <!-- /.col -->
                 <div class="col-xs-4">
-                    <button type="submit" class="btn btn-primary btn-block btn-flat">登录</button>
+                    <button id="btnLogin" type="button" class="btn btn-primary btn-block btn-flat">登录</button>
                 </div>
                 <!-- /.col -->
             </div>
@@ -77,10 +79,34 @@
         src="${pageContext.request.contextPath}/plugins/iCheck/icheck.min.js"></script>
 <script>
     $(function () {
+        var header = $("meta[name='_csrf_header']").attr("content");
+        var token = $("meta[name='_csrf']").attr("content");
+
         $('input').iCheck({
             checkboxClass: 'icheckbox_square-blue',
             radioClass: 'iradio_square-blue',
             increaseArea: '20%' // optional
+        });
+
+        $("#btnLogin").click(function () {
+            var username = $("#username").val();
+            var password = $("#password").val();
+            $.ajax({
+                url: "/login",
+                contentType: "application/json; charset=utf-8",
+                data: {"username": username, "password": password},
+                dataType: "json",
+                type: "POST",
+                async:true,
+                beforeSend: function (xhr) {
+                    xhr.setRequestHeader(header, token);
+                },
+                success: function (data) {
+                    if (data.code == 200) {
+                        alert(data.msg);
+                    }
+                }
+            });
         });
     });
 </script>
