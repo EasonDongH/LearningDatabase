@@ -5,8 +5,9 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="_csrf" content=${_csrf.token}/>
-    <meta name="_csrf_header" content=${_csrf.headerName}/>
+    <meta name="_csrf" content="${_csrf.token}"/>
+    <!-- default header name is X-CSRF-TOKEN -->
+    <meta name="_csrf_header" content="${_csrf.headerName}"/>
 
     <title>数据 - AdminLTE2定制版 | Log in</title>
 
@@ -79,9 +80,6 @@
         src="${pageContext.request.contextPath}/plugins/iCheck/icheck.min.js"></script>
 <script>
     $(function () {
-        var header = $("meta[name='_csrf_header']").attr("content");
-        var token = $("meta[name='_csrf']").attr("content");
-
         $('input').iCheck({
             checkboxClass: 'icheckbox_square-blue',
             radioClass: 'iradio_square-blue',
@@ -89,22 +87,23 @@
         });
 
         $("#btnLogin").click(function () {
+            var token = $("meta[name='_csrf']").attr("content");
+            var header = $("meta[name='_csrf_header']").attr("content");
+            $(document).ajaxSend(function(e, xhr, options) {
+                xhr.setRequestHeader(header, token);
+            });
             var username = $("#username").val();
             var password = $("#password").val();
             $.ajax({
-                url: "/login",
+                url: "${pageContext.request.contextPath}/login.do",
                 contentType: "application/json; charset=utf-8",
                 data: {"username": username, "password": password},
                 dataType: "json",
-                type: "POST",
-                async:true,
-                beforeSend: function (xhr) {
-                    xhr.setRequestHeader(header, token);
-                },
+                type: "GET",
+                async: true,
                 success: function (data) {
-                    if (data.code == 200) {
-                        alert(data.msg);
-                    }
+                    alert(data.code);
+                    alert(data.msg);
                 }
             });
         });

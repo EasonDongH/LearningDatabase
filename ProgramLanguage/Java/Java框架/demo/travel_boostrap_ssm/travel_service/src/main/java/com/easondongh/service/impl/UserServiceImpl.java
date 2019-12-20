@@ -61,6 +61,11 @@ public class UserServiceImpl implements UserService {
         return this.userDao.findAll();
     }
 
+    @Override
+    public UserInfo findById(String id) {
+        return this.userDao.findById(id);
+    }
+
     public static void main(String[] args) {
         BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
         String encode = bCryptPasswordEncoder.encode("test");

@@ -19,4 +19,11 @@ public interface UserService extends UserDetailsService {
      * @return
      */
     List<UserInfo> findAll();
+
+    /**
+     * 根据用户id查询
+     * @param id
+     * @return
+     */
+    UserInfo findById(String id);
 }

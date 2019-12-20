@@ -27,14 +27,20 @@
                 login-page="/login.jsp"
                 login-processing-url="/login.do"
                 default-target-url="/index.jsp"
-                authentication-failure-url="/failer.jsp"
+                authentication-failure-handler-ref="authenticationFailureHandler"
                 authentication-success-handler-ref="authenticationSuccessHandler"
+
         />
+                <!--authentication-failure-handler-ref="authenticationFailureHandler"-->
+                <!--authentication-success-handler-ref="authenticationSuccessHandler"-->
+                <!--authentication-success-forward-url="/pages/main.jsp"-->
+                <!--authentication-failure-forward-url="/login.do"-->
+
 
         <!-- 关闭跨域请求 -->
         <security:csrf disabled="true"/>
         <!-- 退出 -->
-        <security:logout invalidate-session="true" logout-url="/logout.do" logout-success-url="/login.jsp" />
+        <security:logout invalidate-session="true" logout-url="/logout.do" logout-success-url="/login.jsp"/>
 
     </security:http>
 
@@ -50,6 +56,7 @@
     <bean id="passwordEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"/>
 
     <bean id="authenticationSuccessHandler" class="com.easondongh.handle.UserLoginAuthenticationSuccessHandler"></bean>
+    <bean id="authenticationFailureHandler" class="com.easondongh.handle.UserLoginAuthenticationFailureHandler"></bean>
 
     <!-- 提供了入门的方式，在内存中存入用户名和密码
     <security:authentication-manager>

@@ -36,4 +36,13 @@ public class UserController {
         mv.setViewName("user-list");
         return mv;
     }
+
+    @RequestMapping("/findById.do")
+    public ModelAndView findById(String id){
+        ModelAndView mv = new ModelAndView();
+        UserInfo userInfo = this.userService.findById(id);
+        mv.addObject("userInfo",userInfo );
+        mv.setViewName("user-show");
+        return mv;
+    }
 }

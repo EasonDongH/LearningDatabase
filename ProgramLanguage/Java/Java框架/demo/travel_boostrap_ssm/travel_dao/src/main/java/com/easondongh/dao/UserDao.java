@@ -39,4 +39,21 @@ public interface UserDao {
      */
     @Select("select * from users")
     List<UserInfo> findAll();
+
+    /**
+     * 根据用户id进行查询
+     * @param id
+     * @return
+     */
+    @Select("select * from users where id = #{id}")
+    @Results({
+            @Result(id = true, property = "id", column = "id"),
+            @Result(property = "username", column = "username"),
+            @Result(property = "email", column = "email"),
+            @Result(property = "password", column = "password"),
+            @Result(property = "phoneNum", column = "phoneNum"),
+            @Result(property = "status", column = "status"),
+            @Result(property = "roles", column = "id", javaType = java.util.List.class, many = @Many(select = "com.easondongh.dao.RoleDao.findByUserId"))
+    })
+    UserInfo findById(String id);
 }
