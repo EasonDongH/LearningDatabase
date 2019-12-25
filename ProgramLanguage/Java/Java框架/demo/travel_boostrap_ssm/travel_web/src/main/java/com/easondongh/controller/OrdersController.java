@@ -19,7 +19,7 @@ public class OrdersController {
     private OrdersService ordersService;
 
     @RequestMapping("/findAll.do")
-    public ModelAndView findAll(@RequestParam(name = "pageNum", required = true,defaultValue = "1") int pageNum, @RequestParam(name = "pageSize", required = true,defaultValue = "5") int pageSize){
+    public ModelAndView findAll(@RequestParam(name = "pageNum", required = true,defaultValue = "1") Integer pageNum, @RequestParam(name = "pageSize", required = true,defaultValue = "5") Integer pageSize){
         ModelAndView mv = new ModelAndView();
         List<Orders> list = this.ordersService.findAll(pageNum,pageSize);
         PageInfo pageInfo = new PageInfo(list);

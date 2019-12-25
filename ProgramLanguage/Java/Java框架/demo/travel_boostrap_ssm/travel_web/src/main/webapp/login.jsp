@@ -55,7 +55,7 @@
                 </div>
                 <!-- /.col -->
                 <div class="col-xs-4">
-                    <button id="btnLogin" type="button" class="btn btn-primary btn-block btn-flat">登录</button>
+                    <button id="btnLogin1" type="submit" class="btn btn-primary btn-block btn-flat">登录</button>
                 </div>
                 <!-- /.col -->
             </div>

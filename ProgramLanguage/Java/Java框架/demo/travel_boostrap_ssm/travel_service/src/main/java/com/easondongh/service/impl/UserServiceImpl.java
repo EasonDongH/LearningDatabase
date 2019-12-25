@@ -66,6 +66,21 @@ public class UserServiceImpl implements UserService {
         return this.userDao.findById(id);
     }
 
+    @Override
+    public boolean addRolesToUser(String userId, String[] roleIds) {
+        boolean result = true;
+//        for(int i=0;i<roleIds.length && result; i++) {
+//            result = this.userDao.addRoleToUser(userId, roleIds[i]) > 0;
+//        }
+        result = this.userDao.addRolesToUser(userId, roleIds) == roleIds.length;
+        return result;
+    }
+
+    @Override
+    public List<Role> findOtherRole(String userId) {
+        return this.userDao.findOtherRoles(userId);
+    }
+
     public static void main(String[] args) {
         BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
         String encode = bCryptPasswordEncoder.encode("test");

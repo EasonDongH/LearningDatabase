@@ -1,5 +1,6 @@
 package com.easondongh.dao;
 
+import com.easondongh.domain.Role;
 import com.easondongh.domain.UserInfo;
 import org.apache.ibatis.annotations.*;
 
@@ -56,4 +57,30 @@ public interface UserDao {
             @Result(property = "roles", column = "id", javaType = java.util.List.class, many = @Many(select = "com.easondongh.dao.RoleDao.findByUserId"))
     })
     UserInfo findById(String id);
+
+    /**
+     * 给该userId新增role
+     * @param userId
+     * @param roleId
+     * @return
+     */
+    @Insert("insert into users_role(userId,roleId) values(#{userId}, #{roleId})")
+    int addRoleToUser(@Param("userId") String userId, @Param("roleId") String roleId);
+
+    @Insert("<script>" +
+                "insert into users_role(userId,roleId) values" +
+                "<foreach collection='roleIds' item='roleId' separator=','>"+
+                    "(#{userId},#{roleId})" +
+                "</foreach>" +
+            "</script>"
+    )
+    int addRolesToUser(@Param("userId") String userId, @Param("roleIds") String[] roleIds);
+
+    /**
+     * 查找该userId不具有的Role
+     * @param userId
+     * @return
+     */
+    @Select("select * from role where id not in (select roleId from users_role where userId=#{userId})")
+    List<Role> findOtherRoles(String userId);
 }
