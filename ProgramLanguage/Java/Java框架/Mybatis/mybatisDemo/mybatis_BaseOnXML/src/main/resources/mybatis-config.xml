@@ -4,6 +4,12 @@
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <!-- mybatis的主配置文件 -->
 <configuration>
+    <!--<settings>-->
+        <!--<setting name="" value=""></setting>-->
+    <!--</settings>-->
+    <typeAliases>
+        <typeAlias type="com.easondongh.domain.User" alias="user"></typeAlias>
+    </typeAliases>
     <!--配置环境，默认使用id=mysql的环境配置-->
     <environments default="mysql">
         <!--配置mysql环境-->
@@ -22,7 +28,7 @@
 
     <!--指定映射配置文件的位置，映射配置文件值得是每个dao文件的配置文件-->
     <mappers>
-        <!--<mapper resource="dao/UserDao.xml" />-->
-        <mapper class="dao.UserDao"></mapper>
+        <mapper resource="UserMapper.xml" />
+        <!--<mapper class="dao.UserDao"></mapper>-->
     </mappers>
 </configuration>
