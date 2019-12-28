@@ -4,7 +4,17 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.easondongh.UserMapper" >
 
+    <resultMap type="com.easondongh.domain.User" id="userMapper">
+        <id property="id" column="id"></id>
+        <result property="username" column="username"></result>
+        <result property="password" column="password"></result>
+    </resultMap>
+
     <select id="selectUser" resultType="user">
+        SELECT * FROM users WHERE id = #{id}
+    </select>
+
+    <select id="selectUserByResultMap" resultMap="userMapper">
         SELECT * FROM users WHERE id = #{id}
     </select>
 </mapper>

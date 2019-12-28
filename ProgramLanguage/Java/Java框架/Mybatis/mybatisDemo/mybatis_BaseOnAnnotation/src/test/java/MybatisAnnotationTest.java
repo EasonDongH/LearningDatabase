@@ -1,5 +1,7 @@
 
 import com.easondongh.domain.User;
+import com.easondongh.mapper.UserMapper;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -9,7 +11,7 @@ import org.junit.Test;
 import java.io.IOException;
 import java.io.InputStream;
 
-public class MybatisXmlTest {
+public class MybatisAnnotationTest {
 
     @Test
     public void testSelectOne() throws IOException {
@@ -17,17 +19,19 @@ public class MybatisXmlTest {
         InputStream inputStream = Resources.getResourceAsStream(resource);
         SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
         SqlSession sqlSession = sqlSessionFactory.openSession();
-        User user = sqlSession.selectOne("com.easondongh.UserMapper.selectUser", 1);
+        UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+        User user = mapper.selectUser("1");
         System.out.println(user);
     }
 
     @Test
-    public void testResultMap() throws IOException {
+    public void testSelectByIdAndName() throws IOException {
         String resource = "mybatis-config.xml";
         InputStream inputStream = Resources.getResourceAsStream(resource);
         SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
         SqlSession sqlSession = sqlSessionFactory.openSession();
-        User user = sqlSession.selectOne("com.easondongh.UserMapper.selectUserByResultMap", 1);
+        UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+        User user = mapper.selectUserByIdAndName("1", "test");
         System.out.println(user);
     }
 }
