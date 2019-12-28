@@ -1,7 +1,6 @@
 
 import com.easondongh.domain.User;
 import com.easondongh.mapper.UserMapper;
-import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -22,6 +21,7 @@ public class MybatisAnnotationTest {
         UserMapper mapper = sqlSession.getMapper(UserMapper.class);
         User user = mapper.selectUser("1");
         System.out.println(user);
+
     }
 
     @Test

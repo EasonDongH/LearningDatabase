@@ -18,7 +18,10 @@ public class MybatisXmlTest {
         SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
         SqlSession sqlSession = sqlSessionFactory.openSession();
         User user = sqlSession.selectOne("com.easondongh.UserMapper.selectUser", 1);
-        System.out.println(user);
+        for(int i=0; i<10; i++) {
+            user = sqlSession.selectOne("com.easondongh.UserMapper.selectUser", 1);
+            System.out.println(user);
+        }
     }
 
     @Test

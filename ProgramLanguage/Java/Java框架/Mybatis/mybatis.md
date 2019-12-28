@@ -513,6 +513,9 @@ http://note.youdao.com/yws/public/resource/48d56fd49a97c59bb18680cdc52cd835/xmln
 - 一级缓存存放的是**对象**，即从缓存得到的对象其引用是相同的
 - 当发生SqlSession.close()、update（并commit）时，SqlSession会更新缓存
 - 不同SqlSession**不共享**缓存
+- 一级缓存脏数据问题
+  - 使用一级缓存时，会使用CacheKey在本地存储数据，同样的SQL语句再次查询时直接使用缓存
+  - 如此就可能导致脏数据问题，解决方法：关闭一级缓存，改用redis之类的做缓存
 
 ## mybatis的二级缓存
 
