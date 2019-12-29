@@ -2,19 +2,24 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.easondongh.UserMapper" >
+<mapper namespace="com.easondongh.UserMapper">
+    <cache type="org.apache.ibatis.cache.impl.PerpetualCache"
+           size="1024"
+           eviction="LRU"
+           flushInterval="120000"
+           readOnly="false"/>
 
-    <resultMap type="com.easondongh.domain.User" id="userMapper">
+    <resultMap type="com.easondongh.domain.User" id="userMapper" >
         <id property="id" column="id"></id>
         <result property="username" column="username"></result>
         <result property="password" column="password"></result>
     </resultMap>
 
-    <select id="selectUser" resultType="user">
+    <select id="selectUser" resultType="user" useCache="true">
         SELECT * FROM users WHERE id = #{id}
     </select>
 
-    <select id="selectUserByResultMap" resultMap="userMapper">
+    <select id="selectUserByResultMap" resultMap="userMapper" useCache="true">
         SELECT * FROM users WHERE id = #{id}
     </select>
 </mapper>

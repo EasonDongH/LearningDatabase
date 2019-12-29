@@ -22,7 +22,7 @@ SqlSession sqlSession = sqlSessionFactory.openSession();
 	org.apache.ibatis.session.defaults.DefaultSqlSessionFactory#openSessionFromDataSource
 		org.apache.ibatis.session.Configuration#newExecutor(org.apache.ibatis.transaction.Transaction, org.apache.ibatis.session.ExecutorType)
 			org.apache.ibatis.executor.SimpleExecutor#SimpleExecutor	默认使用SimpleExecutor
-			org.apache.ibatis.executor.CachingExecutor#CachingExecutor	默认开启一级缓存
+			org.apache.ibatis.executor.CachingExecutor#CachingExecutor	
 			org.apache.ibatis.plugin.InterceptorChain#pluginAll	  配置拦截链
 		return executor;
 	return org.apache.ibatis.session.defaults.DefaultSqlSession#DefaultSqlSession(org.apache.ibatis.session.Configuration, org.apache.ibatis.executor.Executor, boolean);

@@ -4,9 +4,9 @@
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <!-- mybatis的主配置文件 -->
 <configuration>
-    <!--<settings>-->
-        <!--<setting name="" value=""></setting>-->
-    <!--</settings>-->
+    <settings>
+        <setting name="cacheEnabled" value="true"></setting>
+    </settings>
     <typeAliases>
         <typeAlias type="com.easondongh.domain.User" alias="user"></typeAlias>
     </typeAliases>

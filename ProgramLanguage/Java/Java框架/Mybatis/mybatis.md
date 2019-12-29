@@ -516,6 +516,7 @@ http://note.youdao.com/yws/public/resource/48d56fd49a97c59bb18680cdc52cd835/xmln
 - 一级缓存脏数据问题
   - 使用一级缓存时，会使用CacheKey在本地存储数据，同样的SQL语句再次查询时直接使用缓存
   - 如此就可能导致脏数据问题，解决方法：关闭一级缓存，改用redis之类的做缓存
+- **一级缓存存在BaseExecutor的PerpetualCache localCache中，使用HashMap维护，键值为CacheKey对象**
 
 ## mybatis的二级缓存
 
@@ -534,14 +535,21 @@ http://note.youdao.com/yws/public/resource/48d56fd49a97c59bb18680cdc52cd835/xmln
     - IUserDao.xml
 
       ```xml
-      <cache/><!-- 配置namespace节点下 -->
-      <select userCache="true"></select>
-      
+      <cache type="org.apache.ibatis.cache.impl.PerpetualCache"
+                 size="1024"
+                 eviction="LRU"
+                 flushInterval="120000"
+                 readOnly="false"/>
+      <select id="selectUser" resultType="user" useCache="true">
+              SELECT * FROM users WHERE id = #{id}
+      </select>
       ```
 
 - 同一个SqlSessionFactory打开的不同SqlSession之间共享缓存
 
-- 二级缓存存放的是**数据**，即从二级缓存得到的对象其地址是不同的 
+- 二级缓存存放的是**数据**，即从二级缓存得到的对象其地址是不同的
+
+- 二级缓存在CachingExecutor中的TransactionalCacheManager ，其内部使用HashMap维护，Key为Cache对象（Cache缓存在MappedStatement对象中）
 
 # 注解开发
 
