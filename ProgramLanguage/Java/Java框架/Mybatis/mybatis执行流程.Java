@@ -1,12 +1,16 @@
 基于XML
 1. 构造SqlSessionFactory
-SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
+SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);	单例
 	org.apache.ibatis.session.SqlSessionFactoryBuilder#build(java.io.InputStream, java.lang.String, java.util.Properties)
 		org.apache.ibatis.builder.xml.XMLConfigBuilder#parse
 			org.apache.ibatis.builder.xml.XMLConfigBuilder#parseConfiguration  解析mybatis-config.xml配置文件
 				org.apache.ibatis.builder.xml.XMLConfigBuilder#typeAliasesElement	解析别名，存到HashMap中
 				org.apache.ibatis.builder.xml.XMLConfigBuilder#environmentsElement	解析environment，包括datasource
 				org.apache.ibatis.builder.xml.XMLConfigBuilder#mapperElement	获取xxxMapper.xml文件
+					org.apache.ibatis.builder.xml.XMLMapperBuilder#configurationElement	解析xxxMapper.xml文件
+						org.apache.ibatis.builder.xml.XMLStatementBuilder#parseStatementNode	解析SQL语句节点（parameterType、resultType等）
+							封装sqlSource
+							org.apache.ibatis.builder.MapperBuilderAssistant#addMappedStatement	创建MappedStatement对象，并缓存至至Configuration.mappedStatements
 				...
 				return configuration;	此时的configuration已经保存了mybatis-config.xml中解析到的所有信息
 			org.apache.ibatis.session.SqlSessionFactoryBuilder#build(org.apache.ibatis.session.Configuration)
@@ -25,7 +29,6 @@ SqlSession sqlSession = sqlSessionFactory.openSession();
 
 3. 查询
 User user = sqlSession.selectOne("com.easondongh.UserMapper.selectUser", 1);
-	
 	org.apache.ibatis.session.defaults.DefaultSqlSession#selectOne(java.lang.String, java.lang.Object)
 		org.apache.ibatis.session.defaults.DefaultSqlSession#selectList(java.lang.String, java.lang.Object, org.apache.ibatis.session.RowBounds)
 			org.apache.ibatis.session.Configuration#getMappedStatement(java.lang.String, boolean)	获取xxxMapper.xml中的SQL语句，缓存在HashMap中，键为：namespace+id
@@ -43,16 +46,17 @@ User user = sqlSession.selectOne("com.easondongh.UserMapper.selectUser", 1);
 								org.apache.ibatis.executor.SimpleExecutor#prepareStatement	预编译参数赋值
 								org.apache.ibatis.executor.statement.PreparedStatementHandler#query
 								org.apache.ibatis.executor.resultset.DefaultResultSetHandler#handleResultSets	进行数据封装
+									org.apache.ibatis.executor.resultset.DefaultResultSetHandler#createResultObject	创建返回值对象
+									org.apache.ibatis.executor.resultset.DefaultResultSetHandler#applyAutomaticMappings	对返回值进行赋值
 							localCache.putObject(key, list);	
 		return list.get(0);
 
 基于注解
 1. 在解析mybatis-config.xml时创建xxxMapper代理对象
-	
 	org.apache.ibatis.builder.xml.XMLConfigBuilder#mapperElement
 		org.apache.ibatis.binding.MapperRegistry#addMapper	创建代理对象工厂并存入HashMap，Key为mapper接口全限定名
-			org.apache.ibatis.builder.annotation.MapperAnnotationBuilder#parse	
-				org.apache.ibatis.builder.annotation.MapperAnnotationBuilder#parseStatement	
+			org.apache.ibatis.builder.annotation.MapperAnnotationBuilder#parse	解析注解
+				org.apache.ibatis.builder.annotation.MapperAnnotationBuilder#parseStatement	将注解解析结果封装为MappedStatement
 					org.apache.ibatis.builder.MapperBuilderAssistant#addMappedStatement	缓存MappedStatement至Configuration.mappedStatements
 
 2. 获取xxxMapper实现类（代理类）
@@ -68,4 +72,19 @@ User user = sqlSession.selectOne("com.easondongh.UserMapper.selectUser", 1);
 				判断返回类型
 					获取【接口全限定名+方法名】，以及参数，传给sqlSession.selectOne
 						根据【接口全限定名+方法名】获取MappedStatement对象，其sqlSource字段存储了SQL语句
+						
+						
+						
+						SqlSessionFactoryBuilder  
+							XMLConfigBuilder => Configuration
+						DefaultSqlSessionFactory  MappedStatement
+						SimpleExecutor	CachingExecutor
+						DefaultSqlSession
+						BoundSql
+						CacheKey
+						StatementHandler
+						PreparedStatement
+						ResultSet
+						
+	
 	

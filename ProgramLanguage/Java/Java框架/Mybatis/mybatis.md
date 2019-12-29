@@ -511,7 +511,7 @@ http://note.youdao.com/yws/public/resource/48d56fd49a97c59bb18680cdc52cd835/xmln
 
 - mybatis的一级缓存利用SqlSession来存储缓存，默认开启
 - 一级缓存存放的是**对象**，即从缓存得到的对象其引用是相同的
-- 当发生SqlSession.close()、update（并commit）时，SqlSession会更新缓存
+- **当发生SqlSession.close()、update（并commit）时，SqlSession会清空缓存**
 - 不同SqlSession**不共享**缓存
 - 一级缓存脏数据问题
   - 使用一级缓存时，会使用CacheKey在本地存储数据，同样的SQL语句再次查询时直接使用缓存
