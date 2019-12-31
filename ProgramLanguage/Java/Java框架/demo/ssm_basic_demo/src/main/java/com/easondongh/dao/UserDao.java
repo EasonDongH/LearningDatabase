@@ -15,13 +15,13 @@ public interface UserDao {
      * 列出所有用户
      * @return
      */
-    @Select("select * from user")
+    @Select("select * from users")
     List<User> listAll();
 
     /**
      * 保存用户
      * @param user
      */
-    @Insert("insert into user (name,password) values(#{name},#{password})")
+    @Insert("insert into users (name,password) values(#{name},#{password})")
     void save(User user);
 }

@@ -16,25 +16,10 @@ namespace TestForm
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+       
+        private void button1_Click_1(object sender, EventArgs e)
         {
-            List<dgv> list = new List<dgv>() { 
-                new dgv(){Column1=1,Column2=2,Column3=3},
-                new dgv(){Column1=4,Column2=5,Column3=6},
-                new dgv(){Column1=7,Column2=8,Column3=9}
-            };
-
-            this.exDataGridView1.DataSource = list;
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            this.circleLoading1.Start();
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            this.circleLoading1.Stop();
+            this.flexibleLabel1.AddText("123456");
         }
     }
 
