@@ -11,7 +11,6 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 @Service("userService")
-@Lazy
 public class UserServiceImpl implements UserService {
 
     @Autowired
@@ -31,7 +30,7 @@ public class UserServiceImpl implements UserService {
     public void save(User user) {
 
             userDao.save(user);
-            int i = 10 / 0;
+//            int i = 10 / 0;
             user.setName(user.getName() + "123");
             userDao.save(user);
 
