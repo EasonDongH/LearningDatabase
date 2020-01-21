@@ -1,0 +1,14 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/mybatis-plus?useSSL=false&serverTimezone=GMT%2B8
+    username: root1
+    password: root
+
+logging:
+  level:
+    root: warn
+    com.easondongh.dao: trace
+  pattern:
+    console: "%p%m%n"
+
