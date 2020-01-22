@@ -1,7 +1,7 @@
 spring:
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://127.0.0.1:3306/mybatis-plus?useSSL=false&serverTimezone=GMT%2B8
+    url: jdbc:mysql://127.0.0.1:3306/mybatis-plus?useSSL=false&characterEncoding=UTF-8&serverTimezone=GMT%2B8
     username: root1
     password: root
 
@@ -13,11 +13,7 @@ logging:
     console: "%p%m%n"
 
 mybatis-plus:
-  mapper-locations:
-    classpath: com/easondongh/mapper/*
   global-config:
     db-config:
-      id-type: id_worker
-
-
-
+      logic-not-delete-value: 0
+      logic-delete-value: 1

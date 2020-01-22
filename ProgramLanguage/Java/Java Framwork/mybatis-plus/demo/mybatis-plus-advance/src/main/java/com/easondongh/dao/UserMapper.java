@@ -25,9 +25,4 @@ import java.util.List;
 @Repository
 public interface UserMapper extends BaseMapper<User> {
 
-    @Select("SELECT * FROM user ${ew.customSqlSegment}")
-    List<User> selectAll(@Param(Constants.WRAPPER)Wrapper<User> wrappers);
-
-    @Select("SELECT * FROM user ${ew.customSqlSegment}")
-    IPage<User> pageQuery(Page<User> page, @Param(Constants.WRAPPER)Wrapper<User> wrappers);
 }

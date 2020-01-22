@@ -3,6 +3,7 @@ package com.easondongh.entity;
 import com.baomidou.mybatisplus.annotation.*;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
@@ -13,16 +14,15 @@ import java.time.LocalDateTime;
  */
 @Data
 @TableName("user")
+@EqualsAndHashCode(callSuper = false)
 public class User extends Model<User> implements Serializable {
 
     // 唯一id
-    @TableId(type =IdType.ID_WORKER)
+    @TableId
     private Long id;
     // 姓名
-    @TableField(condition = SqlCondition.LIKE)
     private String name;
     // 年龄
-    @TableField(condition = "%s&gt;#{%s}")
     private Integer age;
     // 邮箱
     private String email;
@@ -30,7 +30,13 @@ public class User extends Model<User> implements Serializable {
     private Long managerId;
     // 创建时间
     private LocalDateTime createTime;
-
-    @TableField(exist = false)
-    private  String remark;
+    // 更新时间
+    private LocalDateTime updateTime;
+    // 乐观锁版本
+    @Version
+    private Integer version;
+    // 逻辑删除标记
+    @TableLogic
+    @TableField(select = false)
+    private Integer deleted;
 }

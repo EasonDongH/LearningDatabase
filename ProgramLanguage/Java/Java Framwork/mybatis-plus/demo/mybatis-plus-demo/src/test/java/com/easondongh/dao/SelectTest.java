@@ -1,6 +1,12 @@
 package com.easondongh.dao;
 
+import com.baomidou.mybatisplus.core.conditions.Wrapper;
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.core.toolkit.Wrappers;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.baomidou.mybatisplus.extension.service.additional.query.impl.LambdaQueryChainWrapper;
 import com.easondongh.dao.UserMapper;
 import com.easondongh.entity.User;
 import com.mysql.jdbc.StringUtils;
@@ -215,5 +221,102 @@ public class SelectTest {
         queryWrapper.allEq(params,false);
         List<User> userList = this.userMapper.selectList(queryWrapper);
         userList.forEach(System.out::println);
+    }
+
+    @Test
+    public void testSelectReturnMap(){
+        QueryWrapper<User> queryWrapper = new QueryWrapper<>();
+        queryWrapper.select("id","name").gt("age" ,25 );
+        List<Map<String,Object>> map =  this.userMapper.selectMaps(queryWrapper);
+        map.forEach(System.out::println);
+    }
+
+    /**
+     * 按照直属上级分组，查询每组的平均年龄、最大年龄、最小年龄。
+         并且只取年龄总和小于500的组。
+         select avg(age) avg_age,min(age) min_age,max(age) max_age
+         from user
+         group by manager_id
+         having sum(age) <500
+     */
+    @Test
+    public void testSelectReturnMap2(){
+        QueryWrapper<User> queryWrapper = new QueryWrapper<>();
+        queryWrapper.select("avg(age) avg_age","min(age) min_age", "max(age) max_age")
+                .groupBy("manager_id").having("sum(age) < {0}", 500);
+        List<Map<String,Object>> map =  this.userMapper.selectMaps(queryWrapper);
+        map.forEach(System.out::println);
+    }
+
+    /**
+     * 仅返回第一个字段
+     */
+    @Test
+    public void testSelectReturnObjs(){
+        QueryWrapper<User> queryWrapper = new QueryWrapper<>();
+        queryWrapper.select("avg(age) avg_age","min(age) min_age", "max(age) max_age");
+        List<Object> objects = this.userMapper.selectObjs(queryWrapper);
+        objects.forEach(System.out::println);
+    }
+
+    /**
+     * 多于一条记录时报异常：TooManyResultsException
+     */
+    @Test
+    public void testSelectReturnOne(){
+        QueryWrapper<User> queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq("id", 1087982257332887553L);
+        User one = this.userMapper.selectOne(queryWrapper);
+        System.out.println(one);
+    }
+
+    @Test
+    public void testSelectByLambda(){
+        // LambdaQueryWrapper<User> lambdaQueryWrapper = new QueryWrapper<>().lambda();
+        // LambdaQueryWrapper<User>  lambdaQueryWrapper= new LambdaQueryWrapper<>();
+        LambdaQueryWrapper<User> lambdaQueryWrapper = Wrappers.<User>lambdaQuery();
+        lambdaQueryWrapper.like(User::getName, "王");
+        List<User> userList = this.userMapper.selectList(lambdaQueryWrapper);
+        userList.forEach(System.out::println);
+    }
+
+    @Test
+    public void testSelectByLambdaChain(){
+        List<User> userList = new LambdaQueryChainWrapper<User>(this.userMapper)
+                                            .gt(User::getAge, 25).list();
+        userList.forEach(System.out::println);
+    }
+
+    @Test
+    public void testSelectByCustomSql(){
+        QueryWrapper<User> queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq("id", 1087982257332887553L);
+        List<User> userList = this.userMapper.selectAll(queryWrapper);
+        userList.forEach(System.out::println);
+    }
+
+    @Test
+    public void testSelectPage(){
+        Page<User> page = new Page<>(1,2);
+        IPage<User> iPage = this.userMapper.selectPage(page, null);
+        System.out.println("总记录数：" + iPage.getTotal());
+        System.out.println("总页数：" + iPage.getPages());
+        iPage.getRecords().forEach(System.out::println);
+        Page<User> page1 = new Page<>(2,2);
+        page.setCurrent(2);
+        iPage = this.userMapper.selectPage(page, null);
+    }
+
+    /**
+     * 自定义分页，可实现多表联查的分页
+     */
+    @Test
+    public void testSelectPageQuery(){
+        QueryWrapper<User> queryWrapper = new QueryWrapper<>();
+        Page<User> page = new Page<>(1,2);
+        IPage<User> iPage = this.userMapper.pageQuery(page, queryWrapper);
+        System.out.println("总记录数：" + iPage.getTotal());
+        System.out.println("总页数：" + iPage.getPages());
+        iPage.getRecords().forEach(System.out::println);
     }
 }
