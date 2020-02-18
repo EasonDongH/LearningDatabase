@@ -1,43 +1,34 @@
 package com.easondongh.domain;
 
+import com.baomidou.mybatisplus.annotation.*;
+import lombok.Data;
+
 import java.io.Serializable;
+import java.time.LocalDateTime;
 
+@Data
+@TableName("user")
 public class User implements Serializable {
-
-    private String id;
-    private String username;
-    private String password;
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "id='" + id + '\'' +
-                ", username='" + username + '\'' +
-                ", password='" + password + '\'' +
-                '}';
-    }
+    // 唯一id
+    @TableId
+    private Long id;
+    // 姓名
+    private String name;
+    // 年龄
+    private Integer age;
+    // 邮箱
+    private String email;
+    // 直属上级id
+    private Long managerId;
+    // 创建时间
+    private LocalDateTime createTime;
+    // 更新时间
+    private LocalDateTime updateTime;
+    // 乐观锁版本
+    @Version
+    private Integer version;
+    // 逻辑删除标记
+    @TableLogic
+    @TableField(select = false)
+    private Integer deleted;
 }

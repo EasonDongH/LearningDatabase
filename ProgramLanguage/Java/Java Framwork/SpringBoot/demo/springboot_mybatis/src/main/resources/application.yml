@@ -1,0 +1,20 @@
+server:
+  port: 80
+  servlet:
+    path: /
+logging:
+  level:
+    com.easondongh: debug
+    #    org.springframework: debug
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/dbtest?useUnicode=true&characterEncoding=utf8
+    username: root1
+    password: root
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+  type-aliases-package: com.easondongh.domain
+#  mapper-locations: mapper/*.xml
+
