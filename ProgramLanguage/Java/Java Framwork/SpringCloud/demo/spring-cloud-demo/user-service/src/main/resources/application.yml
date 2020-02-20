@@ -1,0 +1,28 @@
+server:
+  port: 80
+  servlet:
+    path: /
+logging:
+  level:
+    com.easondongh: debug
+    #    org.springframework: debug
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/dbtest?useUnicode=true&characterEncoding=utf8
+    username: root1
+    password: root
+  application:
+    name: user-service # eureka的service id
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+  type-aliases-package: com.easondongh.domain
+#  mapper-locations: mapper/*.xml
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:10086/eureka,http://127.0.0.1:10087/eureka
+  instance:
+    prefer-ip-address: true # 写死服务ip
+    ip-address: 127.0.0.1
