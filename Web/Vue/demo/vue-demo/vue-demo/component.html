@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>组件化</title>
+</head>
+<body>
+<div id="app">
+    <counter></counter>
+    <counter></counter>
+    <counter></counter>
+    <hr>
+    <counter1></counter1>
+    <counter1></counter1>
+    <hr>
+    <h3>父 => 子</h3>
+    <fuzi :msg="msg"></fuzi>
+    <h3>子 => 父</h3>
+    <zifu :num="num" @incr="add" @dec="reduce"></zifu>
+    <h3>NUM:{{num}}</h3>
+</div>
+</body>
+<script src="node_modules/vue/dist/vue.js"></script>
+<script>
+    Vue.component("counter", {
+        template: "<button @click=\"count++\">点了我{{count}}下</button>",
+        data() {
+            return {
+                count: 0
+            };
+        }
+    });
+    const counter1 = {
+        template: "<button @click=\"count++\">点了我{{count}}下</button>",
+        data() {
+            return {
+                count: 0
+            };
+        }
+    };
+    const fuzi = {
+        template: "<div><h1>{{msg}}</h1></div>",
+        props: ['msg'],
+    };
+    const zifu = {
+        template: `
+            <div>
+                <button @click="handleAdd">增加</button>
+                <button @click="handleReduce">减少</button>
+                <h3>{{num}}</h3>
+            </div>
+        `,
+        props: ['num'],
+        methods: {
+            handleAdd(){
+                this.$emit('incr');
+            },
+            handleReduce(){
+                this.$emit('dec');
+            }
+        }
+    };
+    const app = new Vue({
+        el: "#app",
+        data: {
+            msg: "父向子发送信息",
+            num: 1
+        },
+        components: { // key、value相同时可省略
+            counter1: counter1,
+            fuzi: fuzi,
+            zifu: zifu
+        },
+        methods: {
+            add() {
+                this.num++;
+            },
+            reduce(){
+                this.num--;
+            }
+        }
+    });
+</script>
+</html>

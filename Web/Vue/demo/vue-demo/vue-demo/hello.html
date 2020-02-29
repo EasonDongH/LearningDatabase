@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        .red{
+            background-color: red;
+        }
+        .blue{
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <h3>{{name}} 你好</h3>
+    <input type="text" v-model="num"/><button @click="num++">+</button>
+    <h3>{{num}}</h3>
+    <button @click="clickMe">点我</button>
+    <hr>
+    <!--v-text、v-html-->
+    <h3>{{name}} 你好</h3>
+    <h3 v-text="name"></h3>
+    <h3 v-text="test"></h3>
+    <h3 v-html="test" ></h3>
+    <hr>
+    <!--v-model-->
+    <input type="checkbox" v-model="lessons" value="Java">Java <br>
+    <input type="checkbox" v-model="lessons" value="Python">Python<br>
+    <input type="checkbox" v-model="lessons" value="C++">C++
+    <h3>已选择：</h3>{{lessons.join(",")}}
+    <hr>
+    <!--v-on-->
+    <div style="width: 200px; height: 200px; background-color: cornflowerblue" @click="vonClick('div')">
+        <button @click.stop="vonClick('button')">内部元素</button>
+    </div>
+    <a href="www.baidu.com" @click.prevent="vonClick('a')">百度一下</a>
+    <hr>
+    <!--v-for-->
+    <ul>
+        <li v-for="(user,index) in users" :key="index">
+            {{index}}: {{user.name}} {{user.gender}} {{user.age}}
+        </li>
+    </ul>
+    <ul>
+        <li v-for="(v,k,i) in users[0]">{{i}}: {{k}} {{v}}</li>
+    </ul>
+    <ul>
+        <li v-for="i in 5">{{i}}</li>
+    </ul>
+    <!--v-if-->
+    <hr>
+    <button @click="show=!show">点我</button>
+    <h3 v-if="show">我来啦</h3>
+    <h3 v-show="show">我出现啦</h3>
+    <ul v-for="i in 10">
+        <li v-if="i%2 == 0" style="background-color: cornsilk;">{{i}}</li>
+        <li v-else-if="i%3 == 0" style="background-color: coral;">{{i}}</li>
+        <li v-else style="background-color: darkgoldenrod;">{{i}}</li>
+    </ul>
+    <hr>
+    <!--v-bind-->
+    <button @click="isRed=!isRed">换色</button>
+    <div style="width: 100px;height: 100px" :class="{red:isRed,blue:!isRed}">
+        我是盒子
+    </div>
+    <hr>
+    <!--computed-property-->
+    生日：{{birth}}
+    <hr>
+    <!--watch-->
+    <button @click="person.age++">增加对象年龄</button>
+</div>
+<script src="node_modules/vue/dist/vue.js"></script>
+<script>
+    const app = new Vue({
+        el: "#app",
+        data: {
+            name: "Eason",
+            num: 1,
+            test: "<font color='#6495ed'>测试内容</font>",
+            lessons: [],
+            users: [
+                {name:"林依晨",gender:"女",age:32},
+                {name:"张若军",gender:"男",age:28},
+                {name:"陈奕迅",gender:"男",age:38},
+                {name:"林夕",gender:"男",age:42},
+                {name:"周杰伦",gender:"男",age:35}
+            ],
+            show: true,
+            isRed: true,
+            birthdayInMs: 1529032123201,
+            person: {
+                name: "糖糖",gender: "女", age: 18
+            }
+        },
+        computed: {
+            birth(){
+                const bir = new Date(this.birthdayInMs);
+                return bir.getFullYear() + "年" + bir.getMonth() + "月" + bir.getDay() + "日";
+            }
+        },
+        methods: {
+            clickMe(){
+                console.log("hello");
+            },
+            vonClick(msg){
+                console.log(msg);
+            }
+        },
+        created(){
+            // setTimeout(()=>this.name="Eason",1000);
+        },
+        watch: {
+            num(curVal,oldVal) {
+                console.log(curVal, oldVal);
+            },
+            person: {
+                deep: true,
+                handler(curVal){
+                    console.log(curVal.age);
+                }
+            }
+        }
+    });
+</script>
+</body>
+</html>
